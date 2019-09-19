@@ -1,0 +1,119 @@
+﻿@model supertalentoftheworld.Models.Courses
+@using supertalentoftheworld.Models
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+<link href="/css/userstyle.css" rel="stylesheet" />
+
+@Html.Partial("/Views/Layout/Header_admin.cshtml")
+
+<div class="container">
+    <div class="note row" style="margin:50px">
+        <form action="/Admin/Course_edit" method="post" enctype="multipart/form-data">
+            <div class="col-lg-3">
+                <h2 class="title-text">Course Title</h2>
+            </div>
+            <div class="col-lg-9" style="margin-bottom:30px">
+                <input class="form-control" value="@Model.Course_title" type="text" id="Course_title" name="Course_title">
+            </div>
+            <div class="col-lg-3">
+                <h2 class="title-text">Edit Course</h2>
+            </div>
+            <div style="display:none">
+                <input class="" type="text" id="id" name="id" value="@Model.id">
+            </div>
+            <div class="col-lg-9 note">
+                <textarea id="Course" name="Course">@Model.Course</textarea>
+            </div>
+            <div class="col-lg-4 col-lg-offset-3" style="margin-bottom:20px">
+                <input class="" type="file" id="Course_img" name="ImageFile" accept="image/*">
+            </div>
+            <div class="col-lg-12 text-center">
+                <button class="btn-success" style="padding:10px; border:none;" type="submit">Edit Course</button>
+                <a href="/Admin/Course_list?id=@ViewBag.TG.id" class="btn-primary" style="padding:10px; border:none;">&larr;Back to Course List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+
+    .title-text {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .note {
+        margin-bottom: 30px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .slider {
+        width: 80%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+        margin: 0px 10px;
+    }
+
+        .slick-slide img {
+            width: 100%;
+        }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+
+    .slick-slide {
+        transition: all ease-in-out .3s;
+        opacity: .2;
+    }
+
+    .slick-active {
+        opacity: .5;
+    }
+
+    .slick-current {
+        opacity: 1;
+    }
+
+    .photo_mini div img {
+        width: 100%;
+        max-width: 240px;
+        max-height: 160px;
+    }
+
+    .shop-info2 {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+        .shop-info2 img {
+            max-width: 40px;
+        }
+
+        .shop-info2 div:last-of-type {
+            width: 40%;
+        }
+
+    .detail-city {
+        width: 280px;
+        height: 200px;
+        margin-top: 10px;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Course').summernote({
+            height: 150
+        });
+    });
+</script>
+
+
+

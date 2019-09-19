@@ -1,0 +1,553 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<!--Superlady/Thal_ko-->
+<style>
+    .superlady-logoimg {
+        float: left;
+        margin-right: 30px;
+    }
+
+    .superlady-head h2 {
+        color: #fff;
+        font-weight: bold;
+        padding-top: 40px;
+    }
+
+    .superlady-btn {
+        position: absolute;
+        top: 21%;
+        left: 45%;
+    }
+
+    .ui-selectmenu-menu {
+        position: absolute;
+        display: table;
+        width: 80%;
+        top: 45%;
+        margin: 0 10%;
+    }
+
+    .nav2 li {
+        display: table;
+        width: 20%;
+        float: left;
+        position: relative;
+        text-align: center;
+    }
+
+        .nav2 li a {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+
+        .nav2 li:after {
+            position: absolute;
+            left: 20%;
+            height: 5px;
+            width: 60%;
+            bottom: -100%;
+            background: #fff;
+            content: "";
+            opacity: 0;
+            transition: 0.8s;
+        }
+
+        .nav2 li:hover::after {
+            opacity: 1;
+        }
+
+        .nav2 li:nth-child(4):after {
+            opacity: 1;
+        }
+
+    .button {
+        padding: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+    }
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 240px;
+        position: fixed;
+        top: 15%;
+        left: 38%;
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+        .popup:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup img {
+            width: 45px;
+            margin-right: 10px;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+            .popup .close:hover {
+                color: #333;
+            }
+
+        .popup .content {
+            max-height: 20%;
+            overflow: auto;
+        }
+
+    .superlady-title {
+        position: relative;
+        margin: 0 0 30px;
+        padding: 0;
+        border-bottom: 1px solid #d8d8d8;
+        font-size: 24px;
+        clear: both;
+        word-break: keep-all;
+    }
+
+        .superlady-title span {
+            display: inline-block;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 5px solid transparent;
+            color: #333;
+        }
+
+        .superlady-title:after {
+            position: absolute;
+            left: 10%;
+            transform: translateX(-50%);
+            height: 5px;
+            width: 20%;
+            bottom: 0;
+            background: #162541;
+            content: "";
+        }
+
+    .superlady-schtit h4 {
+        width: 25%;
+        float: left;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+        .superlady-schtit h4:nth-child(2n-1) {
+            color: #888;
+        }
+
+        .superlady-schtit h4:nth-child(2n) {
+            color: #111;
+        }
+
+    .superlady-sch {
+        letter-spacing: 1px;
+        width: 25%;
+        float: left;
+        position: relative;
+    }
+
+        .superlady-sch:before {
+            position: absolute;
+            left: -3%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: 3px;
+            bottom: 0;
+            background: #162541;
+            content: "";
+        }
+
+    .in-text {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(255, 65, 87, 0.6);
+        color: white;
+        font-size: 0.75em;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .carousel-control {
+        width: 4%;
+    }
+
+        .carousel-control.left, .carousel-control.right {
+            margin-left: 15px;
+            background-image: none;
+            top: 0px;
+        }
+
+    @@media (max-width: 767px) {
+        .carousel-inner .active.left {
+            left: -100%;
+        }
+
+        .carousel-inner .next {
+            left: 100%;
+        }
+
+        .carousel-inner .prev {
+            left: -100%;
+        }
+
+        .active > div {
+            display: none;
+        }
+
+            .active > div:first-child {
+                display: block;
+            }
+    }
+
+    @@media (min-width: 767px) and (max-width: 992px ) {
+        .carousel-inner .active.left {
+            left: -50%;
+        }
+
+        .carousel-inner .next {
+            left: 50%;
+        }
+
+        .carousel-inner .prev {
+            left: -50%;
+        }
+
+        .active > div {
+            display: none;
+        }
+
+            .active > div:first-child {
+                display: block;
+            }
+
+                .active > div:first-child + div {
+                    display: block;
+                }
+    }
+
+    @@media (min-width: 992px ) {
+        .carousel-inner .active.left {
+            left: -16.7%;
+        }
+
+        .carousel-inner .next {
+            left: 16.7%;
+        }
+
+        .carousel-inner .prev {
+            left: -16.7%;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        .superlady-head h2 {
+            font-size: 2rem;
+            padding-top: 20px;
+        }
+
+        .superlady-logoimg {
+            width: 20%;
+            margin-right: 10px;
+        }
+
+        .superlady-btn {
+            left: 70%;
+            top: 30%
+        }
+
+        .superlady-img {
+            width: 27px;
+        }
+
+        .popup {
+            top: 24%;
+            left: 43%;
+            width: 180px;
+        }
+
+            .popup img {
+                width: 30px;
+                z-index: 999999;
+            }
+
+            .popup .close {
+                top: 5px;
+                right: 10px;
+            }
+
+        .ui-selectmenu-menu {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin: 0px;
+        }
+
+        .nav2 {
+            display: block;
+            text-align: center;
+            background: #fff;
+        }
+
+            .nav2 li:first-child {
+                border-top: solid 1px #ebebeb;
+            }
+
+            .nav2 li:last-child {
+                border-bottom: solid 1px #ebebeb;
+            }
+
+            .nav2 li {
+                display: block;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+                .nav2 li a {
+                    display: block;
+                    font-size: 1.4rem;
+                    color: #333;
+                    width: 100%;
+                    height: 100%;
+                }
+
+        .superlady-title {
+            font-size: 22px;
+        }
+
+        .superlady-schtit h4 {
+            width: 50%;
+            float: left;
+            font-size: 1.4rem;
+        }
+
+        .superlady-sch {
+            float: none;
+            width: 80%;
+            margin-top: 15px;
+            font-size: 1.4rem;
+        }
+    }
+</style>
+
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+<section class="image-head-wrapper" style="background-image: url('/images/Background/Finalkor-back.jpg'); background-size: 100%; padding-top:3%">
+    <div class="col-md-1">
+    </div>
+    <div style="margin:0 10px" class="superlady-head">
+        <img src="/images/Finalkor/centerlogo.png" class="superlady-logoimg" />
+        <h2>슈퍼레이디 코리아 어워즈</h2>
+    </div>
+    <div class="superlady-btn">
+        <a href="https://www.facebook.com/SuperTalentOfficial/" style="float:left;">
+            <img src="~/images/Finalkor/like.png" class="superlady-img" />
+        </a>
+        <a class="button" href="#popup1">
+            <img src="~/images/Finalkor/share.png" class="superlady-img" />
+        </a>
+    </div>
+    <div id="popup1" class="popup">
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <a href="https://www.facebook.com/SuperTalentOfficial/" target="_blank"><img src="~/images/sns1.png" class="superlady-img" /></a>
+            <a href="https://www.instagram.com/misssupertalent/" target="_blank"><img src="~/images/sns2.png" class="superlady-img" /></a>
+            <a href="https://www.youtube.com/channel/UCbe6_o-ULwZ_tznU0ot3X7Q" target="_blank"><img src="~/images/sns3.png" class="superlady-img" /></a>
+        </div>
+    </div>
+</section>
+<div class="ui-selectmenu-menu">
+    <ul class="list-unstyled nav2">
+        <li><a href="/Superlady/Index_ko">소개</a></li>
+        <li><a href="/Superlady/Attend_ko">참가자격</a></li>
+        <li><a href="/Superlady/Final_lady_ko">2019 수상자</a></li>
+        <li><a href="/Superlady/Thal_ko">시상내역 ▪&nbsp;혜택</a></li>
+        <li><a href="/Apply/Index_ko">참가신청</a></li>
+    </ul>
+</div>
+
+<div class="row" style="margin:0;clear:both;">
+    <div class="col-md-10 col-md-offset-1">
+        <h2 class="superlady-title"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></h2><br />
+        <div class="col-md-12">
+            <p style="font-size:1.6rem; line-height:2.6rem; width:85%; letter-spacing:1px;">
+                슈퍼레이디코리아 어워즈는는 별도의 참가비가 발생하지 않습니다.
+            </p>
+        </div>
+        <div class="col-md-12" style="margin:5% 0;">
+            <div class="col-md-6">
+                <h4 class="superlady-title"><span>&nbsp;모든 결선 수상자</span></h4><br />
+                <div style=" font-size:1.6rem; letter-spacing: 1px; line-height:3rem; margin-bottom:80px;">
+                    ▪&nbsp;  <strong>오라클피부과본사제공</strong> : 100만원상당 필러, 보톡스 <br />
+                    ▪&nbsp;  <strong>오라클피부과</strong> : 30만원상당 화장품세트<br />
+                    ▪&nbsp;  <strong>럭셔리 선글라스</strong> : 30만원 상당<br />
+                    ▪&nbsp;  <strong>인플루언서</strong> : 수익발생콘텐츠<br />
+                </div>
+                <h4 class="superlady-title"><span>&nbsp;대상</span></h4><br />
+                <div style=" font-size:1.6rem; letter-spacing: 1px; line-height:3rem;">
+                    ▪&nbsp;  의상, 항공, 숙박 등 2,000만원 상당의 세계 대회 출전 경비 일체 제공 <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2019년 10월17일~11월4일 파리/니스/밀란/베니스/로마)<br />
+                    ▪&nbsp;  파리/밴쿠버/상하이 등 패션위크에 참가<br />
+                    ▪&nbsp;  슈퍼탤런트 전 세계 100여 프랜차이즈 네트워크를 통해 글로벌 활동<br />
+                </div>
+            </div>
+            <div class="col-md-6" style="margin:auto; ">
+                <div style="padding:3%; font-size:1.6rem; line-height:3rem; letter-spacing:1px; margin-top:50px; border-top:solid 1px #d8d8d8">
+                    <strong>모든 결선 진출자에게 결선동안 특별 어워즈가 있습니다.</strong><br />
+                    ▪&nbsp;  Top Model of the Year<br />
+                    ▪&nbsp;  Supermodel of the Year<br />
+                    ▪&nbsp;  Best Actress of the Year<br />
+                    ▪&nbsp;  Emerging Talent of the Year<br />
+                    ▪&nbsp;  Best Artist of the Year<br />
+                    ▪&nbsp;  Rising Star of the Year<br />
+                    ▪&nbsp;  Best Musician of the Year<br />
+                    ▪&nbsp;  Best Singer of the Year<br />
+                    ▪&nbsp;  Best Dancer of the Year<br />
+                    ▪&nbsp;  Future Icon of the Year<br />
+                    ▪&nbsp;  Industry Icon of the Year<br />
+                    ▪&nbsp;  Super Star of the Year<br />
+                    ▪&nbsp;  Best Influencer of the Year<br />
+                    ▪&nbsp;  Best YouTuber of the Year<br />
+                    ▪&nbsp;  Fashion Icon of the Year<br />
+                    ▪&nbsp;  Beauty Icon of the Year<br />
+                    ▪&nbsp;  Best Celebrity of the Year<br />
+                    ▪&nbsp;  Inspiring Woman of the Year<br />
+                    ▪&nbsp;  Editorial Winner<br />
+                    ▪&nbsp;  Winner Fashion Week<br />
+                    ▪&nbsp;  Winner Supertalent of the World<br />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12" style=" margin-bottom:5%;">
+            <h4 class="superlady-title"><span>&nbsp;결선 준비물</span></h4><br />
+            <div class="col-md-10" style=" font-size:1.6rem; letter-spacing: 1px; line-height:3rem;">
+                ▪&nbsp;  단색 레드 원피스 <br />
+                ▪&nbsp;  12cm 이상 레드 하이힐<br />
+            </div>
+        </div>
+        <div class="col-md-12" style="margin-bottom:7%">
+            <div class="col-md-6">
+                <img src="~/images/Superlady/contact1.png" class="img-responsive" style="margin-bottom:5px;" />
+            </div>
+            <div class="col-md-6">
+                <img src="~/images/Superlady/contact2.png" class="img-responsive" style="margin-bottom:5px;" />
+            </div>
+        </div>
+        <div class="col-md-12" style=" margin-bottom:5%;">
+            <h4 class="superlady-title"><span>&nbsp;슈퍼레이디 우승자는 슈퍼탤런트 오브 더 월드와 협업하여 파리에서 로마까지 유럽 19일 트립을 제공합니다.</span></h4><br />
+            <div class="col-md-12">
+                <div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-md-2 col-sm-6 col-xs-12"><a href="#"><img src="/images/Superlady/slide1.jpg" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-sm-6 col-xs-12"><a href="#"><img src="/images/Superlady/slide2.png" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-sm-6 col-xs-12"><a href="#"><img src="~/images/Superlady/slide3.png" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-sm-6 col-xs-12"><a href="#"><img src="/images/Superlady/slide4.jpg" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-2 col-sm-6 col-xs-12"><a href="#"><img src="/images/Superlady/slide5.jpg" class="img-responsive"></a></div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+                <p style="text-align:center; font-size:16px; margin-top: 5%; margin-bottom:5%; line-height:2.4rem; letter-spacing:1px; word-break:keep-all;">
+                    <strong>슈퍼모델, 팝 아티스트, 영화배우, 댄싱챔피언을 선발하는 텔레비전 포맷의 글로벌 리얼리티 오디션 프로그램</strong><br /><br />
+
+                    슈퍼탤런트 스타들은 로레알, 엘르, 보그 등의 뷰티, 패션, 잡지 모델, 배우, 가수로 활동하며 <br />
+                    런던, 파리, 밀란 등 패션 위크와 칸, 베니스, 베를린 등 영화제에 글로벌 셀럽으로 활동하고 있습니다.<br /><br />
+
+                    슈퍼탤런트 스타들은 인스타그램, 페이스북, 유투버 등 최소 10만명 이상의 인플루언서들로 귀하와 함께<br />
+                    유럽의 눈부신 경관, 신비한 전설, 오리지널 콘텐츠를 제작하여 전 세계와 공유하고 소통합니다<br /><br />
+                </p>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4" style="padding:30px">
+                    <div style="background-image:url(/images/Shop/shop1.jpg); height:180px; position:relative; background-size:cover">
+                        <div class="in-text">
+                            <h4>럭셔리 민주주의</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="padding:30px">
+                    <div style="background-image:url(/images/Shop/shop2.jpg); height:180px; position:relative; background-size:cover">
+                        <div class="in-text">
+                            <h4>오리지널 프로그램</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="padding:30px">
+                    <div style="background-image:url(/images/Shop/shop3.jpg); height:180px; position:relative; background-size:cover">
+                        <div class="in-text">
+                            <h4>다국적 운영 프로그램</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="padding:30px">
+                    <div style="background-image:url(/images/Shop/shop4.jpg); height:180px; position:relative; background-size:cover">
+                        <div class="in-text">
+                            <h4>최상의 코스</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="padding:30px">
+                    <div style="background-image:url(/images/Shop/shop5.jpg); height:180px; position:relative; background-size:cover">
+                        <div class="in-text">
+                            <h4>최상의 안전</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="padding:30px">
+                    <div style="background-image:url(/images/Shop/shop6.jpg); height:180px; position:relative; background-size:cover">
+                        <div class="in-text">
+                            <h4>글로벌 인플루언서</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.carousel[data-type="multi"] .item').each(function () {
+            var next = $(this).next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+
+            for (var i = 0; i < 4; i++) {
+                next = next.next();
+                if (!next.length) {
+                    next = $(this).siblings(':first');
+                }
+
+                next.children(':first-child').clone().appendTo($(this));
+            }
+        });
+    });
+</script>

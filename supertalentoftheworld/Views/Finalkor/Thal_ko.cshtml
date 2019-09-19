@@ -1,0 +1,363 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+<!--Finalkor/Thal_ko-->
+<style>
+    .finalk-logoimg {
+        float: left;
+        margin-right: 30px;
+    }
+
+    .finalk-head h2 {
+        color: #fff;
+        font-weight: bold;
+        padding-top: 40px;
+    }
+
+    .finalk-btn {
+        position: absolute;
+        top: 21%;
+        left: 45%;
+    }
+
+    .ui-selectmenu-menu {
+        position: absolute;
+        display: table;
+        width: 80%;
+        top: 45%;
+        margin: 0 10%;
+    }
+
+    .nav2 li {
+        display: table;
+        width: 20%;
+        float: left;
+        position: relative;
+        text-align: center;
+    }
+
+        .nav2 li a {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+
+        .nav2 li:after {
+            position: absolute;
+            left: 20%;
+            height: 5px;
+            width: 60%;
+            bottom: -100%;
+            background: #fff;
+            content: "";
+            opacity: 0;
+            transition: 0.8s;
+        }
+
+        .nav2 li:hover::after {
+            opacity: 1;
+        }
+
+        .nav2 li:nth-child(4):after {
+            opacity: 1;
+        }
+
+    .button {
+        padding: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+    }
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 240px;
+        position: fixed;
+        top: 15%;
+        left: 38%;
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+        .popup:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup img {
+            width: 45px;
+            margin-right: 10px;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+            .popup .close:hover {
+                color: #333;
+            }
+
+        .popup .content {
+            max-height: 20%;
+            overflow: auto;
+        }
+
+    .finalk-title {
+        position: relative;
+        margin: 0 0 30px;
+        padding: 0;
+        border-bottom: 1px solid #d8d8d8;
+        font-size: 28px;
+        clear: both;
+    }
+
+        .finalk-title span {
+            display: inline-block;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 5px solid transparent;
+            color: #333;
+        }
+
+        .finalk-title:after {
+            position: absolute;
+            left: 10%;
+            transform: translateX(-50%);
+            height: 5px;
+            width: 20%;
+            bottom: 0;
+            background: #162541;
+            content: "";
+        }
+
+    .finalk-schtit h4 {
+        width: 25%;
+        float: left;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+        .finalk-schtit h4:nth-child(2n-1) {
+            color: #888;
+        }
+
+        .finalk-schtit h4:nth-child(2n) {
+            color: #111;
+        }
+
+    .finalk-sch {
+        letter-spacing: 1px;
+        width: 25%;
+        float: left;
+        position: relative;
+    }
+
+        .finalk-sch:before {
+            position: absolute;
+            left: -3%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: 3px;
+            bottom: 0;
+            background: #162541;
+            content: "";
+        }
+
+    @@media (max-width: 767px) {
+        .finalk-head h2 {
+            font-size: 2rem;
+            padding-top: 20px;
+        }
+
+        .finalk-logoimg {
+            width: 20%;
+            margin-right: 10px;
+        }
+
+        .finalk-btn {
+            left: 70%;
+            top: 30%
+        }
+
+        .finalk-img {
+            width: 27px;
+        }
+
+        .popup {
+            top: 24%;
+            left: 43%;
+            width: 180px;
+        }
+
+            .popup img {
+                width: 30px;
+                z-index: 999999;
+            }
+
+            .popup .close {
+                top: 5px;
+                right: 10px;
+            }
+
+        .ui-selectmenu-menu {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin: 0px;
+        }
+
+        .nav2 {
+            display: block;
+            text-align: center;
+            background: #fff;
+        }
+
+            .nav2 li:first-child {
+                border-top: solid 1px #ebebeb;
+            }
+
+            .nav2 li:last-child {
+                border-bottom: solid 1px #ebebeb;
+            }
+
+            .nav2 li {
+                display: block;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+                .nav2 li a {
+                    display: block;
+                    font-size: 1.4rem;
+                    color: #333;
+                    width: 100%;
+                    height: 100%;
+                }
+
+        .finalk-title {
+            font-size: 26px;
+        }
+
+        .finalk-schtit h4 {
+            width: 50%;
+            float: left;
+            font-size: 1.4rem;
+        }
+
+        .finalk-sch {
+            float: none;
+            width: 80%;
+            margin-top: 15px;
+            font-size: 1.4rem;
+        }
+    }
+</style>
+<section class="image-head-wrapper" style="background-image: url('/images/Background/Finalkor-back.jpg'); background-size: 100%; padding-top:3%">
+    <div class="col-md-1">
+    </div>
+    <div style="margin:0 10px" class="finalk-head">
+        <img src="/images/Finalkor/centerlogo.png" class="finalk-logoimg" />
+        <h2>슈퍼탤런트 코리아 어워즈</h2>
+    </div>
+    <div class="finalk-btn">
+        <a href="https://www.facebook.com/SuperTalentOfficial/" style="float:left;">
+            <img src="~/images/Finalkor/like.png" class="finalk-img" />
+        </a>
+        <a class="button" href="#popup1">
+            <img src="~/images/Finalkor/share.png" class="finalk-img" />
+        </a>
+    </div>
+    <div id="popup1" class="popup">
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <a href="https://www.facebook.com/SuperTalentOfficial/" target="_blank"><img src="~/images/sns1.png" class="finalk-img" /></a>
+            <a href="https://www.instagram.com/misssupertalent/" target="_blank"><img src="~/images/sns2.png" class="finalk-img" /></a>
+            <a href="https://www.youtube.com/channel/UCbe6_o-ULwZ_tznU0ot3X7Q" target="_blank"><img src="~/images/sns3.png" class="finalk-img" /></a>
+        </div>
+    </div>
+</section>
+<div class="ui-selectmenu-menu">
+    <ul class="list-unstyled nav2">
+        <li><a href="/Finalkor/Index_ko">소개</a></li>
+        <li><a href="/Finalkor/Attend_ko">참가자격</a></li>
+        <li><a href="/Finalkor/Final_tal_ko">2019 수상자</a></li>
+        <li><a href="/Finalkor/Thal_ko">시상내역 ▪&nbsp;혜택</a></li>
+        <li><a href="/Apply/Index_ko">참가신청</a></li>
+    </ul>
+</div>
+
+<div class="row" style="margin:0;clear:both;">
+    <div class="col-md-10 col-md-offset-1">
+        <h2 class="finalk-title"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></h2><br />
+        <div class="col-md-12">
+            <p style="font-size:1.6rem; line-height:2.6rem; width:85%; letter-spacing:1px;">
+                슈퍼탤런트 오브 더 코리아는 별도의 참가비가 발생하지 않습니다.
+            </p>
+        </div>
+        <div class="col-md-12" style="margin:5% 0;">
+            <div class="col-md-6">
+                <h4 class="finalk-title"><span>&nbsp;모든 결선 수상자&nbsp;▪&nbsp;특전</span></h4><br />
+                <div style=" font-size:1.6rem; letter-spacing: 1px; line-height:3rem; margin-bottom:80px;">
+                    ▪&nbsp;  <strong>오라클피부과본사제공</strong> : 100만원상당 필러, 보톡스 <br />
+                    ▪&nbsp;  <strong>오라클피부과</strong> : 30만원상당 화장품세트<br />
+                    ▪&nbsp;  <strong>럭셔리 선글라스</strong> : 30만원 상당<br />
+                    ▪&nbsp;  <strong>인플루언서</strong> : 수익발생콘텐츠<br />
+                </div>
+                <h4 class="finalk-title"><span>&nbsp;대상</span></h4><br />
+                <div style=" font-size:1.6rem; letter-spacing: 1px; line-height:3rem;">
+                    ▪&nbsp;  의상, 항공, 숙박 등 2,000만원 상당의 세계 대회 출전 경비 일체 제공 <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2019년 10월17일~11월4일 파리/니스/밀란/베니스/로마)<br />
+                    ▪&nbsp;  파리/밴쿠버/상하이 등 패션위크에 참가<br />
+                    ▪&nbsp;  슈퍼탤런트 전 세계 100여 프랜차이즈 네트워크를 통해 글로벌 활동<br />
+                </div>
+            </div>
+            <div class="col-md-6" style="margin:auto; ">
+                <div style="padding:3%; font-size:1.6rem; line-height:3rem; letter-spacing:1px; margin-top:50px; border-top:solid 1px #d8d8d8">
+                    <strong>2019 슈퍼탤런트 어워즈</strong><br />
+                    ▪&nbsp;  Top Model of the Year<br />
+                    ▪&nbsp;  Supermodel of the Year<br />
+                    ▪&nbsp;  Best Actress of the Year<br />
+                    ▪&nbsp;  Emerging Talent of the Year<br />
+                    ▪&nbsp;  Best Artist of the Year<br />
+                    ▪&nbsp;  Rising Star of the Year<br />
+                    ▪&nbsp;  Best Musician of the Year<br />
+                    ▪&nbsp;  Best Singer of the Year<br />
+                    ▪&nbsp;  Best Dancer of the Year<br />
+                    ▪&nbsp;  Future Icon of the Year<br />
+                    ▪&nbsp;  Industry Icon of the Year<br />
+                    ▪&nbsp;  Super Star of the Year<br />
+                    ▪&nbsp;  Best Influencer of the Year<br />
+                    ▪&nbsp;  Best YouTuber of the Year<br />
+                    ▪&nbsp;  Fashion Icon of the Year<br />
+                    ▪&nbsp;  Beauty Icon of the Year<br />
+                    ▪&nbsp;  Best Celebrity of the Year<br />
+                    ▪&nbsp;  Inspiring Woman of the Year<br />
+                    ▪&nbsp;  Editorial Winner<br />
+                    ▪&nbsp;  Winner Fashion Week<br />
+                    ▪&nbsp;  Winner<br />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12" style=" margin-bottom:5%;">
+            <h4 class="finalk-title"><span>&nbsp;결선 준비물</span></h4><br />
+            <div class="col-md-10" style=" font-size:1.6rem; letter-spacing: 1px; line-height:3rem;">
+                ▪&nbsp;  단색 레드 원피스 <br />
+                ▪&nbsp;  12cm 이상 레드 하이힐<br />
+            </div>
+        </div>
+
+
+    </div>
+</div>

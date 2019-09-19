@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="am-signin-box">
+    <div class="row no-gutters">
+        <div style="margin-top:200px;">
+            <img src="/images/logo/supertalentlogo.png" width="269" height="56" class="login-logo" />
+            <div class="text-center" style="margin:50px">
+
+                <p style="font-weight:bold; font-size:1.2em">Check Your E-mail Account</p><br />
+                <p><text style="color:#ff4157">@ViewBag.email</text> 의 메일함을 확인하세요</p>
+
+                <hr>
+                <div class="col-md-12" style="margin-bottom:30px">
+                    <p style="font-weight:bold; font-size:1.2em;">Already have an Account?<br>
+                </div>
+                <div class="col-md-12" style="margin-bottom:220px;">
+                    <a class="book-now-btn" href="/Home/Login">Log In</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- row -->
+
+</div><!-- signin-box -->
+

@@ -1,0 +1,107 @@
+﻿@{ Layout = null;}
+
+<div class="header-en">
+
+    <header class="header-container header-en">
+
+
+        <div class="top-row" style="padding:10px;">
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2 col-sm-6 col-xs-6">
+                    <div id="logo">
+                        <a href="/Home/Index"><img src="/images/logo/supertalentlogo.png" style="max-width:160px; background-color:black !important" /></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 remove-padd">
+
+                    <nav class="navbar navbar-default">
+
+                        <div class="navbar-header page-scroll">
+
+                            <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
+
+                            <ul class="list-unstyled nav1 cl-effect-10">
+
+                                <li><a id="nav_about" data-hover="ABOUT" href="/Home/About"><span>ABOUT</span></a></li>
+                                <li><a id="nav_s_13" data-hover="2019 SEASON 13" href="/Home/SEASON_13"><span>2019 SEASON 13</span></a></li>
+                                <li><a id="nav_final" data-hover="FINALISTS" href="/Finalists/Season13_2019"><span>FINALISTS</span></a></li>
+                                <li><a id="nav_partner" data-hover="PARTNERS" href="/Partners/Index"><span>PARTNERS</span></a></li>
+                                <li>
+                                    <a id="nav_collabo" data-hover="COLLABORATION" href="/Collaboration/Index"><span>COLLABORATION</span></a>
+                                </li>
+                                <li><a id="nav_superlady" data-hover="SUPERLADY" href="/Superlady/Intro"><span>SUPERLADY</span></a></li>
+                                <li><a id="nav_shop" data-hover="STORE" href="/Shop/Index"><span>STORE</span></a></li>
+                                @if (User.Identity.IsAuthenticated == true)
+                                {
+                                    if(Request.Cookies["user_email"].Value == "misssupertalent@gmail.com") { 
+
+                                        <li><a id="nav_admin" data-hover="관리자" href="/Admin/Product_list"><span>관리자<i class="fas fa-cog"></i></span></a></li>
+                                    }
+                                    else
+                                    {
+                                        
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-md-1 col-sm-4 col-xs-12 hidden-sm">
+                    <select id="sel_lang" onchange="change_lang()" class="form-control">
+                        <option value="en">English</option>
+                        <option value="ko">한국어</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    @{ if (User.Identity.IsAuthenticated == false)
+                        {
+                            <div style="padding:9px">
+                                <a class="book-now-btn" href="/Home/Login" style="font-size:0.9em">LogIn</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div style="padding:9px">
+                                <a class="book-now-btn" href="/Home/Logout" style="font-size:0.9em">LogOut</a>
+                            </div>
+                        }
+                    }
+                </div>
+
+
+            </div>
+
+        </div>
+    </header>
+</div>
+
+
+
+
+<script>
+
+
+
+</script>
+
+<style>
+
+
+    @@media (max-width:767px) {
+        #nav_shop_over {
+            display: block;
+            position: relative;
+            top: 0;
+        }
+    }
+</style>

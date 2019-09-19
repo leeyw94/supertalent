@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent 0919\supertalentoftheworld\obj\Release\Package\PackageTmp" />
+  <setAcl path="C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent 0919\supertalentoftheworld\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent 0919\supertalentoftheworld\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

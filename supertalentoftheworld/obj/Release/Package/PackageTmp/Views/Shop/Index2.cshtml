@@ -1,0 +1,75 @@
+﻿@model IEnumerable<supertalentoftheworld.Models.Travel_Goods>
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div style="margin:50px;">
+        @foreach (var item in Model)
+        {
+            <div id="@item.id" onclick="location.href='/Shop/Details?id=@item.id'" class="col-lg-3 col-md-3 col-sm-3 col-xs-12 go-details">
+
+                <div class="gallery-image">
+                    <img class="img-responsive" src="@item.MainImgPath">
+                </div>
+                <div>
+                    <p class="p_title">@item.Title</p>
+                    <p class="p_duration">@item.Sdate - @item.Edate</p>
+                    <p class="p_price">@item.Price_d</p>
+                </div>
+             
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .p_title {
+        margin-left:5px;
+        font-weight:bold;
+        font-size:1.0em;    
+        margin-bottom:10px;
+    }
+    .p_duration {
+        margin-left: 5px;
+        margin-bottom:10px;
+        
+        color:#808080
+    }
+    .p_price {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-left:5px;
+        color: #ff4157;
+    }
+
+
+
+    .go-details {
+        cursor: pointer;
+        margin-top:50px;
+        margin-bottom:50px;
+    }
+
+    .ori {
+        border: solid 0.5px #b0b0b0;
+    }
+
+    .gallery-image {
+     padding:0px;
+
+    }
+
+    .btn-size {
+        font-size: 0.75em;
+        margin-bottom: 30px;
+    }
+</style>
+
+<script>
+   function popup(url) {
+       window.open(url, '이미지 보기', 'width=400, height=250');
+    }
+</script>

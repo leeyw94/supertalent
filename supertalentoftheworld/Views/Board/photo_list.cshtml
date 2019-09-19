@@ -1,0 +1,476 @@
+﻿@using SmartFactory.Controllers
+@using supertalentoftheworld.Models
+@model IEnumerable<supertalentoftheworld.Models.BoardFile>
+
+@{
+
+    var ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "result"
+    };
+    SmartFactory.Controllers.pagination pg = ViewBag.pagination;
+
+    int i = 0;
+    string Mode = "i";
+    if (string.IsNullOrEmpty(Request["cate"]))
+    {
+        Mode = "i";
+    }
+    else
+    {
+        Mode = "e";
+    }
+    string cate = Request["cate"] ?? "";
+    string v_cate = ViewBag.cate ?? "";
+
+    if (!string.IsNullOrEmpty(v_cate))
+    {
+        cate = v_cate;
+
+    }
+
+
+
+
+}
+
+
+<link href="~/Content/assets/css/material.css" rel="stylesheet" />
+
+
+<form id="form2" name="form2" action="/board/photo_list" method="post">
+    <input type="hidden" name="search_type" id="search_type" />
+    <input type="hidden" name="search_text" id="search_text" /> 
+</form>
+
+    @using (Ajax.BeginForm("photo_action", "board", ajaxOpts, new { enctype = "multipart/form-data", id = "form1", name = "form1" }))
+    {
+
+    <div class="container  sub_page">
+
+
+      
+
+    <input type="hidden" name="cate" id="cate" value="@Request["cate"]" />
+
+        <div class="photo_type" style="display: table; width: 100%;">
+
+           
+
+
+            <div class="content " style="display: table; margin: auto; z-index: 1;">
+                <div id="dialog"  style="display: none; z-index: 999;">
+                    <img id="photo_big" />
+                </div>
+
+                @if (pg.totalcount <= 1)
+                {
+
+                    <div class="content " style="display: table; margin: auto; z-index: 1;font-size:1.4em;font-weight:bold;color:crimson">
+
+                        "No search results!"
+                    </div>
+
+                }
+
+                  
+
+                    @foreach (var item in Model)
+                {
+                    <div style="display: table; display: none; float: left; width: 160px; z-index: 1;">
+                        <div><img class="opener" style="cursor: pointer; display: table; height: 120px; padding: 0 5px 5px 0px; width: 170px;" src="@ViewBag.LoadFileUrl@item.department_id/s_@item.BF_name" rel="tooltip" title="Title: @item.Board.BD_title   Date: @item.Board.BD_wdate.ToString("yy.MM.dd HH:mm ")  By  @item.Board.BD_writer " onclick=" photo_show('@item.Board.BD_title', '@ViewBag.LoadFileUrl@item.department_id/@item.BF_name ') "  />
+                        </div>
+                        <div style="font-size: 11px;"> 
+                            @item.Board.BD_title Date 
+
+                        </div>
+                       
+                        
+                    </div>
+
+
+                    <div class="card card-product" data-count="0" style="cursor: pointer; margin: 3px 0px 0px 0px; width: 180px;">
+                        <div class="card-image" data-header-animation="true" onclick=" photo_show('@item.Board.BD_title', '@ViewBag.LoadFileUrl@item.department_id/@item.BF_name ') "  style="cursor: pointer">
+                                                    
+                            <a href="#pablo">
+
+
+                                <img src="@ViewBag.LoadFileUrl@item.department_id/s_@item.BF_name" />
+                            </a>        
+                               
+                        </div>
+                        <div class="card-content" style="padding: 0">
+                            <div class="card-actions">
+                                <span rel="tooltip" >
+                                    <button class="btn btn-default btn-simple" data-placement="bottom" type="button" data-original-title="View" onclick=" photo_show('@item.Board.BD_title', '@ViewBag.LoadFileUrl@item.department_id/@item.BF_name ') " >
+                                        <img src="~/images/common/s_new_icon.gif" />
+                                    </button>
+                                </span>
+                                <button class="btn btn-danger btn-simple auth_check_it" data-placement="bottom" rel="tooltip" title="Deletion is possible only within 5 days. Only administrators can delete it." type="button" data-original-title="Remove" onclick=" photo_del(@item.BF_idx, @item.BD_BM_idx) ">
+                                    <img src="~/images/common/s_icon_del.gif" />
+                                </button>
+
+                            </div>
+                            <div class="stats" style="text-align: center;">
+                                <a href="#pablo"><span style="font-size: 1em; font-weight: 600; text-align: center;">@item.Board.BD_title</span> </a>
+                            </div>
+                        </div>
+                        <div class="card-footer" style="padding: 0">
+                            <div class="card-description" style="font-size: 11px; position: relative; top: 5px;">
+                                <span>@item.Board.BD_wdate.ToString("yy.MM.dd")</span>
+                            </div>
+                            <div class="stats pull-right">
+                                <p class="category" style="font-size: 11px;"> @item.Board.BD_writer </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    i++;
+                }
+            </div>
+           
+            
+
+
+
+       
+
+
+        </div>
+
+        <div class="content" style="margin-top:10px;display:table ;width:100%">
+
+            <p class="photo_type" >
+                <div class="col-md-2 btn btn-danger" style="float:right;width:110px;">
+                   <span onclick="show_add()" style="cursor: pointer"><span id="create_type">Create</span></span>
+                </div>
+
+           
+             
+            </p>
+
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12 text-center">
+                @Html.Partial("Pagination")
+            </div>
+        </div>
+
+
+        <div id="photo_head_save" style="display: none; width: 100%;border:solid 3px #444;margin-top:10px;padding-top:10px;border-radius:5px;">
+
+            <div class="form-horizontal">
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Title</label>
+
+                    <div class="col-md-8">
+                        <input type="text" name="title" id="title" class="form-control" placeholder="Title" />
+
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Find Image </label>
+                    <div class="col-md-3">
+
+                        <span class="btn btn-rose btn-round btn-file col-md-4 form-control" style="line-height:10px ">
+                            <span class="fileinput-new">Select </span>
+                            <span class="fileinput-exists">image</span>
+                            <input type="hidden"><input name="myfile" id="myfile" multiple type="file">
+                            <span class="ripple-container"></span>
+                        </span>
+
+
+
+
+
+                    </div>
+                    <div class="col-md-3">
+                        @Html.DropDownList("BD_BM_idx", (SelectList)ViewBag.category,"Select" ,new { @class = "selectpicker", @style = "height:30px" })
+
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="btn btn-default btn-fill btn-wd   btn-info col-md-2" onclick="save_it() " style="margin-left: 15px;height:30px;line-height:10px"> Save</div>
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <hr />
+        <div id="photo_head_search" style=" width: 100%">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Search</label>
+                    <div class="col-md-3">
+                        @Html.DropDownList("photo_type_search", (SelectList)ViewBag.category,"Select", new { @class = "selectpicker", @style = "height:30px", @onchange = "search()" })
+
+
+                    </div>
+                    <div class="col-md-3" rel="tooltip" title="Author, Subject searchable">
+                        <input type="text" id="_search_all" class="form-control" value="@ViewBag.search_all" style="margin-top:10px" />
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="btn btn-default btn-fill btn-wd   btn-info col-md-2" onclick="search_it() " style="margin-left: 15px;height:30px;line-height:10px"> Search</div>
+                    </div>
+
+                </div>
+                <hr />
+            </div>
+        </div>
+
+    </div>
+    }
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"> </script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"> </script>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        var show_menu = "@cate";
+
+
+        if (show_menu == "7") {
+            $("#show_menu").css("display", "block");
+            $(".machine_only").css("display", "block");
+
+
+        } else {
+            $("#show_menu").css("display", "none");
+            $(".machine_only").css("display", "none");
+        }
+
+
+        var cate = show_menu;
+        var mode = '@Mode';
+
+
+        var _cate = $("#BD_BM_idx").val();
+
+        $('#BD_BM_idx option[value=' + cate + ']').attr('selected', 'selected');
+
+        $('#photo_type_search option[value=' + cate + ']').attr('selected', 'selected');
+        
+
+    });
+
+    function search() {
+        var cate = $("#photo_type_search").val();
+
+        location.href = "/board/photo_list/?cate=" + cate;
+
+    }
+
+    function go_link(idx) {
+
+        var cate = $("#BD_BM_idx").val();
+
+        location.href = "/board/boardview/?idx=" + idx + "&cate=" + cate;
+
+    }
+
+    function go_write() {
+
+        var cate = $("#BD_BM_idx").val();
+
+        location.href = "/board/boardwrite/?cate=" + cate;
+
+    }
+
+    function show_add() {
+
+
+        var check_it = $("#photo_head_save").css("display");
+
+        if (check_it == "none") {
+
+            $("#photo_head_save").css("display", "table");
+            $("#photo_head_search").css("display", "none");
+            $("#create_type").text("SEARCH"); 
+            $("#create_type").css("SEARCH"); 
+
+        } else {
+
+            $("#photo_head_save").css("display", "none");
+            $("#photo_head_search").css("display", "table");
+        
+        }
+
+
+    }
+
+    function show_search() {
+
+
+        var check_it = $("#photo_head_search").css("display");
+
+        if (check_it == "none") {
+
+            $("#photo_head_search").css("display", "table");
+            $("#photo_head_save").css("display", "none");
+        } else {
+
+            $("#photo_head_search").css("display", "none");
+        }
+
+
+    }
+
+    function save_it() {
+
+        var formData = new FormData();
+        var title = $("#title").val();
+        
+        var BD_BM_idx = $("#BD_BM_idx").val();
+       
+
+        if (title == "") {
+            alert("Please enter title.");
+            $("#title").focus();
+            return;
+        }
+
+        if (BD_BM_idx == "") {
+            alert("Please Select it.");
+            $("#BD_BM_idx").focus();
+            return;
+        }
+        else {
+
+            $("#cate").attr("value", BD_BM_idx );
+        }
+
+        formData.append("file", $('#myfile')[0].files[0]);
+
+
+        var ext = $('#myfile').val().split('.').pop().toLowerCase();
+
+
+        if (ext.length > 0) {
+
+            if ($.inArray(ext, ["gif", "png", "jpg", "jpeg"]) == -1) {
+                alert("Only images type : gif,png,jpg ");
+                return false;
+            }
+
+        }
+        else {
+            alert("Please select an image.");
+            return;
+        }
+        var _name = $('input[name = "myfile"]');
+
+        for (var k = 0; k < _name.length; ++k) {
+
+            var formData = new FormData();
+
+            for (var i = 0; i < _name.get(0).files.length; ++i) {
+
+
+                formData.append("file", $('input[name = "myfile"]')[k].files[i]);
+
+
+            }
+
+
+        }
+
+        $("#form1").submit();
+    }
+
+    function photo_del(i, c) {
+
+        if (confirm('Are you sure you want to delete it?')) {
+
+
+            location.href = "/Board/Photo_Del?idx=" + i + "&cate=" + c;
+        } else {
+            return;
+        }
+
+
+    }
+
+    function photo_view(_a) {
+
+        demo.showSwal('photo_view', _a);
+    }
+
+    function search_it(){
+
+        var search_type = $("#photo_type_search").val();
+
+        var search_text = $("#_search_all").val();
+
+        $("#search_type").attr("value", search_type);
+        $("#search_text").attr("value", search_text);
+
+        $("#form2").submit();
+    }
+</script>
+<script>
+
+    $(function() {
+
+        $("#dialog").dialog({
+            autoOpen: false,
+
+            // show: {
+
+            //    effect: "blind",
+
+            //    duration: 0
+
+            //},
+
+            //hide: {
+
+            //    effect: "explode",
+
+            //    duration: 1000
+
+            //}
+
+            width: 800,
+
+            modal: true,
+        });
+
+
+    });
+
+    function photo_show(title, url) {
+        $("#dialog").css("display", "block");
+
+        $(".ui-dialog-title").html(title);
+        $("#photo_big").attr("src", url);
+        $("#photo_big").css("max-width", "760px").css("cursor", "pointer");
+
+        $("#dialog").dialog("open");
+
+        $("#photo_big").on("click", function() {
+            //  alert("aa");
+            $("#dialog").dialog("close");
+
+
+        });
+    }
+
+</script>

@@ -1,0 +1,189 @@
+﻿@{ Layout = null;}
+
+<link href="/navi/css/components.css" rel="stylesheet" />
+<link href="/navi/css/responsee.css" rel="stylesheet" />
+<link href="/css/navi.css" rel="stylesheet" />
+
+
+<script src="/navi/js/responsee.js"></script>
+<header>
+    <nav class="nav_cover">
+        <div class="line">
+            <div class="top-nav" style="font-weight:bold;">
+                <div class="logo hide-l">
+                    <a href="/home/index_ko">SUPERTALENT</a>
+                    <p class="nav-text" style="margin:0"><i class="fas fa-bars" style="color:#fff;"></i></p>
+                </div>
+
+                <div class="top-nav s-12">
+                    <ul class="responsive-none" style="margin-left:25%;">
+                        <li style="padding:0;background:#fff">
+                            <a class="r_logo loading" style=" background:#fff;padding:0 10px;" href="/Home/Index_ko"><img style="width:140px;position:relative;top:16px" src="/images/logo/supertalent_logo.png" /></a>
+                        </li>
+                    </ul>
+
+                    <ul class="top-ul chevron">
+                        <li>
+                            <a href="/Home/About_ko">소개</a>
+                        </li>
+                        @*<li>
+                                <a href="/Home/Season_13_ko">2019 SEASON 13</a>
+                            </li>*@
+                        <li>
+                            <a href="/Finalists/Models_ko?cate=1&season=13">역대참가자</a>
+                        </li>
+                        <li style="position:relative">
+                            <a href="/Shop/Product_ko">스토어</a>
+                            @*<ul style="width:100%;">
+                                                <li>
+                                    <a href="https://www.viator.com/tours/Rome/Miss-Supertalent-of-the-World-2019-Grand-Final-in-Rome-Cavalieri-Waldorf-Astoria/d511-171536P2" target="_blank">결선티켓</a>
+                                </li>
+                                                <li>
+                                                    <a href="/Shop/Product_ko">트립테인먼트</a>
+                                                </li>
+                                                <li>
+                                    <a href="#">문화예술교육</a>
+                                </li>
+
+                                            </ul>*@
+                        </li>
+                        <li>
+                            <a href="/Shop/Support_ko">광고문의</a>
+                        </li>
+                        <li style="position:relative">
+                            <a href="#">커뮤니티 <i class="fas fa-chevron-circle-down"></i></a>
+                            <ul style="width:100%;">
+                                <li>
+                                    <a style="font-size:0.9em;text-align:center" href="/board/Board_List?CATE=2">공지사항</a>
+                                </li>
+                                <li>
+                                    <a style="font-size:0.9em;text-align:center" href="/board/Board_List?CATE=3">언론보도</a>
+                                </li>
+                                <li>
+                                    <a style="font-size:0.9em;text-align:center" href="/board/Board_List?CATE=6">공식일정</a>
+                                </li>
+                            </ul>
+                        </li>
+                        @*<li>
+                                <a href="/Finalkor/Index_ko">슈퍼탤런트</a>
+                            </li>
+                            <li>
+                                <a href="/Superlady/Index_ko">슈퍼레이디</a>
+                            </li>*@
+
+
+                        @if (User.Identity.IsAuthenticated == true)
+                        {
+                            if (Request.Cookies["user_level"].Value == "9")
+                            {
+
+                                <li><a href="/Admin/Product_list">관리자<i class="fas fa-cog"></i></a></li>
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                        <li>
+                            @{ if (User.Identity.IsAuthenticated == false)
+                                {
+                                    <div>
+                                        <a href="/Home/Login" style="font-size:0.9em; ">로그인</a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <a href="/Home/Logout" style="font-size:0.9em; ">로그아웃</a>
+                                    </div>
+                                }
+                            }
+                        </li>
+
+
+                        <li style="background:none; margin-top:10px;">
+                            <select style="height:30px; font-size:12px;" id="sel_lang" onchange="change_lang()" class="form-control">
+                                <option value="ko">한국어</option>
+                                <option value="en">English</option>
+                            </select>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            @*<ul class="s-12 l-2" style="margin:0">
+                        <li class="logo hide-s hide-m">
+                            <a href="/Home/Index">SUPER <br /><strong>TALENT</strong></a>
+                            <img style="width:160px" src="~/images/logo/supertalentlogo.png" />
+                        </li>
+                    </ul>
+                    <div class="top-nav s-12 l-5">
+                        <ul class="top-ul chevron" style="margin:0">
+                            <li>
+                                <a href="/Partners/Index">PARTNERS</a>
+                            </li>
+                            <li>
+                                <a href="/Collaboration/Index">COLLABORATION</a>
+                            </li>
+                            <li>
+                                <a href="/Superlady/Intro">SUPERLADY</a>
+                            </li>
+                            <li>
+                                <a href="/Shop/Index">STORE <i class="fas fa-chevron-circle-down"></i></a>
+                                <ul>
+                    <li>
+                        <a>Company 1</a>
+                    </li>
+                    <li>
+                        <a>Company 2</a>
+                    </li>
+                    <li>
+                        <a>Company 3</a>
+                    </li>
+                </ul>
+                            </li>
+                            @if (User.Identity.IsAuthenticated == true)
+                            {
+                                if (Request.Cookies["user_email"].Value == "youngh0724@naver.com")
+                                {
+
+                                    <li><a href="/Admin/Product_list">관리자<i class="fas fa-cog"></i></a></li>
+                                }
+                                else
+                                {
+
+                                }
+                            }
+
+                            <li>
+                                <select id="sel_lang" onchange="change_lang()" class="form-control">
+                                    <option value="en">English</option>
+                                    <option value="ko">한국어</option>
+                                </select>
+                            </li>
+                            <li>
+                                @{ if (User.Identity.IsAuthenticated == false)
+                                    {
+                                        <div style="margin:2px;">
+                                            <a class="book-now-btn" href="/Home/Login" style="font-size:0.9em; color:white">LogIn</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div style="margin:2px">
+                                            <a class="book-now-btn" href="/Home/Logout" style="font-size:0.9em; color:white">LogOut</a>
+                                        </div>
+                                    }
+                                }
+                            </li>
+                        </ul>
+
+                    </div>*@
+            <div class="col-md-1 col-sm-4 col-xs-12 hidden-sm">
+
+            </div>
+        </div>
+
+
+    </nav>
+</header>

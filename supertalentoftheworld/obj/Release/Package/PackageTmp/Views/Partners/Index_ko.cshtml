@@ -1,0 +1,125 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<!--Partners/Index-->
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+
+<section class="image-head-wrapper" style="background-image: url('/images/Background/Partners-back.jpg'); background-size:cover">
+    <div class="inner-wrapper">
+        <h1 class="in-img-text">Partners</h1>
+    </div>
+</section>
+
+<div>
+    <section>
+        <div class="row" style="margin-top:5%; margin-bottom:5%;">
+            <div class="col-md-12" style="text-align:center;">
+                <h2 style=" font-weight:bold; margin-bottom:5%;">파트너</h2>
+                <h3 style=" margin-bottom:5%;">2019 로컬 파트너</h3>
+                <div class="col-md-12" style="padding:5% 0; clear:both;">
+                    <h3 style="margin-bottom:4%;">프랑스</h3>
+                    <a href="https://www.toureiffel.paris/fr" target="_blank"><img class="partners-img" src="/images/Partners/partner1.png" /></a>
+                    <a href="https://group.accor.com/en/brands/midscale/novotel" target="_blank"><img class="partners-img" src="/images/Partners/partner2.png" /></a>
+                </div>
+                <div class="col-md-12" style="padding:5% 0; clear:both;">
+                    <h3 style="margin-bottom:4%;">이탈리아</h3>
+                    <a href="https://romecavalieri.com" target="_blank"><img class="partners-img" src="/images/Partners/partner3.png" /></a>
+                </div>
+                <div class="col-md-12" style="padding:5% 0; clear:both;">
+                    <h3 style="margin-bottom:4%;">한국</h3>
+                    <a href="https://www.sac.ac.kr/" target="_blank"><img class="partners-img" src="/images/Partners/partner4.png" /></a>
+                    <a href="http://www.oraclemedicalgroup.com/" target="_blank"><img class="partners-img" src="/images/Partners/partner5.png" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .col-md-12 h4 {
+        font-weight: bold;
+        margin-bottom: 3%;
+    }
+
+    .partners-img {
+        max-height: 150px;
+        vertical-align: middle;
+        margin: 0 auto;
+    }
+
+    .partners-col3 {
+        position: relative;
+        padding-bottom: 15px;
+        overflow: hidden;
+    }
+
+        .partners-col3:hover {
+            border: 1px solid #162541;
+            box-sizing: border-box;
+        }
+
+    .partners-detail {
+        background: #162541;
+        padding: 10% 10% 5% 10%;
+    }
+
+    .partners-sale {
+        position: absolute;
+        top: 5%;
+        font-size: 1.8rem;
+        width: 80px;
+        height: 35px;
+        background: #ff4157;
+        color: white;
+        text-align: center;
+        line-height: 35px;
+        font-weight: bold;
+    }
+
+    .partners-detail .partners-title {
+        color: white;
+        font-size: 2.2rem;
+    }
+
+    .partners-detail .partners-star {
+        color: #ff4157;
+        font-size: 1.2rem;
+    }
+
+    .partners-detail .partners-price {
+        color: #ff4157;
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .partners-detail .partners-buy {
+        margin-top: 5%;
+        padding: 5% 15% 5% 15%;
+        background: white;
+        color: #162541;
+        display: inline-block;
+        float: left;
+        font-weight: bold;
+    }
+
+    .partners-detail .partners-cart {
+        padding: 5% 5% 5% 15%;
+        display: inline-block;
+        line-height: 4rem;
+    }
+
+        .partners-detail .partners-cart a {
+            color: white !important;
+        }
+
+            .partners-detail .partners-cart a:hover {
+                color: #ff4157 !important;
+            }
+
+    @@media (max-width: 767px) {
+        .partners-img {
+            width: 40%;
+        }
+    }
+</style>
+

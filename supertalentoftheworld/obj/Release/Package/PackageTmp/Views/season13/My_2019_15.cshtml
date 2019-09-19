@@ -1,0 +1,392 @@
+﻿@model supertalentoftheworld.Models.Travel_Goods
+@using supertalentoftheworld.Models
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    string days = "15";
+}
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+
+
+<link href="/Content/common/normalize.css" rel="stylesheet" />
+<link href="/Content/common/ideal-image-slider.css" rel="stylesheet" />
+<link href="/Content/common/default.css" rel="stylesheet" />
+<link href="/css/userstyle.css" rel="stylesheet" />
+<link href="/fontawesome-free-5.10.1-web/css/all.min.css" rel="stylesheet" />
+<script src="/fontawesome-free-5.10.1-web/js/all.min.js"></script>
+
+
+
+
+<div class="col-md-8 col-md-offset-2" style="padding:0;margin-top:50px;">
+    <div class="col-sm-8" style="margin-bottom:50px;">
+        <div class="clearfix" style="max-width:100%;">
+            <div id="slider" style="max-height:450px;">
+                @foreach (var item in ViewBag.images as List<TG_Image>)
+                {
+                    <img src="@item.ImagePath" />
+                }
+            </div>
+        </div>
+        <div class="col-md-12">
+            <h2 style="margin-top:30px; font-weight:bold">마이 럭셔리 유럽 All inclusive 15일</h2><br />
+            <p style="color:#666; font-weight:500;font-size:16px;">호텔+항공권+패션위크+뷰티워크샵+프로필,영상 콘텐츠+오라클 코스메틱 리에이젠세트 (30만원 상당)+다양한 특전 제공</p><br />
+
+        </div>
+    </div>
+    <div class="col-sm-3" style="overflow:hidden;">
+        <div class="col-md-12" style="border:1px solid #ddd; padding:20px;line-height:2em;">
+            <div class="text-right"><text style="font-weight:bold">Trip code </text></div>
+            <div class="col-md-12" style="margin-top:15px; ">
+                <span style="float:left; margin-right:10%;">
+                    <img src="~/images/Shop/details1.png" width="30" height="30" />
+                </span>
+                <span>1인 비용</span>
+            </div>
+            <div class="col-md-12">
+                <p class="des_title" style="color:#000;display:inline-block">&#8361;</p>
+                <p id="price" class="des_title" style="color:#000; padding:10px 0;display:inline-block">4,800,000원</p>
+            </div>
+            <div class="col-md-12" style="margin-top:20px">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div style="min-width:80%;font-weight:100;text-align:center;cursor:pointer;" class="book-now-btn" onclick="alert('아래 이메일이나 연락처로 문의바랍니다.  연락처: 02-3444-7821 이메일: trip@sutagroup.com 주식회사 수타그룹')">문의하기</div>
+                        <p style="margin-top:15px;">
+                            연락처: 02-3444-7821<br />
+                            이메일: trip@sutagroup.com<br />
+                            계좌번호: 농협 301-0178-0225-91<br />
+                            예금주: (주) 수타그룹<br />
+                        </p>
+                        <hr />
+                    </div>
+                </div>
+                <br />
+                <p>
+                    2인 1실 기준, 항공, 식사, 입장권, 교통, 모든 팁 등 일체포함비용입니다.
+                </p>
+            </div>
+            <div class="col-md-12" style="margin-top:30px">
+                <span style="float:left;width:33%;text-align:center"><img src="~/images/Shop/details2.png" width="30" height="30" style="margin:auto;" />@Model.days 일</span>
+                <span style="float:left;width:33%;text-align:center"><img src="~/images/Shop/details3.png" width="30" height="30" style="margin:auto;" /><span>@Model.Country 국가</span></span>
+                <span style="float:left;width:33%;text-align:center"><img src="~/images/Shop/details4.png" width="30" height="30" style="margin:auto;" /><span>@Model.City  도시</span><br /></span>
+
+            </div>
+            <div class="col-md-12 text-center" style="margin-top:20px;">
+                <strong>@Model.Startc</strong><br />
+                <strong>@Model.Endc</strong>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div style="margin:0px auto;">
+            <div style="vertical-align:text-top;">
+                <style>
+                    .main_content_view div, p, span, h5, h4, h3 {
+                        line-height: 150%;
+                        max-width: 730px;
+                    }
+                </style>
+                <div class="main_content_view">
+                    <img src="~/images/Season13/summary2.png" />
+                    <img src="~/images/Season13/course15.png" />
+                    <hr />
+                    <div class="more-wrap">
+                        <div class="content-wrap animated">
+                            <div class="content-txt">
+                                @foreach (var item in ViewBag.course as List<Courses>)
+                                {
+                                    <div>
+                                        <div style="width:100%; vertical-align:text-top; ">
+                                            <p class="C_title">@item.Course_title</p>
+
+                                            @Html.Raw(item.Course)
+
+
+
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="more-btn" style="max-width:100%;"><p class="open"> 일정 더 보기</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+
+
+
+        </div>
+    </div>
+    <div class="col-md-12">     @Html.Partial("_add")     </div>
+
+</div>
+<div style="display:none">
+
+</div>
+
+<style>
+        .more-wrap {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    }
+
+    .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 2s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    @@-webkit-keyframes slideDown {
+     0% {
+     opacity: 1;
+     -webkit-transform: translateY(-20px);
+     transform: translateY(-20px);
+    }
+     100% {
+     opacity: 1;
+     -webkit-transform: translateY(0);
+     transform: translateY(0);
+    }
+    }
+    @@keyframes slideDown {
+     
+     0% {
+     opacity: 1;
+     -webkit-transform: translateY(-20px);
+     transform: translateY(-20px);
+    }
+     100% {
+     opacity: 1;
+     -webkit-transform: translateY(0);
+     transform: translateY(0);
+    }
+    }
+    .slide-down {
+        -webkit-animation-name: slideDown;
+        animation-name: slideDown;
+    }
+    @@-webkit-keyframes slideUp {
+     0% {
+     -webkit-transform: translateY(20px);
+     transform: translateY(20px);
+    }
+     100% {
+     -webkit-transform: translateY(0px);
+     transform: translateY(0px);
+    }
+    }
+    @@keyframes slideUp {
+     0% {
+     -webkit-transform: translateY(20px);
+     transform: translateY(20px);
+    }
+     100% {
+     -webkit-transform: translateY(0px);
+     transform: translateY(0px);
+    }
+    }
+    .slide-up {
+        -webkit-animation-name: slideUp;
+        animation-name: slideUp;
+    }
+    .content-wrap {
+        height: 40px;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+    }
+    .close-btn, .more-btn {
+        display: block;
+        width: 100%;
+        padding: 80px 0 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        background: #fff
+    }
+    
+    .slide-up {
+        height: 150px;
+        padding-bottom: 0;
+        overflow: hidden;
+    }
+    .slide-down {
+        height: auto;
+        overflow: visible;
+        padding-bottom: 50px;
+    }
+    .more-btn p {
+        display:block;
+        color: #333;
+        cursor: pointer;
+        width: 100%;
+        font-size:1.6em;
+        font-weight:bold;
+        transition:ease 0.5s;
+    }
+    .close-btn:hover p, .more-btn:hover p {
+        color:#ff4157
+    }
+    .des_title {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-left: 5px;
+        color: #808080
+    }
+
+    .s_title {
+        font-weight: bold;
+        text-align: center;
+        color: #162541;
+    }
+
+    .C_title {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        padding: 10px;
+        border-top: 1px solid #606060;
+        border-bottom: 1px solid #d4d4d4;
+        background-color: #f1f1f1;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .slider {
+        width: 80%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+        margin: 0px 10px;
+    }
+
+        .slick-slide img {
+            width: 100%;
+        }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+
+    .slick-slide {
+        transition: all ease-in-out .3s;
+        opacity: .2;
+    }
+
+    .slick-active {
+        opacity: .5;
+    }
+
+    .slick-current {
+        opacity: 1;
+    }
+
+    .photo_mini div img {
+        width: 100%;
+        max-width: 240px;
+        max-height: 160px;
+    }
+
+    .shop-info2 {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+        .shop-info2 img {
+            max-width: 40px;
+        }
+
+        .shop-info2 div:last-of-type {
+            width: 40%;
+        }
+
+    .detail-city {
+        width: 280px;
+        height: 200px;
+        margin-top: 10px;
+    }
+</style>
+<script src="/Content/common/ideal-image-slider.min.js"></script>
+
+<script type="text/javascript">
+    var Sdate = "Model.Sdate";
+    var Edate = "Model.Edate";
+
+    var Sdate2 = Sdate.split("-");
+
+    var dateArray = Edate.split("-");
+
+    var dateObj2 = new Date(Sdate2[0], Number(Sdate2[1]) - 1, Sdate2[2]);
+    var dateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
+
+    var betweenDay = (dateObj.getTime() - dateObj2.getTime()) / 1000 / 60 / 60 / 24;
+
+    $('#period').append(betweenDay + 1 + "일");
+
+
+
+    $(document).ready(function () {
+        $("img").addClass("img-responsive");
+        $('.img-responsive').css("width", "");
+
+    });
+
+    var slider = new IdealImageSlider.Slider('#slider');
+    slider.start();
+
+
+   
+
+
+
+</script>
+
+@*@helper get_img(int id)
+    {
+        SupertalentE db = new SupertalentE();
+
+        string src = (from a in db.TG_Image where a.courses_id == id select a.ImagePath).FirstOrDefault();
+
+        var path = @src;
+
+        <li data-thumb="@src">
+            <img src="@src" style="width:100%" />
+        </li>
+
+
+    }*@
+
+@*@helper get_img2(int id)
+    {
+
+        SupertalentE db = new SupertalentE();
+
+
+        string src = (from a in db.TG_Image where a.courses_id == id select a.ImagePath).FirstOrDefault();
+
+        <img src="@src" class="detail-city" />
+
+    }*@
+
+<script>
+    $(function () {
+        $('.more-btn').on('click', function () {
+            if ($(this).children().is('.open')) {
+                $(this).html('<p class="close">닫기</p>').addClass('close-btn');
+                $(this).parent().removeClass('slide-up').addClass('slide-down');
+            } else {
+                $(this).html('<p class="open">더보기</p>').removeClass('close-btn');
+                $(this).parent().removeClass('slide-down').addClass('slide-up');
+            }
+        });
+    });
+</script>

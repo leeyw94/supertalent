@@ -1,0 +1,259 @@
+﻿@using supertalentoftheworld.Models
+@model supertalentoftheworld.Models.Board
+@{
+
+    string cate = Request["cate"] ?? "";
+    string file_dir = ViewBag.file_dir;
+
+    string user_auth = "N";
+    string alert_user = "N";
+
+
+    DateTime _today = DateTime.Today.AddDays(1);
+    DateTime _wdate = Model.BD_wdate;
+
+    TimeSpan ts = _today - _wdate;
+    int days = Convert.ToInt32(ts.TotalDays);
+
+
+    string language = "korea";
+
+    try
+    {
+        language = Request.Cookies["language"].Value ?? "korea";
+    }
+
+    catch
+    {
+
+    }
+
+
+
+
+
+
+    if (Model.BD_writer == User.Identity.Name && days <= 10)
+    {
+        user_auth = "Y";
+
+
+    }
+
+    if (Model.BD_writer == User.Identity.Name && days > 10)
+    {
+        alert_user = "Y";
+    }
+}
+<script src="~/Content/Board/Board.js"></script>
+<link href="~/Content/Board/board.css" rel="stylesheet" />
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var auth_yes = "@user_auth";
+        var alert_user = "@alert_user";
+       // $('.comment_memo').val().replace("/\n/g", "<br>");
+
+
+
+            if (auth_yes == "Y") {
+                $(".check_auth").css("display", "block");
+            }
+
+            if (alert_user == "Y") {
+
+                $("#user_edit").html("<div class='alert-danger' style='width:100%;text-align:center;float:right;padding:5px;margin:10px 0;color:#fff'>※  This is your article written @days days ago. Please contact the administrator for deletion and modification. You can not delete and modify the article 10 days later</div>");
+            }
+
+        });
+</script>
+@if (language == "korea")
+{
+    @Html.Partial("/Views/Layout/Header_ko.cshtml")
+}
+else
+{
+
+    @Html.Partial("/Views/Layout/Header.cshtml")
+
+}
+
+<div class="container" style="margin-top:20px">
+    <div class="row">
+        <div class="col-md-11">
+            <div class="card ">
+
+                <div class="content ">
+
+                    <div class="form-horizontal ">
+
+                        <div class="card-header" data-background-color="purple">
+                            <h4 class="title" style="font-weight: bold"> @Model.BD_title </h4>
+                            <p class="category">
+
+                                <div class="row">
+
+                                    <div class="col-md-12 text-right" style="color: #000; font-size: 0.8em">
+                                        @Model.BoardMenu.BM_title |
+                                        @if (Model.BD_edate != null)
+                                        {
+                                            <span> @Model.BD_edate.GetValueOrDefault().ToString("yyyy-MM-dd HH:mm")</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.BD_wdate.ToString("yyyy-MM-dd HH:mm")</span>
+                                        }
+
+                                        <div  style="width:70px;font-weight:bold ;float:right ">▶ @Html.ActionLink("Go to List", "board_list", new { cate })</div>
+                                    </div>
+                                  
+                                    <div id="user_edit"></div>
+                                </div>
+                            </p>
+
+                        </div>
+                        <hr />
+                        <div class="card-content" >
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <style>
+                                        .main_content_view img {
+                                            width: 100% !important ; height:auto !important ; margin:10px auto ;
+                                        }
+
+                                        
+                                        .main_content_view div, p, span, h5, h4, h3 {
+                                            line-height: 170%;
+                                            max-width: 100%;
+                                        }
+
+                                        .main_content_view p {
+                                            margin-bottom: 10px
+                                        }
+                                  
+
+                                    </style>
+                                    <div class="main_content_view">
+                                        @Html.Raw(Model.BD_content)
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+
+                            <div class="row" style="display:table;width:100%">
+                                <div class="col-md-12 " style="width:100%;margin:0 auto;">
+
+                                  ▶  @Html.ActionLink("Go to List", "board_list", new { cate })
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <ul style="margin-top: 20px">
+                        @foreach (BoardFile file in Model.BoardFile.Where(a => a.BF_useable == 1))
+                        {
+                            <li>
+                               
+
+                                <a href="http://suta.theblueeye.com/board/fdown?name=@file.BF_name">▼ Download <img src="~/images/common/s_save_icon.gif" /></a>
+                            </li>
+                        }
+
+                    </ul>
+                  
+
+
+                    <form id="form1" name="form1" action="/board/BbsComemt_action" method="post">
+                        <input type="hidden" name="cate" value="@Request["cate"]" />
+                        <input type="hidden" name="BD_idx" value="@Request["idx"]" />
+                        <input type="hidden" name="step" value="2" />
+
+
+
+
+
+                        <div class="row" style="border-bottom :solid 1px #e3e3e3;padding-bottom:10px;display:none">
+                            <div class="sub_title" style="font-weight: bold;margin-bottom:10px;">Comments</div>
+
+
+                            @foreach (var item in ViewBag.댓글)
+                            {
+                                string auth_class = "display:none;";
+                                <div class="form-group">
+                                    <div class="col-md-12" style="font-size:0.9em;line-height:25px;">
+                                        <div class="col-md-1"><b @if (User.Identity.Name != item.writer) { <text> style="color:dodgerblue" </text> }>ㆍ @item.user.user_name </b> : </div>
+                                        <div class="col-md-9 comment_memo">
+
+                                            @*@Html.Raw(item.memo.Replace("\r\n", "<br />"))*@
+
+
+                                            @item.memo
+
+
+                                        </div>
+
+                                        <div class="col-md-1 text-right ">
+                                            @item.write_date.ToString("MM-dd: HH:mm")
+                                        </div>
+                                        <div class="col-md-1">
+
+                                            @if (item.writer == User.Identity.Name)
+                                            {
+                                                auth_class = "display:block;";
+                                            }
+
+                                            @if (ViewBag.관리자 == "Y")
+                                            {
+                                                auth_class = "display:block;";
+                                            }
+
+                                            <img src="~/images/common/s_icon_del.gif" style="cursor:pointer;margin-left:10px;@auth_class" onclick="del_imsi('/board/BbsComemt_action?c_idx=@item.idx&BD_idx=@Request["idx"]&cate=@Request["cate"]') " />
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+
+
+
+
+                        <div class="row" style="margin-top:10px;display:none">
+                            <div class="form-group">
+
+                                <div class="col-md-10 ">
+                                    <textarea class="form-control content" name="memo" id="memo" style="height:50px;"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1 text-right">
+                                    <div class="btn btn-fill btn-info " style="width:100%" onclick="save_it()"> @SmartFactory.Util.get_word.language_code(language, "Save")</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function save_it() {
+
+        check("memo", "form1");
+    }
+
+</script>

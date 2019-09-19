@@ -1,0 +1,219 @@
+﻿@using supertalentoftheworld.Models
+@model supertalentoftheworld.Models.Board
+@{string language = Request.Cookies["language"].Value ?? "korea"; }
+@{
+    string idx = Request["idx"] ?? "";
+    string cate = Request["cate"] ?? "";
+    string Mode = "i";
+    if (string.IsNullOrEmpty(Request["cate"]))
+    {
+        Mode = "i";
+    }
+    else
+    {
+        Mode = "e";
+    }
+
+}
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+<script src="~/Content/Board/Board.js"></script>
+
+<script type="text/javascript">
+
+    function save_it() {
+
+        var check_it = "Y";
+        var BD_BM_idx = $("#cate").val();
+        $("#cate").attr("value", BD_BM_idx);
+
+        $("input[type='file'][name*='file_1']").each(function () {
+            if ($(this).val().length == 0) {
+                alert("field is empty");
+                check_it = "N";
+
+            }
+
+        });
+
+        if (check_it == "Y") {
+            check("BD_title", "BoardForm");
+
+        }
+
+
+    }
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="content">
+
+                    @using (Html.BeginForm(Model.BD_idx == 0 ? "CreateBoard" : "UpdateBoard", "Board", FormMethod.Post, new { enctype = "multipart/form-data", id = "BoardForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(a => a.BD_idx)
+                        <input type="hidden" name="cate" id="cate" value="@Request["cate"]" />
+                        <div class="form-horizontal">
+                         
+                                <img src="~/images/common/bullet01.png" /> <span class="sub_title_b" style="font-size:1.2em;position:relative;top:4px;left:3px"> @SmartFactory.Util.get_word.language_code(language, "Create")</span>
+                          
+                        
+                            <hr />
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+
+
+                                    <div id="collapseOne" class="panel-collapse ">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Type</label>
+                                            <div class="col-md-4">
+                                                @Html.DropDownList("BD_BM_idx", (SelectList)ViewBag.category, new { @class = "selectpicker" })
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Title </label>
+                                            <div class="col-md-10">
+
+                                                @Html.TextBoxFor(a => a.BD_title, new { Class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Content </label>
+                                            <div class="col-md-10">
+
+                                                @Html.TextAreaFor(a => a.BD_content, new { Class = "form-control" })
+
+                                                <script>
+                                                    CKEDITOR.replace('BD_content', {
+                                                        filebrowserUploadUrl: '/Board/BoardImageUpload?type=Files',
+                                                        filebrowserImageUploadUrl: '/Board/BoardImageUpload?type=Images',
+                                                        height: '300px',
+                                                        width: '100%'
+                                                    });
+                                                    CKEDITOR.on('dialogDefinition', function (ev) {
+                                                        // Take the dialog name and its definition from the event data.
+                                                        var dialogName = ev.data.name;
+                                                        var dialogDefinition = ev.data.definition;
+                                                        // Check if the definition is from the dialog we're
+                                                        // interested in (the 'image' dialog).
+                                                        if (dialogName == 'image') {
+                                                            // Get a reference to the 'Image Info' tab.
+
+                                                            dialogDefinition.removeContents('advanced');
+                                                            dialogDefinition.removeContents('Link');
+
+
+                                                        }
+                                                    });
+                                                </script>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="margin-left:20px">
+                                        <h4 class="panel-title">
+                                            <a data-target="#collapseTwo" href="#" data-toggle="collapse">
+                                                More
+
+                                                <b class="caret"></b>
+                                            </a>
+                                        </h4>
+                                    </div>
+
+                                    <div id="collapseTwo" class="panel-collapse collapse">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"> </label>
+                                            <div class="col-md-4">
+                                                <span class="btn btn-info " onclick=" AddFile($(this), 'file_list', 'file_1') "> @SmartFactory.Util.get_word.language_code(language, "attachment file")</span>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"></label>
+                                            <div class="col-md-10" id="file_list">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"> </label>
+                                            <div class="col-md-10">
+                                                @foreach (BoardFile file in Model.BoardFile.Where(a => a.BF_useable == 1))
+                        {
+                            <ul>
+                                <li>
+                                    @Html.ActionLink(file.BF_name.Substring(14), "Fdown", new { name = file.BF_name })
+                                    @Html.Hidden("oriFileIdx", file.BF_idx)
+
+
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" style="padding-right: 20px" onclick=" RemoveFile($(this)) "> <i class="fa fa-times"></i></button>
+                                </li>
+                            </ul>
+}
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-md-12" style="display: table; margin: 20px; text-align: center;">
+
+                                        @if (Model.BD_idx == 0)
+                {
+                        <div class="btn btn-default btn-fill btn-wd   btn-info" onclick=" save_it() "> @SmartFactory.Util.get_word.language_code(language, "save")</div>
+}
+else
+{
+                        <div class="btn btn-default btn-fill btn-wd   btn-info" onclick=" save_it() ">  @SmartFactory.Util.get_word.language_code(language, "save")</div>
+                        <div class="btn btn-default btn-fill btn-wd   btn-danger" id="Delbtn" onclick="save_it() ">   @SmartFactory.Util.get_word.language_code(language, "Remove")</div>
+}
+
+                                        <div class="btn btn-default btn-fill btn-wd   btn-default" onclick="go('/board/board_list') ">
+
+                                            @SmartFactory.Util.get_word.language_code(language, "backtolist")
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </fieldset>
+
+
+
+
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@using (Html.BeginForm("DelBoard", "Board", FormMethod.Post, new { id = "DelForm" }))
+{
+    @Html.Hidden("idx", Model.BD_idx)
+    @Html.Hidden("cate", cate)
+}

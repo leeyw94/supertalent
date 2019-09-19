@@ -1,0 +1,178 @@
+﻿@model supertalentoftheworld.Models.Model_Data
+@using supertalentoftheworld.Models
+
+@Html.Partial("/Views/Layout/Header.cshtml")
+
+<div>
+    <div>
+        <section class="image-head-wrapper" style="background-image: url('/images/Background/Finalist-back.jpg'); background-size:cover">
+            <div class="inner-wrapper">
+                <h1 class="in-img-text">Finalists</h1>
+            </div>
+        </section>
+    </div>
+
+    <div class="row box" style="margin-top:50px;">
+
+        <div class="col-md-12" style="background-color:#f2f2f2">
+            <div class="container">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                            @foreach (var item in ViewBag.images)
+                            {
+                                var i = 1;
+                                <li data-target="#myCarousel+@i" data-slide-to=@i></li>
+                                i++;
+                            }
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src=@Model.MainImgPath style="width:100%; height:440px" alt="First slide"onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'">
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+
+                            @foreach (var item in ViewBag.images)
+                            {
+                                <div class="item">
+                                    <img src="@item.ImagePath" style="width:100%; height: 440px" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel1" data-slide="prev"> <img src="/images/icons/left-arrow.png" onmouseover="this.src = '/images/icons/left-arrow-hover.png'" onmouseout="this.src = '/images/icons/left-arrow.png'" alt="left"></a>
+                        <a class="right carousel-control" href="#myCarousel1" data-slide="next"><img src="/images/icons/right-arrow.png" onmouseover="this.src = '/images/icons/right-arrow-hover.png'" onmouseout="this.src = '/images/icons/right-arrow.png'" alt="left"></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"  " >
+                    <div style="font-size:2rem;padding-top:10px;text-decoration:underline" >B I O G R A P H Y</div><hr />
+                    <p class="text-bio">
+                        @Model.M_content
+                    </p>
+                </div>
+               
+                <div class="row col-lg-3 col-md-3 col-sm-3" style="background-color:#f1f1f1; padding-bottom:30px;">
+                    <div class="col-lg-12">
+                        <h3 class="title-bio">NAME</h3>
+                        <p class="text-bio">@Model.M_name</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6" >
+                        <h3 class="title-bio">FROM</h3>
+                        <p class="text-bio">@Model.M_country</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <img style="margin-top:40px; max-width:50px; min-width:50px" src="@Model.M_country_img" onerror="this.src='http://www.supertalent.com/upload/error.png'">
+                    </div>
+                    <div class="col-lg-12">
+                        <h3 class="title-bio">BORN IN</h3>
+                        <p class="text-bio">@Model.M_city</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <h3 class="title-bio">AGE</h3>
+                        <p class="text-bio">@Model.M_age</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <h3 class="title-bio">HEIGHT</h3>
+                        <p class="text-bio">@Model.M_height</p>
+                    </div>
+                    <div class="col-lg-12">
+                        <h3 class="title-bio">LANGUAGE</h3>
+                        <p class="text-bio">@Model.M_language</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <hr style="margin:50px;" />
+    <div class="text-center" style="margin-bottom:50px;">
+        <button type="button" class="book-now-btn" onclick="goBack();">BACK</button>
+    </div>
+
+</div>
+<style>
+
+    .title-bio {
+        font-family: 'Adobe Arabic';
+        font-weight: bold;
+        color: #ff4157;
+        margin-top: 30px;
+    }
+
+    .text-bio {
+        font-size: 1.0em;
+        color: #5e5e5e;
+    }
+
+    .title-text {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .note {
+        margin-bottom: 30px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .slider {
+        width: 80%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+        margin: 0px 10px;
+    }
+
+        .slick-slide img {
+            width: 100%;
+        }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+
+    .slick-slide {
+        transition: all ease-in-out .3s;
+        opacity: .2;
+    }
+
+    .slick-active {
+        opacity: .5;
+    }
+
+    .slick-current {
+        opacity: 1;
+    }
+
+    .photo_mini div img {
+        width: 100%;
+        max-width: 240px;
+        max-height: 160px;
+    }
+</style>
+<script type="text/javascript">
+
+    function goBack() {
+        window.history.back();
+    }
+
+
+</script>
+

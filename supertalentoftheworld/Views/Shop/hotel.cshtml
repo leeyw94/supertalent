@@ -1,0 +1,311 @@
+﻿
+@model supertalentoftheworld.Models.hotel_ask
+
+
+<style>
+
+    #one_price .slider-track-high {
+        background: #e1e1e1;
+    }
+
+    #one_price .slider-track-low {
+        background: #e1e1e1;
+    }
+
+    #one_price .slider-selection {
+        background: #46bffc;
+    }
+
+    .card .control-label {
+        font-weight: 500;
+    }
+
+
+    table {
+        border-collapse: collapse !important;       
+        border-spacing: 0px;
+      
+      
+    }
+    .card table > thead {
+        border-collapse: collapse !important;
+        height: 45px !important;
+        background: #fff !important;
+        text-align: center !important;
+        color: #000000 !important;
+        font-size: 1.4rem !important;
+        padding: 3px !important;
+        border: none !important;
+        font-weight: 500 !important;
+        font-family: 'Arial', sans-serif
+    }
+
+
+    .card table > tbody {
+        border-collapse: collapse !important;
+        color: #808080 !important;
+        background: #fff !important;
+        border: none !important;
+    }
+    .card table th, td {
+        border: none !important;
+        color: #808080
+    }
+
+</style>
+
+<div class="container">
+
+    <div class="col-md-5 card">
+
+
+        <form action="/shop/hotel_action" method="post" id="form1">
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal" style="margin-top:10px">
+                <h4 style="text-align:center;">호텔 단체 요금 견적</h4>
+                <hr style="margin:5px 0"  />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+
+                    <label class="control-label col-md-4">국가</label>
+
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.nationality, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nationality, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>도시</label>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.city, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>체크인</label>
+                    <div class="col-md-8">
+
+                        <input type="text" name="check_in" id="check_in" class="form-control datetimepicker" />
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>체크아웃</label>
+                    <div class="col-md-8">
+                        <input type="text" name="check_out" id="check_out" class="form-control datetimepicker" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>단체유형</label>
+                    <div class="col-md-8">
+
+
+                        <input type="radio" name="group_code" value="트윈" class="radio-inline" checked /> 트윈
+                        <input type="radio" name="group_code" value="더블" class="radio-inline" /> 더블
+                        <input type="radio" name="group_code" value="싱글" class="radio-inline" /> 싱글
+
+                        @Html.ValidationMessageFor(model => model.group_code, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>객실수</label>
+                    <div class="col-md-8">
+
+
+                        <span style="float:left"> <input type="text" name="room_count" id="room_count" class="form-control" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength="3" style="width:50px"></span>
+                        <span style="margin:5px 0;padding:5px;color:#5aa1e5">* 5실 이상 (숫자만 등록)</span>
+
+                        @Html.ValidationMessageFor(model => model.room_count, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>호텔등급</label>
+                    <div class="col-md-8">
+                        <input type="radio" name="grade" value="2" class="radio-inline" checked /> 2성급
+                        <input type="radio" name="grade" value="3" class="radio-inline" /> 3성급
+                        <input type="radio" name="grade" value="4" class="radio-inline" /> 4성급
+                        <input type="radio" name="grade" value="5" class="radio-inline" /> 5성급
+                        @Html.ValidationMessageFor(model => model.grade, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>원하는 1박 요금</label>
+                    <div class="col-md-8">
+
+                        <input id="one_price" type="text" name="one_price" />
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>성함</label>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.user_name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.user_name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>연락처</label>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.hp, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.hp, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">카카오톡 아이디</label>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.user_id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.user_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"><span class="star">*</span>이메일</label>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.memo, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(model => model.memo, new { @class = "textarea form-control" })
+                        @Html.ValidationMessageFor(model => model.memo, "", new { @class = "text-danger  " })
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-12 " style="margin:0 auto;">
+
+                        <div class="submit-btn" style="min-width:120px; border-radius:15px;cursor:pointer;text-align:center  ;margin:0 auto ;display:table " onclick="send_it()"> 보내기</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<link href="~/Content/Board/board.css" rel="stylesheet" />
+<link href="~/Content/Board/bootstrap-slider.min.css" rel="stylesheet" />
+<script src="~/Content/Board/bootstrap-slider.min.js"></script>
+
+
+
+<script src="~/Content/Board/moment.min.js"></script>
+<script src="~/Content/Board.js"></script>
+
+<script src="~/Content/Board/bootstrap-datetimepicker.js"></script>
+<script src="~/Content/Board/demo.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        // 가격 범위 선택
+        $("#one_price").slider({
+            id: "one_price", min: 5000, max: 500000, step: 1000, range: true, value: [50000, 300000],
+            formatter: function (value) {
+
+                var str_1 = Number(value[0]).toLocaleString();
+
+                var str_2 = Number(value[1]).toLocaleString();
+
+
+
+                var price_it = str_1 + "원 ~ " + str_2 + "원"
+
+
+
+
+                return price_it;
+            }
+
+        }
+
+
+
+        );
+
+        // Init DatetimePicker
+
+    });
+
+    function replaceAll(str, searchStr, replaceStr) {
+        return str.split(searchStr).join(replaceStr);
+    }
+
+
+
+</script>
+<script>
+    function onlyNumber(event) {
+        event = event || window.event;
+        var keyID = (event.which) ? event.which : event.keyCode;
+        if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39)
+            return;
+        else
+            return false;
+    }
+
+    function removeChar(event) {
+        event = event || window.event;
+        var keyID = (event.which) ? event.which : event.keyCode;
+        if (keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39)
+            return;
+        else
+            event.target.value = event.target.value.replace(/[^0-9]/g, "");
+    }
+</script>
+
+
+
+<script>
+
+    function send_it() {
+        var startDate = $("#check_in").val().substring(0, 10);
+        var endDate = $("#check_out").val().substring(0, 10);
+
+        var startDate = startDate.split("-");
+        var endDate = endDate.split("-");
+
+        var day1 = new Date(startDate[0], startDate[1], startDate[2]).valueOf();
+
+        var day2 = new Date(endDate[0], endDate[1], endDate[2]).valueOf();
+
+        if (day1 > day2) {
+
+            alert("시작일이 종료일보다 큽니다. 다시 선택해 주세요.");
+            return;
+
+        }
+
+        check("city,check_in,check_out,room_count,user_name,hp,email", "form1");
+
+    }
+
+</script>
+<script type="text/javascript">
+    $().ready(function () {
+
+
+        // Init DatetimePicker
+        demo.initFormExtendedDatetimepickers();
+    });
+</script>

@@ -1,0 +1,124 @@
+﻿@model IEnumerable<supertalentoftheworld.Models.Model_Data>
+
+@{
+    ViewBag.Title = "Model_list";
+}
+@Html.Partial("/Views/Layout/Header_admin.cshtml")
+<div class="text-center" style="margin:50px;">
+    <h2 style="font-weight:bold;">Model List</h2>
+</div>
+
+<div class="text-right" style="margin:20px;">
+    <p>
+        <a class="btn-success" style="padding:10px;" href="/Admin/Model_add">Create New</a>
+    </p>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_season)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainImgPath)
+        </th>
+        <th>
+            Images
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.M_season)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.M_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.M_age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.M_country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.M_city)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.M_height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainImgPath)
+            </td>
+            <td>
+                <a class="btn-primary" style="padding:5px" href="/Admin/MI_list?id=@Html.DisplayFor(modelItem => item.id)" type="button">이미지 관리</a>
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "/Model_edit", new { id = item.id }) |
+                @*@Html.ActionLink("Details", "Details", new { id = item.id }) |*@
+                <button class="btn-danger" style="border:none" onclick="confirm_d(@item.id)" type="button">Delete</button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    function confirm_d(id) {
+        if (confirm("정말 삭제하시겠습니까?") == true) {    //확인
+            location.href = "/Admin/Model_delete?id=" + id + "";
+        } else {   //취소
+            return;
+        }
+    }
+
+   // level_check();
+
+    function level_check() {        
+        
+        @*if ("@User.Identity.IsAuthenticated" == "True") {
+            var user_level = "@Request.Cookies["user_level"].Value";
+          
+            if (user_level == "9") {
+                console.log("관리자 권한 확인")
+            } else {
+                if (!alert("권한이 없습니다. 관리자 계정으로 로그인 하세요.")) document.location = '/home/login';
+            }
+        } else {
+            if (!alert("로그인 후 사용하세요.")) document.location = '/home/login';
+        }*@
+    }
+
+
+</script>

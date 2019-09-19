@@ -1,0 +1,3064 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="supertalent_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bbs_comment">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BD_idx" Type="int" Nullable="false" />
+          <Property Name="step" Type="int" Nullable="false" />
+          <Property Name="memo" Type="ntext" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" />
+          <Property Name="writer" Type="varchar" MaxLength="50" />
+          <Property Name="user_ip" Type="varchar" MaxLength="50" />
+          <Property Name="edit_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Board">
+          <Key>
+            <PropertyRef Name="BD_idx" />
+          </Key>
+          <Property Name="BD_idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BD_BM_idx" Type="int" Nullable="false" />
+          <Property Name="BD_title" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="BD_content" Type="ntext" />
+          <Property Name="BD_writer" Type="varchar" MaxLength="200" />
+          <Property Name="BD_password" Type="varchar" MaxLength="200" />
+          <Property Name="BD_hit" Type="int" Nullable="false" />
+          <Property Name="BD_wdate" Type="datetime" Nullable="false" />
+          <Property Name="BD_edate" Type="datetime" />
+          <Property Name="BD_ddate" Type="datetime" />
+          <Property Name="BD_useable" Type="int" Nullable="false" />
+          <Property Name="machine_id" Type="varchar" MaxLength="50" />
+          <Property Name="project_id" Type="int" />
+        </EntityType>
+        <EntityType Name="BoardComment">
+          <Key>
+            <PropertyRef Name="BC_idx" />
+          </Key>
+          <Property Name="BC_idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BC_BD_idx" Type="int" Nullable="false" />
+          <Property Name="BC_content" Type="ntext" />
+          <Property Name="BC_wdate" Type="datetime" Nullable="false" />
+          <Property Name="BC_edate" Type="datetime" Nullable="false" />
+          <Property Name="BC_ddate" Type="datetime" />
+          <Property Name="BC_good" Type="int" Nullable="false" />
+          <Property Name="BC_worst" Type="int" Nullable="false" />
+          <Property Name="BC_parent" Type="int" Nullable="false" />
+          <Property Name="BC_useable" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BoardFile">
+          <Key>
+            <PropertyRef Name="BF_idx" />
+          </Key>
+          <Property Name="BF_idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BF_BD_idx" Type="int" Nullable="false" />
+          <Property Name="BF_name" Type="varchar" MaxLength="300" />
+          <Property Name="BF_wdate" Type="datetime" Nullable="false" />
+          <Property Name="BF_useable" Type="int" Nullable="false" />
+          <Property Name="BD_BM_idx" Type="int" Nullable="false" />
+          <Property Name="BF_type" Type="varchar" MaxLength="20" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" />
+          <Property Name="main_img" Type="varchar" MaxLength="1" />
+          <Property Name="machine_id" Type="varchar" MaxLength="50" />
+          <Property Name="project_id" Type="int" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" />
+          <Property Name="file_title" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="BoardMenu">
+          <Key>
+            <PropertyRef Name="BM_idx" />
+          </Key>
+          <Property Name="BM_idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BM_title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BM_com" Type="varchar" MaxLength="150" />
+          <Property Name="BM_url" Type="varchar" MaxLength="150" />
+          <Property Name="BM_type" Type="varchar" MaxLength="150" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" />
+          <Property Name="open_yn" Type="varchar" MaxLength="10" />
+          <Property Name="index_order" Type="int" />
+        </EntityType>
+        <EntityType Name="cal_memo">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" />
+          <Property Name="title" Type="varchar(max)" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="gubun_type" Type="varchar" MaxLength="50" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="end_date" Type="datetime" />
+          <Property Name="work_date" Type="datetime" />
+          <Property Name="project_idx" Type="int" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" />
+          <Property Name="file_sn" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CategoryMenus">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="step_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="step_url1" Type="varchar" MaxLength="50" />
+          <Property Name="step_url2" Type="varchar" MaxLength="50" />
+          <Property Name="step_auth" Type="varchar" MaxLength="150" />
+          <Property Name="step_writedate" Type="datetime" />
+          <Property Name="step_index" Type="varchar" MaxLength="2" />
+          <Property Name="step_icon" Type="varchar" MaxLength="50" />
+          <Property Name="step_dept" Type="int" Nullable="false" />
+          <Property Name="step_orderby" Type="int" Nullable="false" />
+          <Property Name="isused" Type="bit" />
+        </EntityType>
+        <EntityType Name="code_auth">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="code_name" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="index_order" Type="int" Nullable="false" />
+          <Property Name="gubun" Type="varchar" MaxLength="1" />
+          <Property Name="url" Type="varchar" MaxLength="150" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="code_index">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code_name" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="index_order" Type="int" Nullable="false" />
+          <Property Name="gubun" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="code_main">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" Nullable="false" />
+          <Property Name="code_id" Type="varchar" MaxLength="4" />
+          <Property Name="code_name" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="index_order" Type="int" Nullable="false" />
+          <Property Name="gubun" Type="varchar" MaxLength="1" />
+          <Property Name="project_id" Type="int" />
+          <Property Name="project_name" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="code_nationality">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="code_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="index_order" Type="int" Nullable="false" />
+          <Property Name="gubun" Type="varchar" MaxLength="1" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="writer_id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="code_project_state">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="int" Nullable="false" />
+          <Property Name="code_name" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="index_order" Type="int" Nullable="false" />
+          <Property Name="gubun" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="code_time">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="int" Nullable="false" />
+          <Property Name="code_name" Type="varchar" MaxLength="50" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" />
+          <Property Name="index_order" Type="int" />
+          <Property Name="gubun" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="company_id" />
+          </Key>
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="nationality" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" />
+          <Property Name="index_order" Type="int" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="department_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="department_auth" Type="varchar" MaxLength="150" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="index_order" Type="int" />
+        </EntityType>
+        <EntityType Name="file_list">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="file_menu_id" Type="int" />
+          <Property Name="file_idx" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="file_name" Type="varchar" MaxLength="250" />
+          <Property Name="file_pre_name" Type="varchar" MaxLength="250" />
+          <Property Name="file_size" Type="int" Nullable="false" />
+          <Property Name="hit" Type="int" Nullable="false" />
+          <Property Name="file_type" Type="varchar" MaxLength="50" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="file_menu">
+          <Key>
+            <PropertyRef Name="file_menu_id" />
+          </Key>
+          <Property Name="file_menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="file_menu_name" Type="varchar" MaxLength="50" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" />
+          <Property Name="write_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" />
+          <Property Name="user_ip" Type="varchar" MaxLength="50" />
+          <Property Name="pre_page" Type="varchar" MaxLength="150" />
+          <Property Name="connect_agent" Type="varchar" MaxLength="250" />
+          <Property Name="connect_host" Type="varchar" MaxLength="250" />
+          <Property Name="connect_path" Type="varchar" MaxLength="250" />
+          <Property Name="memo" Type="varchar" MaxLength="250" />
+          <Property Name="connect_date" Type="datetime" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="page" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="hotel_ask">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nationality" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="check_in" Type="date" Nullable="false" />
+          <Property Name="check_out" Type="date" Nullable="false" />
+          <Property Name="group_code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="room_count" Type="int" Nullable="false" />
+          <Property Name="grade" Type="int" Nullable="false" />
+          <Property Name="one_price" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hp" Type="varchar" MaxLength="50" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="memo" Type="ntext" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="code_name" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="korea" Type="varchar(max)" />
+          <Property Name="english" Type="varchar(max)" />
+          <Property Name="code_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="machine">
+          <Key>
+            <PropertyRef Name="machine_id" />
+          </Key>
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="machine_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="machine_name" Type="varchar" MaxLength="150" />
+          <Property Name="write_date" Type="datetime" />
+          <Property Name="writer_id" Type="varchar" MaxLength="50" />
+          <Property Name="edit_date" Type="datetime" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="my_work">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" />
+          <Property Name="work_time" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar(max)" />
+          <Property Name="use_yn" Type="varchar" MaxLength="100" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="edit_date" Type="datetime" />
+          <Property Name="work_date" Type="datetime" Nullable="false" />
+          <Property Name="end_date" Type="datetime" Nullable="false" />
+          <Property Name="state" Type="int" Nullable="false" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="project_id" Type="int" Nullable="false" />
+          <Property Name="open_it" Type="varchar" MaxLength="2" />
+          <Property Name="file_sn" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="New_work">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="project_id" Type="int" Nullable="false" />
+          <Property Name="spend_hour" Type="float" Nullable="false" />
+          <Property Name="spend_time" Type="time" Precision="7" />
+          <Property Name="memo" Type="ntext" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="edit_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Process">
+          <Key>
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Num" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="150" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="pic1" Type="varchar" MaxLength="50" />
+          <Property Name="pic2" Type="varchar" MaxLength="50" />
+          <Property Name="wrtie_date" Type="datetime" />
+          <Property Name="writer_name" Type="varchar" MaxLength="50" />
+          <Property Name="gubun" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="project_act">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="project_sub_title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="project_dir_idx" Type="int" Nullable="false" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="start_date" Type="datetime" Nullable="false" />
+          <Property Name="end_date" Type="datetime" Nullable="false" />
+          <Property Name="maker_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="set_time" Type="int" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="work_per" Type="int" Nullable="false" />
+          <Property Name="memo" Type="varchar" MaxLength="150" />
+          <Property Name="manager" Type="varchar" MaxLength="50" />
+          <Property Name="project_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="project_dir">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="project_id" Type="int" Nullable="false" />
+          <Property Name="project_dir_title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="project_step" Type="int" Nullable="false" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="start_date" Type="datetime" Nullable="false" />
+          <Property Name="end_date" Type="datetime" Nullable="false" />
+          <Property Name="state" Type="int" Nullable="false" />
+          <Property Name="maker_id" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="project_main">
+          <Key>
+            <PropertyRef Name="project_id" />
+          </Key>
+          <Property Name="project_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="project_id_name" Type="int" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="owner_id" Type="varchar" MaxLength="50" />
+          <Property Name="project_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="start_date" Type="date" />
+          <Property Name="end_date" Type="date" />
+          <Property Name="state" Type="int" Nullable="false" />
+          <Property Name="memo" Type="varchar" MaxLength="350" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="writer" Type="varchar" MaxLength="50" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" />
+          <Property Name="index_order" Type="int" Nullable="false" />
+          <Property Name="project_code" Type="varchar" MaxLength="4" />
+          <Property Name="file_sn" Type="varchar" MaxLength="100" />
+          <Property Name="mode_type" Type="varchar" MaxLength="20" />
+          <Property Name="user_ip" Type="varchar" MaxLength="50" />
+          <Property Name="machine_id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="project_main_back">
+          <Key>
+            <PropertyRef Name="project_id" />
+          </Key>
+          <Property Name="project_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="project_id_name" Type="varchar" MaxLength="50" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="project_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="start_date" Type="date" />
+          <Property Name="end_date" Type="date" />
+          <Property Name="state" Type="int" Nullable="false" />
+          <Property Name="memo" Type="varchar" MaxLength="350" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="writer" Type="varchar" MaxLength="50" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" />
+          <Property Name="index_order" Type="int" Nullable="false" />
+          <Property Name="project_code" Type="varchar" MaxLength="4" />
+          <Property Name="file_sn" Type="varchar" MaxLength="100" />
+          <Property Name="mode_type" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="QA">
+          <Key>
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="150" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="pic1" Type="varchar" MaxLength="50" />
+          <Property Name="pic2" Type="varchar" MaxLength="50" />
+          <Property Name="wrtie_date" Type="datetime" />
+          <Property Name="writer_name" Type="varchar" MaxLength="50" />
+          <Property Name="gubun" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="50" />
+          <Property Name="user_company" Type="varchar" MaxLength="50" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_password" Type="varchar" MaxLength="50" />
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_auth" Type="varchar(max)" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="use_yn" Type="varchar" MaxLength="1" />
+          <Property Name="check_auth" Type="int" Nullable="false" />
+          <Property Name="user_tel" Type="varchar" MaxLength="50" />
+          <Property Name="writer" Type="varchar" MaxLength="50" />
+          <Property Name="user_email" Type="varchar" MaxLength="150" />
+          <Property Name="con_date" Type="datetime" />
+          <Property Name="main_bg_color" Type="varchar" MaxLength="10" />
+          <Property Name="photo_profile" Type="varchar" MaxLength="150" />
+          <Property Name="alert_yn" Type="int" Nullable="false" />
+          <Property Name="edit_date" Type="datetime" />
+          <Property Name="manager_yn" Type="varchar" MaxLength="1" />
+          <Property Name="position" Type="varchar" MaxLength="30" />
+          <Property Name="language" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="work_list">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" />
+          <Property Name="gubun_code" Type="float" Nullable="false" />
+          <Property Name="title" Type="varchar(max)" />
+          <Property Name="gubun_type" Type="varchar" MaxLength="50" />
+          <Property Name="use_yn" Type="varchar" MaxLength="100" />
+          <Property Name="who" Type="varchar" MaxLength="100" />
+          <Property Name="write_date" Type="datetime" Nullable="false" />
+          <Property Name="edit_date" Type="datetime" />
+          <Property Name="work_date" Type="datetime" Nullable="false" />
+          <Property Name="end_date" Type="datetime" Nullable="false" />
+          <Property Name="state" Type="int" Nullable="false" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="project_idx" Type="int" Nullable="false" />
+          <Property Name="open_it" Type="varchar" MaxLength="2" />
+          <Property Name="who_list" Type="varchar" MaxLength="300" />
+          <Property Name="index" Type="int" />
+        </EntityType>
+        <!--생성 중 오류 발생:
+경고 6002: 테이블/뷰 'supertalent_db.dbo.member'에 기본 키가 정의되지 않았습니다. 키가 유추되었고 읽기 전용 테이블/뷰로 정의되었습니다.-->
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="idx" />
+            <PropertyRef Name="company_id" />
+            <PropertyRef Name="department_id" />
+            <PropertyRef Name="user_name" />
+            <PropertyRef Name="department_name" />
+            <PropertyRef Name="company_name" />
+            <PropertyRef Name="nationality" />
+          </Key>
+          <Property Name="user_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idx" Type="int" Nullable="false" />
+          <Property Name="company_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="department_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_auth" Type="varchar(max)" />
+          <Property Name="department_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="department_auth" Type="varchar" MaxLength="150" />
+          <Property Name="company_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="nationality" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--생성 중 오류 발생:
+경고 6002: 테이블/뷰 'supertalent_db.dbo.v_mywork_project'에 기본 키가 정의되지 않았습니다. 키가 유추되었고 읽기 전용 테이블/뷰로 정의되었습니다.-->
+        <EntityType Name="v_mywork_project">
+          <Key>
+            <PropertyRef Name="project_id" />
+            <PropertyRef Name="project_name" />
+          </Key>
+          <Property Name="project_id" Type="int" Nullable="false" />
+          <Property Name="project_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--생성 중 오류 발생:
+경고 6002: 테이블/뷰 'supertalent_db.dbo.v_new_work'에 기본 키가 정의되지 않았습니다. 키가 유추되었고 읽기 전용 테이블/뷰로 정의되었습니다.-->
+        <EntityType Name="v_new_work">
+          <Key>
+            <PropertyRef Name="idx" />
+            <PropertyRef Name="project_name" />
+            <PropertyRef Name="state" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="spend_hour" />
+            <PropertyRef Name="edit_date" />
+          </Key>
+          <Property Name="idx" Type="int" Nullable="false" />
+          <Property Name="project_id_name" Type="int" />
+          <Property Name="project_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="state" Type="int" Nullable="false" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="spend_hour" Type="float" Nullable="false" />
+          <Property Name="memo" Type="ntext" />
+          <Property Name="edit_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_bbs_comment_user">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="bbs_comment" Type="Self.bbs_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="bbs_comment">
+              <PropertyRef Name="writer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Board_BoardMenu">
+          <End Role="BoardMenu" Type="Self.BoardMenu" Multiplicity="1" />
+          <End Role="Board" Type="Self.Board" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoardMenu">
+              <PropertyRef Name="BM_idx" />
+            </Principal>
+            <Dependent Role="Board">
+              <PropertyRef Name="BD_BM_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Board_project_main">
+          <End Role="project_main" Type="Self.project_main" Multiplicity="0..1" />
+          <End Role="Board" Type="Self.Board" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="Board">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardComment_Board">
+          <End Role="Board" Type="Self.Board" Multiplicity="1" />
+          <End Role="BoardComment" Type="Self.BoardComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Board">
+              <PropertyRef Name="BD_idx" />
+            </Principal>
+            <Dependent Role="BoardComment">
+              <PropertyRef Name="BC_BD_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardFile_Board">
+          <End Role="Board" Type="Self.Board" Multiplicity="1" />
+          <End Role="BoardFile" Type="Self.BoardFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Board">
+              <PropertyRef Name="BD_idx" />
+            </Principal>
+            <Dependent Role="BoardFile">
+              <PropertyRef Name="BF_BD_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardFile_cate">
+          <End Role="BoardMenu" Type="Self.BoardMenu" Multiplicity="1" />
+          <End Role="BoardFile" Type="Self.BoardFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoardMenu">
+              <PropertyRef Name="BM_idx" />
+            </Principal>
+            <Dependent Role="BoardFile">
+              <PropertyRef Name="BD_BM_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardFile_project_main">
+          <End Role="project_main" Type="Self.project_main" Multiplicity="0..1" />
+          <End Role="BoardFile" Type="Self.BoardFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="BoardFile">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardFile_user">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="BoardFile" Type="Self.BoardFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="BoardFile">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardMenu_department">
+          <End Role="department" Type="Self.department" Multiplicity="0..1" />
+          <End Role="BoardMenu" Type="Self.BoardMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="BoardMenu">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cal_memo_cal_user">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="cal_memo" Type="Self.cal_memo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="cal_memo">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cal_memo_project_main">
+          <End Role="project_main" Type="Self.project_main" Multiplicity="1" />
+          <End Role="cal_memo" Type="Self.cal_memo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="cal_memo">
+              <PropertyRef Name="project_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_code_auth_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="code_auth" Type="Self.code_auth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="code_auth">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_code_index_code_index">
+          <End Role="code_index" Type="Self.code_index" Multiplicity="1" />
+          <End Role="code_index1" Type="Self.code_index" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="code_index">
+              <PropertyRef Name="code_id" />
+            </Principal>
+            <Dependent Role="code_index1">
+              <PropertyRef Name="code_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_department_department">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="department" Type="Self.department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="department">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_file_list_file_menu">
+          <End Role="file_menu" Type="Self.file_menu" Multiplicity="0..1" />
+          <End Role="file_list" Type="Self.file_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="file_menu">
+              <PropertyRef Name="file_menu_id" />
+            </Principal>
+            <Dependent Role="file_list">
+              <PropertyRef Name="file_menu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_history_company">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="history" Type="Self.history" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="history">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_history_user">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="history" Type="Self.history" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="history">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_my_work_project_main">
+          <End Role="project_main" Type="Self.project_main" Multiplicity="1" />
+          <End Role="my_work" Type="Self.my_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="my_work">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_my_work_user">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="my_work" Type="Self.my_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="my_work">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_New_work_project_main">
+          <End Role="project_main" Type="Self.project_main" Multiplicity="1" />
+          <End Role="New_work" Type="Self.New_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="New_work">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_New_work_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="New_work" Type="Self.New_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="New_work">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_act_manager">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="project_act" Type="Self.project_act" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="project_act">
+              <PropertyRef Name="manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_act_project_dir">
+          <End Role="project_dir" Type="Self.project_dir" Multiplicity="1" />
+          <End Role="project_act" Type="Self.project_act" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_dir">
+              <PropertyRef Name="idx" />
+            </Principal>
+            <Dependent Role="project_act">
+              <PropertyRef Name="project_dir_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_act_project_main">
+          <End Role="project_main" Type="Self.project_main" Multiplicity="1" />
+          <End Role="project_act" Type="Self.project_act" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="project_act">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_act_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="project_act" Type="Self.project_act" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="project_act">
+              <PropertyRef Name="maker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_dir_project_main">
+          <End Role="project_main" Type="Self.project_main" Multiplicity="1" />
+          <End Role="project_dir" Type="Self.project_dir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="project_dir">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_dir_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="project_dir" Type="Self.project_dir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="project_dir">
+              <PropertyRef Name="maker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_main_project_main">
+          <End Role="project_main" Type="Self.project_main" Multiplicity="1" />
+          <End Role="project_main1" Type="Self.project_main" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="project_main1">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_department">
+          <End Role="department" Type="Self.department" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_code_index1">
+          <End Role="code_index" Type="Self.code_index" Multiplicity="0..1" />
+          <End Role="work_list" Type="Self.work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="code_index">
+              <PropertyRef Name="code_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="index" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_code_project_state">
+          <End Role="code_project_state" Type="Self.code_project_state" Multiplicity="1" />
+          <End Role="work_list" Type="Self.work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="code_project_state">
+              <PropertyRef Name="code_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="state" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_company">
+          <End Role="company" Type="Self.company" Multiplicity="1" />
+          <End Role="work_list" Type="Self.work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_department">
+          <End Role="department" Type="Self.department" Multiplicity="1" />
+          <End Role="work_list" Type="Self.work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_project_main">
+          <End Role="project_main" Type="Self.project_main" Multiplicity="1" />
+          <End Role="work_list" Type="Self.work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="project_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_user">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="work_list" Type="Self.work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="j_mywork_project" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user_id" Type="varchar" Mode="In" />
+          <Parameter Name="start_day" Type="varchar" Mode="In" />
+          <Parameter Name="end_day" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="mywork_report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user_id" Type="varchar" Mode="In" />
+          <Parameter Name="start_day" Type="varchar" Mode="In" />
+          <Parameter Name="end_day" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="mywork_report_project" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user_id" Type="varchar" Mode="In" />
+          <Parameter Name="start_day" Type="varchar" Mode="In" />
+          <Parameter Name="end_day" Type="varchar" Mode="In" />
+          <Parameter Name="project_id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="supertalent_dbModelStoreContainer">
+          <EntitySet Name="bbs_comment" EntityType="Self.bbs_comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Board" EntityType="Self.Board" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoardComment" EntityType="Self.BoardComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoardFile" EntityType="Self.BoardFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoardMenu" EntityType="Self.BoardMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cal_memo" EntityType="Self.cal_memo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryMenus" EntityType="Self.CategoryMenus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="code_auth" EntityType="Self.code_auth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="code_index" EntityType="Self.code_index" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="code_main" EntityType="Self.code_main" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="code_nationality" EntityType="Self.code_nationality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="code_project_state" EntityType="Self.code_project_state" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="code_time" EntityType="Self.code_time" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="company" EntityType="Self.company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="file_list" EntityType="Self.file_list" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="file_menu" EntityType="Self.file_menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="history" EntityType="Self.history" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hotel_ask" EntityType="Self.hotel_ask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="language" EntityType="Self.language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="machine" EntityType="Self.machine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="my_work" EntityType="Self.my_work" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="New_work" EntityType="Self.New_work" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Process" EntityType="Self.Process" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="project_act" EntityType="Self.project_act" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="project_dir" EntityType="Self.project_dir" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="project_main" EntityType="Self.project_main" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="project_main_back" EntityType="Self.project_main_back" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QA" EntityType="Self.QA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="test" EntityType="Self.test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="work_list" EntityType="Self.work_list" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="member" EntityType="Self.member" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [member].[user_id] AS [user_id], 
+    [member].[idx] AS [idx], 
+    [member].[company_id] AS [company_id], 
+    [member].[department_id] AS [department_id], 
+    [member].[user_name] AS [user_name], 
+    [member].[user_auth] AS [user_auth], 
+    [member].[department_name] AS [department_name], 
+    [member].[department_auth] AS [department_auth], 
+    [member].[company_name] AS [company_name], 
+    [member].[nationality] AS [nationality]
+    FROM [dbo].[member] AS [member]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_mywork_project" EntityType="Self.v_mywork_project" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_mywork_project].[project_id] AS [project_id], 
+    [v_mywork_project].[project_name] AS [project_name]
+    FROM [dbo].[v_mywork_project] AS [v_mywork_project]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_new_work" EntityType="Self.v_new_work" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_new_work].[idx] AS [idx], 
+    [v_new_work].[project_id_name] AS [project_id_name], 
+    [v_new_work].[project_name] AS [project_name], 
+    [v_new_work].[state] AS [state], 
+    [v_new_work].[Expr1] AS [Expr1], 
+    [v_new_work].[spend_hour] AS [spend_hour], 
+    [v_new_work].[memo] AS [memo], 
+    [v_new_work].[edit_date] AS [edit_date]
+    FROM [dbo].[v_new_work] AS [v_new_work]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_bbs_comment_user" Association="Self.FK_bbs_comment_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="bbs_comment" EntitySet="bbs_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Board_BoardMenu" Association="Self.FK_Board_BoardMenu">
+            <End Role="BoardMenu" EntitySet="BoardMenu" />
+            <End Role="Board" EntitySet="Board" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Board_project_main" Association="Self.FK_Board_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="Board" EntitySet="Board" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardComment_Board" Association="Self.FK_BoardComment_Board">
+            <End Role="Board" EntitySet="Board" />
+            <End Role="BoardComment" EntitySet="BoardComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardFile_Board" Association="Self.FK_BoardFile_Board">
+            <End Role="Board" EntitySet="Board" />
+            <End Role="BoardFile" EntitySet="BoardFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardFile_cate" Association="Self.FK_BoardFile_cate">
+            <End Role="BoardMenu" EntitySet="BoardMenu" />
+            <End Role="BoardFile" EntitySet="BoardFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardFile_project_main" Association="Self.FK_BoardFile_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="BoardFile" EntitySet="BoardFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardFile_user" Association="Self.FK_BoardFile_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="BoardFile" EntitySet="BoardFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardMenu_department" Association="Self.FK_BoardMenu_department">
+            <End Role="department" EntitySet="department" />
+            <End Role="BoardMenu" EntitySet="BoardMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cal_memo_cal_user" Association="Self.FK_cal_memo_cal_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="cal_memo" EntitySet="cal_memo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cal_memo_project_main" Association="Self.FK_cal_memo_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="cal_memo" EntitySet="cal_memo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_code_auth_company" Association="Self.FK_code_auth_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="code_auth" EntitySet="code_auth" />
+          </AssociationSet>
+          <AssociationSet Name="FK_code_index_code_index" Association="Self.FK_code_index_code_index">
+            <End Role="code_index" EntitySet="code_index" />
+            <End Role="code_index1" EntitySet="code_index" />
+          </AssociationSet>
+          <AssociationSet Name="FK_department_department" Association="Self.FK_department_department">
+            <End Role="company" EntitySet="company" />
+            <End Role="department" EntitySet="department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_file_list_file_menu" Association="Self.FK_file_list_file_menu">
+            <End Role="file_menu" EntitySet="file_menu" />
+            <End Role="file_list" EntitySet="file_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_history_company" Association="Self.FK_history_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="history" EntitySet="history" />
+          </AssociationSet>
+          <AssociationSet Name="FK_history_user" Association="Self.FK_history_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="history" EntitySet="history" />
+          </AssociationSet>
+          <AssociationSet Name="FK_my_work_project_main" Association="Self.FK_my_work_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="my_work" EntitySet="my_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_my_work_user" Association="Self.FK_my_work_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="my_work" EntitySet="my_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_New_work_project_main" Association="Self.FK_New_work_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="New_work" EntitySet="New_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_New_work_user" Association="Self.FK_New_work_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="New_work" EntitySet="New_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_act_manager" Association="Self.FK_project_act_manager">
+            <End Role="user" EntitySet="user" />
+            <End Role="project_act" EntitySet="project_act" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_act_project_dir" Association="Self.FK_project_act_project_dir">
+            <End Role="project_dir" EntitySet="project_dir" />
+            <End Role="project_act" EntitySet="project_act" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_act_project_main" Association="Self.FK_project_act_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="project_act" EntitySet="project_act" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_act_user" Association="Self.FK_project_act_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="project_act" EntitySet="project_act" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_dir_project_main" Association="Self.FK_project_dir_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="project_dir" EntitySet="project_dir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_dir_user" Association="Self.FK_project_dir_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="project_dir" EntitySet="project_dir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_main_project_main" Association="Self.FK_project_main_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="project_main1" EntitySet="project_main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_company" Association="Self.FK_user_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_department" Association="Self.FK_user_department">
+            <End Role="department" EntitySet="department" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_code_index1" Association="Self.FK_work_list_code_index1">
+            <End Role="code_index" EntitySet="code_index" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_code_project_state" Association="Self.FK_work_list_code_project_state">
+            <End Role="code_project_state" EntitySet="code_project_state" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_company" Association="Self.FK_work_list_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_department" Association="Self.FK_work_list_department">
+            <End Role="department" EntitySet="department" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_project_main" Association="Self.FK_work_list_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_user" Association="Self.FK_work_list_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="supertalent_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="db_e" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="j_mywork_project" ReturnType="Collection(supertalent_dbModel.j_mywork_project_Result)">
+            <Parameter Name="user_id" Mode="In" Type="String" />
+            <Parameter Name="start_day" Mode="In" Type="String" />
+            <Parameter Name="end_day" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="mywork_report" ReturnType="Collection(supertalent_dbModel.mywork_report_Result)">
+            <Parameter Name="user_id" Mode="In" Type="String" />
+            <Parameter Name="start_day" Mode="In" Type="String" />
+            <Parameter Name="end_day" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="mywork_report_project" ReturnType="Collection(supertalent_dbModel.mywork_report_project_Result)">
+            <Parameter Name="user_id" Mode="In" Type="String" />
+            <Parameter Name="start_day" Mode="In" Type="String" />
+            <Parameter Name="end_day" Mode="In" Type="String" />
+            <Parameter Name="project_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="bbs_comment" EntityType="supertalent_dbModel.bbs_comment" />
+          <EntitySet Name="Board" EntityType="supertalent_dbModel.Board" />
+          <EntitySet Name="BoardComment" EntityType="supertalent_dbModel.BoardComment" />
+          <EntitySet Name="BoardFile" EntityType="supertalent_dbModel.BoardFile" />
+          <EntitySet Name="BoardMenu" EntityType="supertalent_dbModel.BoardMenu" />
+          <EntitySet Name="cal_memo" EntityType="supertalent_dbModel.cal_memo" />
+          <EntitySet Name="CategoryMenus" EntityType="supertalent_dbModel.CategoryMenus" />
+          <EntitySet Name="code_auth" EntityType="supertalent_dbModel.code_auth" />
+          <EntitySet Name="code_index" EntityType="supertalent_dbModel.code_index" />
+          <EntitySet Name="code_main" EntityType="supertalent_dbModel.code_main" />
+          <EntitySet Name="code_nationality" EntityType="supertalent_dbModel.code_nationality" />
+          <EntitySet Name="code_project_state" EntityType="supertalent_dbModel.code_project_state" />
+          <EntitySet Name="code_time" EntityType="supertalent_dbModel.code_time" />
+          <EntitySet Name="company" EntityType="supertalent_dbModel.company" />
+          <EntitySet Name="department" EntityType="supertalent_dbModel.department" />
+          <EntitySet Name="file_list" EntityType="supertalent_dbModel.file_list" />
+          <EntitySet Name="file_menu" EntityType="supertalent_dbModel.file_menu" />
+          <EntitySet Name="history" EntityType="supertalent_dbModel.history" />
+          <EntitySet Name="hotel_ask" EntityType="supertalent_dbModel.hotel_ask" />
+          <EntitySet Name="language" EntityType="supertalent_dbModel.language" />
+          <EntitySet Name="machine" EntityType="supertalent_dbModel.machine" />
+          <EntitySet Name="my_work" EntityType="supertalent_dbModel.my_work" />
+          <EntitySet Name="New_work" EntityType="supertalent_dbModel.New_work" />
+          <EntitySet Name="Process" EntityType="supertalent_dbModel.Process" />
+          <EntitySet Name="project_act" EntityType="supertalent_dbModel.project_act" />
+          <EntitySet Name="project_dir" EntityType="supertalent_dbModel.project_dir" />
+          <EntitySet Name="project_main" EntityType="supertalent_dbModel.project_main" />
+          <EntitySet Name="project_main_back" EntityType="supertalent_dbModel.project_main_back" />
+          <EntitySet Name="QA" EntityType="supertalent_dbModel.QA" />
+          <EntitySet Name="test" EntityType="supertalent_dbModel.test" />
+          <EntitySet Name="user" EntityType="supertalent_dbModel.user" />
+          <EntitySet Name="work_list" EntityType="supertalent_dbModel.work_list" />
+          <EntitySet Name="member" EntityType="supertalent_dbModel.member" />
+          <EntitySet Name="v_mywork_project" EntityType="supertalent_dbModel.v_mywork_project" />
+          <EntitySet Name="v_new_work" EntityType="supertalent_dbModel.v_new_work" />
+          <AssociationSet Name="FK_bbs_comment_user" Association="supertalent_dbModel.FK_bbs_comment_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="bbs_comment" EntitySet="bbs_comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Board_BoardMenu" Association="supertalent_dbModel.FK_Board_BoardMenu">
+            <End Role="BoardMenu" EntitySet="BoardMenu" />
+            <End Role="Board" EntitySet="Board" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Board_project_main" Association="supertalent_dbModel.FK_Board_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="Board" EntitySet="Board" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardComment_Board" Association="supertalent_dbModel.FK_BoardComment_Board">
+            <End Role="Board" EntitySet="Board" />
+            <End Role="BoardComment" EntitySet="BoardComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardFile_Board" Association="supertalent_dbModel.FK_BoardFile_Board">
+            <End Role="Board" EntitySet="Board" />
+            <End Role="BoardFile" EntitySet="BoardFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardFile_cate" Association="supertalent_dbModel.FK_BoardFile_cate">
+            <End Role="BoardMenu" EntitySet="BoardMenu" />
+            <End Role="BoardFile" EntitySet="BoardFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardFile_project_main" Association="supertalent_dbModel.FK_BoardFile_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="BoardFile" EntitySet="BoardFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardFile_user" Association="supertalent_dbModel.FK_BoardFile_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="BoardFile" EntitySet="BoardFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BoardMenu_department" Association="supertalent_dbModel.FK_BoardMenu_department">
+            <End Role="department" EntitySet="department" />
+            <End Role="BoardMenu" EntitySet="BoardMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cal_memo_cal_user" Association="supertalent_dbModel.FK_cal_memo_cal_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="cal_memo" EntitySet="cal_memo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cal_memo_project_main" Association="supertalent_dbModel.FK_cal_memo_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="cal_memo" EntitySet="cal_memo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_code_auth_company" Association="supertalent_dbModel.FK_code_auth_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="code_auth" EntitySet="code_auth" />
+          </AssociationSet>
+          <AssociationSet Name="FK_code_index_code_index" Association="supertalent_dbModel.FK_code_index_code_index">
+            <End Role="code_index" EntitySet="code_index" />
+            <End Role="code_index1" EntitySet="code_index" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_code_index1" Association="supertalent_dbModel.FK_work_list_code_index1">
+            <End Role="code_index" EntitySet="code_index" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_code_project_state" Association="supertalent_dbModel.FK_work_list_code_project_state">
+            <End Role="code_project_state" EntitySet="code_project_state" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_department_department" Association="supertalent_dbModel.FK_department_department">
+            <End Role="company" EntitySet="company" />
+            <End Role="department" EntitySet="department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_history_company" Association="supertalent_dbModel.FK_history_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="history" EntitySet="history" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_company" Association="supertalent_dbModel.FK_user_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_company" Association="supertalent_dbModel.FK_work_list_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_department" Association="supertalent_dbModel.FK_user_department">
+            <End Role="department" EntitySet="department" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_department" Association="supertalent_dbModel.FK_work_list_department">
+            <End Role="department" EntitySet="department" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_file_list_file_menu" Association="supertalent_dbModel.FK_file_list_file_menu">
+            <End Role="file_menu" EntitySet="file_menu" />
+            <End Role="file_list" EntitySet="file_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_history_user" Association="supertalent_dbModel.FK_history_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="history" EntitySet="history" />
+          </AssociationSet>
+          <AssociationSet Name="FK_my_work_project_main" Association="supertalent_dbModel.FK_my_work_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="my_work" EntitySet="my_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_my_work_user" Association="supertalent_dbModel.FK_my_work_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="my_work" EntitySet="my_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_New_work_project_main" Association="supertalent_dbModel.FK_New_work_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="New_work" EntitySet="New_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_New_work_user" Association="supertalent_dbModel.FK_New_work_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="New_work" EntitySet="New_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_act_manager" Association="supertalent_dbModel.FK_project_act_manager">
+            <End Role="user" EntitySet="user" />
+            <End Role="project_act" EntitySet="project_act" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_act_project_dir" Association="supertalent_dbModel.FK_project_act_project_dir">
+            <End Role="project_dir" EntitySet="project_dir" />
+            <End Role="project_act" EntitySet="project_act" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_act_project_main" Association="supertalent_dbModel.FK_project_act_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="project_act" EntitySet="project_act" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_act_user" Association="supertalent_dbModel.FK_project_act_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="project_act" EntitySet="project_act" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_dir_project_main" Association="supertalent_dbModel.FK_project_dir_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="project_dir" EntitySet="project_dir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_dir_user" Association="supertalent_dbModel.FK_project_dir_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="project_dir" EntitySet="project_dir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_main_project_main" Association="supertalent_dbModel.FK_project_main_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="project_main1" EntitySet="project_main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_project_main" Association="supertalent_dbModel.FK_work_list_project_main">
+            <End Role="project_main" EntitySet="project_main" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          <AssociationSet Name="FK_work_list_user" Association="supertalent_dbModel.FK_work_list_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="work_list" EntitySet="work_list" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="j_mywork_project_Result">
+          <Property Type="Int32" Name="project_id" Nullable="false" />
+          <Property Type="String" Name="project_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="project_code" Nullable="true" MaxLength="4" />
+        </ComplexType>
+        <ComplexType Name="mywork_report_Result">
+          <Property Type="DateTime" Name="day" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="sum_it" Nullable="true" />
+          <Property Type="Int32" Name="project_id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="mywork_report_project_Result">
+          <Property Type="DateTime" Name="day" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="sum_it" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="bbs_comment">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BD_idx" Type="Int32" Nullable="false" />
+          <Property Name="step" Type="Int32" Nullable="false" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="writer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="edit_date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_bbs_comment_user" FromRole="bbs_comment" ToRole="user" />
+        </EntityType>
+        <EntityType Name="Board">
+          <Key>
+            <PropertyRef Name="BD_idx" />
+          </Key>
+          <Property Name="BD_idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BD_BM_idx" Type="Int32" Nullable="false" />
+          <Property Name="BD_title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BD_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BD_writer" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BD_password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BD_hit" Type="Int32" Nullable="false" />
+          <Property Name="BD_wdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BD_edate" Type="DateTime" Precision="3" />
+          <Property Name="BD_ddate" Type="DateTime" Precision="3" />
+          <Property Name="BD_useable" Type="Int32" Nullable="false" />
+          <Property Name="machine_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="project_id" Type="Int32" />
+          <NavigationProperty Name="BoardMenu" Relationship="supertalent_dbModel.FK_Board_BoardMenu" FromRole="Board" ToRole="BoardMenu" />
+          <NavigationProperty Name="project_main" Relationship="supertalent_dbModel.FK_Board_project_main" FromRole="Board" ToRole="project_main" />
+          <NavigationProperty Name="BoardComment" Relationship="supertalent_dbModel.FK_BoardComment_Board" FromRole="Board" ToRole="BoardComment" />
+          <NavigationProperty Name="BoardFile" Relationship="supertalent_dbModel.FK_BoardFile_Board" FromRole="Board" ToRole="BoardFile" />
+        </EntityType>
+        <EntityType Name="BoardComment">
+          <Key>
+            <PropertyRef Name="BC_idx" />
+          </Key>
+          <Property Name="BC_idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BC_BD_idx" Type="Int32" Nullable="false" />
+          <Property Name="BC_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BC_wdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BC_edate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BC_ddate" Type="DateTime" Precision="3" />
+          <Property Name="BC_good" Type="Int32" Nullable="false" />
+          <Property Name="BC_worst" Type="Int32" Nullable="false" />
+          <Property Name="BC_parent" Type="Int32" Nullable="false" />
+          <Property Name="BC_useable" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Board" Relationship="supertalent_dbModel.FK_BoardComment_Board" FromRole="BoardComment" ToRole="Board" />
+        </EntityType>
+        <EntityType Name="BoardFile">
+          <Key>
+            <PropertyRef Name="BF_idx" />
+          </Key>
+          <Property Name="BF_idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BF_BD_idx" Type="Int32" Nullable="false" />
+          <Property Name="BF_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="BF_wdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BF_useable" Type="Int32" Nullable="false" />
+          <Property Name="BD_BM_idx" Type="Int32" Nullable="false" />
+          <Property Name="BF_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="department_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="main_img" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="machine_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="project_id" Type="Int32" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="file_title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Board" Relationship="supertalent_dbModel.FK_BoardFile_Board" FromRole="BoardFile" ToRole="Board" />
+          <NavigationProperty Name="BoardMenu" Relationship="supertalent_dbModel.FK_BoardFile_cate" FromRole="BoardFile" ToRole="BoardMenu" />
+          <NavigationProperty Name="project_main" Relationship="supertalent_dbModel.FK_BoardFile_project_main" FromRole="BoardFile" ToRole="project_main" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_BoardFile_user" FromRole="BoardFile" ToRole="user" />
+        </EntityType>
+        <EntityType Name="BoardMenu">
+          <Key>
+            <PropertyRef Name="BM_idx" />
+          </Key>
+          <Property Name="BM_idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BM_title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BM_com" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="BM_url" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="BM_type" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="department_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="open_yn" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" />
+          <NavigationProperty Name="Board" Relationship="supertalent_dbModel.FK_Board_BoardMenu" FromRole="BoardMenu" ToRole="Board" />
+          <NavigationProperty Name="BoardFile" Relationship="supertalent_dbModel.FK_BoardFile_cate" FromRole="BoardMenu" ToRole="BoardFile" />
+          <NavigationProperty Name="department" Relationship="supertalent_dbModel.FK_BoardMenu_department" FromRole="BoardMenu" ToRole="department" />
+        </EntityType>
+        <EntityType Name="cal_memo">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="department_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="gubun_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Precision="3" />
+          <Property Name="work_date" Type="DateTime" Precision="3" />
+          <Property Name="project_idx" Type="Int32" Nullable="false" />
+          <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="file_sn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_cal_memo_cal_user" FromRole="cal_memo" ToRole="user" />
+          <NavigationProperty Name="project_main" Relationship="supertalent_dbModel.FK_cal_memo_project_main" FromRole="cal_memo" ToRole="project_main" />
+        </EntityType>
+        <EntityType Name="CategoryMenus">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="step_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="step_url1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="step_url2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="step_auth" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="step_writedate" Type="DateTime" Precision="3" />
+          <Property Name="step_index" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="step_icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="step_dept" Type="Int32" Nullable="false" />
+          <Property Name="step_orderby" Type="Int32" Nullable="false" />
+          <Property Name="isused" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="code_auth">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="code_name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" Nullable="false" />
+          <Property Name="gubun" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="company" Relationship="supertalent_dbModel.FK_code_auth_company" FromRole="code_auth" ToRole="company" />
+        </EntityType>
+        <EntityType Name="code_index">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code_name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" Nullable="false" />
+          <Property Name="gubun" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="code_index1" Relationship="supertalent_dbModel.FK_code_index_code_index" FromRole="code_index" ToRole="code_index1" />
+          <NavigationProperty Name="code_index2" Relationship="supertalent_dbModel.FK_code_index_code_index" FromRole="code_index1" ToRole="code_index" />
+          <NavigationProperty Name="work_list" Relationship="supertalent_dbModel.FK_work_list_code_index1" FromRole="code_index" ToRole="work_list" />
+        </EntityType>
+        <EntityType Name="code_main">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" />
+          <Property Name="code_id" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="code_name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" Nullable="false" />
+          <Property Name="gubun" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="project_id" Type="Int32" />
+          <Property Name="project_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="code_nationality">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="use_yn" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" Nullable="false" />
+          <Property Name="gubun" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="writer_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="code_project_state">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="Int32" Nullable="false" />
+          <Property Name="code_name" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" Nullable="false" />
+          <Property Name="gubun" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="work_list" Relationship="supertalent_dbModel.FK_work_list_code_project_state" FromRole="code_project_state" ToRole="work_list" />
+        </EntityType>
+        <EntityType Name="code_time">
+          <Key>
+            <PropertyRef Name="code_id" />
+          </Key>
+          <Property Name="code_id" Type="Int32" Nullable="false" />
+          <Property Name="code_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" />
+          <Property Name="gubun" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="company_id" />
+          </Key>
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="nationality" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" />
+          <Property Name="department_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="code_auth" Relationship="supertalent_dbModel.FK_code_auth_company" FromRole="company" ToRole="code_auth" />
+          <NavigationProperty Name="department" Relationship="supertalent_dbModel.FK_department_department" FromRole="company" ToRole="department" />
+          <NavigationProperty Name="history" Relationship="supertalent_dbModel.FK_history_company" FromRole="company" ToRole="history" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_user_company" FromRole="company" ToRole="user" />
+          <NavigationProperty Name="work_list" Relationship="supertalent_dbModel.FK_work_list_company" FromRole="company" ToRole="work_list" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="department_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="department_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="department_auth" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="use_yn" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" />
+          <NavigationProperty Name="BoardMenu" Relationship="supertalent_dbModel.FK_BoardMenu_department" FromRole="department" ToRole="BoardMenu" />
+          <NavigationProperty Name="company" Relationship="supertalent_dbModel.FK_department_department" FromRole="department" ToRole="company" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_user_department" FromRole="department" ToRole="user" />
+          <NavigationProperty Name="work_list" Relationship="supertalent_dbModel.FK_work_list_department" FromRole="department" ToRole="work_list" />
+        </EntityType>
+        <EntityType Name="file_list">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="file_menu_id" Type="Int32" />
+          <Property Name="file_idx" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="file_name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="file_pre_name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="file_size" Type="Int32" Nullable="false" />
+          <Property Name="hit" Type="Int32" Nullable="false" />
+          <Property Name="file_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="file_menu" Relationship="supertalent_dbModel.FK_file_list_file_menu" FromRole="file_list" ToRole="file_menu" />
+        </EntityType>
+        <EntityType Name="file_menu">
+          <Key>
+            <PropertyRef Name="file_menu_id" />
+          </Key>
+          <Property Name="file_menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="file_menu_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="file_list" Relationship="supertalent_dbModel.FK_file_list_file_menu" FromRole="file_menu" ToRole="file_list" />
+        </EntityType>
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="company_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="department_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pre_page" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="connect_agent" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="connect_host" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="connect_path" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="memo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="connect_date" Type="DateTime" Precision="3" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="page" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="company" Relationship="supertalent_dbModel.FK_history_company" FromRole="history" ToRole="company" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_history_user" FromRole="history" ToRole="user" />
+        </EntityType>
+        <EntityType Name="hotel_ask">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="check_in" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="check_out" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="group_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="room_count" Type="Int32" Nullable="false" />
+          <Property Name="grade" Type="Int32" Nullable="false" />
+          <Property Name="one_price" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="state" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="code_name" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="korea" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="english" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="code_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="machine">
+          <Key>
+            <PropertyRef Name="machine_id" />
+          </Key>
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="machine_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="machine_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Precision="3" />
+          <Property Name="writer_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="edit_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="my_work">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="work_time" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="edit_date" Type="DateTime" Precision="3" />
+          <Property Name="work_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="state" Type="Int32" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="project_id" Type="Int32" Nullable="false" />
+          <Property Name="open_it" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="file_sn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="project_main" Relationship="supertalent_dbModel.FK_my_work_project_main" FromRole="my_work" ToRole="project_main" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_my_work_user" FromRole="my_work" ToRole="user" />
+        </EntityType>
+        <EntityType Name="New_work">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="project_id" Type="Int32" Nullable="false" />
+          <Property Name="spend_hour" Type="Double" Nullable="false" />
+          <Property Name="spend_time" Type="Time" Precision="7" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="edit_date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="project_main" Relationship="supertalent_dbModel.FK_New_work_project_main" FromRole="New_work" ToRole="project_main" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_New_work_user" FromRole="New_work" ToRole="user" />
+        </EntityType>
+        <EntityType Name="Process">
+          <Key>
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Num" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pic1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pic2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wrtie_date" Type="DateTime" Precision="3" />
+          <Property Name="writer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gubun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="project_act">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="project_sub_title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="project_dir_idx" Type="Int32" Nullable="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="maker_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="set_time" Type="Int32" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="work_per" Type="Int32" Nullable="false" />
+          <Property Name="memo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="manager" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="project_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_project_act_manager" FromRole="project_act" ToRole="user" />
+          <NavigationProperty Name="project_dir" Relationship="supertalent_dbModel.FK_project_act_project_dir" FromRole="project_act" ToRole="project_dir" />
+          <NavigationProperty Name="project_main" Relationship="supertalent_dbModel.FK_project_act_project_main" FromRole="project_act" ToRole="project_main" />
+          <NavigationProperty Name="user1" Relationship="supertalent_dbModel.FK_project_act_user" FromRole="project_act" ToRole="user" />
+        </EntityType>
+        <EntityType Name="project_dir">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="project_id" Type="Int32" Nullable="false" />
+          <Property Name="project_dir_title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="project_step" Type="Int32" Nullable="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="state" Type="Int32" Nullable="false" />
+          <Property Name="maker_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="project_act" Relationship="supertalent_dbModel.FK_project_act_project_dir" FromRole="project_dir" ToRole="project_act" />
+          <NavigationProperty Name="project_main" Relationship="supertalent_dbModel.FK_project_dir_project_main" FromRole="project_dir" ToRole="project_main" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_project_dir_user" FromRole="project_dir" ToRole="user" />
+        </EntityType>
+        <EntityType Name="project_main">
+          <Key>
+            <PropertyRef Name="project_id" />
+          </Key>
+          <Property Name="project_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="project_id_name" Type="Int32" />
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="owner_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="project_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="state" Type="Int32" Nullable="false" />
+          <Property Name="memo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="writer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="department_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" Nullable="false" />
+          <Property Name="project_code" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="file_sn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mode_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="user_ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="machine_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Board" Relationship="supertalent_dbModel.FK_Board_project_main" FromRole="project_main" ToRole="Board" />
+          <NavigationProperty Name="BoardFile" Relationship="supertalent_dbModel.FK_BoardFile_project_main" FromRole="project_main" ToRole="BoardFile" />
+          <NavigationProperty Name="cal_memo" Relationship="supertalent_dbModel.FK_cal_memo_project_main" FromRole="project_main" ToRole="cal_memo" />
+          <NavigationProperty Name="my_work" Relationship="supertalent_dbModel.FK_my_work_project_main" FromRole="project_main" ToRole="my_work" />
+          <NavigationProperty Name="New_work" Relationship="supertalent_dbModel.FK_New_work_project_main" FromRole="project_main" ToRole="New_work" />
+          <NavigationProperty Name="project_act" Relationship="supertalent_dbModel.FK_project_act_project_main" FromRole="project_main" ToRole="project_act" />
+          <NavigationProperty Name="project_dir" Relationship="supertalent_dbModel.FK_project_dir_project_main" FromRole="project_main" ToRole="project_dir" />
+          <NavigationProperty Name="project_main1" Relationship="supertalent_dbModel.FK_project_main_project_main" FromRole="project_main" ToRole="project_main1" />
+          <NavigationProperty Name="project_main2" Relationship="supertalent_dbModel.FK_project_main_project_main" FromRole="project_main1" ToRole="project_main" />
+          <NavigationProperty Name="work_list" Relationship="supertalent_dbModel.FK_work_list_project_main" FromRole="project_main" ToRole="work_list" />
+        </EntityType>
+        <EntityType Name="project_main_back">
+          <Key>
+            <PropertyRef Name="project_id" />
+          </Key>
+          <Property Name="project_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="project_id_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="project_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="state" Type="Int32" Nullable="false" />
+          <Property Name="memo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="writer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="department_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="index_order" Type="Int32" Nullable="false" />
+          <Property Name="project_code" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="file_sn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mode_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="QA">
+          <Key>
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pic1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pic2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wrtie_date" Type="DateTime" Precision="3" />
+          <Property Name="writer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gubun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="department_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_auth" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="check_auth" Type="Int32" Nullable="false" />
+          <Property Name="user_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="writer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="con_date" Type="DateTime" Precision="3" />
+          <Property Name="main_bg_color" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="photo_profile" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="alert_yn" Type="Int32" Nullable="false" />
+          <Property Name="edit_date" Type="DateTime" Precision="3" />
+          <Property Name="manager_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="language" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bbs_comment" Relationship="supertalent_dbModel.FK_bbs_comment_user" FromRole="user" ToRole="bbs_comment" />
+          <NavigationProperty Name="BoardFile" Relationship="supertalent_dbModel.FK_BoardFile_user" FromRole="user" ToRole="BoardFile" />
+          <NavigationProperty Name="cal_memo" Relationship="supertalent_dbModel.FK_cal_memo_cal_user" FromRole="user" ToRole="cal_memo" />
+          <NavigationProperty Name="company" Relationship="supertalent_dbModel.FK_user_company" FromRole="user" ToRole="company" />
+          <NavigationProperty Name="department" Relationship="supertalent_dbModel.FK_user_department" FromRole="user" ToRole="department" />
+          <NavigationProperty Name="history" Relationship="supertalent_dbModel.FK_history_user" FromRole="user" ToRole="history" />
+          <NavigationProperty Name="my_work" Relationship="supertalent_dbModel.FK_my_work_user" FromRole="user" ToRole="my_work" />
+          <NavigationProperty Name="New_work" Relationship="supertalent_dbModel.FK_New_work_user" FromRole="user" ToRole="New_work" />
+          <NavigationProperty Name="project_act" Relationship="supertalent_dbModel.FK_project_act_manager" FromRole="user" ToRole="project_act" />
+          <NavigationProperty Name="project_act1" Relationship="supertalent_dbModel.FK_project_act_user" FromRole="user" ToRole="project_act" />
+          <NavigationProperty Name="project_dir" Relationship="supertalent_dbModel.FK_project_dir_user" FromRole="user" ToRole="project_dir" />
+          <NavigationProperty Name="work_list" Relationship="supertalent_dbModel.FK_work_list_user" FromRole="user" ToRole="work_list" />
+        </EntityType>
+        <EntityType Name="work_list">
+          <Key>
+            <PropertyRef Name="idx" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="department_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gubun_code" Type="Double" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="gubun_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="use_yn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="who" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="write_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="edit_date" Type="DateTime" Precision="3" />
+          <Property Name="work_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="state" Type="Int32" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="project_idx" Type="Int32" Nullable="false" />
+          <Property Name="open_it" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="who_list" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="index" Type="Int32" />
+          <NavigationProperty Name="code_index" Relationship="supertalent_dbModel.FK_work_list_code_index1" FromRole="work_list" ToRole="code_index" />
+          <NavigationProperty Name="code_project_state" Relationship="supertalent_dbModel.FK_work_list_code_project_state" FromRole="work_list" ToRole="code_project_state" />
+          <NavigationProperty Name="company" Relationship="supertalent_dbModel.FK_work_list_company" FromRole="work_list" ToRole="company" />
+          <NavigationProperty Name="department" Relationship="supertalent_dbModel.FK_work_list_department" FromRole="work_list" ToRole="department" />
+          <NavigationProperty Name="project_main" Relationship="supertalent_dbModel.FK_work_list_project_main" FromRole="work_list" ToRole="project_main" />
+          <NavigationProperty Name="user" Relationship="supertalent_dbModel.FK_work_list_user" FromRole="work_list" ToRole="user" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="idx" />
+            <PropertyRef Name="company_id" />
+            <PropertyRef Name="department_id" />
+            <PropertyRef Name="user_name" />
+            <PropertyRef Name="department_name" />
+            <PropertyRef Name="company_name" />
+            <PropertyRef Name="nationality" />
+          </Key>
+          <Property Name="user_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idx" Type="Int32" Nullable="false" />
+          <Property Name="company_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="department_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_auth" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="department_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="department_auth" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="company_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="nationality" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_mywork_project">
+          <Key>
+            <PropertyRef Name="project_id" />
+            <PropertyRef Name="project_name" />
+          </Key>
+          <Property Name="project_id" Type="Int32" Nullable="false" />
+          <Property Name="project_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_new_work">
+          <Key>
+            <PropertyRef Name="idx" />
+            <PropertyRef Name="project_name" />
+            <PropertyRef Name="state" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="spend_hour" />
+            <PropertyRef Name="edit_date" />
+          </Key>
+          <Property Name="idx" Type="Int32" Nullable="false" />
+          <Property Name="project_id_name" Type="Int32" />
+          <Property Name="project_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="spend_hour" Type="Double" Nullable="false" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="edit_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_bbs_comment_user">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.bbs_comment" Role="bbs_comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="bbs_comment">
+              <PropertyRef Name="writer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Board_BoardMenu">
+          <End Type="supertalent_dbModel.BoardMenu" Role="BoardMenu" Multiplicity="1" />
+          <End Type="supertalent_dbModel.Board" Role="Board" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoardMenu">
+              <PropertyRef Name="BM_idx" />
+            </Principal>
+            <Dependent Role="Board">
+              <PropertyRef Name="BD_BM_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Board_project_main">
+          <End Type="supertalent_dbModel.project_main" Role="project_main" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.Board" Role="Board" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="Board">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardComment_Board">
+          <End Type="supertalent_dbModel.Board" Role="Board" Multiplicity="1" />
+          <End Type="supertalent_dbModel.BoardComment" Role="BoardComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Board">
+              <PropertyRef Name="BD_idx" />
+            </Principal>
+            <Dependent Role="BoardComment">
+              <PropertyRef Name="BC_BD_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardFile_Board">
+          <End Type="supertalent_dbModel.Board" Role="Board" Multiplicity="1" />
+          <End Type="supertalent_dbModel.BoardFile" Role="BoardFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Board">
+              <PropertyRef Name="BD_idx" />
+            </Principal>
+            <Dependent Role="BoardFile">
+              <PropertyRef Name="BF_BD_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardFile_cate">
+          <End Type="supertalent_dbModel.BoardMenu" Role="BoardMenu" Multiplicity="1" />
+          <End Type="supertalent_dbModel.BoardFile" Role="BoardFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoardMenu">
+              <PropertyRef Name="BM_idx" />
+            </Principal>
+            <Dependent Role="BoardFile">
+              <PropertyRef Name="BD_BM_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardFile_project_main">
+          <End Type="supertalent_dbModel.project_main" Role="project_main" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.BoardFile" Role="BoardFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="BoardFile">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardFile_user">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.BoardFile" Role="BoardFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="BoardFile">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BoardMenu_department">
+          <End Type="supertalent_dbModel.department" Role="department" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.BoardMenu" Role="BoardMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="BoardMenu">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cal_memo_cal_user">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.cal_memo" Role="cal_memo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="cal_memo">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cal_memo_project_main">
+          <End Type="supertalent_dbModel.project_main" Role="project_main" Multiplicity="1" />
+          <End Type="supertalent_dbModel.cal_memo" Role="cal_memo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="cal_memo">
+              <PropertyRef Name="project_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_code_auth_company">
+          <End Type="supertalent_dbModel.company" Role="company" Multiplicity="1" />
+          <End Type="supertalent_dbModel.code_auth" Role="code_auth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="code_auth">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_code_index_code_index">
+          <End Type="supertalent_dbModel.code_index" Role="code_index" Multiplicity="1" />
+          <End Type="supertalent_dbModel.code_index" Role="code_index1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="code_index">
+              <PropertyRef Name="code_id" />
+            </Principal>
+            <Dependent Role="code_index1">
+              <PropertyRef Name="code_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_code_index1">
+          <End Type="supertalent_dbModel.code_index" Role="code_index" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.work_list" Role="work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="code_index">
+              <PropertyRef Name="code_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="index" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_code_project_state">
+          <End Type="supertalent_dbModel.code_project_state" Role="code_project_state" Multiplicity="1" />
+          <End Type="supertalent_dbModel.work_list" Role="work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="code_project_state">
+              <PropertyRef Name="code_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="state" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_department_department">
+          <End Type="supertalent_dbModel.company" Role="company" Multiplicity="1" />
+          <End Type="supertalent_dbModel.department" Role="department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="department">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_history_company">
+          <End Type="supertalent_dbModel.company" Role="company" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.history" Role="history" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="history">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_company">
+          <End Type="supertalent_dbModel.company" Role="company" Multiplicity="1" />
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_company">
+          <End Type="supertalent_dbModel.company" Role="company" Multiplicity="1" />
+          <End Type="supertalent_dbModel.work_list" Role="work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="company_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_department">
+          <End Type="supertalent_dbModel.department" Role="department" Multiplicity="1" />
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_department">
+          <End Type="supertalent_dbModel.department" Role="department" Multiplicity="1" />
+          <End Type="supertalent_dbModel.work_list" Role="work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_file_list_file_menu">
+          <End Type="supertalent_dbModel.file_menu" Role="file_menu" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.file_list" Role="file_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="file_menu">
+              <PropertyRef Name="file_menu_id" />
+            </Principal>
+            <Dependent Role="file_list">
+              <PropertyRef Name="file_menu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_history_user">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.history" Role="history" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="history">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_my_work_project_main">
+          <End Type="supertalent_dbModel.project_main" Role="project_main" Multiplicity="1" />
+          <End Type="supertalent_dbModel.my_work" Role="my_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="my_work">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_my_work_user">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.my_work" Role="my_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="my_work">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_New_work_project_main">
+          <End Type="supertalent_dbModel.project_main" Role="project_main" Multiplicity="1" />
+          <End Type="supertalent_dbModel.New_work" Role="New_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="New_work">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_New_work_user">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="1" />
+          <End Type="supertalent_dbModel.New_work" Role="New_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="New_work">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_act_manager">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.project_act" Role="project_act" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="project_act">
+              <PropertyRef Name="manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_act_project_dir">
+          <End Type="supertalent_dbModel.project_dir" Role="project_dir" Multiplicity="1" />
+          <End Type="supertalent_dbModel.project_act" Role="project_act" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_dir">
+              <PropertyRef Name="idx" />
+            </Principal>
+            <Dependent Role="project_act">
+              <PropertyRef Name="project_dir_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_act_project_main">
+          <End Type="supertalent_dbModel.project_main" Role="project_main" Multiplicity="1" />
+          <End Type="supertalent_dbModel.project_act" Role="project_act" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="project_act">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_act_user">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="1" />
+          <End Type="supertalent_dbModel.project_act" Role="project_act" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="project_act">
+              <PropertyRef Name="maker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_dir_project_main">
+          <End Type="supertalent_dbModel.project_main" Role="project_main" Multiplicity="1" />
+          <End Type="supertalent_dbModel.project_dir" Role="project_dir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="project_dir">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_dir_user">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="1" />
+          <End Type="supertalent_dbModel.project_dir" Role="project_dir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="project_dir">
+              <PropertyRef Name="maker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_main_project_main">
+          <End Type="supertalent_dbModel.project_main" Role="project_main" Multiplicity="1" />
+          <End Type="supertalent_dbModel.project_main" Role="project_main1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="project_main1">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_project_main">
+          <End Type="supertalent_dbModel.project_main" Role="project_main" Multiplicity="1" />
+          <End Type="supertalent_dbModel.work_list" Role="work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project_main">
+              <PropertyRef Name="project_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="project_idx" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_work_list_user">
+          <End Type="supertalent_dbModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="supertalent_dbModel.work_list" Role="work_list" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="work_list">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="supertalent_dbModelStoreContainer" CdmEntityContainer="db_e">
+          <FunctionImportMapping FunctionImportName="j_mywork_project" FunctionName="supertalent_dbModel.Store.j_mywork_project">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="supertalent_dbModel.j_mywork_project_Result">
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="project_name" ColumnName="project_name" />
+                <ScalarProperty Name="project_code" ColumnName="project_code" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="mywork_report" FunctionName="supertalent_dbModel.Store.mywork_report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="supertalent_dbModel.mywork_report_Result">
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="sum_it" ColumnName="sum_it" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="mywork_report_project" FunctionName="supertalent_dbModel.Store.mywork_report_project">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="supertalent_dbModel.mywork_report_project_Result">
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="sum_it" ColumnName="sum_it" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="bbs_comment">
+            <EntityTypeMapping TypeName="supertalent_dbModel.bbs_comment">
+              <MappingFragment StoreEntitySet="bbs_comment">
+                <ScalarProperty Name="edit_date" ColumnName="edit_date" />
+                <ScalarProperty Name="user_ip" ColumnName="user_ip" />
+                <ScalarProperty Name="writer" ColumnName="writer" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="step" ColumnName="step" />
+                <ScalarProperty Name="BD_idx" ColumnName="BD_idx" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Board">
+            <EntityTypeMapping TypeName="supertalent_dbModel.Board">
+              <MappingFragment StoreEntitySet="Board">
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="machine_id" ColumnName="machine_id" />
+                <ScalarProperty Name="BD_useable" ColumnName="BD_useable" />
+                <ScalarProperty Name="BD_ddate" ColumnName="BD_ddate" />
+                <ScalarProperty Name="BD_edate" ColumnName="BD_edate" />
+                <ScalarProperty Name="BD_wdate" ColumnName="BD_wdate" />
+                <ScalarProperty Name="BD_hit" ColumnName="BD_hit" />
+                <ScalarProperty Name="BD_password" ColumnName="BD_password" />
+                <ScalarProperty Name="BD_writer" ColumnName="BD_writer" />
+                <ScalarProperty Name="BD_content" ColumnName="BD_content" />
+                <ScalarProperty Name="BD_title" ColumnName="BD_title" />
+                <ScalarProperty Name="BD_BM_idx" ColumnName="BD_BM_idx" />
+                <ScalarProperty Name="BD_idx" ColumnName="BD_idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoardComment">
+            <EntityTypeMapping TypeName="supertalent_dbModel.BoardComment">
+              <MappingFragment StoreEntitySet="BoardComment">
+                <ScalarProperty Name="BC_useable" ColumnName="BC_useable" />
+                <ScalarProperty Name="BC_parent" ColumnName="BC_parent" />
+                <ScalarProperty Name="BC_worst" ColumnName="BC_worst" />
+                <ScalarProperty Name="BC_good" ColumnName="BC_good" />
+                <ScalarProperty Name="BC_ddate" ColumnName="BC_ddate" />
+                <ScalarProperty Name="BC_edate" ColumnName="BC_edate" />
+                <ScalarProperty Name="BC_wdate" ColumnName="BC_wdate" />
+                <ScalarProperty Name="BC_content" ColumnName="BC_content" />
+                <ScalarProperty Name="BC_BD_idx" ColumnName="BC_BD_idx" />
+                <ScalarProperty Name="BC_idx" ColumnName="BC_idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoardFile">
+            <EntityTypeMapping TypeName="supertalent_dbModel.BoardFile">
+              <MappingFragment StoreEntitySet="BoardFile">
+                <ScalarProperty Name="file_title" ColumnName="file_title" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="machine_id" ColumnName="machine_id" />
+                <ScalarProperty Name="main_img" ColumnName="main_img" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="BF_type" ColumnName="BF_type" />
+                <ScalarProperty Name="BD_BM_idx" ColumnName="BD_BM_idx" />
+                <ScalarProperty Name="BF_useable" ColumnName="BF_useable" />
+                <ScalarProperty Name="BF_wdate" ColumnName="BF_wdate" />
+                <ScalarProperty Name="BF_name" ColumnName="BF_name" />
+                <ScalarProperty Name="BF_BD_idx" ColumnName="BF_BD_idx" />
+                <ScalarProperty Name="BF_idx" ColumnName="BF_idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoardMenu">
+            <EntityTypeMapping TypeName="supertalent_dbModel.BoardMenu">
+              <MappingFragment StoreEntitySet="BoardMenu">
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="open_yn" ColumnName="open_yn" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="BM_type" ColumnName="BM_type" />
+                <ScalarProperty Name="BM_url" ColumnName="BM_url" />
+                <ScalarProperty Name="BM_com" ColumnName="BM_com" />
+                <ScalarProperty Name="BM_title" ColumnName="BM_title" />
+                <ScalarProperty Name="BM_idx" ColumnName="BM_idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cal_memo">
+            <EntityTypeMapping TypeName="supertalent_dbModel.cal_memo">
+              <MappingFragment StoreEntitySet="cal_memo">
+                <ScalarProperty Name="file_sn" ColumnName="file_sn" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="project_idx" ColumnName="project_idx" />
+                <ScalarProperty Name="work_date" ColumnName="work_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="gubun_type" ColumnName="gubun_type" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryMenus">
+            <EntityTypeMapping TypeName="supertalent_dbModel.CategoryMenus">
+              <MappingFragment StoreEntitySet="CategoryMenus">
+                <ScalarProperty Name="isused" ColumnName="isused" />
+                <ScalarProperty Name="step_orderby" ColumnName="step_orderby" />
+                <ScalarProperty Name="step_dept" ColumnName="step_dept" />
+                <ScalarProperty Name="step_icon" ColumnName="step_icon" />
+                <ScalarProperty Name="step_index" ColumnName="step_index" />
+                <ScalarProperty Name="step_writedate" ColumnName="step_writedate" />
+                <ScalarProperty Name="step_auth" ColumnName="step_auth" />
+                <ScalarProperty Name="step_url2" ColumnName="step_url2" />
+                <ScalarProperty Name="step_url1" ColumnName="step_url1" />
+                <ScalarProperty Name="step_name" ColumnName="step_name" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="code_auth">
+            <EntityTypeMapping TypeName="supertalent_dbModel.code_auth">
+              <MappingFragment StoreEntitySet="code_auth">
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="gubun" ColumnName="gubun" />
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="code_id" ColumnName="code_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="code_index">
+            <EntityTypeMapping TypeName="supertalent_dbModel.code_index">
+              <MappingFragment StoreEntitySet="code_index">
+                <ScalarProperty Name="gubun" ColumnName="gubun" />
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="code_id" ColumnName="code_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="code_main">
+            <EntityTypeMapping TypeName="supertalent_dbModel.code_main">
+              <MappingFragment StoreEntitySet="code_main">
+                <ScalarProperty Name="project_name" ColumnName="project_name" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="gubun" ColumnName="gubun" />
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="code_id" ColumnName="code_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="code_nationality">
+            <EntityTypeMapping TypeName="supertalent_dbModel.code_nationality">
+              <MappingFragment StoreEntitySet="code_nationality">
+                <ScalarProperty Name="writer_id" ColumnName="writer_id" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="gubun" ColumnName="gubun" />
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="code_id" ColumnName="code_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="code_project_state">
+            <EntityTypeMapping TypeName="supertalent_dbModel.code_project_state">
+              <MappingFragment StoreEntitySet="code_project_state">
+                <ScalarProperty Name="gubun" ColumnName="gubun" />
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="code_id" ColumnName="code_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="code_time">
+            <EntityTypeMapping TypeName="supertalent_dbModel.code_time">
+              <MappingFragment StoreEntitySet="code_time">
+                <ScalarProperty Name="gubun" ColumnName="gubun" />
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="code_id" ColumnName="code_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="company">
+            <EntityTypeMapping TypeName="supertalent_dbModel.company">
+              <MappingFragment StoreEntitySet="company">
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="department">
+            <EntityTypeMapping TypeName="supertalent_dbModel.department">
+              <MappingFragment StoreEntitySet="department">
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="department_auth" ColumnName="department_auth" />
+                <ScalarProperty Name="department_name" ColumnName="department_name" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="file_list">
+            <EntityTypeMapping TypeName="supertalent_dbModel.file_list">
+              <MappingFragment StoreEntitySet="file_list">
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="file_type" ColumnName="file_type" />
+                <ScalarProperty Name="hit" ColumnName="hit" />
+                <ScalarProperty Name="file_size" ColumnName="file_size" />
+                <ScalarProperty Name="file_pre_name" ColumnName="file_pre_name" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+                <ScalarProperty Name="file_idx" ColumnName="file_idx" />
+                <ScalarProperty Name="file_menu_id" ColumnName="file_menu_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="file_menu">
+            <EntityTypeMapping TypeName="supertalent_dbModel.file_menu">
+              <MappingFragment StoreEntitySet="file_menu">
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="file_menu_name" ColumnName="file_menu_name" />
+                <ScalarProperty Name="file_menu_id" ColumnName="file_menu_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="history">
+            <EntityTypeMapping TypeName="supertalent_dbModel.history">
+              <MappingFragment StoreEntitySet="history">
+                <ScalarProperty Name="page" ColumnName="page" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="connect_date" ColumnName="connect_date" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="connect_path" ColumnName="connect_path" />
+                <ScalarProperty Name="connect_host" ColumnName="connect_host" />
+                <ScalarProperty Name="connect_agent" ColumnName="connect_agent" />
+                <ScalarProperty Name="pre_page" ColumnName="pre_page" />
+                <ScalarProperty Name="user_ip" ColumnName="user_ip" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hotel_ask">
+            <EntityTypeMapping TypeName="supertalent_dbModel.hotel_ask">
+              <MappingFragment StoreEntitySet="hotel_ask">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="hp" ColumnName="hp" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="one_price" ColumnName="one_price" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="room_count" ColumnName="room_count" />
+                <ScalarProperty Name="group_code" ColumnName="group_code" />
+                <ScalarProperty Name="check_out" ColumnName="check_out" />
+                <ScalarProperty Name="check_in" ColumnName="check_in" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="language">
+            <EntityTypeMapping TypeName="supertalent_dbModel.language">
+              <MappingFragment StoreEntitySet="language">
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="english" ColumnName="english" />
+                <ScalarProperty Name="korea" ColumnName="korea" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="machine">
+            <EntityTypeMapping TypeName="supertalent_dbModel.machine">
+              <MappingFragment StoreEntitySet="machine">
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="edit_date" ColumnName="edit_date" />
+                <ScalarProperty Name="writer_id" ColumnName="writer_id" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="machine_name" ColumnName="machine_name" />
+                <ScalarProperty Name="machine_id" ColumnName="machine_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="my_work">
+            <EntityTypeMapping TypeName="supertalent_dbModel.my_work">
+              <MappingFragment StoreEntitySet="my_work">
+                <ScalarProperty Name="file_sn" ColumnName="file_sn" />
+                <ScalarProperty Name="open_it" ColumnName="open_it" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="work_date" ColumnName="work_date" />
+                <ScalarProperty Name="edit_date" ColumnName="edit_date" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="work_time" ColumnName="work_time" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="New_work">
+            <EntityTypeMapping TypeName="supertalent_dbModel.New_work">
+              <MappingFragment StoreEntitySet="New_work">
+                <ScalarProperty Name="edit_date" ColumnName="edit_date" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="spend_time" ColumnName="spend_time" />
+                <ScalarProperty Name="spend_hour" ColumnName="spend_hour" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Process">
+            <EntityTypeMapping TypeName="supertalent_dbModel.Process">
+              <MappingFragment StoreEntitySet="Process">
+                <ScalarProperty Name="gubun" ColumnName="gubun" />
+                <ScalarProperty Name="writer_name" ColumnName="writer_name" />
+                <ScalarProperty Name="wrtie_date" ColumnName="wrtie_date" />
+                <ScalarProperty Name="pic2" ColumnName="pic2" />
+                <ScalarProperty Name="pic1" ColumnName="pic1" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="project_act">
+            <EntityTypeMapping TypeName="supertalent_dbModel.project_act">
+              <MappingFragment StoreEntitySet="project_act">
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="manager" ColumnName="manager" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="work_per" ColumnName="work_per" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="set_time" ColumnName="set_time" />
+                <ScalarProperty Name="maker_id" ColumnName="maker_id" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="project_dir_idx" ColumnName="project_dir_idx" />
+                <ScalarProperty Name="project_sub_title" ColumnName="project_sub_title" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="project_dir">
+            <EntityTypeMapping TypeName="supertalent_dbModel.project_dir">
+              <MappingFragment StoreEntitySet="project_dir">
+                <ScalarProperty Name="maker_id" ColumnName="maker_id" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="project_step" ColumnName="project_step" />
+                <ScalarProperty Name="project_dir_title" ColumnName="project_dir_title" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="project_main">
+            <EntityTypeMapping TypeName="supertalent_dbModel.project_main">
+              <MappingFragment StoreEntitySet="project_main">
+                <ScalarProperty Name="machine_id" ColumnName="machine_id" />
+                <ScalarProperty Name="user_ip" ColumnName="user_ip" />
+                <ScalarProperty Name="mode_type" ColumnName="mode_type" />
+                <ScalarProperty Name="file_sn" ColumnName="file_sn" />
+                <ScalarProperty Name="project_code" ColumnName="project_code" />
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="writer" ColumnName="writer" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="project_name" ColumnName="project_name" />
+                <ScalarProperty Name="owner_id" ColumnName="owner_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="project_id_name" ColumnName="project_id_name" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="project_main_back">
+            <EntityTypeMapping TypeName="supertalent_dbModel.project_main_back">
+              <MappingFragment StoreEntitySet="project_main_back">
+                <ScalarProperty Name="mode_type" ColumnName="mode_type" />
+                <ScalarProperty Name="file_sn" ColumnName="file_sn" />
+                <ScalarProperty Name="project_code" ColumnName="project_code" />
+                <ScalarProperty Name="index_order" ColumnName="index_order" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="writer" ColumnName="writer" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="project_name" ColumnName="project_name" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="project_id_name" ColumnName="project_id_name" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QA">
+            <EntityTypeMapping TypeName="supertalent_dbModel.QA">
+              <MappingFragment StoreEntitySet="QA">
+                <ScalarProperty Name="gubun" ColumnName="gubun" />
+                <ScalarProperty Name="writer_name" ColumnName="writer_name" />
+                <ScalarProperty Name="wrtie_date" ColumnName="wrtie_date" />
+                <ScalarProperty Name="pic2" ColumnName="pic2" />
+                <ScalarProperty Name="pic1" ColumnName="pic1" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test">
+            <EntityTypeMapping TypeName="supertalent_dbModel.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="user_company" ColumnName="user_company" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="supertalent_dbModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="manager_yn" ColumnName="manager_yn" />
+                <ScalarProperty Name="edit_date" ColumnName="edit_date" />
+                <ScalarProperty Name="alert_yn" ColumnName="alert_yn" />
+                <ScalarProperty Name="photo_profile" ColumnName="photo_profile" />
+                <ScalarProperty Name="main_bg_color" ColumnName="main_bg_color" />
+                <ScalarProperty Name="con_date" ColumnName="con_date" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="writer" ColumnName="writer" />
+                <ScalarProperty Name="user_tel" ColumnName="user_tel" />
+                <ScalarProperty Name="check_auth" ColumnName="check_auth" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="user_auth" ColumnName="user_auth" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="work_list">
+            <EntityTypeMapping TypeName="supertalent_dbModel.work_list">
+              <MappingFragment StoreEntitySet="work_list">
+                <ScalarProperty Name="index" ColumnName="index" />
+                <ScalarProperty Name="who_list" ColumnName="who_list" />
+                <ScalarProperty Name="open_it" ColumnName="open_it" />
+                <ScalarProperty Name="project_idx" ColumnName="project_idx" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="work_date" ColumnName="work_date" />
+                <ScalarProperty Name="edit_date" ColumnName="edit_date" />
+                <ScalarProperty Name="write_date" ColumnName="write_date" />
+                <ScalarProperty Name="who" ColumnName="who" />
+                <ScalarProperty Name="use_yn" ColumnName="use_yn" />
+                <ScalarProperty Name="gubun_type" ColumnName="gubun_type" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="gubun_code" ColumnName="gubun_code" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="member">
+            <EntityTypeMapping TypeName="supertalent_dbModel.member">
+              <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="department_auth" ColumnName="department_auth" />
+                <ScalarProperty Name="department_name" ColumnName="department_name" />
+                <ScalarProperty Name="user_auth" ColumnName="user_auth" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_mywork_project">
+            <EntityTypeMapping TypeName="supertalent_dbModel.v_mywork_project">
+              <MappingFragment StoreEntitySet="v_mywork_project">
+                <ScalarProperty Name="project_name" ColumnName="project_name" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_new_work">
+            <EntityTypeMapping TypeName="supertalent_dbModel.v_new_work">
+              <MappingFragment StoreEntitySet="v_new_work">
+                <ScalarProperty Name="edit_date" ColumnName="edit_date" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="spend_hour" ColumnName="spend_hour" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="project_name" ColumnName="project_name" />
+                <ScalarProperty Name="project_id_name" ColumnName="project_id_name" />
+                <ScalarProperty Name="idx" ColumnName="idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="없음" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

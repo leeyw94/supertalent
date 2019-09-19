@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SupertalentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SupertalentE" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Application" EntityType="SupertalentModel.Application" />
+    <EntitySet Name="Application_Ko" EntityType="SupertalentModel.Application_Ko" />
+    <EntitySet Name="code_1" EntityType="SupertalentModel.code_1" />
+    <EntitySet Name="Contact" EntityType="SupertalentModel.Contact" />
+    <EntitySet Name="Courses" EntityType="SupertalentModel.Courses" />
+    <EntitySet Name="Get_Course_Content" EntityType="SupertalentModel.Get_Course_Content" />
+    <EntitySet Name="Md_Image" EntityType="SupertalentModel.Md_Image" />
+    <EntitySet Name="Model_Data" EntityType="SupertalentModel.Model_Data" />
+    <EntitySet Name="Pay" EntityType="SupertalentModel.Pay" />
+    <EntitySet Name="TG_Image" EntityType="SupertalentModel.TG_Image" />
+    <EntitySet Name="Travel_Goods" EntityType="SupertalentModel.Travel_Goods" />
+    <EntitySet Name="UserData" EntityType="SupertalentModel.UserData" />
+    <AssociationSet Name="FK_Contact_Contact" Association="SupertalentModel.FK_Contact_Contact">
+      <End Role="code_1" EntitySet="code_1" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Courses_Travel_Goods" Association="SupertalentModel.FK_Courses_Travel_Goods">
+      <End Role="Travel_Goods" EntitySet="Travel_Goods" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Md_Image_Models" Association="SupertalentModel.FK_Md_Image_Models">
+      <End Role="Model_Data" EntitySet="Model_Data" />
+      <End Role="Md_Image" EntitySet="Md_Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pay_Travel_Goods" Association="SupertalentModel.FK_Pay_Travel_Goods">
+      <End Role="Travel_Goods" EntitySet="Travel_Goods" />
+      <End Role="Pay" EntitySet="Pay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TG_Image_Travel_Goods" Association="SupertalentModel.FK_TG_Image_Travel_Goods">
+      <End Role="Travel_Goods" EntitySet="Travel_Goods" />
+      <End Role="TG_Image" EntitySet="TG_Image" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="job" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="language" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="talent" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="insta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="youtube" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="b_y" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="b_m" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="b_d" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="height" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="hope" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="rdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="category" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Application_Ko">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="job" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="language" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="insta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="youtube" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="b_y" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="b_m" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="b_d" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="height" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="hope" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="rdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="category" Type="Int32" />
+  </EntityType>
+  <EntityType Name="code_1">
+    <Key>
+      <PropertyRef Name="idx" />
+    </Key>
+    <Property Name="idx" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="index_order" Type="Int32" Nullable="false" />
+    <Property Name="code_name_ko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lan_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="gubun" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Contact" Relationship="SupertalentModel.FK_Contact_Contact" FromRole="code_1" ToRole="Contact" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Inquiry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="write_date" Type="DateTime" Precision="3" />
+    <Property Name="gubun_code" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="code_1" Relationship="SupertalentModel.FK_Contact_Contact" FromRole="Contact" ToRole="code_1" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TG_id" Type="Int32" Nullable="false" />
+    <Property Name="Num" Type="Int32" />
+    <Property Name="Course" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Course_title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Travel_Goods" Relationship="SupertalentModel.FK_Courses_Travel_Goods" FromRole="Courses" ToRole="Travel_Goods" />
+  </EntityType>
+  <EntityType Name="Get_Course_Content">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Get_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rdate" Type="DateTime" Precision="3" />
+    <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Num" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Md_Image">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Md_id" Type="Int32" Nullable="false" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Num" Type="Int32" />
+    <Property Name="Image_Cate" Type="Int32" />
+    <NavigationProperty Name="Model_Data" Relationship="SupertalentModel.FK_Md_Image_Models" FromRole="Md_Image" ToRole="Model_Data" />
+  </EntityType>
+  <EntityType Name="Model_Data">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="Int32" />
+    <Property Name="M_season" Type="Int32" />
+    <Property Name="M_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="M_country_img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="M_country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="M_city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="M_language" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="M_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="M_born" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="M_age" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="M_height" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MainImgPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="M_insta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="M_facebook" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="M_youtube" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Rdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Md_Image" Relationship="SupertalentModel.FK_Md_Image_Models" FromRole="Model_Data" ToRole="Md_Image" />
+  </EntityType>
+  <EntityType Name="Pay">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="merchant_uid" Type="Int32" />
+    <Property Name="imp_uid" Type="Int32" />
+    <Property Name="Category" Type="Int32" />
+    <Property Name="TG_id" Type="Int32" />
+    <Property Name="TG_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Total_Price" Type="Int32" />
+    <Property Name="Buyer_account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Buyer_bank" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Buyer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Buyer_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Buyer_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Pay_method" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Currency" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Cart_date" Type="DateTime" Precision="3" />
+    <Property Name="Pay_date" Type="DateTime" Precision="3" />
+    <Property Name="Cancel_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Travel_Goods" Relationship="SupertalentModel.FK_Pay_Travel_Goods" FromRole="Pay" ToRole="Travel_Goods" />
+  </EntityType>
+  <EntityType Name="TG_Image">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image_Cate" Type="Int32" />
+    <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TG_id" Type="Int32" Nullable="false" />
+    <Property Name="courses_id" Type="Int32" />
+    <Property Name="num" Type="Int32" />
+    <Property Name="rdate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Travel_Goods" Relationship="SupertalentModel.FK_TG_Image_Travel_Goods" FromRole="TG_Image" ToRole="Travel_Goods" />
+  </EntityType>
+  <EntityType Name="Travel_Goods">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="Int32" />
+    <Property Name="Course" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Meeting_place" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Benefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Includes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Not_included" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notices_Policy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cancel_Refund" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Edate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Usable" Type="Boolean" />
+    <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MainImgPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Price_d" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Price_w" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Startc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Endc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="days" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reservation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Accommodations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cancel_Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Seller_Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Courses" Relationship="SupertalentModel.FK_Courses_Travel_Goods" FromRole="Travel_Goods" ToRole="Courses" />
+    <NavigationProperty Name="Pay" Relationship="SupertalentModel.FK_Pay_Travel_Goods" FromRole="Travel_Goods" ToRole="Pay" />
+    <NavigationProperty Name="TG_Image" Relationship="SupertalentModel.FK_TG_Image_Travel_Goods" FromRole="Travel_Goods" ToRole="TG_Image" />
+  </EntityType>
+  <EntityType Name="UserData">
+    <Key>
+      <PropertyRef Name="user_email" />
+    </Key>
+    <Property Name="user_email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_password" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="rdate" Type="DateTime" Precision="3" />
+    <Property Name="use_yn" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="edate" Type="DateTime" Precision="3" />
+    <Property Name="verified" Type="Boolean" Nullable="false" />
+    <Property Name="temp_confirm_key" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="user_level" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Contact_Contact">
+    <End Type="SupertalentModel.code_1" Role="code_1" Multiplicity="1" />
+    <End Type="SupertalentModel.Contact" Role="Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="code_1">
+        <PropertyRef Name="idx" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="gubun_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Courses_Travel_Goods">
+    <End Type="SupertalentModel.Travel_Goods" Role="Travel_Goods" Multiplicity="1" />
+    <End Type="SupertalentModel.Courses" Role="Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Travel_Goods">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="TG_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Md_Image_Models">
+    <End Type="SupertalentModel.Model_Data" Role="Model_Data" Multiplicity="1" />
+    <End Type="SupertalentModel.Md_Image" Role="Md_Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Model_Data">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Md_Image">
+        <PropertyRef Name="Md_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pay_Travel_Goods">
+    <End Type="SupertalentModel.Travel_Goods" Role="Travel_Goods" Multiplicity="0..1" />
+    <End Type="SupertalentModel.Pay" Role="Pay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Travel_Goods">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pay">
+        <PropertyRef Name="TG_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TG_Image_Travel_Goods">
+    <End Type="SupertalentModel.Travel_Goods" Role="Travel_Goods" Multiplicity="1" />
+    <End Type="SupertalentModel.TG_Image" Role="TG_Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Travel_Goods">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TG_Image">
+        <PropertyRef Name="TG_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

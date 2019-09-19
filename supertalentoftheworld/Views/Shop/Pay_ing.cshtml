@@ -1,0 +1,44 @@
+﻿@model supertalentoftheworld.Models.Pay
+@{
+    Layout = "/Views/Shared/_Layout_blank.cshtml";
+}
+
+
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script>
+    var user_email = "@ViewBag.user_data.user_email";
+    var user_name = "@ViewBag.user_data.user_name";
+    var amount = "@Model.Amount";
+    var user_phone = "@ViewBag.user_data.user_phone";
+
+
+    var IMP = window.IMP;
+    IMP.init('imp88616174');
+
+    IMP.request_pay({
+        pg: 'paypal', // version 1.1.0부터 지원.
+        pay_method: "@Model.Pay_method",
+        merchant_uid: 'merchant_' + new Date().getTime(),
+        name: '',
+        amount: amount,
+        currency: 'USD',
+        language: 'ko',
+        buyer_email: user_email,
+        buyer_name: user_name,
+        buyer_tel: user_phone,
+        m_redirect_url: '/shop/pay_result'
+
+    }, function (rsp) {
+        if (rsp.success) {
+            var msg = '결제가 완료되었습니다.';
+            msg += '고유ID : ' + rsp.imp_uid;
+            msg += '상점 거래ID : ' + rsp.merchant_uid;
+            msg += '결제 금액 : ' + rsp.paid_amount;
+            msg += '카드 승인번호 : ' + rsp.apply_num;
+        } else {
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+        }
+        alert(msg);
+    });
+</script>

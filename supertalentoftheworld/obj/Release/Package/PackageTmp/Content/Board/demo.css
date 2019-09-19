@@ -1,0 +1,59 @@
+@media (min-width: 992px) {
+    .typo-line {
+        margin-bottom: 40px;
+        padding-left: 140px;
+        position: relative;
+    }
+
+    .typo-line .category {
+        left: 0px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.all-icons [class^="pe-"] { font-size: 40px; }
+
+.all-icons input { border: 0; }
+
+.all-icons .font-icon-detail {
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    margin: 15px 0;
+    padding: 45px 0px 30px;
+    text-align: center;
+}
+
+.all-icons .font-icon-container a {
+    color: #666666;
+    display: block;
+    padding: 5px 0;
+}
+
+.all-icons .font-icon-detail input {
+    color: #aaa;
+    display: block;
+    font-size: 13px;
+    margin: 25px auto 0;
+    text-align: center;
+    width: 100%;
+}
+
+.all-icons h5 { margin-top: 60px; }
+
+.all-icons > div > .row:first-child h5 { margin-top: 15px; }
+
+.places-buttons .btn { margin-bottom: 30px }
+
+.buttons-with-margin .btn { margin-bottom: 5px; }
+
+.animated .img-rounded {
+    display: block;
+    height: 150px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 150px;
+}
+
+.animated .img-rounded img { width: 100%; }

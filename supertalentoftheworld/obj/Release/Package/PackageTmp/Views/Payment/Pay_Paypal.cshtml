@@ -1,0 +1,48 @@
+﻿@model supertalentoftheworld.Models.Pay
+@{
+    Layout = "/Views/Shared/_Layout_blank.cshtml";
+}
+
+
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script>
+    var user_email = "@ViewBag.user_data.user_email";
+    var user_name = "@ViewBag.user_data.user_name";
+    var amount = "@Model.Amount";
+    var user_phone = "@ViewBag.user_data.user_phone";
+
+
+    var IMP = window.IMP;
+    IMP.init('imp42966132');
+
+    IMP.request_pay({
+        pg: 'paypal', // version 1.1.0부터 지원.
+        pay_method: "@Model.Pay_method",
+        merchant_uid: 'merchant_' + new Date().getTime(),
+        name: '',
+        amount: @Model.Total_Price,
+        currency: 'USD',
+        language: 'en',
+        buyer_email: user_email,
+        buyer_name: user_name,
+        buyer_tel: user_phone, 
+        m_redirect_url: "http://supertalent.co/shop/details?id=@Model.TG_id"
+    }, function (rsp) {
+        if (rsp.success) {
+            jQuery.ajax({
+                url: "payment/pay_result",
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                data: {
+                    imp_uid: rsp.imp_uid,
+                    merchant_uid:rsp.merchant_uid,
+                    Status: rsp.success,
+                    Pay_method: rsp.pay_method,
+                }
+            })
+        } else {
+            alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+        }
+        alert(msg);
+    });
+</script>
