@@ -1,0 +1,994 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+    <script src="~/Content/Board.js"></script>
+<style>
+    .col-md-3, .col-md-4 {
+        margin: 20px auto;
+    }
+
+    a {
+        color: #0678cb;
+    }
+
+    .dis-none {
+        display: none;
+    }
+
+    .support-title {
+        position: relative;
+        margin: 0 0 30px;
+        padding: 0;
+        border-bottom: 1px solid #d8d8d8;
+        font-size: 32px;
+        clear: both;
+    }
+
+        .support-title span {
+            display: inline-block;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 5px solid transparent;
+            color: #333;
+        }
+
+        .support-title:after {
+            position: absolute;
+            left: 10%;
+            transform: translateX(-50%);
+            height: 5px;
+            width: 20%;
+            bottom: 0;
+            background: #333;
+            content: "";
+        }
+
+    .submit-top-btn {
+        background: #ff4157;
+        border: 1px solid #ff4157;
+        display: inline-block;
+        font-size: 15px;
+        letter-spacing: 1px;
+        margin-top: 15px;
+        padding: 6px 15px;
+        text-transform: uppercase;
+        color: #fff
+    }
+
+        .submit-top-btn:hover {
+            background: #fff;
+            border-color: #fff;
+            color: #ff4157;
+        }
+
+    .img-hover:hover {
+        transform: scale(1.1);
+    }
+
+    .support-tri:nth-child(2n):before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 48.5px solid transparent;
+        border-right: 49px solid #f6f6f6;
+        border-bottom: 48.5px solid transparent;
+        border-left: none;
+        position: absolute;
+        left: -49px;
+        top: 42px;
+    }
+
+    .support-tri:nth-child(2n+1):before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 48.5px solid transparent;
+        border-left: 49px solid #f6f6f6;
+        border-bottom: 48.5px solid transparent;
+        position: absolute;
+        right: -49px;
+        z-index: 100;
+        top: 42px;
+    }
+
+  
+
+    .support-color {
+        padding: 10px;
+        border-bottom: dashed 1px #ebebeb;
+    }
+
+        .support-color div span {
+            color: #ff4157;
+        }
+
+    @@media (max-width:767px) {
+        .support-img div img {
+            margin: auto;
+        }
+
+        .support-color div a {
+            word-break: break-all;
+        }
+    }
+</style>
+<!--Shop/Index-->
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+<div class="col-md-12" style="background-image: url('/images/Support/support-bg.jpg');height: 400px;padding-top: 100px;box-sizing: border-box;background-size:cover;background-position:center center; background-repeat: no-repeat;color: #fff;text-align:center;line-height:3em;">
+    <h1 style="font-size:5rem; font-weight:700;">한류기업 지원 프로그램</h1>
+    <h3 style="padding-top:20px;">PHOTO VIDEO&nbsp;·&nbsp;PRODUCTION</h3>
+    <h4 style="padding-top:20px;">슈퍼탤런트가 촬영하는 ONE SOURCE MULTI USER CONTENTS </h4>
+    <a href="#quest" class="submit-top-btn nav-link" style="padding: 1px 20px; border-image: none; margin-top:30px;transition:ease 0.4s; ">이용문의</a>
+</div>
+<div style="clear:both;">
+    <div class="row" style="padding:70px 0;">
+        <div class="col-md-10 col-md-offset-1">
+            <h2 style="text-align:center;margin-bottom:30px;">세계 최정상의 <strong>슈퍼탤런트 모델과 프로덕션팀</strong>을 지금부터 귀사의 브랜드에 활용하세요.</h2><br />
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-sm-3" style="text-align:center; padding:30px 20px;">
+                    <div style="border:solid 1px; padding: 30px 20px;">
+                        <img src="~/images/Support/support-icon1.png" />
+                        <h3 style="margin-top:20px;font-weight:600;">콘텐츠 무기한 사용</h3>
+                        <h5 style="margin-top:15px; line-height:3rem;">
+                            촬영된 사진, 동영상의 저작권<br />
+                            광고주가 무제한 사용가능
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-sm-3" style="text-align:center; padding:30px 20px;">
+                    <div style="border:solid 1px; padding: 30px 20px;">
+                        <img src="~/images/Support/support-icon2.png" />
+                        <h3 style="margin-top:20px;font-weight:600;">모든 상업용도 사용가능</h3>
+                        <h5 style="margin-top:15px; line-height:3rem;">
+                            블로그, SNS, 유투브, 웹, 플랫폼, <br />
+                            쇼핑몰, 박람회, 사업설명회 등
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-sm-3" style="text-align:center; padding:30px 20px;">
+                    <div style="border:solid 1px; padding: 30px 20px;">
+                        <img src="~/images/Support/support-icon3.png" />
+                        <h3 style="margin-top:20px;font-weight:600;">콘텍츠 신속히 제공</h3>
+                        <h5 style="margin-top:15px; line-height:3rem;">
+                            촬영 후 하루 또는 이틀<br />
+                            소요해 발송
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-sm-3" style="text-align:center; padding:30px 20px;">
+                    <div style="border:solid 1px; padding: 30px 20px;">
+                        <img src="~/images/Support/support-icon4.png" />
+                        <h3 style="margin-top:20px;font-weight:600;">최적의 브랜드 홍보</h3>
+                        <h5 style="margin-top:15px; line-height:3rem;">
+                            파리에서 로마까지 34도시의<br />
+                            패션, 아트, 뷰티, 오리지널 콘텐츠
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" style="margin-top:20px;background:#f6f6f6;padding:50px 0;">
+            <div class="col-md-8 col-md-offset-2">
+                <h2 style="margin-bottom:30px;">세계 최정상의 <strong>패션 X 엔터테인먼트 파트너</strong></h2><br />
+                <div class="col-md-12">
+                    <div class="col-sm-6 support-tri" style=" padding:0; overflow:hidden;">
+                        <img src="~/images/Support/support-bg3.jpg" class="img-responsive img-hover" style="transition: transform 0.5s ease;" />
+                    </div>
+                    <div class="col-sm-6 support-tri" style="padding:3%">
+                        <p style="line-height: 2em; font-size: 1.2em;">
+                            <span style="font-size:1.8em; font-weight:bold;">Partner Ship</span><br />
+                            파리 에펠탑, 니스 아크로폴리스, 깐느 크화세뜨가, 모나코 그랑프리, 밀란 패션스쿨, 베니스 리도 시네마팔라스, 볼로냐 코스모프로, 카프리섬 파라그리오니 록스, 티볼리 100분수, 폼페이 아폴로 신전, 로마 스페인 계단 등 인터내셔널 패, 아트, 오리저널 , 영화제 등을 포함하여 유럽 30국의 패션 엔터테인먼트 로케이션, 소속 포토그래퍼, 비디오팀과 함께 합니다.<br /><br />
+                        </p>
+                    </div>
+                    <div class="col-sm-6 support-tri" style="clear:both;padding:3%">
+                        <p style="line-height: 2em; font-size: 1.2em;">
+                            <span style="font-size:1.8em; font-weight:bold;">One Source Multi User</span><br />
+                            한 가지의 소스로 다양한 커넥션을 이끌어 낼 수 있는 자사만의 독창적인 시스템과 다져진 노하우로 광고주의 전 세계 지사들과 쉽게 자료를 공유하고 협업할 수 있습니다.<br /><br />
+                        </p>
+                    </div>
+                    <div class="col-sm-6 support-tri" style="padding:0; overflow:hidden;">
+                        <img src="~/images/Support/support-bg4.jpg" class="img-responsive img-hover" style="transition: transform 0.5s ease;" />
+                    </div>
+                    <div class="col-sm-6 support-tri" style=" padding:0; overflow:hidden;">
+                        <img src="~/images/Support/support-bg5.jpg" class="img-responsive img-hover" style="transition: transform 0.5s ease;" />
+                    </div>
+                    <div class="col-sm-6 support-tri" style="padding:3%">
+                        <p style="line-height: 2em; font-size: 1.2em;">
+                            <span style="font-size:1.8em; font-weight:bold;">Contents Management</span><br> 글로벌 자사, 총판, 합작기업들과 공유할 자료들을 융합하여 모든 사용자가 이미지나 영상들을 쉽게 열람 및 다운로드할 수 있게 검색 및 수정기능을 사용할 수 있습니다. 슈퍼탤런트가 제공하는 디지털 콘텐츠 매니지먼트 시스템으로 서버 및 기타 유지보수 등의 비용없이 광고자료를 한 곳에 관리하고, 검색하고 공유하고 소통하실 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin:30px auto;">
+        <div class="col-md-8 col-md-offset-2">
+            <h2 style="margin-bottom:30px;"><strong>한류기업 지원 프로그램</strong></h2><br />
+            <p style="font-size:1.2em; line-height:2em;">전 세계 30국가/30명 미녀 모델/아티스트들이 200만원 특가로 CF 영상/포토/30국 인플루언서/홍보영상을 드립니다.</p><br /><br />
+
+            <img src="~/images/Support/support-content.png" class="img-responsive" style="margin:auto" />
+        </div>
+        @*<div class="col-md-offset-1 col-md-10">
+                <div class="col-md-3" style="overflow:hidden; word-break:keep-all;">
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%;">광고콘텐츠</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp; 홍보 영상(CF) <a href="#"><i class="fa glyphicon-circle-arrow-down"></i></a><br />
+                        ▪&nbsp; 사진 / 화보 / 브로마이드 <a href="#"><i class="fa glyphicon-circle-arrow-down"></i></a><br />
+                        ▪&nbsp; 30국 인플루언서 유투브 마케팅 <a href="#"><i class="fa glyphicon-circle-arrow-down"></i></a><br />
+                        ▪&nbsp; 30국 홍보셀카사진 / 영상원본제공 <a href="#"><i class="fa glyphicon-circle-arrow-down"></i></a><br />
+                    </p>
+                </div>
+                <div class="col-md-3" style="overflow:hidden; word-break:keep-all;">
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%;">내용</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        <span style="font-size:1.7rem; font-weight:bold;">도시 선정, 스토리텔링 C.F.동영상</span><br />
+                        ▪&nbsp;  30초 분량으로 1개 제작<br />
+                        ▪&nbsp;  총1개 파일제공 X 모델택일가능<br /><br />
+
+                        <span style="font-size:1.7rem; font-weight:bold;">도시 선정, 제품 사진/화보/브로마이드 </span><br />
+                        ▪&nbsp; 에펠탑 등 유명 명소, 스토리 텔링 사진<br /><br />
+
+                        <span style="font-size:1.7rem; font-weight:bold;">인스타/페북 인플루언서</span><br />
+                        ▪&nbsp; 30명모델, 셀카로 제품 홍보 <br /><br />
+
+                        <span style="font-size:1.7rem; font-weight:bold;">30명 셀카동영상/사진 원본제공 </span><br />
+                    </p>
+                </div>
+                <div class="col-md-3" style="word-break:keep-all; overflow:hidden;">
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%;">촬영날짜</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp;  2019년 10/17~11/2
+                    </p>
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">초상권 ▪&nbsp; 저작권</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp;  별도 기간 제한 없음
+                    </p>
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">브랜드품목</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        <span style="font-size:1.7rem; font-weight:bold;">모든 브랜드 및 제품</span><br />
+                        (코스메틱/패션/잡화/다이어트/식음료/라이프스타일
+                        프랜차이즈 등 홍보를 원하는 브랜드 및 제품)
+                    </p>
+                </div>
+                <div class="col-md-3" style="word-break:keep-all; overflow:hidden;">
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%;">활용 범위</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp;  블로그, SNS, 유투브<br />
+                        ▪&nbsp;  전 세계 웹/플랫폼/쇼핑몰<br />
+                        ▪&nbsp;  박람회/전시회/사업설명회<br />
+                    </p>
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">문의 및 접수</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp;  <a href="http://bit.ly/2SnTxjc">http://bit.ly/2SnTxjc</a> <br />
+                        ▪&nbsp;  team@sutagroup.com<br />
+                        ▪&nbsp;  Kakao: misssupertalent<br />
+                        ▪&nbsp;  Tel. 02 3444 7821<br />
+                        ▪&nbsp;  Mob. 010 9964 3236<br />
+                        ▪&nbsp;  자료 다운로드 <a href="http://bit.ly/2XX3hC3">http://bit.ly/2XX3hC3</a><br />
+                    </p>
+                </div>
+                <div class="col-md-3" style="overflow:hidden; word-break:keep-all;">
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">포함 내역</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp; 모델 비용<br />
+                        ▪&nbsp; 헤어, 메이크업, 의상
+                        ▪&nbsp; 로케이션/스튜디오 렌탈
+                        ▪&nbsp; 영상/사진 프로덕션팀
+                        ▪&nbsp; 편집비용 등 일체포함
+                    </p>
+                </div>
+                <div class="col-md-3" style="overflow:hidden; word-break:keep-all; ">
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">촬영 장소</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp; 아래 도시 중 지정<br /><br />
+                        파리 ▪&nbsp; 니스 ▪&nbsp; 밀라노 ▪&nbsp; 로마 ▪&nbsp; 카프리 ▪&nbsp; 깐느 ▪&nbsp; 모나코 ▪&nbsp; 피사 ▪&nbsp; 베로나 ▪&nbsp; 망통 ▪&nbsp; 그라스 ▪&nbsp; 베니스 ▪&nbsp; 리도섬 ▪&nbsp; 피렌체 ▪&nbsp; 산마리노 ▪&nbsp; 산레모 등 34도시<br /><br />
+                        <a href="http://supertalent.co">http://supertalent.co</a>
+                    </p>
+                </div>
+                <div class="col-md-3" style="word-break:keep-all; overflow:hidden;">
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">신청마감일</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp;  선착순 마감<br />
+                    </p>
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">신청서류</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp; 회사 및 제품 소개<br />
+                        ▪&nbsp; 하나의 파일로 제출<br />
+                    </p>
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">홍보물 제작비용</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp; 별도 문의<br />
+                        ▪&nbsp; <a href="http://supertalent.co/Finalists/Season13_2019">시즌 13 파리 to 런던 참가모델 보기</a>
+                    </p>
+                </div>
+                <div class="col-md-3" style="overflow:hidden; word-break:keep-all;">
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">홍보물 제작 관련</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp; 각 품목당 두 개 브랜드 이하<br />
+                        ▪&nbsp; 선정 후, 공지기간 내 비용납부<br />
+                    </p>
+                </div>
+                <div class="col-md-3" style="overflow:hidden; word-break:keep-all;">
+                    <h4 style="background:#162541; color:#fff; text-align:center; padding:2%; margin-top:10px;">후원</h4>
+                    <p style="font-size:1.6rem; padding:3%; line-height:2.6rem;">
+                        ▪&nbsp;  소시에테덱스플로와타시옹 투어<br /><br />
+                        에펠 ▪&nbsp; 프랑스관광청 ▪&nbsp; 이태리관광청 ▪&nbsp; 이탈리아상공회의소 ▪&nbsp; 아코르그룹 ▪&nbsp; 한불상공회의소 ▪&nbsp; 모나코관광청 ▪&nbsp; 코스모프로프
+                    </p>
+                </div>
+            </div>*@
+    </div>
+    <div class="row" style="clear:both; display:block; min-height:78vh; background-image: url('/images/Background/building3.jpg'); background-size: cover; background-position: center center;" id="quest">
+        <div class="col-sm-6 col-sm-offset-3" style="margin-top:20px; padding:50px 0; ">
+            <h2 style="margin-bottom: 50px; text-align:center; font-weight:bold; color:#fff;">문의하기</h2>
+            <form name="frm" id="frm" action="/Home/Contact2" method="POST" style="color:#fff;">
+                <div class="form-group col-sm-4 col-sm-offset-1" style="margin-top:10px; line-height:3em; display:none;">
+                    <div class="col-sm-4">
+                        <label for="" style="font-size:1.3em;">문의</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" value="광고문의" name="Inquiry" id="inquiry" type="text">
+                    </div>
+                </div>
+                <div class="form-group col-sm-4 col-sm-offset-1" style="margin-top: 10px; line-height:3em;">
+                    <div class="col-sm-4">
+                        <label for="" style="font-size:1.3em;">이름</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" name="Name" id="Name1" type="text" title="이름을 입력해주세요.">
+                    </div>
+                </div>
+                <div class="form-group col-sm-5 col-sm-offset-1" style="margin-top: 10px;line-height:3em;">
+                    <div class="col-sm-3">
+                        <label for="" style="font-size:1.3em;">E-mail</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input class="form-control" name="Email" id="Email1" type="text" title="E-mail을 입력해주세요." maxlength="30">
+                    </div>
+                </div>
+                <div class="form-group col-sm-4 col-sm-offset-1" style="margin-top: 10px;line-height:3em; clear:both;">
+                    <div class="col-sm-4">
+                        <label for="" style=" font-size:1.3em;">회사명</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input class="form-control" name="Company_name" id="Company_name1" type="text" title="회사명을 입력해주세요.">
+                    </div>
+                </div>
+                <div class="form-group col-sm-5 col-sm-offset-1" style="margin-top: 10px;line-height:3em;">
+                    <div class="col-sm-3" style="font-size:1.3em;">
+                        <label for="">연락처</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input class="form-control" name="Phone" id="Phone1" type="text" maxlength="50" title="연락처를 입력해주세요.">
+                    </div>
+                </div>
+                <div class="form-group col-sm-10 col-sm-offset-1" style="margin-top: 10px;line-height:3em;">
+                    <div class="col-sm-2" style="font-size:1.3em; padding-right:0; padding-left:15px;">
+                        <label for="">내용</label>
+                    </div>
+                    <div class="col-sm-10" style="padding:0; margin-left:-15px;">
+                        <textarea class="form-control" id="Content1" name="Content" type="text" style="min-height:200px;" title="내용을 입력해주세요."></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12" style="text-align: center; margin-bottom: 25px;">
+                    <div onclick="save_it()" class="btn-default du-common-property submit-top-btn" style="width: 20%; cursor: pointer;transition:ease 0.4s;margin-top:60px"><text>문의하기</text></div>
+                </div>
+            </form>
+            <p style="color:#fff; text-align:center; font-size:16px; display:block;clear:both;">
+                연락처: 02-3444-7821&nbsp;&nbsp;
+                이메일: artists@sutagroup.com &nbsp;&nbsp;
+                계좌번호: 농협 301-0178-0225-91&nbsp;&nbsp;
+                예금주: (주) 수타그룹
+            </p>
+        </div>
+    </div>
+    <div class="row" style="clear:both;" id="div2">
+        <div class="col-md-12" style="padding:50px 0; background:#f6f6f6">
+            <div class="col-md-8 col-md-offset-2">
+                <img src="~/images/logo/logoname.png" style="float:left;" />
+                <h1 style="font-weight:bold; line-height:3.5rem;text-indent:10px"> 작가모집</h1><br />
+                <p style="font-size:1.93rem; font-weight:600;">당신의 콘텐츠를 전세계에 소개하고 수익을 창출하세요</p><br />
+                <p style="font-size:1.2em; line-height:2em;">
+                    슈퍼탤런트는 전 세계 199국에서 선발된 모델들과 1년에 4회에 걸쳐 전 세계의 아름다운 곳을 찾아 새로운 콘텐츠를 제작하여 전 세계에 소개하고 수익창출을 하는 제너레이션 넥스트 인플루언서 플랫폼입니다. 귀사의 창의적이고 독창적인 콘텐츠롤 수익화할 수 있는 글로벌 모빌리티 트래블테인먼트 창구입니다.
+                </p>
+                <div class="col-md-12" style="margin-top:50px;">
+                    <div class="col-sm-6 support-tri" style=" padding:0; overflow:hidden;">
+                        <img src="~/images/Support/support-bg1.jpg" class="img-responsive img-hover" style="transition: transform 0.5s ease;" />
+                    </div>
+                    <div class="col-sm-6 support-tri" style="padding:3%">
+                        <h3>제출서류</h3>
+                        <p style="font-size:1.2em; line-height:2.4em; margin-top:20px;">
+                            01. 간단한 신상정보와 이력사항<br />
+                            02. 촬영한 콘텐츠의 프리뷰 파일<br />
+                            03. 포트폴리오 사이트<br />
+                            04. 이메일 접수 : artists@sutagroup.com<br />
+                        </p>
+                    </div>
+                    <div class="col-sm-6 support-tri" style="clear:both;padding:3%">
+                        <h3 style="margin-bottom: 20px;">작가 모집 문의</h3>
+                        <form action="/Home/Contact2" name="frm2" id="frm2" method="post">
+                            <div class="form-group col-md-4 col-md-offset-1" style="margin-top: 5px; line-height:2em; display:none">
+                                <label for="">문의</label>
+                                <input class="form-control" id="Inquiry" name="Inquiry" value="작가 모집" type="text">
+                            </div>
+                            <div class="form-group col-md-4 col-md-offset-1" style="margin-top: 5px; ">
+                                <label for="">이름</label>
+                                <input class="form-control" id="Name2" name="Name" type="text" title="이름을 입력해주세요." maxlength="20" >
+                            </div>
+                            <div class="form-group col-md-6 col-md-offset-1" style="margin-top: 5px;">
+                                <label for="">E-mail</label>
+                                <input class="form-control" id="Email2" name="Email" type="text" title="E-mail을 입력해주세요." maxlength="30">
+                            </div>
+                            <div class="form-group col-md-4 col-md-offset-1" style="margin-top: 5px;clear:both;">
+                                <label for="">회사명</label>
+                                <input class="form-control" id="Company_name2" name="Company_name" type="text" title="회사명을 입력해주세요." maxlength="20">
+                            </div>
+                            <div class="form-group col-md-6 col-md-offset-1" style="margin-top: 5px;">
+                                <label for="">연락처</label>
+                                <input class="form-control" id="Phone2" type="text" name="Phone" maxlength="50" title="연락처를 입력해주세요.">
+                            </div>
+                            <div class="form-group col-md-11" style="margin-top: 5px;">
+                                <label for="">내용</label>
+                                <textarea class="form-control" id="Content2" type="text" name="Content" maxlength="500" title="내용을 입력하세요(500자)."></textarea>
+                            </div>
+                            <div  onclick="save_it2()" class=" submit-top-btn" style="text-align:center;cursor: pointer;display:table; margin:30px auto;transition:ease 0.4s;" >
+                                문의하기
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="col-sm-6 support-tri" style="padding:0; overflow:hidden;">
+                        <img src="~/images/Support/support-bg2.jpg" class="img-responsive img-hover" style="transition: transform 0.5s ease;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="row" style="margin:50px auto;">
+            <div class="col-md-10 col-md-offset-1 support-img">
+                <h2 class="support-title"><span>Gallery</span></h2><br />
+                <div class="col-md-4">
+                    <img src="~/images/Shop/Support/support1.jpg" class="img-responsive" />
+                </div>
+                <div class="col-md-4">
+                    <img src="~/images/Shop/Support/support2.jpg" class="img-responsive" />
+                </div>
+                <div class="col-md-4">
+                    <img src="~/images/Shop/Support/support3.jpg" class="img-responsive" />
+                </div>
+                <div class="col-md-4" style="clear:both;">
+                    <img src="~/images/Shop/Support/support4.jpg" class="img-responsive" />
+                </div>
+                <div class="col-md-3">
+                    <img src="~/images/Shop/Support/support5.jpg" class="img-responsive" />
+                </div>
+                <div class="col-md-3">
+                    <img src="~/images/Shop/Support/support6.png" class="img-responsive" />
+                </div>
+                <div class="col-md-2">
+                    <img src="~/images/Shop/Support/support7.jpg" class="img-responsive" />
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin:50px auto;">
+            <div class="col-md-10 col-md-offset-1">
+                <h2 class="support-title"><span>Video</span></h2><br />
+                <div>
+                    <h3 style="position: relative; margin: 30px 0; padding: 10px 0; border-bottom: 1px solid #d8d8d8; font-size: 26px; clear: both;">뷰티</h3>
+                    <div class="col-md-3" style="clear:both;">
+                        <p style="line-height:2.6rem;">
+                            <strong># "BEAUTY" Commercial</strong><br />
+                            <a href="https://youtu.be/xTOExbLvIJk">https://youtu.be/xTOExbLvIJk</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Nude Look with a Twist</strong><br />
+                            <a href="https://youtu.be/mDQZI5vVZmU">https://youtu.be/mDQZI5vVZmU</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Lip Stick Paris Commercial</strong><br />
+                            <a href="https://youtu.be/3TE_TCYhdT0">https://youtu.be/3TE_TCYhdT0</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Liquid Lipstick Commercial</strong><br />
+                            <a href="https://youtu.be/07rLUZZWJQc">https://youtu.be/07rLUZZWJQc</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Milano Cosmetics "Hot" Italy</strong><br />
+                            <a href="https://youtu.be/sAjly42QI3Y">https://youtu.be/sAjly42QI3Y</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Milano Cosmetics "Hot" Italy2</strong><br />
+                            <a href="https://youtu.be/IGKWg4R5eCA">https://youtu.be/IGKWg4R5eCA</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Beauty Around The World</strong><br />
+                            <a href="https://youtu.be/RT9FmDBrewA">https://youtu.be/RT9FmDBrewA</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Makeup in Cannes</strong><br />
+                            <a href="https://youtu.be/mC03ySbQUUw">https://youtu.be/mC03ySbQUUw</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Mask | Official TV Ad</strong><br />
+                            <a href="https://youtu.be/tqMYBaGq0X8">https://youtu.be/tqMYBaGq0X8</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Mask | Official TV Ad</strong><br />
+                            <a href="https://youtu.be/PUi0bCKYSIY ">https://youtu.be/PUi0bCKYSIY </a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Mask Commercial</strong><br />
+                            <a href="https://youtu.be/9-x7co3ohCQ">https://youtu.be/9-x7co3ohCQ</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Makeup in Cannes - Interview</strong><br />
+                            <a href="https://youtu.be/8jjuhBQNG0Q">https://youtu.be/8jjuhBQNG0Q</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#MY HAIR WAS RUINED! CANNES</strong><br />
+                            <a href="https://youtu.be/2xRsmEPLW78">https://youtu.be/2xRsmEPLW78</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong># "BEAUTY" Commercial</strong><br />
+                            <a href="https://youtu.be/xTOExbLvIJk">https://youtu.be/xTOExbLvIJk</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#The Film - COSMETIC</strong><br />
+                            <a href="https://youtu.be/aRV-2_Un-kk">https://youtu.be/aRV-2_Un-kk</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong># NEW EYE THE GREEN LOOK</strong><br />
+                            <a href="https://youtu.be/bipm1Y5AP6A">https://youtu.be/bipm1Y5AP6A</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Makeup Backstage</strong><br />
+                            <a href="https://youtu.be/tiwr1D9resU">https://youtu.be/tiwr1D9resU</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Mask Beauty Routine</strong><br />
+                            <a href="https://youtu.be/RWc8V-iKJ7s">https://youtu.be/RWc8V-iKJ7s</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Makeup Look</strong><br />
+                            <a href="https://youtu.be/-ui-vjVsWuE">https://youtu.be/-ui-vjVsWuE</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="clear:both; padding-top:30px;">
+                    <h3 style="position: relative; margin: 30px 0; padding: 10px 0; border-bottom: 1px solid #d8d8d8; font-size: 26px; clear: both;">패션</h3>
+                    <div class="col-md-3" style="clear:both;">
+                        <p style="line-height:2.6rem;">
+                            <strong>#ADVERTISING FASHION</strong><br />
+                            <a href="https://youtu.be/jzOUvMzmr68">https://youtu.be/jzOUvMzmr68</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Dress for a sustainable fashion</strong><br />
+                            <a href="https://youtu.be/Xkx0mjFv-i4">https://youtu.be/Xkx0mjFv-i4</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong># "Fashion Film"</strong><br />
+                            <a href="https://youtu.be/bs7fCJ-a7SM">https://youtu.be/bs7fCJ-a7SM</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#the new fashion film by Oysho</strong><br />
+                            <a href="https://youtu.be/TwCB-I-TzjE">https://youtu.be/TwCB-I-TzjE</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Fashion by Garden</strong><br />
+                            <a href="https://youtu.be/FvZlyfDSEjk">https://youtu.be/FvZlyfDSEjk</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Feminine French Lingerie - Paris</strong><br />
+                            <a href="https://youtu.be/7A-WNvnsAhw">https://youtu.be/7A-WNvnsAhw</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#lingerie</strong><br />
+                            <a href="https://youtu.be/5VRsitpWxuI">https://youtu.be/5VRsitpWxuI</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Lingerie (Italy) Commercial</strong><br />
+                            <a href="https://youtu.be/s8MTdWgVyhY">https://youtu.be/s8MTdWgVyhY</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#lingerie campaign</strong><br />
+                            <a href="https://youtu.be/-EE_lRxPeVg">https://youtu.be/-EE_lRxPeVg</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="clear:both; padding-top:30px;">
+                    <h3 style="position: relative; margin: 30px 0; padding: 10px 0; border-bottom: 1px solid #d8d8d8; font-size: 26px; clear: both;">패션잡화</h3>
+                    <div class="col-md-3" style="clear:both;">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Cinema Eyewear</strong><br />
+                            <a href="https://youtu.be/9u_LhyTTBTU">https://youtu.be/9u_LhyTTBTU</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Ready For It?</strong><br />
+                            <a href="https://youtu.be/qs5cR9k6jYE">https://youtu.be/qs5cR9k6jYE</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Commercial featuring shoes</strong><br />
+                            <a href="https://youtu.be/LeZQ6O0O_JY">https://youtu.be/LeZQ6O0O_JY</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Handbag Campaign Film</strong><br />
+                            <a href="https://youtu.be/Nt8ZrWY2Cmk">https://youtu.be/Nt8ZrWY2Cmk</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Featuring Shoes</strong><br />
+                            <a href="https://youtu.be/DPrRRgagQg8">https://youtu.be/DPrRRgagQg8</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#High Heels Commercial</strong><br />
+                            <a href="https://youtu.be/Y8WUmDerdvE">https://youtu.be/Y8WUmDerdvE</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Shoes |Woman Collection</strong><br />
+                            <a href="https://youtu.be/ZhWbkSsViiw">https://youtu.be/ZhWbkSsViiw</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Commercial High On Heels</strong><br />
+                            <a href="https://youtu.be/i9AQmCVQwBE">https://youtu.be/i9AQmCVQwBE</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Shoe Commercial</strong><br />
+                            <a href="https://youtu.be/E5GeMlVfda8">https://youtu.be/E5GeMlVfda8</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Sports Commercial Ad</strong><br />
+                            <a href="https://youtu.be/DCNLj61JCQ4">https://youtu.be/DCNLj61JCQ4</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Shoes Commercial</strong><br />
+                            <a href="https://youtu.be/FOBkZ8CpiYc">https://youtu.be/FOBkZ8CpiYc</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="clear:both; padding-top:30px;">
+                    <h3 style="position: relative; margin: 30px 0; padding: 10px 0; border-bottom: 1px solid #d8d8d8; font-size: 26px; clear: both;">다이어트 푸드</h3>
+                    <div class="col-md-3" style="clear:both;">
+                        <p style="line-height:2.6rem;">
+                            <strong>#MY HEtitleHY MORNING ROUTINE</strong><br />
+                            <a href="https://youtu.be/h4yAEZVJZts">https://youtu.be/h4yAEZVJZts</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#MY HEtitleHY MORNING ROUTINE 2</strong><br />
+                            <a href="https://youtu.be/rCTewnCDR">https://youtu.be/rCTewnCDR</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#MY HEtitleHY MORNING ROUTINE</strong><br />
+                            <a href="https://youtu.be/Iw-Ryfmx4UM">https://youtu.be/Iw-Ryfmx4UM</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="clear:both; padding-top:30px;">
+                    <h3 style="position: relative; margin: 30px 0; padding: 10px 0; border-bottom: 1px solid #d8d8d8; font-size: 26px; clear: both;">인플루언서</h3>
+                    <div class="col-md-3" style="clear:both;">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Getting ready for Ibiza</strong><br />
+                            <a href="https://youtu.be/Z5ZpY0XyOyo">https://youtu.be/Z5ZpY0XyOyo</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Body Dysmorphic Disorder</strong><br />
+                            <a href="https://youtu.be/CUD3lpJrctU">https://youtu.be/CUD3lpJrctU</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Done For Instagram Pictures</strong><br />
+                            <a href="https://youtu.be/VQPc2iNbans">https://youtu.be/VQPc2iNbans</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Influencer Stories Their Brands</strong><br />
+                            <a href="https://youtu.be/SW4netgocDU">https://youtu.be/SW4netgocDU</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Bourjois Hetitlehy Mix Serum</strong><br />
+                            <a href="https://youtu.be/S8PEFTu-7gM">https://youtu.be/S8PEFTu-7gM</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#MY MILAN FASHION WEEK TRAVEL</strong><br />
+                            <a href="https://youtu.be/WKDscCjBrjY">https://youtu.be/WKDscCjBrjY</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Natural Glowy Summer Makeup</strong><br />
+                            <a href="https://youtu.be/ykX_9ucyL-g">https://youtu.be/ykX_9ucyL-g</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#EVERYDAY MAKEUP ROUTINE</strong><br />
+                            <a href="https://youtu.be/t4maG2SoxwM">https://youtu.be/t4maG2SoxwM</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Fashion Try On</strong><br />
+                            <a href="https://youtu.be/JQktYRLyLjk">https://youtu.be/JQktYRLyLjk</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#My everyday Make Up Routine</strong><br />
+                            <a href="https://youtu.be/pwjRKgvxoSI">https://youtu.be/pwjRKgvxoSI</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p style="line-height:2.6rem;">
+                            <strong>#Summer Glow Make Up</strong><br />
+                            <a href="https://youtu.be/16wdMChC-nM">https://youtu.be/16wdMChC-nM</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin:50px auto;">
+            <div class="col-md-10 col-md-offset-1">
+                <h2 class="support-title"><span>콘텐츠 슈팅 로케이션</span></h2><br />
+                <p style="font-size:1.6rem; font-weight:bold;letter-spacing:1px; margin-bottom:20px;word-break:keep-all; line-height:2.4rem;"> 2019년 10월 17일부터 11월 2일까지 패션, 뷰티, 아트, 오리지널 등 스토리텔링 콘텐츠를 제작하여 전 세계와 소통합니다.</p>
+                <div style="font-size:1.4rem; letter-spacing:1px; ">
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">파리→에펠탑 내부</div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">아를 → 반고흐 <span>프롬나드캄프</span> 패션위크 </div>
+                        <div class="col-md-6"><a href="https://www.gucci.com/kr/ko/st/stories/runway/article/cruise-2019-location-arles-france">https://www.gucci.com/kr/ko/st/stories/runway/article/cruise-2019-location-arles-france</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">엑상프로방스 → <span>폴 세잔</span> 스튜디오 투어 </div>
+                        <div class="col-md-6"><a href="https://m.blog.naver.com/ssamssam48/220615389527">https://m.blog.naver.com/ssamssam48/220615389527</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">마르세유 → <span>다니엘 카사노바 크루즈</span> 패션위크 </div>
+                        <div class="col-md-6"><a href="https://www.numero.com/en/node/6390">https://www.numero.com/en/node/6390</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">이프섬 → <span>몬테크리스토</span> 백작 </div>
+                        <div class="col-md-6"><a href="https://m.blog.naver.com/hyun68/221387300309">https://m.blog.naver.com/hyun68/221387300309</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">카시스 → <span>남프랑스의 보물</span> 패션위크 </div>
+                        <div class="col-md-6"><a href="https://kr.france.fr/ko/provence/moodboard/cassis">https://kr.france.fr/ko/provence/moodboard/cassis</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">생트로페 → <span>셀러브리티들의 가장 선호하는 도시</span> </div>
+                        <div class="col-md-6"><a href="https://kr.france.fr/ko/provence/article/31222">https://kr.france.fr/ko/provence/article/31222</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">그라스 → <span>향수 인스티튜드</span> 워크샵 </div>
+                        <div class="col-md-6"><a href="https://www.grasse-perfumery.com">https://www.grasse-perfumery.com</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">생폴드방스 → <span>샤갈의 마을</span> 골목길 </div>
+                        <div class="col-md-6"><a href="https://bit.ly/2xMPfbE">https://bit.ly/2xMPfbE</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">니스 → <span>프로메나드 장글레</span> 패션위크 </div>
+                        <div class="col-md-6"><a href="https://m.blog.naver.com/boramryu/221197267839">https://m.blog.naver.com/boramryu/221197267839</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">깐느 → <span>영화제 거리</span> 패션위크 </div>
+                        <div class="col-md-6"><a href="https://brunch.co.kr/travel-bike/1145">https://brunch.co.kr/travel-bike/1145</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">에즈 → <span>니체의 마을</span>, 니체 산책로 [차라투스트라는 이렇게 말했다] </div>
+                        <div class="col-md-6"><a href="https://www.okja.org/europe_dong/6582">https://www.okja.org/europe_dong/6582</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">모나코 → 그랑프리, <span>탑루프</span> 패션위크 </div>
+                        <div class="col-md-6"><a href="https://www.grimaldiforum.com/en/10-raisons-de-choisir-le-grimaldi-forum-monaco#.XS1wvegzaUk">https://www.grimaldiforum.com/en/10-raisons-de-choisir-le-grimaldi-forum-monaco#.XS1wvegzaUk</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">망통 → <span>레몬</span>의 고장,<span> 프랑스의 진주</span></div>
+                        <div class="col-md-6"><a href="https://brunch.co.kr/dailylife/643">https://https://brunch.co.kr/dailylife/643</a></div>
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6"><a href="https://www.obonparis.com/ko/france-travel/menton">https://www.obonparis.com/ko/france-travel/menton </a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">산레모 →구찌 <span>더몰 아울렛</span>, <span>칸쵸네 보라레</span>의 오리지널 </div>
+                        <div class="col-md-6"><a href="https://sanremo.themall.it/ko/outlet-italy/homepage">https://sanremo.themall.it/ko/outlet-italy/homepage</a></div>
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6"><a href="https://www.m.blog.naver.com/pascucci1883/220733023638">https://www.obonparis.com/ko/france-travel/menton </a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">제노아 → <span>페라리광장</span> 패션위크, 아메리카 대륙 발견의 콜럼버스의 고향 </div>
+                        <div class="col-md-6"><a href="https://m.blog.naver.com/PostView.nhn?blogId=l6014417&logNo=40093205136">https://m.blog.naver.com/PostView.nhn?blogId=l6014417&logNo=40093205136</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">밀라노 → <span>패션스쿨</span> 워크샵. 패션, 인테리어, 디자인의 발신지 </div>
+                        <div class="col-md-6"><a href="https://blog.naver.com/PostView.nhn?blogId=istitutomarangoni&logNo=221475871322">https://blog.naver.com/PostView.nhn?blogId=istitutomarangoni&logNo=221475871322</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">베로나 → <span>시뇨리광장</span> 패션위크, 로미오와 줄리엣의 배경, 오페라의 도시 </div>
+                        <div class="col-md-6"><a href="https://m.blog.naver.com/PostView.nhn?blogId=yhlim112&logNo=30088850662">https://m.blog.naver.com/PostView.nhn?blogId=yhlim112&logNo=30088850662</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">베니스섬 → <span>곤돌라</span> 미니패션화보, 물 위에 뜬 가면의 도시, 아드리아해의 여왕</div>
+                        <div class="col-md-6"><a href="https://m.blog.naver.com/shadow_319/221321021127 ">https://m.blog.naver.com/shadow_319/221321021127</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">리도섬 → <span>시네마궁전</span> 패션위크, 베네치아 국제 영화제</div>
+                        <div class="col-md-6"><a href="https://m.blog.naver.com/PostView.nhn?blogId=87jing&logNo=220596304144">https://m.blog.naver.com/PostView.nhn?blogId=87jing&logNo=220596304144</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">라벤나 → <span>모자이크</span> 오리지널 </div>
+                        <div class="col-md-6"><a href="https://m.blog.naver.com/PostView.nhn?blogId=imga114&logNo=220702475958">https://m.blog.naver.com/PostView.nhn?blogId=imga114&logNo=220702475958</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">리미니 → <span>이탈리아 </span>최대 여름 휴양지 및 국제 박람회, 전시회</div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">산마리노 → 푸블리코 궁전 광장 패션위크, <span>이탈리아 안에 작은 나라, </span>유럽에서 세번째로 작은 나라 </div>
+                        <div class="col-md-6"><a href="https://photo131.tistory.com/1276">https://photo131.tistory.com/1276</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">볼로냐 → 마조레 광장, 미식, <span>세계 최대 화장품 박람회, </span>유럽 최고 대학 </div>
+                        <div class="col-md-6"><a href="https://news.kotra.or.kr/user/globalAllBbs/kotranews/album/2/globalBbsDataAllView.do?dataIdx=166055&searchNationCd=101025">https://news.kotra.or.kr/user/globalAllBbs/kotranews/album/2/globalBbsDataAllView.do?dataIdx=166055&searchNationCd=101025</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">피사 → 사탑<span> 패션위크</span> 세계 7대 불가사의 </div>
+                        <div class="col-md-6"><a href="https://www.ytn.co.kr/_ln/0104_201806240215013880">https://www.ytn.co.kr/_ln/0104_201806240215013880</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">플로렌스 → 레오폴다레일역 패션위크, 단테와 미켈란젤로의 고향,<span> 르네상스의 발생지 </span></div>
+                        <div class="col-md-6"><a href="https://premium.chosun.com/site/data/html_dir/2016/07/29/2016072900824.html">https://premium.chosun.com/site/data/html_dir/2016/07/29/2016072900824.html</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">오르비에토 → 세계 최초의 슬로시티, <span>슬로시티 세계 본부</span>, 산책의 천국</div>
+                        <div class="col-md-6"><a href="https://subir.co.kr/357">https://subir.co.kr/357</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">나폴리 → 유럽에서 가장 오래된<span> 태양의 도시  </span></div>
+                        <div class="col-md-6"><a href="https://bit.ly/2xTfwoD">https://bit.ly/2xTfwoD</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">폼페이 → <span>아폴로신전</span> 패션위크, 고대 로마제국의 화려한 도시문화 </div>
+                        <div class="col-md-6"><a href="https://younghwan12.tistory.com/3483">https://younghwan12.tistory.com/3483</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">소렌토 → 가곡 하나로 세상에 알려진<span> 절벽 위의 도시 </span></div>
+                        <div class="col-md-6"><a href="https://youtu.be/fSU2AT7xb1E">https://youtu.be/fSU2AT7xb1E</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">카프리섬 → <span>파라글리오니 록 </span>패션위크, 지중해에서 가장 아름다운 섬 </div>
+                        <div class="col-md-6"><a href="https://bit.ly/2XTQRuK">https://bit.ly/2XTQRuK</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">티볼리 → 100 분수대, 유네스코 유산의 고대 별장 <span>빌라데스테 </span></div>
+                        <div class="col-md-6"><a href="https://m.blog.daum.net/seoulpr7555/987?np_nil_b=1">https://m.blog.daum.net/seoulpr7555/987?np_nil_b=1</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">로마 → <span>스페인 / 나보나광장 </span>패션위크, 모든 길은 로마로 통한다. 로마를 알면 유럽의 역사를 알 수 있다  </div>
+                        <div class="col-md-6"><a href="https://bit.ly/32ADpiV">https://bit.ly/32ADpiV</a></div>
+                    </div>
+                    <div class="col-md-12 support-color">
+                        <div class="col-md-6">파이널 이벤트 → <span>로마 카발리에리</span> 월도프 아스토리아 리조트 </div>
+                        <div class="col-md-6"><a href="https://bit.ly/2M2lkV5">https://bit.ly/2M2lkV5</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+</div>
+
+
+<script src="/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    function disappear() {
+        console.log("disappear");
+        $('.over_text').addClass("dis-none");
+    }
+
+    var delay = 1000;
+    var submitted = false;
+
+    function submitCheck() {
+        if (submitted == true) { return; }
+        document.frm.button.value = '전송중';
+        document.frm.button.disabled = true;
+        setTimeout('submitForm()', delay);
+        submitted = true;
+    }
+    function submitForm() {
+        document.frm.action = "/Home/Contact";
+        document.frm.submit();
+    }
+    function save_it() {
+        check("Name1,Email1,Phone1","frm");
+    }
+
+ function save_it2() {
+        check("Name2,Email2,Phone2","frm2");
+    }
+
+</script>
+

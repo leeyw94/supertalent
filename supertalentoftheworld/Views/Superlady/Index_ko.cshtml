@@ -1,0 +1,965 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<!--Superlady/Index-->
+
+<style>
+    .superlady-logoimg {
+        float: left;
+        margin-right: 30px;
+    }
+
+    .superlady-head h2 {
+        color: #fff;
+        font-weight: bold;
+        padding-top: 40px;
+    }
+
+    .superlady-btn {
+        position: absolute;
+        top: 21%;
+        left: 45%;
+    }
+
+    .ui-selectmenu-menu {
+        position: absolute;
+        display: table;
+        width: 80%;
+        top: 45%;
+        margin: 0 10%;
+    }
+
+    .nav2 li {
+        display: table;
+        width: 20%;
+        float: left;
+        position: relative;
+        text-align: center;
+    }
+
+        .nav2 li a {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+
+        .nav2 li:after {
+            position: absolute;
+            left: 20%;
+            height: 5px;
+            width: 60%;
+            bottom: -100%;
+            background: #fff;
+            content: "";
+            opacity: 0;
+            transition: 0.8s;
+        }
+
+        .nav2 li:hover::after {
+            opacity: 1;
+        }
+
+        .nav2 li:nth-child(1):after {
+            opacity: 1;
+        }
+
+    .button {
+        padding: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+    }
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 240px;
+        position: fixed;
+        top: 15%;
+        left: 38%;
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+        .popup:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup img {
+            width: 45px;
+            margin-right: 10px;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+            .popup .close:hover {
+                color: #333;
+            }
+
+        .popup .content {
+            max-height: 20%;
+            overflow: auto;
+        }
+
+    .superlady-title {
+        position: relative;
+        margin: 0 0 30px;
+        padding-bottom: 0px;
+        border-bottom: 1px solid #d8d8d8;
+        font-size: 32px;
+        clear: both;
+    }
+
+        .superlady-title span {
+            display: inline-block;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 5px solid transparent;
+            color: #333;
+        }
+
+        .superlady-title:after {
+            position: absolute;
+            left: 10%;
+            transform: translateX(-50%);
+            height: 5px;
+            width: 20%;
+            bottom: 0;
+            background: #162541;
+            content: "";
+        }
+
+    .superlady-schtit h4 {
+        float: left;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+        word-break: keep-all;
+    }
+
+        .superlady-schtit h4:nth-child(2n-1) {
+            color: #888;
+            width: 15%;
+        }
+
+        .superlady-schtit h4:nth-child(2n) {
+            color: #111;
+            width: 35%;
+        }
+
+    .superlady-title .superlady-titletxt {
+        font-size: 1.6rem;
+    }
+
+    .superlady-sch {
+        letter-spacing: 1px;
+        width: 25%;
+        float: left;
+        position: relative;
+    }
+
+        .superlady-sch:before {
+            position: absolute;
+            left: -3%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: 3px;
+            bottom: 0;
+            background: #162541;
+            content: "";
+        }
+
+    .gallery-image {
+        margin: 15px 15px 5px 15px;
+        overflow: hidden;
+    }
+
+    .superlady-winner {
+        max-height: 360px;
+        min-height: 200px;
+        width: 100%;
+        transform: scale(1.0);
+        transition: ease-in-out 0.6s;
+        filter: none;
+        cursor: pointer;
+    }
+
+        .superlady-winner:hover {
+            transform: scale(1.1);
+            -webkit-filter: grayscale(80%);
+            filter: grayscale(80%);
+        }
+
+    .grid-item {
+        position: relative;
+        width: 100% !important;
+        overflow: hidden;
+        height: 2400px;
+    }
+
+    .thumb {
+        display: table;
+        width: 23%;
+        float: left;
+        padding: 0;
+        cursor: pointer;
+        position: absolute;
+        overflow: hidden;
+        max-height: 500px;
+        min-height: 100px;
+        margin: 55px 30px 0 0;
+    }
+
+        .thumb:nth-child(1) {
+            top: 0;
+            left: 0;
+        }
+
+        .thumb:nth-child(2) {
+            top: 0;
+            left: 355px;
+        }
+
+        .thumb:nth-child(3) {
+            top: 0;
+            left: 710px;
+        }
+
+        .thumb:nth-child(4) {
+            top: 0;
+            left: 1065px;
+        }
+
+        .thumb:nth-child(5) {
+            top: 511px;
+            left: 0;
+        }
+
+        .thumb:nth-child(6) {
+            top: 195px;
+            left: 355px;
+        }
+
+        .thumb:nth-child(7) {
+            top: 239px;
+            left: 710px;
+        }
+
+        .thumb:nth-child(8) {
+            top: 420px;
+            left: 1065px;
+        }
+
+        .thumb:nth-child(9) {
+            top: 691px;
+            left: 0px;
+        }
+
+        .thumb:nth-child(10) {
+            top: 720px;
+            left: 355px;
+        }
+
+        .thumb:nth-child(11) {
+            top: 710px;
+            left: 710px;
+        }
+
+        .thumb:nth-child(12) {
+            top: 946px;
+            left: 1065px;
+        }
+
+        .thumb:nth-child(13) {
+            top: 1216px;
+            left: 0px;
+        }
+
+        .thumb:nth-child(14) {
+            top: 1245px;
+            left: 355px;
+        }
+
+        .thumb:nth-child(15) {
+            top: 1256px;
+            left: 710px;
+        }
+
+        .thumb:nth-child(16) {
+            top: 1240px;
+            left: 1065px;
+        }
+
+        .thumb:nth-child(17) {
+            top: 1740px;
+            left: 0px;
+        }
+
+        .thumb:nth-child(18) {
+            top: 1770px;
+            left: 355px;
+        }
+
+        .thumb:nth-child(19) {
+            top: 1486px;
+            left: 710px;
+        }
+
+        .thumb:nth-child(20) {
+            top: 1722px;
+            left: 710px;
+        }
+
+        .thumb:nth-child(21) {
+            top: 1523px;
+            left: 1065px;
+        }
+
+        .thumb:nth-child(22) {
+            top: 1759px;
+            left: 1065px;
+        }
+
+        .thumb:nth-child(23) {
+            top: 2021px;
+            left: 0px;
+        }
+
+        .thumb:nth-child(24) {
+            top: 2008px;
+            left: 355px;
+        }
+
+        .thumb:nth-child(25) {
+            top: 1958px;
+            left: 710px;
+        }
+
+
+
+    .superlady-gallery {
+        width: 100%;
+    }
+
+    .opacity {
+        transform: scale(1.0);
+        transition: ease-in-out 0.6s;
+        opacity: 0.8;
+    }
+
+        .opacity:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+    @@media (max-width:1024px) {
+        .superlady-schtit h4 {
+            width: 50%;
+            float: left;
+            font-size: 1.4rem;
+        }
+
+            .superlady-schtit h4:nth-child(2n-1) {
+                width: 20%;
+            }
+
+            .superlady-schtit h4:nth-child(2n) {
+                width: 30%;
+            }
+
+        .superlady-sch {
+            width: 23%;
+            margin-right: 2%;
+            font-size: 16px;
+            word-break: keep-all;
+        }
+
+        .grid-item {
+            height: 1300px;
+        }
+
+        .thumb {
+            margin: 5px;
+        }
+
+            .thumb:nth-child(1) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(2) {
+                top: 0;
+                left: 180px;
+            }
+
+            .thumb:nth-child(3) {
+                top: 0;
+                left: 360px;
+            }
+
+            .thumb:nth-child(4) {
+                top: 0;
+                left: 540px;
+            }
+
+            .thumb:nth-child(5) {
+                top: 260px;
+                left: 0;
+            }
+
+            .thumb:nth-child(6) {
+                top: 99px;
+                left: 180px;
+            }
+
+            .thumb:nth-child(7) {
+                top: 123px;
+                left: 360px;
+            }
+
+            .thumb:nth-child(8) {
+                top: 214px;
+                left: 540px;
+            }
+
+            .thumb:nth-child(9) {
+                top: 350px;
+                left: 0px;
+            }
+
+            .thumb:nth-child(10) {
+                top: 365px;
+                left: 180px;
+            }
+
+            .thumb:nth-child(11) {
+                top: 363px;
+                left: 360px;
+            }
+
+            .thumb:nth-child(12) {
+                top: 482px;
+                left: 540px;
+            }
+
+            .thumb:nth-child(13) {
+                top: 617px;
+                left: 0px;
+            }
+
+            .thumb:nth-child(14) {
+                top: 633px;
+                left: 180px;
+            }
+
+            .thumb:nth-child(15) {
+                top: 641px;
+                left: 360px;
+            }
+
+            .thumb:nth-child(16) {
+                top: 633px;
+                left: 540px;
+            }
+
+            .thumb:nth-child(17) {
+                top: 760px;
+                left: 360px;
+            }
+
+            .thumb:nth-child(18) {
+                top: 778px;
+                left: 540px;
+            }
+
+            .thumb:nth-child(19) {
+                top: 884px;
+                left: 0px;
+            }
+
+            .thumb:nth-child(20) {
+                top: 901px;
+                left: 180px;
+            }
+
+            .thumb:nth-child(21) {
+                top: 904px;
+                left: 360px;
+            }
+
+            .thumb:nth-child(22) {
+                top: 901px;
+                left: 540px;
+            }
+
+            .thumb:nth-child(23) {
+                top: 1005px;
+                left: 0px;
+            }
+
+            .thumb:nth-child(24) {
+                top: 1022px;
+                left: 180px;
+            }
+
+            .thumb:nth-child(25) {
+                top: 1025px;
+                left: 360px;
+            }
+    }
+
+    @@media (max-width: 767px) {
+        .superlady-head h2 {
+            font-size: 2rem;
+            padding-top: 20px;
+        }
+
+        .superlady-logoimg {
+            width: 20%;
+            margin-right: 10px;
+        }
+
+        .superlady-btn {
+            left: 70%;
+            top: 30%
+        }
+
+        .superlady-img {
+            width: 27px;
+        }
+
+        .popup {
+            top: 24%;
+            left: 43%;
+            width: 180px;
+        }
+
+            .popup img {
+                width: 30px;
+                z-index: 999999;
+            }
+
+            .popup .close {
+                top: 5px;
+                right: 10px;
+            }
+
+        .ui-selectmenu-menu {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin: 0px;
+        }
+
+        .nav2 {
+            display: block;
+            text-align: center;
+            background: #fff;
+        }
+
+            .nav2 li:first-child {
+                border-top: solid 1px #ebebeb;
+            }
+
+            .nav2 li:last-child {
+                border-bottom: solid 1px #ebebeb;
+            }
+
+            .nav2 li {
+                display: block;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+                .nav2 li a {
+                    display: block;
+                    font-size: 1.4rem;
+                    color: #333;
+                    width: 100%;
+                    height: 100%;
+                }
+
+        .superlady-schtit h4 {
+            width: 50%;
+            float: left;
+            font-size: 1.4rem;
+        }
+
+            .superlady-schtit h4:nth-child(2n-1) {
+                width: 50%;
+            }
+
+            .superlady-schtit h4:nth-child(2n) {
+                width: 50%;
+            }
+
+        .superlady-title .superlady-titletxt {
+            font-size: 1.4rem;
+        }
+
+        .superlady-sch {
+            float: none;
+            width: 80%;
+            margin-top: 15px;
+            font-size: 1.4rem;
+        }
+
+        .grid-item {
+            height: auto;
+        }
+
+        .thumb {
+            margin: 5px;
+            position: relative;
+            width: 100%;
+        }
+
+            .thumb:nth-child(1) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(2) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(3) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(4) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(5) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(6) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(7) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(8) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(9) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(10) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(11) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(12) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(13) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(14) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(15) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(16) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(17) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(18) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(19) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(20) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(21) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(22) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(23) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(24) {
+                top: 0;
+                left: 0;
+            }
+
+            .thumb:nth-child(25) {
+                top: 0;
+                left: 0;
+            }
+    }
+</style>
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+<section class="image-head-wrapper" style="background-image: url('/images/Background/Finalkor-back.jpg'); background-size: 100%; padding-top:3%">
+    <div class="col-md-1">
+    </div>
+    <div style="margin:0 10px" class="superlady-head">
+        <img src="/images/Finalkor/centerlogo.png" class="superlady-logoimg" />
+        <h2>슈퍼레이디 코리아 어워즈</h2>
+    </div>
+    <div class="superlady-btn">
+        <a href="https://www.facebook.com/SuperTalentOfficial/" style="float:left;">
+            <img src="~/images/Finalkor/like.png" class="superlady-img" />
+        </a>
+        <a class="button" href="#popup1">
+            <img src="~/images/Finalkor/share.png" class="superlady-img" />
+        </a>
+    </div>
+    <div id="popup1" class="popup">
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <a href="https://www.facebook.com/SuperTalentOfficial/" target="_blank"><img src="~/images/sns1.png" class="superlady-img" /></a>
+            <a href="https://www.instagram.com/misssupertalent/" target="_blank"><img src="~/images/sns2.png" class="superlady-img" /></a>
+            <a href="https://www.youtube.com/channel/UCbe6_o-ULwZ_tznU0ot3X7Q" target="_blank"><img src="~/images/sns3.png" class="superlady-img" /></a>
+        </div>
+    </div>
+</section>
+<div class="ui-selectmenu-menu">
+    <ul class="list-unstyled nav2">
+        <li><a href="/Superlady/Index_ko">소개</a></li>
+        <li><a href="/Superlady/Attend_ko">참가자격</a></li>
+        <li><a href="/Superlady/Final_lady_ko">2019 수상자</a></li>
+        <li><a href="/Superlady/Thal_ko">시상내역 ▪&nbsp;혜택</a></li>
+        <li><a href="/Apply/Index_ko">참가신청</a></li>
+    </ul>
+</div>
+<div class="row" style="margin:0; clear:both;">
+    <div class="col-md-10 col-md-offset-1">
+        <h2 class="superlady-title"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></h2><br />
+        <div class="col-md-12">
+            <p style="font-size:1.5rem; line-height:2.6rem; width:85%; letter-spacing:1px; text-align:center; word-break:keep-all; margin:auto;">
+                2008년에 시작되어 줌마렐라, 미시렐라, 엣지녀 등 수 많은 신조어와 콘텐츠로 한국 여성이 유리천장을 뚫고 라이프 스타일를 디자인하고 승승장구 하는 <br />
+                주체적 삶의 알파우먼 “미시즈 코리아”가 글로벌 여성의 트랜드를 반영하여 <strong>"슈퍼레이디 어워즈”</strong>로 다시 태어납니다.<br /><br />
+                ‘Be The Change, Be Your Own Star’ 슬로건으로, 오는 8월 18일 삼성동에 위치한 서울종합예술실용학교 영국 오디언스 전동수납식 객석 아트홀에서 개최됩니다.
+            </p>
+        </div>
+        <div class="col-md-8 col-md-offset-2" style="clear:both;">
+            <div class="superlady-schtit" style="margin:50px auto; ">
+                <h4>▪&nbsp; 대회명</h4>
+                <h4>슈퍼레이디 코리아 어워즈</h4>
+                <h4>▪&nbsp; 대회일시</h4>
+                <h4>2019년 8월 18일 저녁 7시</h4>
+                <h4 style="clear:both;">▪&nbsp; 대회장소</h4>
+                <h4>삼성동 서울종합예술학교 아트홀</h4>
+                <h4>▪&nbsp; 주최</h4>
+                <h4>슈퍼탤런트 월드 그룹</h4>
+                <h4>▪&nbsp; 생중계</h4>
+                <h4>suupertalent.co | YouTube | Vlive</h4>
+            </div>
+        </div>
+        <div class="col-md-10 col-md-offset-1" style="clear:both; margin-top:3%; margin-bottom:3%;">
+            <div>
+                <h4 class="superlady-sch"> <span style="font-weight:bold;">원서접수</span> : 7월 24일</h4>
+                <h4 class="superlady-sch"> <span style="font-weight:bold;">합격자 통지</span> : 8월 10~12일</h4>
+                <h4 class="superlady-sch"> <span style="font-weight:bold;">리허설</span> : 8월 16~17일</h4>
+                <h4 class="superlady-sch"> <span style="font-weight:bold;">코리아결선</span> : 8월 18일</h4>
+            </div>
+        </div>
+        <div class="col-md-12" style="clear:both;margin:5% 0; ">
+            <h3 class="superlady-title">글로벌 리더<span class="superlady-titletxt" style="margin-left:20px; color:#ff4157; letter-spacing:1px;"> 미디어&nbsp;▪&nbsp; 엔터테인먼트&nbsp;▪&nbsp; 패션&nbsp;▪&nbsp; 뷰티&nbsp;▪&nbsp;아트 </span></h3>
+            <h4 style="line-height:3rem; letter-spacing:1px; word-break:keep-all;">
+                28세 이상 성공한 커리어우먼의 운명적 만남 <span style="font-weight:bold">탑모델 ▪&nbsp;팝아티스트 ▪&nbsp;영화배우 ▪&nbsp;호스트</span>를  선발하는 TV 포맷의 <span style="font-weight:bold">글로벌 리얼리티 오디션 프로그램</span>
+            </h4>
+
+            @*<div class="col-md-10 col-md-offset-1">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                            <img src="/images/Superlady/intro1.jpg" class="img-responsive" />
+                            <img src="/images/Superlady/intro2.jpg" class="img-responsive" />
+                    </div>
+                    <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12 ">
+                        <div class="gallery-image">
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="col-md-12" style="margin:2% 0">
+                <h3 style="position: relative; margin: 30px 0; padding: 10px 0; border-bottom: 1px solid #d8d8d8; font-size: 26px; clear: both; width:90%; ">역대 우승자</h3>
+                <div class="col-md-2" style="overflow:hidden;padding:0; margin-right:1%;margin-bottom:1%;">
+                    <img class="img-responsive superlady-winner grayscale" src="~/images/Superlady/win1.jpg">
+                </div>
+                <div class="col-md-2" style="overflow:hidden;padding:0; margin-right:1%;margin-bottom:1%;">
+                    <img class="img-responsive superlady-winner grayscale" src="~/images/Superlady/win2.png">
+                </div>
+                <div class="col-md-2" style="overflow:hidden;padding:0; margin-right:1%;margin-bottom:1%;">
+                    <img class="img-responsive superlady-winner grayscale" src="~/images/Superlady/win3.jpg">
+                </div>
+                <div class="col-md-2" style="overflow:hidden;padding:0; margin-right:1%;margin-bottom:1%;">
+                    <img class="img-responsive superlady-winner grayscale" src="~/images/Superlady/win4.jpg">
+                </div>
+                <div class="col-md-2" style="overflow:hidden;padding:0; margin-right:1%;margin-bottom:1%;">
+                    <img class="img-responsive superlady-winner grayscale" src="~/images/Superlady/win5.jpg">
+                </div>
+            </div>
+            <div class="col-md-12" style="margin:2% 0">
+                <h3 style="position: relative; margin: 30px 0; padding: 10px 0; border-bottom: 1px solid #d8d8d8; font-size: 26px; clear: both; width:90%">역대 갤러리</h3>
+                <div class="grid-item ">
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal1.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal2.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal3.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal4.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal5.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal6.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal7.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal8.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal9.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal10.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal11.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal12.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal13.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal14.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal15.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal16.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal17.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal18.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal19.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal20.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal21.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal22.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal23.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal24.jpg">
+                    </div>
+                    <div class="thumb">
+                        <img class="img-responsive superlady-gallery opacity" src="~/images/Superlady/gal25.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="margin:2% 0">
+                <h3 style="position: relative; margin: 30px 0; padding: 10px 0; border-bottom: 1px solid #d8d8d8;  clear: both; width:90%">슈퍼레이디 글로벌 홍보대사</h3>
+                <div class="col-md-11">
+                    <div class="col-md-8">
+                        <p style="font-size:1.4rem; line-height:3rem; word-break:keep-all; letter-spacing:1px; margin:20px auto;">
+                            &nbsp; 디지털 트랜스포메이션의 변화로, 새로운 미디어가 매일 출현하고, 마케팅 커뮤니케이션의 정답과 경계는 이미 사라졌습니다. 28세 이상의 성공한 커리어우먼 슈퍼레이디는 전 세계 소비의 주체입니다. <br /><br />
+
+                            저희는 지금의 ‘비정형화’ 시대에 <span style="color:#244ed4"> 누구나 인정하는 소비의 주체인 성공한 커리어 미녀우먼들의 운명적인 만남을 교류하여 아이디어와 경험을 만나 스토리텔링 콘텐츠를 제작하고 전 세계와 소통</span>하여 예측 불가능한 놀랍고 멋진 마케팅 커뮤니케이션을 만들어갑니다.<br /><br />
+
+                            광고와 인플루언서, 유튜버, 이벤트, 메이커 등 다양한 네트워크를 연결하여 빠르고 혁신적인 방법으로 클라이언트의 브랜드 제품을 전 세계 최소 30 선진국가에 홍보를 할 수 있습니다. 우리는 이것을 "<span style="color:#244ed4; font-weight:bold;">럭셔리테인먼트 커머스+</span>"라고 말합니다.
+
+                            저희는 클라이언트의 단순한 홍보촬영 대행을 벗어나 클라이언트의 비즈니스에  연동되어 클라이언트의 가치를 더하고, 비즈니스를 성장시키는, "<span style="color:#244ed4">비즈니스 컨버전스 파트너</span>"입니다.<br /><br />
+
+                            광고/인플루언서/유튜브/네트워크 등 필요한 모든 자원을 컨버전스 한 아웃소싱 파트너로, 글로벌 컨슈머가 실용적으로  <span style="color:#244ed4">원하는 "최적의 솔루션"을 “최저의 비용”으로 제공</span>합니다.<br />  저희의 <strong>럭셔리테인먼트 커머스+</strong>를 통한 세계적인 글로벌 마케팅으로 글로벌 비즈니스를 창출하여, 글로벌 트랜드와 컬쳐를 리딩하여 나가시기를 바랍니다.
+
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-responsive" src="~/images/Superlady/prm.jpg" style="display:block; margin: auto;">
+                        <p style="font-size:1.2rem;text-align:center; line-height:2rem; margin-top:15px;">
+                            <span style="font-size:1.8rem; font-weight:bold">메리암 조지</span><br />
+                            미스유니버스, 미스월드 이집트 우승자<br />
+                            슈퍼탤런트 오브 더 월드 시즌3 준우승<br />
+                            현 미스 이집트 조직위 대표
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

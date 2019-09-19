@@ -1,0 +1,184 @@
+﻿@model IEnumerable<supertalentoftheworld.Models.Travel_Goods>
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Layout/Header.cshtml")
+<!--Shop/Brochures-->
+<section class="image-head-wrapper" style="background-image: url('/images/Background/Brochures-back.bmp'); background-size:cover;">
+    <div class="inner-wrapper">
+        <h1 class="in-img-text">Travel <br />
+         Deals</h1>
+    </div>
+</section>
+
+<div>
+    <div class="row" style="margin:30px 0">
+        <section class="gallery-block gallery-front;" style="padding:30px;">
+            <div style="text-align:center">
+                <h2 style="margin:30px 0; font-weight:600;">
+                    LUXURY TRAVEL WITH 360 ENTERTAINMENT
+                </h2><br />
+                <h3 style="font-weight:bold">Join the evolution</h3><br />
+                <p style="font-size:1.2em">Share and making a difference #joinsupertalent #bestsupertalent #supertalentworld</p><br />
+                <p style="font-size:1.2em; color:#ff4157">FEATURED EUROPE TRIPS, FOLLOW MY LUXURY EUROPE AND SHARE WITH WORLD</p>
+            </div>
+            <div class="row" style="margin:1% 10%;">
+             
+                <div class="row" style="">
+                    @foreach (var item in Model.Where(a => a.Category == 0))
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px" onclick="location.href='/Shop/Details?id='+@item.id+''">
+                            <div class="menuover">
+                                <div class="gallery-image">
+                                    <img class="img-responsive" src="@item.MainImgPath">
+                                </div>                              
+                                @if (@item.Country != "1")
+                                {
+                                    <div class="text-left" style="margin-top:5px">
+                                        <text style="color:#808080; margin-left:10px"><i style="font-size:1.4em;" class="fas fa-calendar-alt"></i> @item.days DAYS</text>
+                                        <text style="color:#808080;"><i style="font-size:1.4em;" class="fas fa-globe"></i> @item.Country COUNTRIES</text>
+                                        <text style="color:#808080"><i style="font-size:1.4em;" class="fas fa-location-arrow"></i> @item.City CITIES</text>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="text-left" style="margin-top:5px">
+                                        <text style="color:#808080; margin-left:10px"><i style="font-size:1.4em;" class="fas fa-calendar-alt"></i> @item.days DAYS</text>
+                                        <text style="color:#808080;"><i style="font-size:1.4em;" class="fas fa-globe"></i> @item.Country COUNTRY</text>
+                                        <text style="color:#808080"><i style="font-size:1.4em;" class="fas fa-location-arrow"></i> @item.City CITIES</text>
+                                    </div>
+                                }                              
+
+
+                                <div class="text-left">
+                                    <h4 style="margin:10px 10px; font-weight:bold; word-break:keep-all;">@item.Title</h4>
+                                    <span class="star"><img title="별점" src="/images/Shop/stars.png" /></span>
+                                </div>
+                                <div class="text-left">
+                                    <p class="t_price">
+                                        $ @item.Price_d <text style="font-size:0.7em">Per Person</text>
+                                    </p>
+                                </div>
+                                <p class="t_arrow"><img src="/images/Shop/arrow-right.png" style="width:65%" /></p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</div>
+
+<style>
+    
+    .sel {
+        cursor: pointer
+    }
+
+ 
+
+    .product-title {
+        color: #ff4157;
+        position: relative;
+        margin: 0 0 10px 30px;
+        padding: 0 0 20px;
+        clear: both;
+    }
+
+        .product-title span {
+            display: inline-block;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 3px solid transparent;
+            color: #333;
+        }
+
+        .product-title:after {
+            position: absolute;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            bottom: 0;
+            background: #162541;
+            content: "";
+        }
+
+    .menuover {
+        position: relative;
+        transition: 0.2s;
+        border: solid 1px #ddd;
+        padding: 0;
+        margin-right: 15px;
+        box-shadow: 0px 3px 2px 0px rgba(170,170,170,1);
+    }
+
+        .menuover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 5px -5px rgba(170,170,170,1);
+        }
+
+        .menuover:after {
+            background: #ff4157;
+            content: "";
+            height: 3px;
+            width: 0;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            transition: 0.6s all cubic-bezier(0.77,0,0.175,1);
+        }
+
+        .menuover:hover::after {
+            width: 100%;
+        }
+
+    .t_duration {
+        padding: 2% 0;
+        font-size: 1.2em;
+        color: #555;
+        line-height: 2rem;
+    }
+
+    .t_price {
+        margin: 1% 10px;
+        padding: 2% 0;
+        font-size: 1.2em;
+        color: #ff4157;
+        font-weight:bold
+    }
+
+    .t_arrow {
+        position: absolute;
+        bottom: 5%;
+        right: -4%;
+    }
+
+    .ori {
+        border: solid 0.5px #b0b0b0;
+    }
+
+
+
+    .img-responsive {
+        width: 100%;
+    }
+
+    .btn-size {
+        font-size: 0.75em;
+        margin-bottom: 30px;
+    }
+
+    @@media (max-width:767px) {
+        .product-title {
+            text-align: center;
+            margin: 15px 0;
+        }
+    }
+</style>
+
+<script>
+
+</script>

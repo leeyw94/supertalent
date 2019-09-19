@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cf4b8d1af2f84604886a722b34a392c7" Name="Diagram1">
+        <EntityTypeShape EntityType="supertalent_dbModel.bbs_comment" Width="1.5" PointX="7.5" PointY="60.5" />
+        <EntityTypeShape EntityType="supertalent_dbModel.Board" Width="1.5" PointX="7.5" PointY="35.25" />
+        <EntityTypeShape EntityType="supertalent_dbModel.BoardComment" Width="1.5" PointX="9.75" PointY="40.875" />
+        <EntityTypeShape EntityType="supertalent_dbModel.BoardFile" Width="1.5" PointX="12.75" PointY="33" />
+        <EntityTypeShape EntityType="supertalent_dbModel.BoardMenu" Width="1.5" PointX="5.25" PointY="35.875" />
+        <EntityTypeShape EntityType="supertalent_dbModel.cal_memo" Width="1.5" PointX="10.5" PointY="21.5" />
+        <EntityTypeShape EntityType="supertalent_dbModel.CategoryMenus" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.code_auth" Width="1.5" PointX="3" PointY="24.25" />
+        <EntityTypeShape EntityType="supertalent_dbModel.code_index" Width="1.5" PointX="11.25" PointY="17.625" />
+        <EntityTypeShape EntityType="supertalent_dbModel.code_main" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.code_nationality" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.code_project_state" Width="1.5" PointX="11.25" PointY="14" />
+        <EntityTypeShape EntityType="supertalent_dbModel.code_time" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.company" Width="1.5" PointX="0.75" PointY="25.875" />
+        <EntityTypeShape EntityType="supertalent_dbModel.department" Width="1.5" PointX="3" PointY="27.625" />
+        <EntityTypeShape EntityType="supertalent_dbModel.file_list" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="supertalent_dbModel.file_menu" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="supertalent_dbModel.history" Width="1.5" PointX="10.5" PointY="26.5" />
+        <EntityTypeShape EntityType="supertalent_dbModel.hotel_ask" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.language" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.machine" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.my_work" Width="1.5" PointX="7.5" PointY="21.375" />
+        <EntityTypeShape EntityType="supertalent_dbModel.New_work" Width="1.5" PointX="7.5" PointY="26.875" />
+        <EntityTypeShape EntityType="supertalent_dbModel.Process" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.project_act" Width="1.5" PointX="10.5" PointY="31.25" />
+        <EntityTypeShape EntityType="supertalent_dbModel.project_dir" Width="1.5" PointX="7.5" PointY="30.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.project_main" Width="1.5" PointX="8.25" PointY="13.125" />
+        <EntityTypeShape EntityType="supertalent_dbModel.project_main_back" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.QA" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.test" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.user" Width="1.5" PointX="5.25" PointY="24.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.work_list" Width="1.5" PointX="13.5" PointY="25.5" />
+        <EntityTypeShape EntityType="supertalent_dbModel.member" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.v_mywork_project" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="supertalent_dbModel.v_new_work" Width="1.5" PointX="10.75" PointY="7.75" />
+        <AssociationConnector Association="supertalent_dbModel.FK_bbs_comment_user" />
+        <AssociationConnector Association="supertalent_dbModel.FK_Board_BoardMenu" />
+        <AssociationConnector Association="supertalent_dbModel.FK_Board_project_main" />
+        <AssociationConnector Association="supertalent_dbModel.FK_BoardComment_Board" />
+        <AssociationConnector Association="supertalent_dbModel.FK_BoardFile_Board" />
+        <AssociationConnector Association="supertalent_dbModel.FK_BoardFile_cate" />
+        <AssociationConnector Association="supertalent_dbModel.FK_BoardFile_project_main" />
+        <AssociationConnector Association="supertalent_dbModel.FK_BoardFile_user" />
+        <AssociationConnector Association="supertalent_dbModel.FK_BoardMenu_department" />
+        <AssociationConnector Association="supertalent_dbModel.FK_cal_memo_cal_user" />
+        <AssociationConnector Association="supertalent_dbModel.FK_cal_memo_project_main" />
+        <AssociationConnector Association="supertalent_dbModel.FK_code_auth_company" />
+        <AssociationConnector Association="supertalent_dbModel.FK_code_index_code_index" />
+        <AssociationConnector Association="supertalent_dbModel.FK_work_list_code_index1" />
+        <AssociationConnector Association="supertalent_dbModel.FK_work_list_code_project_state" />
+        <AssociationConnector Association="supertalent_dbModel.FK_department_department" />
+        <AssociationConnector Association="supertalent_dbModel.FK_history_company" />
+        <AssociationConnector Association="supertalent_dbModel.FK_user_company" />
+        <AssociationConnector Association="supertalent_dbModel.FK_work_list_company" />
+        <AssociationConnector Association="supertalent_dbModel.FK_user_department" />
+        <AssociationConnector Association="supertalent_dbModel.FK_work_list_department" />
+        <AssociationConnector Association="supertalent_dbModel.FK_file_list_file_menu" />
+        <AssociationConnector Association="supertalent_dbModel.FK_history_user" />
+        <AssociationConnector Association="supertalent_dbModel.FK_my_work_project_main" />
+        <AssociationConnector Association="supertalent_dbModel.FK_my_work_user" />
+        <AssociationConnector Association="supertalent_dbModel.FK_New_work_project_main" />
+        <AssociationConnector Association="supertalent_dbModel.FK_New_work_user" />
+        <AssociationConnector Association="supertalent_dbModel.FK_project_act_manager" />
+        <AssociationConnector Association="supertalent_dbModel.FK_project_act_project_dir" />
+        <AssociationConnector Association="supertalent_dbModel.FK_project_act_project_main" />
+        <AssociationConnector Association="supertalent_dbModel.FK_project_act_user" />
+        <AssociationConnector Association="supertalent_dbModel.FK_project_dir_project_main" />
+        <AssociationConnector Association="supertalent_dbModel.FK_project_dir_user" />
+        <AssociationConnector Association="supertalent_dbModel.FK_project_main_project_main" />
+        <AssociationConnector Association="supertalent_dbModel.FK_work_list_project_main" />
+        <AssociationConnector Association="supertalent_dbModel.FK_work_list_user" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

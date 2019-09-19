@@ -1,0 +1,65 @@
+﻿@{ Layout = null;
+
+    string language = ViewBag.language;
+
+    }
+<!---footer--->
+<footer style="padding:10px">
+    <div class="container">
+
+        <div class="col-md-12" style="margin:20px">
+            <div class="social-grid text-center" style="margin-right:50px">
+                <ul class="list-unstyled">
+                    <li><a href="https://www.facebook.com/SuperTalentOfficial/"><i class="fab fa-facebook-square" style="font-size:1.8em"></i></a></li>
+                    <li><a href="https://www.instagram.com/misssupertalent/"><i class="fab fa-instagram" style="font-size:1.8em"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCbe6_o-ULwZ_tznU0ot3X7Q"><i class="fab fa-youtube" style="font-size:1.8em"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row col-md-12" style="text-align:center; margin-bottom:0px">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <a href="/Partners/Index">PARTNERS</a>
+            </div>
+            <div class="col-md-2">
+                @if (language == "korea")
+                {
+                    <a href="/Home/Contact_ko">문의하기</a>
+                }
+                else
+                {
+
+                    <a href="/Home/Contact">CONTACT US</a>
+                }
+            </div>
+            <div class="col-md-2">
+                <a href="/Sitemap/Privacy">PRIVACY POLICY</a>
+            </div>
+            <div class="col-md-2">
+                <a href="/Sitemap/Terms">TERMS OF USE</a>
+            </div>
+            <div class="col-md-2">
+                <a href="/Sitemap/Cookie">COOKIE POLICY</a>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="copyright" style=" display:table; width:100%; padding-top:10px; text-align:center;line-height:1.8em;">
+            회사명 :(주)수타그룹 사업자번호 : 602-87-00127 대표자 : 최영철<br />
+            주소 : 서울특별시 서초구 강남대로93길 32, 2층 102호(잠원동)<br />
+            이메일: misssupertalent@gmail.com &nbsp;&nbsp;  전화번호: 02-3444-7821<br />
+            &copy;2019 (주)수타그룹 All right reserved.
+        </div>
+
+    </div>
+</footer>
+
+
+<!--back to top--->
+<a style="display: none;" href="/javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
+    <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
+    <span>Top</span>
+</a>
+
+

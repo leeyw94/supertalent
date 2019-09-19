@@ -1,0 +1,216 @@
+﻿@model IEnumerable<supertalentoftheworld.Models.Model_Data>
+
+@{
+                /**/
+
+                Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+
+<div class="font-user" style="">
+    <div>
+        <section class="image-head-wrapper" style="background-image: url('/images/Background/Finalist-back.jpg'); background-size:cover">
+            <div class="inner-wrapper">
+                <h1 class="in-img-text">Finalists</h1>
+            </div>
+        </section>
+    </div>
+
+    <div class="" style="text-align:center; margin:50px">
+
+        <h3 style="font-weight:bold;margin-bottom:20px">PAST EDITIONS</h3>
+
+        @Html.Partial("/Views/Layout/_Finalist_Menu_ko.cshtml")
+
+        <div style="background:#f3f3f3;border-radius:10px">
+            <section class="gallery-block gallery-front">
+                <div class="container">
+                    <div class="row">
+
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                <div class="gallery-image">
+                                    <img class="img-responsive" src="@item.MainImgPath" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'">
+                                    <div class="overlay">
+                                        <a class="info pop img-responsive" href="/Finalists/Model_details_ko?id=@item.id"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                        <p><a>View Detail</a></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img class="img-country" src="@item.M_country_img" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'" />
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-country">@item.M_country</p>
+                                </div>
+                                <div>
+                                    <p class="text-name">@item.M_name</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<style>
+    .user-a {
+        padding: 10px;
+        display: inline-block;
+    }
+
+    .gallery-image {
+        margin-bottom: 0px;
+    }
+
+    .li-active {
+        background-color: #ff4157;
+        color: white;
+        border-radius: 5px;
+    }
+
+        .li-active:hover {
+            color: white;
+            border-radius: 5px;
+        }
+
+    .text-name {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .text-country {
+        color: #a8a8a8;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .img-country {
+        width: 40px;
+        height: 20px;
+        margin-top: 10px;
+    }
+
+    .info {
+        margin-top: 150px;
+    }
+
+    .user-ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+    }
+
+    .user-li {
+        display: inline;
+        margin: 20px;
+        border: 0;
+        float: left;
+        font-weight: bold;
+    }
+
+    .img-responsive {
+        height: 340px;
+        background-size: cover;
+        width: 260px;
+    }
+</style>
+<script>
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    var cate = getParameterByName('cate');
+    var season = getParameterByName('season');
+
+    console.log(cate);
+    console.log(season);
+
+    sel_year();
+
+    function sel_year() {
+
+        var html = '';
+
+        if (season == "13") {
+            $('#2019').addClass("li-active");
+
+            html += '<ul class="user-ul">\
+                <li class="user-li">\
+                    <a class="user-a" id="Season13" href="/Finalists/Models_ko?cate=1&season=13">Season 13</a>\
+                    </li>\
+                <li class="user-li">\
+                    <a class="user-a" id="Season12" href="/Finalists/Models_ko?cate=1&season=12">Season 12</a>\
+                </li>\
+                </ul>';
+            $('#season_add').html(html);
+
+            $('#Season'+season).addClass("li-active");
+        }
+
+        if (season == "12") {
+            $('#2019').addClass("li-active");
+
+            html += '<ul class="user-ul">\
+                <li class="user-li">\
+                    <a class="user-a" id="Season13" href="/Finalists/Models_ko?cate=1&season=13">Season 13</a>\
+                    </li>\
+                <li class="user-li">\
+                    <a class="user-a" id="Season12" href="/Finalists/Models_ko?cate=1&season=12">Season 12</a>\
+                </li>\
+                </ul>';
+            $('#season_add').html(html);
+
+            $('#Season' + season).addClass("li-active");
+        }
+
+        if (season == "11") {
+            $('#2018').addClass("li-active");
+
+            html += '<ul class="user-ul">\
+                <li class="user-li">\
+                    <a class="user-a" id="Season11" href="/Finalists/Models_ko?cate=1&season=11">Season 11</a>\
+                    </li>\
+                <li class="user-li">\
+                    <a class="user-a" id="Season10" href="/Finalists/Models_ko?cate=1&season=10">Season 10</a>\
+                </li>\
+                </ul>';
+            $('#season_add').html(html);
+
+            $('#Season' + season).addClass("li-active");
+        }
+
+        if (season == "10") {
+            $('#2018').addClass("li-active");
+
+            html += '<ul class="user-ul">\
+                <li class="user-li">\
+                    <a class="user-a" id="Season11" href="/Finalists/Models_ko?cate=1&season=11">Season 11</a>\
+                    </li>\
+                <li class="user-li">\
+                    <a class="user-a" id="Season10" href="/Finalists/Models_ko?cate=1&season=10">Season 10</a>\
+                </li>\
+                </ul>';
+            $('#season_add').html(html);
+
+            $('#Season' + season).addClass("li-active");
+        }
+
+    }
+
+</script>

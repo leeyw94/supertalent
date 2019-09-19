@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<!--Channel/Index-->
+@Html.Partial("/Views/Layout/Header.cshtml")
+<section class="image-head-wrapper" style="background-image: url('/images/Background/Channel-back.jpg'); background-size:cover">
+    <div class="inner-wrapper">
+        <h1 class="in-img-text">Channel</h1>
+    </div>
+</section>
+
+<div class="row" style="margin-top:5%; margin-bottom:5%;">
+    <section>
+        <div>
+            <div class="col-md-10 col-md-offset-1" style="text-align:center;">
+                <div class="col-md-3"></div>
+                <div class="col-md-2" style="margin-top:20px;">
+                    <div class="channel"><img src="~/images/sns1.png" /></div>
+                    <h4 class="channel-title">Facebook</h4>
+                    <p class="channel-text">Supertalent Of The World Facebook Channel</p>
+                    <a href="https://www.facebook.com/SuperTalentOfficial/" target="_blank" class="channel-more">more</a>
+                </div>
+                <div class="col-md-2" style="margin-top:20px;">
+                    <div class="channel"><img src="~/images/sns2.png" /></div>
+                    <h4 class="channel-title">Instagram</h4>
+                    <p class="channel-text">Supertalent Of The World Instagram Channel</p>
+                    <a href="https://www.instagram.com/misssupertalent/" target="_blank" class="channel-more">more</a>
+                </div>
+                <div class="col-md-2" style="margin-top:20px;">
+                    <div class="channel"><img src="~/images/sns3.png" /></div>
+                    <h4 class="channel-title">Youtube</h4>
+                    <p class="channel-text">Supertalent Of The World Youtube Channel</p>
+                    <a href="https://www.youtube.com/channel/UCbe6_o-ULwZ_tznU0ot3X7Q" target="_blank" class="channel-more">more</a>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+
+
+    .channel-title {
+        margin-top: 10%;
+        margin-bottom: 10%;
+        font-size: 2.6rem;
+        font-weight: bold;
+        color: #162541;
+    }
+
+    .channel-text {
+        word-break: keep-all;
+        line-height: 2rem;
+    }
+
+    .channel-more {
+        margin-top: 10%;
+        display: inline-block;
+        padding: 5% 15% 5% 15%;
+        border: 1px solid #162541;
+        border-radius: 2rem;
+        transition: 0.5s;
+    }
+
+        .channel-more:hover {
+            background: white;
+            font-weight: bold;
+        }
+
+    @@media (max-width:767px) {
+        .channel img {
+            width: 20%
+        }
+
+        .channel-more {
+            margin-bottom: 10%;
+            padding: 4% 8% 4% 8%;
+        }
+    }
+</style>

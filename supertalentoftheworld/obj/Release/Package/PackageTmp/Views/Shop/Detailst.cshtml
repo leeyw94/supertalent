@@ -1,0 +1,484 @@
+﻿@model supertalentoftheworld.Models.Travel_Goods
+
+<link href="/css/lightslider.css" rel="stylesheet" />
+<script src="/js/lightslider.min.js"></script>
+
+
+<div class="container">
+    <div class="item col-md-6 col-md-offset-3">
+        <div class="clearfix" style="max-width:474px;">
+            <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                <li data-thumb="/images/thumb/cS-1.jpg">
+                    <img src="/images/cS-1.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-2.jpg">
+                    <img src="/images/cS-2.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-3.jpg">
+                    <img src="/images/cS-3.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-4.jpg">
+                    <img src="/images/cS-4.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-5.jpg">
+                    <img src="/images/cS-5.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-6.jpg">
+                    <img src="/images/cS-6.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-7.jpg">
+                    <img src="/images/cS-7.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-8.jpg">
+                    <img src="/images/cS-8.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-9.jpg">
+                    <img src="/images/cS-9.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-10.jpg">
+                    <img src="/images/cS-10.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-11.jpg">
+                    <img src="/images/cS-11.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-12.jpg">
+                    <img src="/images/cS-12.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-13.jpg">
+                    <img src="/images/cS-13.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-14.jpg">
+                    <img src="/images/cS-14.jpg" />
+                </li>
+                <li data-thumb="/images/thumb/cS-15.jpg">
+                    <img src="/images/cS-15.jpg" />
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="width:80%; margin:50px auto">
+    <div class="row box">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            @*<div class="row box">
+                    <div style="margin:auto; display:table;">
+                        <h3 style="margin-bottom:10px;">상품</h3>
+                        <p><span></span></p>
+                        <img style="width:800px; height:600px" src="/images/Shop/1429.jpg" />
+                    </div>
+                    <section class="regular slider">
+                        <div>
+                            <img src="/images/Shop/1429.jpg" />
+                        </div>
+                        <div>
+                            <img src="/images/Shop/2077.jpg" />
+                        </div>
+                        <div>
+                            <img src="/images/gallery2-2.jpg" />
+                        </div>
+                        <div>
+                            <img src="/images/Shop/2806.jpg" />
+                        </div>
+                        <div>
+                            <img src="/images/Shop/916.jpg" />
+                        </div>
+                        <div>
+                            <img src="/images/gallery1-1.jpg" />
+                        </div>
+                    </section>
+                </div>*@
+            <hr />
+            <div class="shop-info">
+                <ul>
+                    <li>
+                        <img src="~/images/Shop/earth-globe (1).png" />
+                        <p style="margin-top:20px; font-weight:600;">언어</p>
+                    </li>
+                    <li>
+                        <img src="~/images/Shop/alarm-clock.png" />
+                        <p style="margin-top:20px; font-weight:600;">여행시간</p>
+                    </li>
+                    <li>
+                        <img src="~/images/Shop/bus.png" />
+                        <p style="margin-top:20px; font-weight:600;">이동형태</p>
+                    </li>
+                    <li>
+                        <img src="~/images/Shop/suitcase.png" />
+                        <p style="margin-top:20px; font-weight:600;">여행형태</p>
+                    </li>
+                    <li>
+                        <img src="~/images/logo/supertalentlogo.png" />
+                        <h4 style="margin-top:20px; font-weight:600;">슈퍼탤런트오브더월드</h4><br />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <hr />
+    @if (Model.Description != null)
+    {
+        <div class="row box" style="">
+            <div class="col-md-3">
+                <h3 style="font-weight:500; text-align:center; color:#162541;">Description</h3>
+            </div>
+            <div id="Description" class="col-md-9">
+                @Html.Raw(Model.Description)
+            </div>
+        </div>
+        <hr />
+    }
+
+    <div class="row box">
+        <div class="col-md-3">
+            <h3 style="font-weight:500; text-align:center; color:#162541; margin-top:5%;">Major Course</h3>
+        </div>
+        <div class="col-md-6" style="position:relative;">
+            <ul>
+                <li class="shop-course">
+                    <span class="place"></span>
+                    <p style="font-size:2rem; margin-top:20px; margin-bottom:20px">1.폼페이</p>
+                    <p>
+                        지금으로 부터 1940년전 기원후79년에 이탈리아 남부 베수비오라 화산이 폭팔하여 한 도시를 덮쳐버리게 된 그곳을 탐방하시게 됩니다.<br />
+                        고대로마의 모습을 간직하고 있었기에 그들의 생활현장을 확인하는 시간을 갖습니다.<br />
+                    </p>
+                </li>
+                <li class="shop-course">
+                    <span class="place"></span>
+                    <p style="font-size:2rem; margin-top:20px; margin-bottom:20px">1.폼페이</p>
+                    <p>
+                        지금으로 부터 1940년전 기원후79년에 이탈리아 남부 베수비오라 화산이 폭팔하여 한 도시를 덮쳐버리게 된 그곳을 탐방하시게 됩니다.<br />
+                        고대로마의 모습을 간직하고 있었기에 그들의 생활현장을 확인하는 시간을 갖습니다.<br />
+                    </p>
+                </li>
+                <li class="shop-course">
+                    <span class="place"></span>
+                    <p style="font-size:2rem; margin-top:20px; margin-bottom:20px">1.폼페이</p>
+                    <p>
+                        지금으로 부터 1940년전 기원후79년에 이탈리아 남부 베수비오라 화산이 폭팔하여 한 도시를 덮쳐버리게 된 그곳을 탐방하시게 됩니다.<br />
+                        고대로마의 모습을 간직하고 있었기에 그들의 생활현장을 확인하는 시간을 갖습니다.<br />
+                    </p>
+                </li>
+                <li class="shop-course">
+                    <span class="place"></span>
+                    <p style="font-size:2rem; margin-top:20px; margin-bottom:20px">1.폼페이</p>
+                    <p>
+                        지금으로 부터 1940년전 기원후79년에 이탈리아 남부 베수비오라 화산이 폭팔하여 한 도시를 덮쳐버리게 된 그곳을 탐방하시게 됩니다.<br />
+                        고대로마의 모습을 간직하고 있었기에 그들의 생활현장을 확인하는 시간을 갖습니다.<br />
+                    </p>
+                </li>
+            </ul>
+            <ul class="dotted-line">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <div class="col-md-3">
+            <ul>
+                <li class="shop-course">
+
+                    <img src="/images/gallery1.png" style="width:300px; height:240px;" />
+                </li>
+                <li class="shop-course">
+
+                    <img src="/images/gallery2.png" style="width:300px; height:240px;" />
+                </li>
+                <li class="shop-course">
+
+                    <img src="/images/gallery3.png" style="width:300px; height:240px;" />
+                </li>
+                <li class="shop-course">
+
+                    <img src="/images/gallery4.png" style="width:300px; height:240px;" />
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <hr />
+
+    @if (Model.Benefits != null)
+    {
+        <div class="row box" style="">
+            <div class="col-md-3">
+                <h3 style="font-weight:500; text-align:center; color:#162541;">Benefits</h3>
+            </div>
+            <div id="Benefits" class="col-md-9">
+                @Html.Raw(Model.Benefits)
+            </div>
+        </div>
+        <hr />
+    }
+    @if (Model.Includes != null)
+    {
+        <div class="row box" style="">
+            <div class="col-md-3">
+                <h3 style="font-weight:500; text-align:center; color:#162541;">Includes</h3>
+            </div>
+            <div id="Includes" class="col-md-9">
+                @Html.Raw(Model.Includes)
+            </div>
+        </div>
+        <hr />
+    }
+    @if (Model.Not_included != null)
+    {
+        <div class="row box" style="">
+            <div class="col-md-3">
+                <h3 style="font-weight:500; text-align:center; color:#162541;">Not Included</h3>
+            </div>
+            <div id="Not_included" class="col-md-9">
+                @Html.Raw(Model.Not_included)
+            </div>
+        </div>
+        <hr />
+    }
+    @if (Model.Notices_Policy != null)
+    {
+        <div class="row box" style="">
+            <div class="col-md-3">
+                <h3 style="font-weight:500; text-align:center; color:#162541;">Notices and Travel Policy</h3>
+            </div>
+            <div id="Notices_Policy" class="col-md-9">
+                @Html.Raw(Model.Notices_Policy)
+            </div>
+        </div>
+        <hr />
+    }
+    @if (Model.Cancel_Refund != null)
+    {
+        <div class="row box" style="">
+            <div class="col-md-3">
+                <h3 style="font-weight:500; text-align:center; color:#162541;">Cancellation and Refund Policy</h3>
+            </div>
+            <div id="Cancel_Refund" class="col-md-9">
+                @Html.Raw(Model.Cancel_Refund)
+            </div>
+        </div>
+        <hr />
+    }
+
+</div>
+
+
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .slider {
+        width: 80%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+        margin: 0px 10px;
+    }
+
+        .slick-slide img {
+            width: 100%;
+        }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+
+    .slick-slide {
+        transition: all ease-in-out .3s;
+        opacity: .2;
+    }
+
+    .slick-active {
+        opacity: .5;
+    }
+
+    .slick-current {
+        opacity: 1;
+    }
+</style>
+<style>
+
+    .shop-info {
+        position: relative;
+        width: 100%;
+        height: 150px;
+        clear: both;
+        margin-top: 5%;
+    }
+
+        .shop-info ul li {
+            float: left;
+            width: 15%;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+            .shop-info ul li:last-of-type {
+                width: 40%;
+            }
+
+        .shop-info img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .shop-info li:last-child img {
+            width: 269px;
+            height: 56px
+        }
+
+    p {
+        line-height: 2rem;
+    }
+
+    ul, li {
+        list-style: none;
+    }
+
+    .shop-course {
+        height: 280px;
+    }
+
+    .dotted-line {
+        z-index: 99;
+        position: absolute;
+        left: -25px;
+        top: 25px;
+        list-style-type: none;
+    }
+
+        .dotted-line li {
+            width: 2px;
+            height: 2px;
+            border-radius: 2px;
+            margin: 10px 0;
+            background-color: #165141;
+        }
+
+    .place {
+        position: absolute;
+        left: -40px;
+        width: 30px;
+        height: 30px;
+        background-image: url('../../images/Shop/placeholder.png');
+        background-size: 100%;
+        z-index: 999;
+        display: block;
+    }
+</style>
+<script type="text/javascript">
+    $(document).on('ready', function () {
+        $(".regular").slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 5,
+            slidesToScroll: 5
+        });
+    });
+
+
+    $(document).ready(function () {
+        $("#content-slider").lightSlider({
+            loop: true,
+            keyPress: true
+        });
+        $('#image-gallery').lightSlider({
+            gallery: true,
+            item: 1,
+            thumbItem: 9,
+            slideMargin: 0,
+            speed: 1000,
+            auto: false,
+
+            loop: true,
+            onSliderLoad: function () {
+                $('#image-gallery').removeClass('cS-hidden');
+            }
+        });
+    });
+</script>

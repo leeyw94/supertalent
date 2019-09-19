@@ -1,0 +1,765 @@
+﻿@model IEnumerable<supertalentoftheworld.Models.Travel_Goods>
+@using supertalentoftheworld.Models
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+
+<!--Home/Index-->
+<script src="/navi/js/jquery-1.8.3.min.js"></script>
+<style>
+
+    .carousel-fade .carousel-inner .item {
+        transition: 0.6s ease-in-out opacity;
+    }
+
+    .item,
+    .active.left,
+    .active.right {
+        opacity: 0.5;
+    }
+
+    .active,
+    .next.left,
+    .prev.right {
+        opacity: 1;
+    }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+
+    .carousel-control {
+        z-index: 2;
+    }
+
+    .t_price {
+        margin: 1% 0;
+        padding: 2% 0;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .t_arrow {
+        position: absolute;
+        bottom: 5%;
+        right: -4%;
+    }
+
+    .ori {
+        border: solid 0.5px #b0b0b0;
+    }
+
+    .sel {
+        cursor: pointer
+    }
+
+
+
+    .product-title {
+        color: #ff4157;
+        position: relative;
+        margin: 0 0 10px 30px;
+        padding: 0 0 20px;
+        clear: both;
+    }
+
+        .product-title span {
+            display: inline-block;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 3px solid transparent;
+            color: #333;
+        }
+
+        .product-title:after {
+            position: absolute;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            bottom: 0;
+            background: #162541;
+            content: "";
+        }
+
+    .menuover {
+        position: relative;
+        transition: 0.2s;
+        border: solid 1px #ddd;
+        padding: 0;
+        margin-right: 15px;
+        min-height: 454px;
+    }
+
+        .menuover:hover {
+            transform: translateY(-5px);
+        }
+
+
+    #tab-cont, #tab-cont1 {
+        transition: ease-in 0.4s;
+    }
+
+    #tab-btn, #tab-btn1 {
+        padding: 0;
+        border: solid 1px #ff4157;
+    }
+
+        #tab-btn ul, #tab-btn1 ul {
+            width: 100%;
+        }
+
+            #tab-btn ul li, #tab-btn1 ul li {
+                width: 33.33333%;
+                float: left;
+                padding: 2%;
+                text-align: center;
+            }
+
+            #tab-btn1 ul li {
+                width: 20%;
+            }
+
+                #tab-btn ul li a, #tab-btn1 ul li a {
+                    font-size: 1.1em;
+                    color: #ff4157;
+                }
+
+        #tab-btn .tab-active, #tab-btn1 .tab-active1 {
+            background: #ff4157;
+        }
+
+            #tab-btn .tab-active a, #tab-btn1 .tab-active1 a {
+                color: #fff;
+            }
+
+
+    .embed-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+        .embed-container iframe, .embed-container object, .embed-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 99%;
+        }
+
+    .gallery-image {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 15px;
+        padding-bottom: 5px;
+    }
+
+    .btn-size {
+        font-size: 0.75em;
+        margin-bottom: 30px;
+    }
+
+    .embed-container {
+        width: 100%;
+        height: 100%;
+    }
+
+        .embed-container video, .embed-container object, .embed-container embed {
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            display: block;
+            padding: 0;
+        }
+
+    ul, li {
+        list-style: none;
+    }
+
+    .main-article div {
+        font-weight: normal;
+        line-height: 150%;
+        font-size: 1.3rem;
+        border-bottom: dotted 1px #b0b0b0;
+        margin-bottom: 4px
+    }
+    @@media (max-width: 767px) {
+        .gallery-image img {
+            width: 60%;
+        }
+    }
+    .banner_wraper { height: 100px; width: 100%; position: absolute; overflow: hidden; margin-left:100px;}
+    .banner_wraper img { height: 100px; position: absolute; }
+</style>
+
+
+<div id="page" style="padding-top:30px;">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-5 col-md-offset-1" style="margin-bottom:10px; max-height:380px;">
+            @*슬라이드*@
+            <div id="myCarousel1" class="carousel slide carousel-fade" data-ride="carousel">
+
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel1" data-slide-to="1"></li>
+                    <li data-target="#myCarousel1" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="/images/Carousel/banner1.jpg" style="width:100%; max-height: 380px" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <a href="/Shop/Support_ko/"><img src="/images/Carousel/banner2.jpg" style="width:100%; max-height: 380px" alt="Second slide"></a>
+                    </div>
+                    <div class="item">
+                        <a href="/Shop/Support_ko/"><img src="/images/Carousel/banner3.jpg" style="width:100%; max-height: 380px" alt="Third slide"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*공지사항/언론보도/공식일정*@
+        <div class="col-md-5">
+            <div id="tab-btn" class="col-md-12" style="display:table;width:100%;">
+                <ul>
+                    <li class="tab-active"><a href="#">공지사항</a></li>
+                    <li><a href="#">언론보도</a></li>
+                    <li><a href="#">공식일정</a></li>
+                </ul>
+            </div>
+            <div id="tab-cont" class="col-md-12" style="padding:0; padding-top:3%; padding-bottom:3%;min-height:160px; ">
+                @*공지사항 시작*@
+                <div>
+
+                    <div style="margin-top:5px;  padding:0;">
+                        <div class="main-article" style="word-break:break-all;width:100%;display:table ">
+
+                            @foreach (var item in ViewBag.공지사항 as List<Board>)
+                            {
+
+
+                                <div style=" width:100%; padding:2px 15px;" class="loading">
+                                    <a style="" href="/board/boardview/?idx=@item.BD_idx&cate=@item.BD_BM_idx">@get_string(item.BD_title, 60) </a>
+                                </div>
+                            }
+
+
+
+                        </div>
+                    </div>
+                </div>
+                @*공지사항 끝*@
+                @*언론보도 시작*@
+                <div>
+                    <div style="margin-top:5px; padding:0;">
+                        <div class="main-article" style="word-break:break-all;width:100%;display:table ">
+                            @foreach (var item in ViewBag.언론보도 as List<Board>)
+                            {
+                                <div style=" width:100%;  padding:2px 15px;">
+                                    <a style="" href="/board/boardview/?idx=@item.BD_idx&cate=@item.BD_BM_idx">@get_string(item.BD_title, 60) </a>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                @*언론보도 끝*@
+                @*공식일정 시작*@
+                <div>
+
+                    <div style="margin-top:5px; padding:0; ">
+                        <div class="main-article" style="word-break:break-all;width:100%;display:table ">
+                            @foreach (var item in ViewBag.공식일정 as List<Board>)
+                            {
+                                <div style=" width:100%; margin-right:10px; padding:2px 15px;">
+                                    <a style="" href="/board/boardview/?idx=@item.BD_idx&cate=@item.BD_BM_idx">@get_string(item.BD_title, 60) </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                @*공식일정 끝*@
+            </div>
+
+            <script>
+                var tabBtn = $("#tab-btn > ul > li");
+                var tabCont = $("#tab-cont > div");
+
+                tabCont.hide().eq(0).show();
+
+                tabBtn.click(function () {
+                    var target = $(this);
+                    var index = target.index();
+                    tabBtn.removeClass("tab-active");
+                    target.addClass("tab-active");
+                    tabCont.css("display", "none");
+                    tabCont.eq(index).css("display", "block");
+                });
+            </script>
+
+
+
+            @*동영상*@
+            <div class="col-md-12" style=" padding:0;">
+                <div class="col-md-6" style="padding:0;">
+                    <div class='embed-container' style="width:100%; padding-bottom:0">
+                        <video frameborder='0' msRequestFullscreen autoplay loop muted style="width:100%; max-height:220px;">
+                            <source src="/images/video/supertalent1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding:0;">
+                    <div class='embed-container' style="width:100%;padding-bottom:0">
+                        <video frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen autoplay loop muted style="width:100%; max-height:220px;">
+                            <source src="/images/video/supertalent.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10 col-md-offset-1" style="clear:both;display:block;">
+
+            @*<div id="tab-btn1" class="col-md-12">
+                    <ul>
+                        <li class="tab-active1"><a href="#">특가여행</a></li>
+                        <li><a href="">특가호텔</a></li>
+                        <li><a href="">문화연수</a></li>
+                        <li><a href="">공연티켓</a></li>
+                        <li><a href="">유럽단체문의</a></li>
+                    </ul>
+                </div>*@
+            <div id="tab-cont1" class="row" style="padding-bottom:30px;">
+                @*특가여행 시작*@
+                    <div style="">
+                        <h3 style="color:#333; padding:30px 0;font-weight:lighter;text-align:center ">슈퍼탤런트 모델ㆍ패션 인플루언서ㆍ뷰티 유투버들과 함께 하는 유럽여행 슈퍼 특가</h3>
+                    </div>
+                    <section class="gallery-front">
+
+                            @{ int start_it = 1;}
+
+                            @foreach (var item in Model.Where(a => a.Category == 1))
+                            {
+                                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px;padding:0;z-index:100" onclick="go_link(@start_it)">
+                                    <div class="menuover">
+
+                                        <img class="img-responsive" src="@item.MainImgPath" style="width:100%;">
+
+                                        @*<div class="text-left" style="margin-top:5px">
+                                                <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-calendar-alt"></i> @item.days Days</text>
+                                                <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-globe"></i> @item.Country Countries</text>
+                                                <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-location-arrow"></i> @item.City Cities</text>
+                                            </div>*@
+                                        <div class="text-center" style="height:70px">
+                                            <h4 style="margin:15px; word-break:keep-all;">@item.Title</h4>
+                                            @*<span class="star"><img title="별점" src="/images/Shop/stars.png" /></span>*@
+                                        </div>
+                                        <div class="text-center">
+                                            <span style="margin:15px; word-break:keep-all;font-size:14px;text-align:center;color:#ff4157">@item.Sdate ~  @item.Edate</span>
+
+                                        </div>
+
+
+                                        <div class="text-center" style="margin-bottom:15px">
+                                            <p></p>
+                                            <p class="t_price" style="line-height:1.4em;font-weight:lighter;text-align:center;">
+                                                <div style="color:#222; font-weight:500;font-size:12px;line-height:150%;padding:5px;height:170px">
+                                                    @course_get(start_it)
+                                                </div>
+
+
+                                                <span style="color:#666; font-weight:500;font-size:14px;text-decoration:line-through;">
+                                                    @{
+                                                        double old_price = 0;
+                                                        double now_price = Convert.ToDouble(item.Price_w);
+
+                                                        old_price = (now_price / 0.8);
+
+                                                    }
+
+                                                    @old_price.ToString("###,###")
+
+                                                </span><br />
+                                                <span><span style="color:#ff4157;font-weight:500;font-size:16px;">20%&nbsp;&nbsp;</span>&#8361;</span> @item.Price_w <span style="font-size:0.7em">
+                                                    1인
+
+
+
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <p class="t_arrow"><img src="/images/Shop/arrow-right.png" style="width:65%" /></p>
+                                    </div>
+                                </div>
+                                start_it++;
+                            }
+
+                    </section>
+                @*특가여행 끝*@
+            </div>
+
+
+            <div id="tab-cont2" class="row" style="text-align:center; padding-bottom:30px; clear:both">
+                @* 한류지원 시작*@
+                <div>
+                    <div>
+
+                        <h3 style="color:#333; padding:30px 0;font-weight:lighter;text-align:center ">한류기업 지원 프로그램</h3>
+                    </div>
+                    <section class="gallery-front">
+
+                        <div style="">
+
+
+                            @for (int i = 1; i < 5; i++)
+                            {
+
+                                @korea_get(i)
+
+
+                            }
+                        </div>
+                    </section>
+                </div>
+                @*한류지원 끝*@
+            </div>
+
+            <script>
+                var tabBtn1 = $("#tab-btn1 > ul > li");
+                var tabCont1 = $("#tab-cont1 > div");
+
+                tabCont1.hide().eq(0).show();
+
+                tabBtn1.click(function () {
+                    var target = $(this);
+                    var index = target.index();
+                    tabBtn1.removeClass("tab-active1");
+                    target.addClass("tab-active1");
+                    tabCont1.css("display", "none");
+                    tabCont1.eq(index).css("display", "block");
+                });
+            </script>
+
+        </div>
+
+
+        <div class="row" style="text-align:center;  padding-bottom:30px; clear:both">
+            <h3 style="color:#333;padding:30px 0;font-weight:lighter;text-align:center ">2019 슈퍼탤런트 시즌 13 참가자 </h3>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=125"><img class="img-responsive" src="~/images/index/fin1.jpg" /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=192"><img class="img-responsive" src="~/images/index/fin2.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=194"><img class="img-responsive" src="~/images/index/fin3.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=122"><img class="img-responsive" src="~/images/index/fin4.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=123"><img class="img-responsive" src="~/images/index/fin5.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=193"><img class="img-responsive" src="~/images/index/fin6.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="#"><img class="img-responsive" src="~/images/index/fin7.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=182"><img class="img-responsive" src="~/images/index/fin8.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=188"><img class="img-responsive" src="~/images/index/fin9.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=24"><img class="img-responsive" src="~/images/index/fin10.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=105"><img class="img-responsive" src="~/images/index/fin11.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=186"><img class="img-responsive" src="~/images/index/fin12.jpg" /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=20"><img class="img-responsive" src="~/images/index/fin13.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=21"><img class="img-responsive" src="~/images/index/fin14.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=184"><img class="img-responsive" src="~/images/index/fin15.jpg"  /></a></div>
+                    <div class="col-md-2"><a class="gallery-image" href="/Finalists/Model_details_ko?id=183"><img class="img-responsive" src="~/images/index/fin16.jpg"  /></a></div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="" style="text-align:center;  padding:100px 0 200px 0; clear:both">
+            <div class="banner_wraper">
+                <a href="https://www.hilton.com/en/waldorf-astoria/"><img src="~/images/Partners/part0.jpg" /></a>
+                <a href="https://www.accorhotels.com/gb/hotel-0771-ibis-paris-la-defense-centre/index.shtml"><img src="~/images/Partners/part1.jpg" /></a>
+                <a href="https://www.accorhotels.com/gb/hotel-0444-novotel-marseille-east/index.shtml"><img src="~/images/Partners/part2.jpg" /></a>
+                <a href="https://hotel-soco.com/"><img src="~/images/Partners/part3.jpg" /></a>
+                <a href="https://www.ripamontiresidencehotel.com/"><img src="~/images/Partners/part4.jpg" /></a>
+                <a href="http://www.cadelmoroweb designvenice.com/"><img src="~/images/Partners/part5.jpg" /></a>
+                <a href="http://www.mediturhotelpisa.it"><img src="~/images/Partners/part6.jpg" /></a>
+                <a href="http://www.grandhotelflorasorrento.com/"><img src="~/images/Partners/part7.jpg" /></a>
+                <a href="https://www.bluhotelrome.it/en/home-page.aspx"><img src="~/images/Partners/part8.jpg" /></a>
+                <a href="http://www.oraclemedicalgroup.com/"><img src="~/images/Partners/part9.jpg" /></a>
+                <a href="https://www.asiacrowd.kr/"><img src="~/images/Partners/part10.jpg" /></a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    //client rolling banner
+    window.onload = function () {
+        var bannerLeft = 0;
+        var first = 1;
+        var last;
+        var imgCnt = 0;
+        var $img = $(".banner_wraper img");
+        var $first;
+        var $last;
+
+        $img.each(function () {   
+            $(this).css("left", bannerLeft);
+            bannerLeft += $(this).width() + 10;
+            $(this).attr("id", "banner" + (++imgCnt)); 
+        });
+
+
+        if (imgCnt > 9) {              
+
+
+
+            last = imgCnt;
+
+            setInterval(function () {
+                $img.each(function () {
+                    $(this).css("left", $(this).position().left - 1); // 1px씩 왼쪽으로 이동
+                });
+                $first = $("#banner" + first);
+                $last = $("#banner" + last);
+                if ($first.position().left < -200) {    // 제일 앞에 배너 제일 뒤로 옮김
+                    $first.css("left", $last.position().left + $last.width() + 5);
+                    first++;
+                    last++;
+                    if (last > imgCnt) { last = 1; }
+                    if (first > imgCnt) { first = 1; }
+                }
+            }, 50);   //여기 값을 조정하면 속도를 조정할 수 있다.(위에 1px 이동하는 부분도 조정하면
+
+            //깔끔하게 변경가능하다
+
+        }
+
+    };
+
+
+</script>
+
+
+
+@helper get_string(string str, int s)
+{
+
+    try
+    {
+        if (str.Length > s)
+        {
+            <span title="@str" style="cursor:pointer"> @str.Substring(0, s) .. </span>
+
+        }
+        else
+        {
+            <span style="cursor:pointer">
+                @str
+            </span>
+        }
+    }
+    catch { }
+
+}
+
+
+
+<script>
+    function go_link(k) {
+
+
+        var _page = "";
+
+
+        if (k == "1") {
+
+            _page = "My_2019_19"
+        }
+        else if (k == "2") {
+
+            _page = "My_2019_15"
+        }
+        else if (k == "3") {
+            _page = "My_2019_12"
+        }
+        else if (k == "4") {
+            _page = "My_2019_8"
+
+        }
+
+
+        location.href = "/season13/" + _page;
+
+    }
+
+    function go_url() {
+
+
+
+        location.href = "/Shop/Support_ko";
+
+    }
+
+
+</script>
+
+@helper course_get(int i)
+{
+
+
+    if (i == 1)
+    {
+
+
+
+        <span style="color:#ff4157">
+            유럽 34도시익스플로어
+        </span>
+        <span>
+            인천→파리(3)→TGV→아를→엑상프로방스 → 마르세유(2)→이프섬→카시스→생트로페→그라스 →생폴드방스 →니스(2) →깐느→에즈→모나코→망통→산레모→제노아→ 밀라노(2) →베로나→훼리→리도섬→훼리→베니스섬(1)→ 라벤나→리미니→산마리노→볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→나폴리→폼페이→소렌토(1) →훼리→ 카프리섬 →훼리→소렌토→ 티볼리 →로마(4)→기내(1) →인천
+        </span>
+
+
+
+    }
+    else if (i == 2)
+    {
+
+        <span style="color:#ff4157">
+            유럽 27도시익스플로어
+        </span>
+        <span>
+            인천→니스(3)→생트로페→그라스 →생폴드방스 →깐느→에즈→모나코→망통→산레모→제노아→ 밀라노(2) →베로나→훼리→리도섬→훼리→베니스섬(1)→ 라벤나→리미니→산마리노→볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→나폴리→폼페이→소렌토(1) →훼리→ 카프리섬 →훼리→소렌토→ 티볼리 →로마(4)→기내(1) →인천
+
+        </span>
+
+
+
+    }
+    else if (i == 3)
+    {
+
+        <span style="color:#ff4157">
+            이태리 18도시익스플로어
+        </span>
+        <span>
+            인천→밀라노(2)→베로나→훼리 →리도섬→훼리 →베니스섬(1)→ 라벤나→리미니→산마리노 →볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→ 나폴리→폼페이→소렌토(1) → 훼리→ 카프리섬 →훼리 →소렌토→ 티볼리 →로마(4)→기내(1) →인천
+        </span>
+
+
+
+
+    }
+    else if (i == 4)
+    {
+
+        <span style="color:#ff4157">
+            이태리 7도시익스플로어
+        </span>
+        <span>
+            인천→로마(1)→ 나폴리→폼페이 →소렌토(1) → 훼리→ 카프리섬 →훼리 →소렌토→ 티볼리 →로마(4)→기내(1) →인천
+        </span>
+
+
+    }
+
+
+
+
+}
+
+@helper korea_get(int i)
+{
+
+    string img_src = "/images/index/korea_gigup_" + i + ".jpg";
+
+    if (i == 1)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px;padding:0;" onclick="go_url()">
+            <div class="menuover" style="text-align:center;line-height:1.6em;">
+                <img class="img-responsive" src="@img_src" style="width:100%;">
+                <h4 style="margin:15px 0;">인플루언서 홍보</h4>
+                <span style="color:#ff4157">촬영기간 : 2019.10.18 ~ 11.02</span><br />
+                <span style="margin-top:15px;">
+                    28국 모델 | 뷰티 인플루언서 전 세계 홍보<br />
+                    28명 셀카 동영상 원본 제공<br />
+                    28명 셀카 사진 원본 제공
+                </span>
+
+                <p style="margin-top:30px;font-size:16px;"><span style="color:#ff4157">특가</span>&nbsp;&nbsp;<span>2,000,000원</span></p>
+
+            </div>
+        </div>
+    }
+
+    else if (i == 2)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px;padding:0;" onclick="go_url()">
+            <div class="menuover" style="text-align:center;line-height:1.6em;">
+                <img class="img-responsive" src="@img_src" style="width:100%;">
+                <h4 style="margin:15px 0;">홍보 영상 | 포토 | 인플루언서</h4>
+                <span style="color:#ff4157;">촬영기간 : 2019.10.18 ~ 11.02</span><br />
+                <span style="margin-top:15px;">
+                    유럽 34도시 중 택일, 2도시 동영상 및 포토촬영<br />
+                    28국 모델 | 뷰티 인플루언서 전 세계 홍보<br />
+                    28명 셀카 동영상 원본 제공<br />
+                    28명 셀카 사진 원본 제공
+                </span>
+
+                <p style="margin:10px 0;font-size:16px;"><span style="color:#ff4157">특가</span>&nbsp;&nbsp;<span>5,000,000원</span></p>
+
+            </div>
+        </div>
+    }
+
+    else if (i == 3)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px;padding:0;" onclick="go_url()">
+            <div class="menuover" style="text-align:center;line-height:1.6em;">
+                <img class="img-responsive" src="@img_src" style="width:100%;">
+                <h4 style="margin:15px 0;">하이브리드 프리미어 패키지</h4>
+                <span style="color:#ff4157">촬영기간 : 2019.10.18 ~ 11.02</span><br />
+                <span style="margin-top:15px;">
+                    유럽 34도시 중 택일, 8도시 동영상 및 포토촬영<br />
+                    28국 모델 | 뷰티 인플루언서 전 세계 홍보<br />
+                    28명 셀카 동영상 원본 제공<br />
+                    28명 셀카 사진 원본 제공
+                </span>
+
+                <p style="margin:10px 0;font-size:16px;"><span style="color:#ff4157">특가</span>&nbsp;&nbsp;<span>20,000,000원</span></p>
+
+            </div>
+        </div>
+    }
+
+    else if (i == 4)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px;padding:0;" onclick="go_url()">
+            <div class="menuover" style="text-align:center;line-height:1.6em;">
+                <img class="img-responsive" src="@img_src" style="width:100%;">
+                <h4 style="margin:15px 0;">그랑슈퍼스타 패키지</h4>
+                <span style="color:#ff4157">촬영기간 : 2019.10.18 ~ 11.02</span><br />
+                <span style="margin-top:15px;">
+                    유럽 34도시 중 택일, 15도시 동영상 및 포토촬영<br />
+                    28국 모델 | 뷰티 인플루언서 전 세계 홍보<br />
+                    28명 셀카 동영상 + 사진 원본 제공<br>
+                    직항 항공권 + 숙박 제공, 로마 결선 광고 영상 송출
+                </span>
+
+                <p style="margin:10px 0;font-size:16px;"><span style="color:#ff4157">특가</span>&nbsp;&nbsp;<span>50,000,000원</span></p>
+
+            </div>
+        </div>
+    }
+
+
+}

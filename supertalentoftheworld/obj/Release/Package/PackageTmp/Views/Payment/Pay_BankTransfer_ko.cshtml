@@ -1,0 +1,106 @@
+﻿@model supertalentoftheworld.Models.Pay
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+
+
+
+<div class="" style="background-color:#f3f3f3; padding:100px">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-md-offset-1 mb-5 heading-section ftco-animate">
+                <h2 style="text-align:center; font-weight:bold; margin-bottom:30px;">주문 정보 입력</h2>
+                <form name="frm" action="/Payment/Pay_BankTransfer_ko" method="POST">
+
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5" style="background-color:white; padding:10px; margin:10px; border-radius:10px">
+                        <h4 style="text-align:center; font-weight:bold; margin-bottom:20px">주문자 정보</h4>
+                        <div class="col-md-6 form-group">
+                            <label for="TG_name">주문자 이름</label>
+                            <input id="TG_name" class="form-control" value="@ViewBag.user_data.user_name" name="Buyer_name" type="text"  readonly/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="TG_name">연락처</label>
+                            <input id="TG_name" class="form-control" value="@ViewBag.user_data.user_phone" name="Buyer_phone" type="text" readonly/>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="TG_name">이메일</label>
+                            <input id="TG_name" class="form-control" value="@ViewBag.user_data.user_email" name="Buyer_email" type="text" readonly />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="TG_name">결제 방식</label>
+                            <input id="TG_name" class="form-control" value="무통장 입금" name="Pay_method" type="text" readonly />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="TG_name">은행</label>
+                            <select id="Buyer_bank" class="form-control" name="Buyer_bank">
+                                <option value="0">은행을 선택하세요</option>
+                                <option value="농협">농협</option>
+                                <option value="국민은행">국민은행</option>
+                                <option value="우리은행">우리은행</option>
+                                <option value="하나은행">하나은행</option>
+                                <option value="신한은행">신한은행</option>
+                                <option value="외환은행">외환은행</option>
+                                <option value="씨티은행">씨티은행</option>
+                                <option value="기업은행">기업은행</option>
+                                <option value="우체국">우체국</option>
+                                <option value="부산은행">부산은행</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="TG_name">계좌 번호</label>
+                            <input id="TG_name" class="form-control" name="Buyer_account" type="text" placeholder="'-'없이 입력" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-5" style="background-color:white; padding:10px; margin:10px; border-radius:10px">
+                        <h4 style="text-align:center; font-weight:bold; margin-bottom:20px">상품 정보</h4>
+                        <div class="col-md-12 form-group" style="display:none">
+                            <label for="TG_name">구매 ID</label>
+                            <input id="TG_name" class="form-control" value="@Model.id" name="id" type="text" />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="TG_name">상품명</label>
+                            <input id="TG_name" class="form-control" value="@ViewBag.p_data.Title" name="TG_name" type="text" readonly />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="Price">가격</label>
+                            <input id="Price" class="form-control" value="@Model.Price" name="Price" type="text" readonly />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="Amount">수량</label>
+                            <input id="Amount" class="form-control" value="@Model.Amount" name="Amount" type="text" readonly/>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="Total_Price">총 금액</label>
+                            <input id="Total_Price" class="form-control" name="Total_Price" type="text" readonly />
+                        </div>
+                        <div class="col-md-12 text-center" style="margin-top:20px;">
+                            <button type="submit" class="book-now-btn">주문하기</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    var tp = "@Model.Total_Price";
+    var ctp = addComma(tp);
+    console.log(ctp)
+
+    $('#Total_Price').val(ctp+"원")
+
+    function addComma(num) {
+        var regexp = /\B(?=(\d{3})+(?!\d))/g;
+        return num.toString().replace(regexp, ',');
+    }
+</script>

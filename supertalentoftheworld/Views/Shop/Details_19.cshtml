@@ -1,0 +1,419 @@
+﻿@model supertalentoftheworld.Models.Travel_Goods
+@using supertalentoftheworld.Models
+@Html.Partial("/Views/Layout/Header.cshtml")
+
+<link href="/Content/common/normalize.css" rel="stylesheet" />
+<link href="/Content/common/ideal-image-slider.css" rel="stylesheet" />
+<link href="/Content/common/default.css" rel="stylesheet" />
+<link href="/css/userstyle.css" rel="stylesheet" />
+
+<section class="image-head-wrapper" style="background-image: url('/images/Background/Product-back.jpg'); background-size:cover;">
+    <div class="inner-wrapper">
+        <h1 class="in-img-text">Product</h1>
+    </div>
+</section>
+
+
+<div class="container" style="padding:0">
+    <div class="item col-md-8 col-md-offset-2 col-sm-12" style="margin-bottom:50px;">
+        <div class="clearfix" style="max-width:100%;">
+            <div id="slider" style="max-height:450px;">
+                @foreach (var item in ViewBag.images as List<TG_Image>)
+                {
+                    <img src="@item.ImagePath" />
+                }
+            </div>
+        </div>
+    </div>
+
+ 
+    <div class="col-md-12 text-left">
+        <h2 class="text-center" style="margin-top:30px; font-weight:bold">@Model.Title</h2><br />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 text-left" style="margin-top:50px">
+                @if (Model.Country != "1")
+                {
+                    <div>
+                        <text>
+                            <i class="far fa-calendar fa-2x"></i><text class="des_title" id="period"></text>
+                            <text style="margin-left:20px;">
+                                <i class="fas fa-globe fa-2x"></i><text class="des_title">@Model.Country COUNTRIES</text>
+                                <text style="margin-left:20px;"><i class="fas fa-location-arrow fa-2x"></i><text class="des_title">@Model.City CITIES</text><br />
+                    </div>
+                }
+                else {
+                    <div>
+                        <text>
+                            <i class="far fa-calendar fa-2x"></i><text class="des_title" id="period"></text>
+                            <text style="margin-left:20px;">
+                                <i class="fas fa-globe fa-2x"></i><text class="des_title">@Model.Country COUNTRY</text>
+                                <text style="margin-left:20px;"><i class="fas fa-location-arrow fa-2x"></i><text class="des_title">@Model.City CITIES</text><br />
+                    </div>
+                }
+                    <div class="text-left" style="margin-top:20px;">
+                    <text>
+                        <i style="color:#0080ff" class="far fa-arrow-alt-circle-right fa-2x"></i><text class="des_title">@Model.Startc</text><br />
+                        <text><i style="color:#ff4157" class="far fa-arrow-alt-circle-left fa-2x"></i><text class="des_title">@Model.Endc</text>
+                </div>
+            </div>
+            <div class="col-md-5" style="border:1px solid #e6e6e6; padding:20px; margin-top:10px">
+                <div class="text-right"><text style="font-weight:bold">Trip code </text>@Model.code</div>
+                <div class="col-md-6" style="margin-top:5px">
+                    <text><i class="fas fa-users fa-2x"></i></text>
+                    <select class="form-control" onchange="sel_amount()" name="p_amount" id="p_amount">
+                        <option value="1">1 person</option>
+                        <option value="2">2 persons</option>
+                        <option value="3">3 persons</option>
+                        <option value="4">4 persons</option>
+                    </select>
+                </div>
+                <div class="col-md-6" style="margin-top:10px">
+                    <text><i class="fas fa-won-sign fa-2x"></i></text>
+                    <p id="price" class="des_title" style="color:#ff4157; padding:10px"></p>                   
+                </div>
+                <div class="col-md-12" style="margin-top:20px">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img style="margin-bottom:10px" src="/images/Shop/stars.png" />
+                            <button type="button" style="border-radius:15px; min-width:200px" class="book-now-btn" onclick="payment()">BOOK NOW</button>
+                        </div>
+                    </div>
+                    <br />
+                    <p style="font-weight:bold">
+                        Twinshare based, Land only price
+                        In/Out Flights own arrangement
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    <div style="margin:0px auto;">
+        <div class="row box">
+            <div class="col-md-12">
+               
+                <div class="shop-info2">
+
+                </div>
+            </div>
+
+        </div>
+        <hr />
+
+        @if (Model.Description != null)
+        {
+            <div class="row box" style="margin:3%;">
+                <div class="col-md-2">
+                    <h4 class="s_title">Description</h4>
+                </div>
+                <div class="col-md-9">
+                    <p style="line-height:2.4rem; font-size:1.6rem;">
+                        @Html.Raw(Model.Description)
+                    </p>
+                </div>
+            </div>
+            <hr />
+        }
+
+
+        @if (Model.Benefits != null)
+        {
+            <div class="row box" style="margin:3%;">
+                <div class="col-md-2">
+                    <h4 class="s_title">Benefits</h4>
+                </div>
+                <div class="col-md-9">
+                    <p style="line-height:2.4rem; font-size:1.6rem;">
+                        @Html.Raw(Model.Benefits)
+                    </p>
+                </div>
+            </div>
+            <hr />
+
+        }
+
+
+        @if (Model.Includes != null)
+        {
+            <div class="row box" style="margin:3%;">
+                <div class="col-md-2">
+                    <h4 class="s_title">Includes</h4>
+                </div>
+                <div class="col-md-9">
+                    <p style="line-height:2.4rem; font-size:1.6rem;">
+                        @Html.Raw(Model.Includes) <br />
+                        [ALL INCLUSIVE PACKAGE]
+                    </p>
+                </div>
+            </div>
+            <hr />
+        }
+
+        @*@if (Model.Not_included != null)
+            {
+                <div class="row box" style="margin:3%;">
+                    <div class="col-md-2">
+                        <h4 class="s_title">Not Included</h4>
+                    </div>
+                    <div class="col-md-9">
+                        <p style="line-height:2.4rem; font-size:1.6rem;">
+                            @Html.Raw(Model.Not_included)
+                        </p>
+                    </div>
+                </div>
+                <hr />
+            }*@
+
+        @if (Model.Notices_Policy != null)
+        {
+            <div class="row box" style="margin:3%;">
+                <div class="col-md-2">
+                    <h4 class="s_title">Notices and Policy</h4>
+                </div>
+                <div class="col-md-9">
+                    <p style="line-height:2.4rem; font-size:1.6rem;">
+                        @Html.Raw(Model.Notices_Policy)
+                    </p>
+                </div>
+            </div>
+            <hr />
+        }
+
+        @if (Model.Cancel_Refund != null)
+        {
+            <div class="row box" style="margin:3%;">
+                <div class="col-md-2">
+                    <h4 class="s_title">Cancel and Refund</h4>
+                </div>
+                <div class="col-md-10">
+                    <p style="line-height:2.4rem; font-size:1.6rem;">
+                        @Html.Raw(Model.Cancel_Refund)
+                    </p>
+                </div>
+            </div>
+            <hr />
+        }
+
+        <div class="row box" style="margin:3%;">
+            <div class="col-md-2">
+                <h4 class="s_title">Course</h4>
+            </div>
+
+            <div class="col-md-9">
+                <div>
+                    <div style="vertical-align:text-top;">
+                        @foreach (var item in ViewBag.course as List<Courses>)
+                        {
+                            <div>
+                                <div style="width:100%; vertical-align:text-top; ">
+                                    <p class="C_title">@item.Course_title</p>
+                                    @Html.Raw(@item.Course)
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+</div>
+    </div>
+
+<div style="display:none">
+</div>
+
+<style>
+    .des_title{
+        font-weight:bold;
+        font-size:1.2em;
+        margin-left:5px;
+        color:#808080
+    }
+
+    .s_title {
+        font-weight: bold;
+        text-align: center;
+        color: #162541;
+    }
+
+    .C_title {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        padding: 10px;
+        border-top: 1px solid #606060;
+        border-bottom: 1px solid #d4d4d4;
+        background-color: #f1f1f1;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .slider {
+        width: 80%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+        margin: 0px 10px;
+    }
+
+        .slick-slide img {
+            width: 100%;
+        }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+
+    .slick-slide {
+        transition: all ease-in-out .3s;
+        opacity: .2;
+    }
+
+    .slick-active {
+        opacity: .5;
+    }
+
+    .slick-current {
+        opacity: 1;
+    }
+
+    .photo_mini div img {
+        width: 100%;
+        max-width: 240px;
+        max-height: 160px;
+    }
+
+    .shop-info2 {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+        .shop-info2 img {
+            max-width: 40px;
+        }
+
+        .shop-info2 div:last-of-type {
+            width: 40%;
+        }
+
+    .detail-city {
+        width: 280px;
+        height: 200px;
+        margin-top: 10px;
+    }
+</style>
+<script src="/Content/common/ideal-image-slider.min.js"></script>
+<script type="text/javascript">
+            var Sdate = "@Model.Sdate";
+            var Edate = "@Model.Edate";
+
+            var Sdate2 = Sdate.split("-");
+
+            var dateArray = Edate.split("-");
+
+            var dateObj2 = new Date(Sdate2[0], Number(Sdate2[1]) - 1, Sdate2[2]);
+            var dateObj = new Date(dateArray[0], Number(dateArray[1]) - 1, dateArray[2]);
+
+            var betweenDay = (dateObj.getTime() - dateObj2.getTime()) / 1000 / 60 / 60 / 24;
+
+            $('#period').append(betweenDay+1+" DAYS");
+     
+            
+
+    //이미지 사이즈 조절 되도록 
+            $(document).ready(function () {
+                $("img").addClass("img-responsive");
+                $('.img-responsive').css("width", "");
+
+    });
+
+            var slider = new IdealImageSlider.Slider('#slider');
+            slider.start();
+
+      //가격 붙이기
+    sel_amount();
+
+    //인원 변경시 가격 붙이기
+    function sel_amount() {
+        var p_amount = document.getElementById("p_amount");
+        var sel = p_amount.options[p_amount.selectedIndex].value;
+        var price = @Model.Price_d.Replace(",", "");
+        var total_price = parseInt(price) * sel;
+
+        var p_com = addComma(total_price);
+        $('#price').html("$"+p_com);
+
+
+    }
+
+    //가격 (,) 제거 한 후 계산
+    function addComma(num) {
+        var regexp = /\B(?=(\d{3})+(?!\d))/g;
+        return num.toString().replace(regexp, ',');
+    }
+
+     function payment() {
+        var p_amount = document.getElementById("p_amount");
+        var sel = p_amount.options[p_amount.selectedIndex].value;
+        var price = parseInt(@Model.Price_d.Replace(",", ""));
+        var amount = parseInt(price) * sel;
+        var TG_id = parseInt(@Model.id);
+
+        var data = {
+            Amount: sel,
+            Price: price,
+            TG_id: TG_id,
+            Total_Price: amount
+        };
+
+        $.post('/api/payment/pay_ing', data, function (result) {
+            if (result != "") {
+                location.href = "/payment/pay_paypal?id=" + result + "";
+            } else {
+                alert('Please use after Login');
+                location.href = "/home/Login";
+            }
+
+        })
+    }
+
+</script>
+
+@helper get_img(int id)
+{
+    SupertalentE db = new SupertalentE();
+
+    string src = (from a in db.TG_Image where a.courses_id == id select a.ImagePath).FirstOrDefault();
+
+    var path = @src;
+
+    <li data-thumb="@src">
+        <img src="@src" style="width:100%" />
+    </li>
+
+
+}
+
+@*@helper get_img2(int id)
+    {
+
+        SupertalentE db = new SupertalentE();
+
+
+        string src = (from a in db.TG_Image where a.courses_id == id select a.ImagePath).FirstOrDefault();
+
+        <img src="@src" class="detail-city" />
+
+    }*@
+

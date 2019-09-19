@@ -1,0 +1,101 @@
+﻿@model IEnumerable<supertalentoftheworld.Models.Application_Ko>
+
+@{
+    ViewBag.Title = "Application_Ko_List";
+}
+@Html.Partial("/Views/Layout/Header_admin.cshtml")
+<div class="text-center" style="margin:50px;">
+    <h2 style="font-weight:bold;">Korean Application List</h2>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.job)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.facebook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.insta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.youtube)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hope)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.job)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.facebook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.insta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.youtube)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hope)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+
+        </tr>
+    }
+
+</table>
