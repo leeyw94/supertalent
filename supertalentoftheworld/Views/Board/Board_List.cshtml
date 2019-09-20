@@ -86,23 +86,6 @@
             display: none;
         }
 
-    .sub_titlebg {
-        min-height: 7vh;
-        background: url('/images/Background/notice_bg.jpg');
-        background-size: cover;
-        background-attachment: fixed;
-        background-position: bottom center;
-        position: relative;
-    }
-
-        .sub_titlebg .sub_titleb {
-            font-size: 20px;
-            color: #fff;
-            text-align: center;
-            display: block;
-            position: relative;
-            top: 20px
-        }
 </style>
 <script src="~/Content/Board/Board.js"></script>
 <link href="~/Content/Board/board.css" rel="stylesheet" />
@@ -194,12 +177,13 @@ else
     @Html.Partial("/Views/Layout/Header.cshtml")
 
 }
-
-<div class="sub_titlebg">
-    <span class="sub_titleb"> @ViewBag.타이틀</span>
+<div class="col-md-12" style="background-image: url('/images/Background/notice_bg.jpg'); height: 250px; box-sizing: border-box; background-size: cover; background-position: center right; background-repeat: no-repeat; color: #fff; line-height:3em;padding:0;">
+    <div class="col-md-4 col-md-offset-1" style="display:block;position:relative;padding:20px 0;">
+        <h1 style="font-size:7rem; font-weight:700;color:#fff;text-align:center; margin-top:10%;">@ViewBag.타이틀</h1>
+    </div>
 </div>
 
-<div class="container  sub_page" style="margin-bottom:50px;">
+<div class="container  sub_page" style="margin-bottom:50px;clear:both;">
 
     <div class="carousel-inner" style=" border-bottom:solid 1px #ddd; margin-bottom:50px;width:90%; margin-left:5%">
 

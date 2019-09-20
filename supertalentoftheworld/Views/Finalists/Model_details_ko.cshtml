@@ -16,21 +16,21 @@
 
         <div class="col-md-12">
             <div class="container">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  col-md-offset-1">
                     <div id="myCarousel1" class="carousel slide" data-ride="carousel">
 
 
                         <ol class="carousel-indicators">
                             <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
 
-                           
+
                             @foreach (var item in ViewBag.images)
                             {
                                 var i = 1;
                                 <li data-target="#myCarousel+@i" data-slide-to=@i></li>
                                 i++;
                             }
-                            
+
                         </ol>
 
                         <div class="carousel-inner">
@@ -55,13 +55,8 @@
 
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <h3 class="title-bio">B I O G R A P H Y</h3><hr />
-                    <p class="text-bio">
-                        @Model.M_content
-                    </p>
-                </div>
-                <div class="row col-lg-3 col-md-3 col-sm-3" style="background-color:#f1f1f1; padding-bottom:30px;">
+
+                <div class="row col-lg-5 col-md-5 col-sm-5 col-md-offset-1" style=" padding-bottom:30px;">
                     <div class="col-lg-12">
                         <h3 class="title-bio">NAME</h3>
                         <p class="text-bio">@Model.M_name</p>
@@ -92,6 +87,12 @@
 
                 </div>
 
+                <div class="col-lg-4 col-md-4 col-sm-4 col-md-offset-1" style="clear:both; margin-top:20px;">
+                    <h3 class="title-bio">B I O G R A P H Y</h3>
+                    <p class="text-bio">
+                        @Model.M_content
+                    </p>
+                </div>
             </div>
 
 
@@ -100,9 +101,8 @@
 
     <hr style="margin:50px;" />
     <div class="text-center" style="margin-bottom:50px;">
-        <button type="button" class="book-now-btn" onclick="goBack();">BACK</button>
+        <button type="button" class="book-now-btn" onclick="goBack();" style="transition:0.6s;">BACK</button>
     </div>
-
 </div>
 <style>
 
@@ -116,6 +116,7 @@
     .text-bio {
         font-size: 1.0em;
         color: #5e5e5e;
+        margin-top:10px;
     }
 
     .title-text {

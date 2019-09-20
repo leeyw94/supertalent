@@ -25,6 +25,7 @@
     
     padding:5px;
     transition:ease-in-out 0.4s;
+   
 }
 .top-nav a {
     font-size: 1.1em;
@@ -37,8 +38,9 @@
     font-size: 1.4em;
     font-weight: 400;
     line-height: 1em;
-    margin:0;
-    padding:4% 0;
+    margin: 0;
+    padding: 4% 0;
+   
 }
 
     .top-nav .logo a strong {
@@ -66,10 +68,13 @@ nav ul li ul li {
 
 .top-nav ul ul {
     background: none repeat scroll 0 0 rgb(100, 100, 100);
+    border: inset 1px #333
 }
 
 .top-nav li ul li a {
     background: none repeat scroll 0 0 rgb(0, 30, 34);
+  
+
 }
 
 @media screen and (max-width: 768px) {

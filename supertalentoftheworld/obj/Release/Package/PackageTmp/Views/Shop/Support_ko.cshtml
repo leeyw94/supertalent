@@ -101,6 +101,9 @@
         .support-color div span {
             color: #ff4157;
         }
+        .ml {
+            margin-left:-15px;
+        }
 
     @@media (max-width:767px) {
         .support-img div img {
@@ -110,17 +113,23 @@
         .support-color div a {
             word-break: break-all;
         }
+        .support-tri:before {
+            display:none;
+        }
+        .ml {
+            margin-left:0;
+        }
     }
 </style>
 <!--Shop/Index-->
 @Html.Partial("/Views/Layout/Header_ko.cshtml")
-<div class="col-md-12" style="background-image: url('/images/Support/support-bg.jpg');height: 400px;padding-top: 100px;box-sizing: border-box;background-size:cover;background-position:center center; background-repeat: no-repeat;color: #fff;text-align:center;line-height:3em;">
-    <h1 style="font-size:5rem; font-weight:700;">한류기업 지원 프로그램</h1>
+<div class="col-md-12" style="background-image: url('/images/Support/support-bg.jpg');height: 300px;padding-top: 50px;box-sizing: border-box;background-size:cover;background-position:center center; background-repeat: no-repeat;color: #fff;text-align:center;line-height:3em;">
+    <h1 style="font-size:4rem; font-weight:700;">한류기업 지원 프로그램</h1>
     <h3 style="padding-top:20px;">PHOTO VIDEO&nbsp;·&nbsp;PRODUCTION</h3>
     <h4 style="padding-top:20px;">슈퍼탤런트가 촬영하는 ONE SOURCE MULTI USER CONTENTS </h4>
     <a href="#quest" class="submit-top-btn nav-link" style="padding: 1px 20px; border-image: none; margin-top:30px;transition:ease 0.4s; ">이용문의</a>
 </div>
-<div style="clear:both;">
+<div class="col-md-12" style="clear:both;">
     <div class="row" style="padding:70px 0;">
         <div class="col-md-10 col-md-offset-1">
             <h2 style="text-align:center;margin-bottom:30px;">세계 최정상의 <strong>슈퍼탤런트 모델과 프로덕션팀</strong>을 지금부터 귀사의 브랜드에 활용하세요.</h2><br />
@@ -366,7 +375,7 @@
                     <div class="col-sm-2" style="font-size:1.3em; padding-right:0; padding-left:15px;">
                         <label for="">내용</label>
                     </div>
-                    <div class="col-sm-10" style="padding:0; margin-left:-15px;">
+                    <div class="col-sm-10 ml" style="padding:0; ">
                         <textarea class="form-control" id="Content1" name="Content" type="text" style="min-height:200px;" title="내용을 입력해주세요."></textarea>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 ﻿
 @model supertalentoftheworld.Models.hotel_ask
-@Html.Partial("/Views/Layout/Header_ko.cshtml")
+
 
 <style>
 
@@ -56,15 +56,15 @@
 
 <div class="container">
 
-    <div class="col-md-5 card" style="margin-top:20px">
+    <div class="col-md-5 card">
 
 
         <form action="/shop/hotel_action" method="post" id="form1">
             @Html.AntiForgeryToken()
 
-            <div class="form-horizontal" style="margin-top:20px">
-                <h4 style="text-align:center">호텔 단체 요금 견적</h4>
-                <hr />
+            <div class="form-horizontal" style="margin-top:10px">
+                <h4 style="text-align:center;">호텔 단체 요금 견적</h4>
+                <hr style="margin:5px 0"  />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
 
@@ -119,8 +119,8 @@
                     <div class="col-md-8">
 
 
-                        <input type="text" name="room_count" id="room_count" class="form-control" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength="3" style="width:50px">
-                        <div style="margin:5px 0;color:#5aa1e5">* 5실 이상 등록해주세요. (숫자만 등록)</div>
+                        <span style="float:left"> <input type="text" name="room_count" id="room_count" class="form-control" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' maxlength="3" style="width:50px"></span>
+                        <span style="margin:5px 0;padding:5px;color:#5aa1e5">* 5실 이상 (숫자만 등록)</span>
 
                         @Html.ValidationMessageFor(model => model.room_count, "", new { @class = "text-danger" })
                     </div>
