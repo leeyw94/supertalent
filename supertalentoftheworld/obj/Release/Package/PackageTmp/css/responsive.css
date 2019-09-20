@@ -250,16 +250,7 @@ License URI: http://www.themevault.net/license/
     }
 }
 
-@media   (max-width: 1279px) {
-  .web_only{
-      display:none !important ;
-  }
-  .popup {
-      position:relative !important;
-      margin:10px auto;
 
-  }
-}
 
 
 

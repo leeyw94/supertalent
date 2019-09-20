@@ -4,75 +4,191 @@
 }
 @Html.Partial("/Views/Layout/Header_ko.cshtml")
 <!--Shop/Brochures-->
-
-<div class="col-md-12" style="background-image: url('/images/Background/Brochures-back1.jpg'); height: 400px; box-sizing: border-box; background-size: cover; background-position: right center; background-repeat: no-repeat; color: #fff; line-height: 3em;padding:0;">
-    <div class="col-md-4 col-md-offset-1" style="display:block;position:relative;padding:20px 0;">
-        <h1 style="font-size:7rem; font-weight:700;color:#fff;text-align:center; margin-top:20%;">Travel Deals</h1>
+<section class="image-head-wrapper" style="background-image: url('/images/Background/Brochures-back.bmp'); background-size:cover;">
+    <div class="inner-wrapper">
+        <h1 class="in-img-text">
+            Travel <br />
+            Deals
+        </h1>
     </div>
-</div>
+</section>
 
-<div class="col-md-12" style="clear:both;display:block;padding:30px 0;">
-    <div class="text-left">
-        <section class="gallery-front;" style="padding:30px;">
-            
-            <div class="row" style="margin:1% 10%;">
-                <h2 style="font-weight:600;">2019 슈퍼탤런트 모델ㆍ패션 인플루언서ㆍ뷰티 유투버들과 함께 하는 유럽여행 슈퍼 특가</h2><br />
+<div>
+    <div class="row" style="margin:30px 0">
+        <section class="gallery-block gallery-front;" style="padding:30px;">
+            <div class="text-center">
+                <h2 style="margin:30px 0; text-align:center; font-weight:600;">
+                    @*LUXURY TRAVEL WITH 360 ENTERTAINMENT*@ 2019 슈퍼탤런트 모델ㆍ패션 인플루언서ㆍ뷰티 유투버들과 함께 하는 유럽여행 슈퍼 특가
+                </h2><br />
                 <h3 style="font-weight:bold">Join the evolution</h3><br />
                 <p style="font-size:1.2em">Share and making a difference #joinsupertalent #bestsupertalent #supertalentworld</p><br />
                 <p style="font-size:1.2em; color:#ff4157">FEATURED EUROPE TRIPS, FOLLOW MY LUXURY EUROPE AND SHARE WITH WORLD</p>
-                <div style="">
-                    @{ int start_it = 1;}
+                <div class="row" style="margin:1% 10%;">
 
-                    @foreach (var item in Model.Where(a => a.Category == 1))
-                    {
-                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px;padding:0;" onclick="go_link(@start_it)">
-                            <div class="menuover">
+                    <div style="">
+                        @{ int start_it = 1;}
 
-                                <img class="img-responsive" src="@item.MainImgPath" style="width:100%;">
+                        @foreach (var item in Model.Where(a => a.Category == 1))
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px;padding:0;" onclick="go_link(@start_it)">
+                                <div class="menuover">
 
-                                <div class="text-center">
-                                    <h4 style="margin:15px; word-break:keep-all;">@item.Title</h4>
+                                    <img class="img-responsive" src="@item.MainImgPath" style="width:100%;">
+
+                                    @*<div class="text-left" style="margin-top:5px">
+                                            <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-calendar-alt"></i> @item.days Days</text>
+                                            <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-globe"></i> @item.Country Countries</text>
+                                            <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-location-arrow"></i> @item.City Cities</text>
+                                        </div>*@
+                                    <div class="text-center">
+                                        <h4 style="margin:15px; word-break:keep-all;">@item.Title</h4>
+                                        @*<span class="star"><img title="별점" src="/images/Shop/stars.png" /></span>*@
+                                    </div>
+                                    <div class="text-center">
+                                        <span style="margin:15px; word-break:keep-all;font-size:14px;text-align:center;color:#ff4157">@item.Sdate ~  @item.Edate</span>
+
+                                    </div>
+
+
+                                    <div class="text-center" style="margin-bottom:15px">
+                                        <p></p>
+                                        <p class="t_price" style="margin-left:15px;line-height:1.4em;">
+                                            <div style="color:#222; font-weight:500;font-size:12px;height:170px;line-height:150%;padding:5px">
+                                                @course_get(start_it)
+                                            </div>
+
+                                            <span style="color:#666; font-weight:500;font-size:14px;text-decoration:line-through;padding-left:50px;">
+                                                @{
+                                                    double old_price = 0;
+                                                    double now_price = Convert.ToDouble(item.Price_w);
+
+                                                    old_price = (now_price / 0.8);
+
+                                                }
+
+                                                @old_price.ToString("###,###")
+
+                                            </span><br />
+                                            <span><span style="color:#ff4157;font-weight:500;font-size:14px;">20%&nbsp;&nbsp;</span>&#8361;</span> @item.Price_w <span style="font-size:0.7em">
+                                                1인
+
+
+
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <p class="t_arrow"><img src="/images/Shop/arrow-right.png" style="width:65%" /></p>
                                 </div>
-                                <div class="text-center">
-                                    <span style="margin:15px; word-break:keep-all;font-size:14px;text-align:center;color:#ff4157">@item.Sdate ~  @item.Edate</span>
-
-                                </div>
-
-
-                                <div class="text-center" style="margin-bottom:15px">
-                                    <p></p>
-                                    <p class="t_price" style="margin-left:15px;line-height:1.4em;">
-                                        <div style="color:#222; font-weight:500;font-size:12px;height:170px;line-height:150%;padding:5px">
-                                            @course_get(start_it)
-                                        </div>
-
-                                        <span style="color:#666; font-weight:500;font-size:14px;text-decoration:line-through;padding-left:50px;">
-                                            @{
-                                                double old_price = 0;
-                                                double now_price = Convert.ToDouble(item.Price_w);
-
-                                                old_price = (now_price / 0.8);
-
-                                            }
-
-                                            @old_price.ToString("###,###")
-
-                                        </span><br />
-                                        <span><span style="color:#ff4157;font-weight:500;font-size:14px;">20%&nbsp;&nbsp;</span>&#8361;</span> @item.Price_w <span style="font-size:0.7em">
-                                            1인
-                                        </span>
-                                    </p>
-                                </div>
-                                <p class="t_arrow"><img src="/images/Shop/arrow-right.png" style="width:65%" /></p>
                             </div>
-                        </div>
-                        start_it++;
-                    }
+                            start_it++;
+                        }
+                    </div>
                 </div>
             </div>
         </section>
+
     </div>
+
 </div>
+
+@*<section class="gallery-block gallery-front;" style="padding:30px;">
+        <div class="row" style="margin:1% 10%;">
+            <h3 class="product-title">
+                HOTEL COACH PACK
+            </h3><br />
+            <div class="row" style="margin:0">
+                @foreach (var item in Model.Where(a => a.Category == 1))
+                {
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center sel" onclick="location.href='/Shop/Details?id='+@item.id+''">
+
+                        <div class="gallery-image">
+                            <img class="img-responsive" src="@item.MainImgPath">
+                        </div>
+                        <div>
+                            <h5 style="margin-top:10px; font-weight:bold; word-break:keep-all;">@item.Title</h5>
+                        </div>
+                        <p class="t_price">
+                            @item.Price_d
+                        </p>
+                        <p class="t_duration"> @item.Sdate - @item.Edate</p>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>*@
+@*<div class="row">
+    <div class="col-md-8">
+        <div class="col-md-3 col-sm-3 col-xs-12 brochures" style="text-align:center;">
+            <div>
+                <h4 style="font-weight:bold;">LONDON TO ROME</h4>
+            </div>
+            <div class="brochures-img" style="background-image:url('/images/room1.png');">
+
+            </div>
+            <div>
+                <a class="read-more-btn btn-size"><i class="fa fa-eye"></i>VIEW BROCHURE</a>
+            </div>
+        </div>
+        <div class="col-md-3 brochures" style="text-align:center;">
+            <div>
+                <h4 style="font-weight:bold;">PARIS TO ROME</h4>
+            </div>
+            <div class="brochures-img" style="background-image:url('/images/room2.png');">
+
+            </div>
+            <div>
+                <a class="read-more-btn btn-size"><i class="fa fa-eye"></i>VIEW BROCHURE</a>
+            </div>
+        </div>
+        <div class="col-md-3 brochures" style="text-align:center;">
+            <div>
+                <h4 style="font-weight:bold;">MARSEILLE TO ROME</h4>
+            </div>
+            <div class="brochures-img" style="background-image:url('/images/room3.png');">
+
+            </div>
+            <div>
+                <a class="read-more-btn btn-size"><i class="fa fa-eye"></i>VIEW BROCHURE</a>
+            </div>
+        </div>
+        <div class="col-md-3 brochures" style="text-align:center;">
+            <div>
+                <h4 style="font-weight:bold;">NICE TO ROME</h4>
+            </div>
+            <div class="brochures-img" style="background-image:url('/images/room4.png');">
+
+            </div>
+            <div>
+                <a class="read-more-btn btn-size"><i class="fa fa-eye"></i>VIEW BROCHURE</a>
+            </div>
+        </div>
+        <div class="col-md-3 brochures" style="text-align:center;">
+            <div>
+                <h4 style="font-weight:bold;">MILAN TO ROME</h4>
+            </div>
+            <div class="brochures-img" style="background-image:url('/images/room1.png');">
+
+            </div>
+            <div>
+                <a class="read-more-btn btn-size"><i class="fa fa-eye"></i>VIEW BROCHURE</a>
+            </div>
+        </div>
+        <div class="col-md-3 brochures" style="text-align:center;">
+            <div>
+                <h4 style="font-weight:bold;">ITALIAN SHOW CASE</h4>
+            </div>
+            <div class="brochures-img" style="background-image:url('/images/room2.png');">
+
+            </div>
+            <div>
+                <a class="read-more-btn btn-size"><i class="fa fa-eye"></i>VIEW BROCHURE</a>
+            </div>
+        </div>*@
+
+
+
+
 
 
 

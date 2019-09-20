@@ -785,233 +785,118 @@ F:\공유폴더\01. 김지혜 대리\02. 슈퍼탈렌트\supertalent.co\supertal
 F:\공유폴더\01. 김지혜 대리\02. 슈퍼탈렌트\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csproj.CopyComplete
 F:\공유폴더\01. 김지혜 대리\02. 슈퍼탈렌트\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.dll
 F:\공유폴더\01. 김지혜 대리\02. 슈퍼탈렌트\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.pdb
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ApplicationInsights.config
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\supertalentoftheworld.dll.config
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\supertalentoftheworld.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\supertalentoftheworld.pdb
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csc.exe
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csc.exe.config
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csc.rsp
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csi.exe
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csi.exe.config
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csi.rsp
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.Win32.Primitives.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.AppContext.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Console.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Diagnostics.Process.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.Compression.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.Pipes.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Claims.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Threading.Thread.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.ValueTuple.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.XPath.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\vbc.exe
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\vbc.exe.config
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\vbc.rsp
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\VBCSCompiler.exe
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Antlr3.Runtime.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\EntityFramework.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\EntityFramework.SqlServer.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.Web.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.ApplicationInsights.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AspNet.TelemetryCorrelation.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Newtonsoft.Json.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Net.Http.Formatting.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Helpers.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Http.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Http.WebHost.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Mvc.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Optimization.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Razor.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Deployment.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Razor.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\WebGrease.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\EntityFramework.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\EntityFramework.SqlServer.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Helpers.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Mvc.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Optimization.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Razor.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Deployment.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Razor.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Newtonsoft.Json.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Antlr3.Runtime.pdb
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Net.Http.Formatting.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Http.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Http.WebHost.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\System.Diagnostics.DiagnosticSource.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AspNet.TelemetryCorrelation.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.Web.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\EntityFramework.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\EntityFramework.SqlServer.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Helpers.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Mvc.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Optimization.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Razor.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.WebPages.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.WebPages.Deployment.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.WebPages.Razor.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Net.Http.Formatting.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Http.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Http.WebHost.resources.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csprojAssemblyReference.cache
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csproj.CoreCompileInputs.cache
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csproj.CopyComplete
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.dll
-C:\Users\헤레나\OneDrive - (주)블루아이\02. 개발(대표)\14. 슈퍼탈랜트\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.pdb
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ApplicationInsights.config
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\supertalentoftheworld.dll.config
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\supertalentoftheworld.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\supertalentoftheworld.pdb
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csc.exe
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csc.exe.config
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csc.rsp
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csi.exe
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csi.exe.config
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\csi.rsp
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.Win32.Primitives.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.AppContext.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Collections.Immutable.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Console.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Diagnostics.Process.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Diagnostics.StackTrace.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.Compression.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.FileSystem.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.FileSystem.Primitives.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.IO.Pipes.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Reflection.Metadata.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.AccessControl.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Claims.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.Encoding.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.Primitives.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Principal.Windows.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Text.Encoding.CodePages.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Threading.Thread.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.ValueTuple.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.ReaderWriter.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.XmlDocument.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.XPath.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.XPath.XDocument.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\vbc.exe
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\vbc.exe.config
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\vbc.rsp
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\VBCSCompiler.exe
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\roslyn\VBCSCompiler.exe.config
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Antlr3.Runtime.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\EntityFramework.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\EntityFramework.SqlServer.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.Agent.Intercept.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.DependencyCollector.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.PerfCounterCollector.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.ServerTelemetryChannel.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.Web.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.WindowsServer.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.ApplicationInsights.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AspNet.TelemetryCorrelation.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.Web.Infrastructure.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Newtonsoft.Json.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Diagnostics.DiagnosticSource.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Net.Http.Formatting.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Helpers.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Http.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Http.WebHost.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Mvc.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Optimization.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Razor.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Deployment.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Razor.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\WebGrease.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\EntityFramework.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\EntityFramework.SqlServer.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Helpers.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Mvc.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Optimization.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Razor.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Deployment.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Razor.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Newtonsoft.Json.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Antlr3.Runtime.pdb
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Net.Http.Formatting.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Http.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Web.Http.WebHost.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\System.Diagnostics.DiagnosticSource.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AspNet.TelemetryCorrelation.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.DependencyCollector.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.WindowsServer.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.AI.Web.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\EntityFramework.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\EntityFramework.SqlServer.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Helpers.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Mvc.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Optimization.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Razor.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.WebPages.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.WebPages.Deployment.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.WebPages.Razor.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Net.Http.Formatting.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Http.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\bin\ko\System.Web.Http.WebHost.resources.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csprojAssemblyReference.cache
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csproj.CoreCompileInputs.cache
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csproj.CopyComplete
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.dll
-E:\00. 프로젝트 홈작업\supertalent.co\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.pdb
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ApplicationInsights.config
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\supertalentoftheworld.dll.config
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\supertalentoftheworld.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\supertalentoftheworld.pdb
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\csc.exe
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\csc.exe.config
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\csc.rsp
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\csi.exe
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\csi.exe.config
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\csi.rsp
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.AppContext.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Collections.Immutable.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Console.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Diagnostics.Process.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.IO.Compression.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.IO.FileSystem.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.IO.Pipes.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Reflection.Metadata.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Security.AccessControl.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Claims.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Security.Principal.Windows.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Threading.Thread.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.ValueTuple.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.XmlDocument.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.XPath.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\vbc.exe
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\vbc.exe.config
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\vbc.rsp
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\VBCSCompiler.exe
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\roslyn\VBCSCompiler.exe.config
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Antlr3.Runtime.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\EntityFramework.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\EntityFramework.SqlServer.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AI.Agent.Intercept.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AI.DependencyCollector.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AI.Web.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AI.WindowsServer.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.ApplicationInsights.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.Web.Infrastructure.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Newtonsoft.Json.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Diagnostics.DiagnosticSource.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Net.Http.Formatting.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Helpers.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Http.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Http.WebHost.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Mvc.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Optimization.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Razor.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Deployment.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.WebPages.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Razor.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\WebGrease.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\EntityFramework.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\EntityFramework.SqlServer.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Helpers.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Mvc.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Optimization.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Razor.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.WebPages.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Deployment.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.WebPages.Razor.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Newtonsoft.Json.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Antlr3.Runtime.pdb
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Net.Http.Formatting.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Http.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Web.Http.WebHost.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\System.Diagnostics.DiagnosticSource.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AI.DependencyCollector.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AI.WindowsServer.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.AI.Web.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\EntityFramework.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\EntityFramework.SqlServer.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Web.Helpers.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Web.Mvc.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Web.Optimization.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Web.Razor.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Web.WebPages.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Web.WebPages.Deployment.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Web.WebPages.Razor.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Net.Http.Formatting.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Web.Http.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\bin\ko\System.Web.Http.WebHost.resources.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csprojAssemblyReference.cache
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csproj.CoreCompileInputs.cache
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.csproj.CopyComplete
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.dll
+D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent\supertalentoftheworld\obj\Debug\supertalentoftheworld.pdb

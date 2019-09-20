@@ -2014,6 +2014,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\Background\About-back1.jpg" />
     <Content Include="images\Background\About-back2.jpg" />
     <Content Include="images\Background\add.jpg" />
     <Content Include="images\Background\application_background.jpg" />
@@ -2031,6 +2032,7 @@
     <Content Include="images\Background\building1.jpg" />
     <Content Include="images\Background\building2.jpg" />
     <Content Include="images\Background\Collaboration-back.jpg" />
+    <Content Include="images\Background\Finalist-back1.jpg" />
     <Content Include="images\Background\models.jpg" />
     <Content Include="images\Background\notice_bg.jpg" />
     <Content Include="images\Background\Partners-back.jpg" />

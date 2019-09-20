@@ -4,31 +4,307 @@
 <!--Partners/Index-->
 @Html.Partial("/Views/Layout/Header.cshtml")
 
-<section class="image-head-wrapper" style="background-image: url('/images/Background/Partners-back.jpg'); background-size:cover">
-    <div class="inner-wrapper">
-        <h1 class="in-img-text">Partners</h1>
+<div class="col-md-12" style="background-image: url('/images/Background/Partners-back.jpg'); height: 400px; box-sizing: border-box; background-size: cover; background-position:center ; background-repeat: no-repeat; color: #fff; line-height:3em;padding:0;">
+    <div class="col-md-4 col-md-offset-1" style="display:block;position:relative;padding:20px 0;">
+        <h1 style="font-size:7rem; font-weight:700;color:#333;text-align:center; margin-top:20%;">Partners</h1>
     </div>
-</section>
-
-<div>
+</div>
+<div class="col-md-10 col-md-offset-1">
     <section>
-        <div class="row" style="margin-top:5%; margin-bottom:5%;">
+        <div class="row" style="margin-bottom:5%;">
             <div class="col-md-12" style="text-align:center;">
-                <h2 style=" font-weight:bold; margin-bottom:5%;">OUR PARTNERS</h2>
-                <h3 style=" margin-bottom:5%;">2019 LOCAL PARTNERS</h3>
-                <div class="col-md-12" style="padding:5% 0;">
-                    <h3>FRANCE</h3>
-                    <a href="https://www.toureiffel.paris/fr" target="_blank"><img class="partners-img" src="/images/Partners/partner1.png" /></a>
-                    <a href="https://group.accor.com/en/brands/midscale/novotel" target="_blank"><img class="partners-img" src="/images/Partners/partner2.png" /></a>
-                </div>
-                <div class="col-md-12" style="padding:5% 0">
-                    <h3>ITALY</h3>
-                    <a href="https://romecavalieri.com" target="_blank"><img class="partners-img" src="/images/Partners/partner3.png" /></a>
-                </div>
-                <div class="col-md-12" style="padding:5% 0">
-                    <h3>KOREA</h3>
-                    <a href="https://www.sac.ac.kr/" target="_blank"><img class="partners-img" src="/images/Partners/partner4.png" /></a>
-                    <a href="http://www.oraclemedicalgroup.com/" target="_blank"><img class="partners-img" src="/images/Partners/partner5.png" /></a>
+                <div class="row" style="margin:15px;margin-bottom:30px;clear:both;text-align:center">
+                    @*<div class="row" style=" padding:10px 10px; clear:both;">
+                            <hr class="hr-text" data-content="EVENT VENUE">
+                            <div class="gallery-image">
+                            </div>
+                        </div>*@
+                    <div class="row" style=" padding:10px 10px; clear:both;">
+                        <hr class="hr-text" data-content="FINAL VENUE">
+                        <div class="col-md-4 col-md-offset-2" style="margin-bottom:15px;">
+                            <a href="https://romecavalieri.com/">
+                                <img src="~/images/Partners/part0.jpg" class="img-responsive" style="max-width:70%;margin:auto" />
+                            </a>
+                        </div>
+                        <div class="col-md-4" style="margin-bottom:15px;">
+                            <a href="https://romecavalieri.com/">
+                                <img src="~/images/Partners/part45.jpg" class="img-responsive" style="max-width:70%;margin:auto" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row" style=" padding:10px 10px; clear:both;">
+                        <hr class="hr-text" data-content="VENUE HOTELS">
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.toureiffel.paris/fr ">
+                                <img src="~/images/Partners/part13.jpg" class="img-responsive" />
+                                <div class="caption"><p>Tour Eiffel Paris</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://group.accor.com/en/brands/midscale/novotel">
+                                <img src="~/images/Partners/part14.jpg" class="img-responsive" />
+                                <div class="caption"><p>Novotel</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.accorhotels.com/gb/hotel-0771-ibis-paris-la-defense-centre/index.shtml">
+                                <img src="~/images/Partners/part1.jpg" class="img-responsive" />
+                                <div class="caption"><p>ibis paris la defense</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.accorhotels.com/gb/hotel-0444-novotel-marseille-east/index.shtml">
+                                <img src="~/images/Partners/part2.jpg" class="img-responsive" />
+                                <div class="caption"><p>Novotel MarseilleEst</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://hotel-soco.com">
+                                <img src="~/images/Partners/part3.jpg" class="img-responsive" />
+                                <div class="caption"><p>Hotel SoCo</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.ripamontiresidencehotel.com">
+                                <img src="~/images/Partners/part4.jpg" class="img-responsive" />
+                                <div class="caption"><p>Ripamonti</p></div>
+                            </a>
+                        </div>
+
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.cadelmorovenice.com">
+                                <img src="~/images/Partners/part5.jpg" class="img-responsive" />
+                                <div class="caption"><p>Cadelmoro Venice</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.mediturhotelpisa.it">
+                                <img src="~/images/Partners/part6.jpg" class="img-responsive" />
+                                <div class="caption"><p>Meditur Pisa</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.grandhotelflorasorrento.com/">
+                                <img src="~/images/Partners/part7.jpg" class="img-responsive" />
+                                <div class="caption"><p>Grandhotel Flora</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.bluhotelrome.it/en/home-page.aspx">
+                                <img src="~/images/Partners/part8.jpg" class="img-responsive" />
+                                <div class="caption"><p>Best Western</p></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row" style=" padding:10px 10px; clear:both">
+                        <hr class="hr-text" data-content="GLOBAL PARTNERS">
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.oraclemedicalgroup.com">
+                                <img src="~/images/Partners/part9.jpg" class="img-responsive" />
+                                <div class="caption"><p>Oracle Medical</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.asiacrowd.kr">
+                                <img src="~/images/Partners/part10.jpg" class="img-responsive" />
+                                <div class="caption"><p>Asia Crowd</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://theventstylist.com">
+                                <img src="~/images/Partners/part15.jpg" class="img-responsive" />
+                                <div class="caption"><p>The Fashion Stylist</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.facebook.com/pg/missf1world">
+                                <img src="~/images/Partners/part16.jpg" class="img-responsive" />
+                                <div class="caption"><p>Miss F1 World</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://theventstylist.com">
+                                <img src="~/images/Partners/part17.jpg" class="img-responsive" />
+                                <div class="caption"><p>The Fashion Stylist</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.facebook.com/pg/missf1world">
+                                <img src="~/images/Partners/part18.jpg" class="img-responsive" />
+                                <div class="caption"><p>Miss F1 World</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.culppy.org">
+                                <img src="~/images/Partners/part11.jpg" class="img-responsive" />
+                                <div class="caption"><p>Culppy</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.ipa.or.kr">
+                                <img src="~/images/Partners/part12.jpg" class="img-responsive" />
+                                <div class="caption"><p>IPA</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.sportsseoul.com/">
+                                <img src="~/images/Partners/part19.jpg" class="img-responsive" />
+                                <div class="caption"><p>Sports Seoul</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.apsk.co.kr">
+                                <img src="~/images/Partners/part20.jpg" class="img-responsive" />
+                                <div class="caption"><p>Apsk</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.webdaily.co.kr">
+                                <img src="~/images/Partners/part21.jpg" class="img-responsive" />
+                                <div class="caption"><p>Web Daily</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.beyondpost.co.kr">
+                                <img src="~/images/Partners/part22.jpg" class="img-responsive" />
+                                <div class="caption"><p>Beyond Post</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://cnews.seconomy.kr">
+                                <img src="~/images/Partners/part23.jpg" class="img-responsive" />
+                                <div class="caption"><p>Seconomy</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.thebigdata.co.kr">
+                                <img src="~/images/Partners/part24.jpg" class="img-responsive" />
+                                <div class="caption"><p>The Bigdata</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.annytronco.it/">
+                                <img src="~/images/Partners/part25.jpg" class="img-responsive" />
+                                <div class="caption"><p>Annytronco</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.volkswageninternationalfashionweek.com">
+                                <img src="~/images/Partners/part26.jpg" class="img-responsive" />
+                                <div class="caption"><p>Volkswagen</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.worldfashionweek.tv">
+                                <img src="~/images/Partners/part27.jpg" class="img-responsive" />
+                                <div class="caption"><p>World FashionWeek</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.vanfashionweek.com">
+                                <img src="~/images/Partners/part28.jpg" class="img-responsive" />
+                                <div class="caption"><p>Van FashionWeek</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.uptownfashionweek.com">
+                                <img src="~/images/Partners/part29.jpg" class="img-responsive" />
+                                <div class="caption"><p>Uptown FashionWeek</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.fdla.co">
+                                <img src="~/images/Partners/part30.jpg" class="img-responsive" />
+                                <div class="caption"><p>FDLA</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://spbfw.ru">
+                                <img src="~/images/Partners/part31.jpg" class="img-responsive" />
+                                <div class="caption"><p>ST. PetersBurg</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://odessafashionweek.com">
+                                <img src="~/images/Partners/part32.jpg" class="img-responsive" />
+                                <div class="caption"><p>Odessa FashionWeek</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.ecofashionweekaustralia.com">
+                                <img src="~/images/Partners/part33.jpg" class="img-responsive" />
+                                <div class="caption"><p>Eco FashionWeek</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.sunshinecoastfashionfestival.com">
+                                <img src="~/images/Partners/part34.jpg" class="img-responsive" />
+                                <div class="caption"><p>SunshineCoast Fashion Festival</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.hkfda.org">
+                                <img src="~/images/Partners/part35.jpg" class="img-responsive" />
+                                <div class="caption"><p>HKDA</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.punefashionweek.com">
+                                <img src="~/images/Partners/part36.jpg" class="img-responsive" />
+                                <div class="caption"><p>Pune FashionWeek</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.missengland.info">
+                                <img src="~/images/Partners/part37.jpg" class="img-responsive" />
+                                <div class="caption"><p>Miss England</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.worldsupermodelpageant.com">
+                                <img src="~/images/Partners/part38.jpg" class="img-responsive" />
+                                <div class="caption"><p>World Supermodel Pageant</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="http://www.sac.ac.kr">
+                                <img src="~/images/Partners/part39.jpg" class="img-responsive" />
+                                <div class="caption"><p>SAC</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.starcollection-by-pm.de">
+                                <img src="~/images/Partners/part40.jpg" class="img-responsive" />
+                                <div class="caption"><p>Starcollection</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.viator.com/">
+                                <img src="~/images/Partners/part41.jpg" class="img-responsive" />
+                                <div class="caption"><p>Viator</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.tripadvisor.com/">
+                                <img src="~/images/Partners/part42.jpg" class="img-responsive" />
+                                <div class="caption"><p>Tripadvisor</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.nsr.com.cn">
+                                <img src="~/images/Partners/part43.jpg" class="img-responsive" />
+                                <div class="caption"><p>Nsr</p></div>
+                            </a>
+                        </div>
+                        <div class="gallery-image col-md-2">
+                            <a href="https://www.topmodelworldwide.com">
+                                <img src="~/images/Partners/part44.jpg" class="img-responsive" />
+                                <div class="caption"><p>Top Model WorldWide</p></div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,89 +312,108 @@
 </div>
 
 <style>
-    .col-md-12 h4 {
-        font-weight: bold;
-        margin-bottom: 3%;
-    }
-
-    .partners-img {
-        max-height: 150px;
-        vertical-align: middle;
-        margin: 0 auto;
-    }
-
-    .partners-col3 {
+    .hr-text {
+        line-height: 1em;
         position: relative;
-        padding-bottom: 15px;
-        overflow: hidden;
+        outline: 0;
+        border: 0;
+        color: #333;
+        text-align: center;
+        height: 1.5em;
     }
 
-        .partners-col3:hover {
-            border: 1px solid #162541;
-            box-sizing: border-box;
+        .hr-text:before {
+            content: '';
+            background: linear-gradient(to right, transparent, #333, transparent);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
         }
 
-    .partners-detail {
-        background: #162541;
-        padding: 10% 10% 5% 10%;
-    }
-
-    .partners-sale {
-        position: absolute;
-        top: 5%;
-        font-size: 1.8rem;
-        width: 80px;
-        height: 35px;
-        background: #ff4157;
-        color: white;
-        text-align: center;
-        line-height: 35px;
-        font-weight: bold;
-    }
-
-    .partners-detail .partners-title {
-        color: white;
-        font-size: 2.2rem;
-    }
-
-    .partners-detail .partners-star {
-        color: #ff4157;
-        font-size: 1.2rem;
-    }
-
-    .partners-detail .partners-price {
-        color: #ff4157;
-        text-align: center;
-        font-size: 1.6rem;
-    }
-
-    .partners-detail .partners-buy {
-        margin-top: 5%;
-        padding: 5% 15% 5% 15%;
-        background: white;
-        color: #162541;
-        display: inline-block;
-        float: left;
-        font-weight: bold;
-    }
-
-    .partners-detail .partners-cart {
-        padding: 5% 5% 5% 15%;
-        display: inline-block;
-        line-height: 4rem;
-    }
-
-        .partners-detail .partners-cart a {
-            color: white !important;
+        .hr-text:after {
+            content: attr(data-content);
+            position: relative;
+            display: inline-block;
+            color: #333;
+            padding: 0 .5em;
+            line-height: 1.5em;
+            background-color: #fff;
+            font-weight: bold
         }
 
-            .partners-detail .partners-cart a:hover {
-                color: #ff4157 !important;
+
+    .about-box {
+        min-height: 340px;
+        margin: 5px;
+        word-break: break-all;
+        border-top: solid 1px #ddd;
+        position: relative;
+    }
+
+        .about-box strong {
+            display: inline-block;
+            font-size: 16px;
+            padding-top: 20px;
+            margin: 0 0 10px 30px;
+        }
+
+            .about-box strong:before {
+                content: "";
+                width: 10px;
+                height: 10px;
+                background: #ff4157;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
 
+    .caption {
+        position: relative;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .gallery-image {
+        margin-bottom: 15px;
+        display: block;
+        height: 170px;
+    }
+
+        .gallery-image img {
+            height: 60%;
+        }
+
+        .gallery-image a {
+            border: solid 1px #ddd;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            display: block;
+            transition: ease 0.4s;
+        }
+
+        .gallery-image p {
+            color: #333;
+            font-size: 14px;
+            transition: ease 0.4s;
+        }
+
+        .gallery-image:hover a {
+            border: solid 1px #ff4157
+        }
+
+        .gallery-image:hover p {
+            right: 0%;
+            bottom: 0;
+            color: #fff;
+            background: #ff4157;
+        }
+
     @@media (max-width: 767px) {
-        .partners-img {
-            width: 40%;
+        .gallery-image {
+            height: 200px;
         }
     }
 </style>

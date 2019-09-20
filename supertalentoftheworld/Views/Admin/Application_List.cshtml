@@ -33,6 +33,15 @@
             @Html.DisplayNameFor(model => model.language)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.facebook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.insta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.youtube)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.height)
         </th>
         <th>
@@ -43,40 +52,49 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.firstname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.age)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.language)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.height)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.category)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.id })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.firstname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lastname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.age)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.phone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.country)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.language)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.facebook)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.insta)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.youtube)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.height)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.category)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+    </td>
+</tr>
     }
 
 </table>

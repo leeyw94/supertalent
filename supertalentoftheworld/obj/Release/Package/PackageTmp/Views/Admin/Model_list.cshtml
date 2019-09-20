@@ -103,11 +103,11 @@
         }
     }
 
-   // level_check();
+    level_check();
 
     function level_check() {        
         
-        @*if ("@User.Identity.IsAuthenticated" == "True") {
+        if ("@User.Identity.IsAuthenticated" == "True") {
             var user_level = "@Request.Cookies["user_level"].Value";
           
             if (user_level == "9") {
@@ -117,7 +117,7 @@
             }
         } else {
             if (!alert("로그인 후 사용하세요.")) document.location = '/home/login';
-        }*@
+        }
     }
 
 
