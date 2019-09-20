@@ -18,35 +18,31 @@
 
         @Html.Partial("/Views/Layout/_Finalist_Menu_ko.cshtml")
 
-        <div class="row">
+        <div class="col-md-8 col-md-offset-2">
             <section class="gallery-block gallery-front">
-                <div class="container">
-                    <div class="row">
 
-
-                        @foreach (var item in Model)
-                        {
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                                <div class="gallery-image">
-                                    <img class="img-responsive" src="@item.MainImgPath" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'">
-                                    <div class="overlay">
-                                        <a class="info pop img-responsive" href="/Finalists/Model_details_ko?id=@item.id"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                        <p><a>View Detail</a></p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <img class="img-country" src="@item.M_country_img" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'" />
-                                </div>
-                                <div class="text-center">
-                                    <p class="text-country">@item.M_country</p>
-                                </div>
-                                <div>
-                                    <p class="text-name">@item.M_name</p>
-                                </div>
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                        <div class="gallery-image">
+                            <img class="img-responsive" src="@item.MainImgPath" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'">
+                            <div class="overlay">
+                                <a class="info pop img-responsive" href="/Finalists/Model_details_ko?id=@item.id"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                <p><a>View Detail</a></p>
                             </div>
-                        }
+                        </div>
+                        <div>
+                            <img class="img-country" src="@item.M_country_img" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'" />
+                        </div>
+                        <div class="text-center">
+                            <p class="text-country">@item.M_country</p>
+                        </div>
+                        <div>
+                            <p class="text-name">@item.M_name</p>
+                        </div>
                     </div>
-                </div>
+                }
+
 
             </section>
         </div>
@@ -59,10 +55,11 @@
 
 <style>
     .user-a {
-        padding: 10px;
+        width:110px;
         display: inline-block;
         font-size:16px;
-        color:#fff;
+        color:#333;
+        padding:20px 0
     }
 
     .gallery-image {
@@ -74,6 +71,9 @@
         background:#fff;
         border-top-left-radius:5px;
         border-top-right-radius:5px;
+    }
+    .li-active:hover {
+        color:#ff4157;
     }
 
     .text-name {
@@ -100,12 +100,8 @@
 
     .user-ul {
         display: block;
-        margin: 0;
-        padding: 0;
         list-style: none;
         text-align: center;
-        width:100%;
-        height:60px;
 
     }
     .ul-bg {
@@ -114,7 +110,7 @@
 
     .user-li {
         display: inline;
-        margin: 20px;
+        margin:10px 10px 0 10px;
         border: 0;
         float: left;
         font-weight: bold;
