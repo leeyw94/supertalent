@@ -56,37 +56,53 @@
                     </div>
                 </div>
 
-                <div class="row col-lg-5 col-md-5 col-sm-5 col-md-offset-1" style=" padding-bottom:30px;">
+                <div class="row col-lg-6 col-md-6 col-sm-6 col-md-offset-1" style=" padding-bottom:0px;">
                     <div class="col-lg-12">
                         <h3 class="title-bio">NAME</h3>
                         <p class="text-bio">@Model.M_name</p>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <h3 class="title-bio">FROM</h3>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <h4 class="title-bio">FROM</h4>
                         <p class="text-bio">@Model.M_country</p>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-lg-8 col-md-8 col-sm-8">
                         <img style="margin-top:40px; max-width:50px; min-width:50px" src="@Model.M_country_img" onerror="this.src='http://www.supertalent.com/upload/error.png'">
                     </div>
-                    <div class="col-lg-12">
-                        <h3 class="title-bio">BORN IN</h3>
+                    <div class="col-lg-4 col-md-4 col-sm-4" style="clear:both">
+                        <h4 class="title-bio">BORN IN</h4>
                         <p class="text-bio">@Model.M_city</p>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <h3 class="title-bio">AGE</h3>
-                        <p class="text-bio">@Model.M_age</p>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <h3 class="title-bio">HEIGHT</h3>
-                        <p class="text-bio">@Model.M_height</p>
-                    </div>
-                    <div class="col-lg-12">
-                        <h3 class="title-bio">LANGUAGE</h3>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <h4 class="title-bio">LANGUAGE</h4>
                         <p class="text-bio">@Model.M_language</p>
                     </div>
-
+                    <div class="col-lg-4 col-md-4 col-sm-4" style="clear:both">
+                        <h4 class="title-bio">AGE</h4>
+                        <p class="text-bio">@Model.M_age</p>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <h4 class="title-bio">HEIGHT</h4>
+                        <p class="text-bio">@Model.M_height</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" style="clear:both">
+                        <h4 class="title-bio">FACEBOOK</h4>
+                        <a class="text-bio" href="@Model.M_facebook">
+                            <img src="~/images/sns1.png" width="35" style="margin-top:10px;" />
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <h4 class="title-bio">INSTAGRAM</h4>
+                        <a class="text-bio" href="@Model.M_insta">
+                            <img src="~/images/sns2.png" width="35" style="margin-top:10px;" />
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 youtubeicon">
+                        <h4 class="title-bio">YOUTUBE</h4>
+                        <a class="text-bio" href="@Model.M_youtube">
+                            <img src="~/images/sns3.png" width="35" style="margin-top:10px;" />
+                        </a>
+                    </div>
                 </div>
-
                 <div class="col-lg-4 col-md-4 col-sm-4 col-md-offset-1" style="clear:both; margin-top:20px;">
                     <h3 class="title-bio">B I O G R A P H Y</h3>
                     <p class="text-bio">
@@ -109,14 +125,14 @@
     .title-bio {
         font-family: 'Adobe Arabic';
         font-weight: bold;
-        color: #ff4157;
+        color: #b3b3b3;
         margin-top: 30px;
     }
 
     .text-bio {
         font-size: 1.0em;
-        color: #5e5e5e;
-        margin-top:10px;
+        color: #000;
+        margin-top:7px;
     }
 
     .title-text {

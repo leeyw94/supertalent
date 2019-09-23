@@ -26,6 +26,11 @@ namespace supertalentoftheworld.Controllers
             return View();
         }
 
+        public ActionResult Models()
+        {
+            return View();
+        }
+
         public ActionResult Thal_ko()
         {
             return View();

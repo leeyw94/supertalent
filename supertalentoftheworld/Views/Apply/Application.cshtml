@@ -15,8 +15,9 @@
                             <label for="fistname">Competition<text class="required">*</text></label>
                             <select class="form-control" id="Competition" name="category">
                                 <option value="0">Choose Competiton</option>
-                                <option value="1">Supertalent of the World</option>
-                                <option value="2">Superlady of the World</option>
+                                <option value="1">Supermodel</option>
+                                <option value="2">Influencer</option>
+                                <option value="3">Musician</option>
                             </select>
                         </div>
 
@@ -25,7 +26,7 @@
                                 <label for="age">Age<text class="required">*</text></label>
                                 <select id="age" name="age" class="form-control">
                                     <option>AGE</option>
-                                    @for (var i = 18; i <= 60; i++)
+                                    @for (var i = 15; i <= 35; i++)
                                     {
                                         <option value="@i">@i </option>
                                     }
@@ -35,10 +36,55 @@
                                 <label for="height">Height<text class="required">*</text></label>
                                 <select id="height" name="height" class="form-control">
                                     <option>HEIGHT</option>
-                                    @for (var i = 165; i <= 189; i++)
+                                    @for (var i = 165; i <= 200; i++)
                                     {
                                         <option value="@i">@i cm</option>
                                     }
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="bust">Bust<text class="required">*</text></label>
+                                <select id="bust" name="bust" class="form-control">
+                                    <option>BUST</option>
+                                    @for (var i = 31; i <= 40; i++)
+                                    {
+                                        <option value="@i">@i inch</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="waist">Waist<text class="required">*</text></label>
+                                <select id="waist" name="waist" class="form-control">
+                                    <option>WAIST</option>
+                                    @for (var i = 20; i <= 28; i++)
+                                    {
+                                        <option value="@i">@i inch</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="hips">Hips<text class="required">*</text></label>
+                                <select id="hips" name="hips" class="form-control">
+                                    <option>HIPS</option>
+                                    @for (var i = 31; i <= 40; i++)
+                                    {
+                                        <option value="@i">@i inch</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="fistname">Hair<text class="required">*</text></label>
+                                <select class="form-control" id="Competition" name="category">
+                                    <option value="0">Choose Hair</option>
+                                    <option value="1">Blue</option>
+                                    <option value="2">Blue-green</option>
+                                    <option value="3">Blue-grey</option>
+                                    <option value="4">Black</option>
+                                    <option value="5">Brown</option>
+                                    <option value="6">Green</option>
+                                    <option value="7">Grey</option>
+                                    <option value="8">Hazel</option>
+                                    <option value="9">Hazel-green</option>
                                 </select>
                             </div>
                         </div>
