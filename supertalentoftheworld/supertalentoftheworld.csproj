@@ -431,6 +431,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\lightbox.min.css" />
     <Content Include="css\lightslider.css" />
+    <Content Include="css\mainbook.css" />
     <Content Include="css\navbar.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\style.css" />
