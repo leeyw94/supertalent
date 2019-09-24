@@ -2097,7 +2097,12 @@
     <Content Include="images\index\fin14.jpg" />
     <Content Include="images\index\fin15.jpg" />
     <Content Include="images\index\fin16.jpg" />
+    <Content Include="images\index\fin17.jpg" />
+    <Content Include="images\index\fin18.jpg" />
+    <Content Include="images\index\fin19.jpg" />
     <Content Include="images\index\fin2.jpg" />
+    <Content Include="images\index\fin20.jpg" />
+    <Content Include="images\index\fin21.jpg" />
     <Content Include="images\index\fin3.jpg" />
     <Content Include="images\index\fin4.jpg" />
     <Content Include="images\index\fin5.jpg" />
@@ -2109,6 +2114,12 @@
     <Content Include="images\index\korea_gigup_2.jpg" />
     <Content Include="images\index\korea_gigup_3.jpg" />
     <Content Include="images\index\korea_gigup_4.jpg" />
+    <Content Include="images\index\pages01.jpg" />
+    <Content Include="images\index\pages02.png" />
+    <Content Include="images\index\pages03.jpg" />
+    <Content Include="images\index\pages05.jpg" />
+    <Content Include="images\index\pages06.jpg" />
+    <Content Include="images\index\pages07.jpg" />
     <Content Include="images\logo\supertalent_logo.png" />
     <Content Include="images\Partners\part0.jpg" />
     <Content Include="images\Partners\part1.jpg" />
