@@ -118,6 +118,7 @@
     <EntitySetMapping Name="Model_Data">
       <EntityTypeMapping TypeName="SupertalentModel.Model_Data">
         <MappingFragment StoreEntitySet="Model_Data">
+          <ScalarProperty Name="M_residence" ColumnName="M_residence" />
           <ScalarProperty Name="Rdate" ColumnName="Rdate" />
           <ScalarProperty Name="M_youtube" ColumnName="M_youtube" />
           <ScalarProperty Name="M_facebook" ColumnName="M_facebook" />

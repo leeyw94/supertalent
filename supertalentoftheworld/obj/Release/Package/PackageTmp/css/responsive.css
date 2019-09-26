@@ -250,7 +250,7 @@ License URI: http://www.themevault.net/license/
     }
 }
 
-@media   (max-width: 1279px) {
+@media  all and (max-width: 1279px) {
   .web_only{
       display:none !important ;
   }
@@ -259,6 +259,12 @@ License URI: http://www.themevault.net/license/
       margin:10px auto;
 
   }
+}
+@media (min-width: 1280px) {
+    .m_only {
+        display:none !important;
+    }
+
 }
 
 

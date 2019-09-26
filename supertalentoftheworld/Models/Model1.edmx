@@ -133,6 +133,7 @@
           <Property Name="M_facebook" Type="varchar" MaxLength="200" />
           <Property Name="M_youtube" Type="varchar" MaxLength="200" />
           <Property Name="Rdate" Type="datetime" />
+          <Property Name="M_residence" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Pay">
           <Key>
@@ -485,6 +486,7 @@
           <Property Name="M_facebook" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="M_youtube" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Rdate" Type="DateTime" Precision="3" />
+          <Property Name="M_residence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Md_Image" Relationship="SupertalentModel.FK_Md_Image_Models" FromRole="Model_Data" ToRole="Md_Image" />
         </EntityType>
         <EntityType Name="Pay">
@@ -762,6 +764,7 @@
           <EntitySetMapping Name="Model_Data">
             <EntityTypeMapping TypeName="SupertalentModel.Model_Data">
               <MappingFragment StoreEntitySet="Model_Data">
+                <ScalarProperty Name="M_residence" ColumnName="M_residence" />
                 <ScalarProperty Name="Rdate" ColumnName="Rdate" />
                 <ScalarProperty Name="M_youtube" ColumnName="M_youtube" />
                 <ScalarProperty Name="M_facebook" ColumnName="M_facebook" />

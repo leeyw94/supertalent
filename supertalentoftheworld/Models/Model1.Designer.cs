@@ -1,4 +1,4 @@
-﻿// 모델 'F:\공유폴더\01. 김지혜 대리\02. 슈퍼탈렌트\supertalent 0916\supertalentoftheworld\Models\Model1.edmx'에 대해 T4 코드 생성이 사용됩니다. 
+﻿// 모델 'D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent0923\supertalentoftheworld\Models\Model1.edmx'에 대해 T4 코드 생성이 사용됩니다. 
 // 레거시 코드 생성을 사용하려면 '코드 생성 전략' 디자이너 속성의 값을
 // 'Legacy ObjectContext'로 변경하십시오. 이 속성은 모델이 디자이너에서 열릴 때
 // 속성 창에서 사용할 수 있습니다.

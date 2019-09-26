@@ -260,6 +260,12 @@ License URI: http://www.themevault.net/license/
 
   }
 }
+@media (min-width: 1280px) {
+    .m_only {
+        display:none !important;
+    }
+
+}
 
 
 

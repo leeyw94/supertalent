@@ -3,11 +3,35 @@
 }
 @Html.Partial("/Views/Layout/Header.cshtml")
 
+<div class="col-md-12" style="background-image: url('/images/Background/Superlady-back.jpg'); height: 250px; box-sizing: border-box; background-size: cover; background-position: center right; background-repeat: no-repeat; color: #fff; line-height:3em;padding:0;">
+    <div class="col-md-4 col-md-offset-1" style="display:block;position:relative;padding:20px 0;">
+        <h1 style="font-size:7rem; font-weight:700;color:#fff;text-align:center; margin-top:10%;">Superlady</h1>
+    </div>
+</div>
 
-<div class="container font-user">
+<div class="row" style="text-align:center;">
+    <div class="col-md-12" style="background:#ff4157">
+        <ul class="col-md-8 col-md-offset-2 user-ul ul-bg">
+            <li class="user-li">
+                <a class="user-a li-active" id="intro" href="/Superlady/Intro">Intro</a>
+            </li>
+            <li class="user-li">
+                <a class="user-a" id="models" onclick="javascript: modelsgo()">
+                    Models
+                </a>
+                <script>
+                    function modelsgo() { alert('Coming Soon.'); }
+                </script>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="container font-user" style="clear:both">
     <div class="row font-user" style="margin:50px 0;">
-        <div class="col-md-6">
-            <p>
+        <div class="col-md-7">
+            <p style="font-size:16px">
                 <strong>SUPERLADY OF THE WORLD</strong> is an International fashion and beauty showcase for  age 28 + married, unmarried or single ladies which is a uniqueness of the golden age to participate in four continentals considered to be the most luxurious and foremost competition of its genre in the world.<br /><br />
 
                 <strong>Superlady of the World 2019</strong> will be hosted PARIS NICE MILAN ROME which will be the first time in the history of any fashion, beauty and lifestyle showcase that preliminary events will be showcasing the 34 European cities in 3 weeks-long from FRANCE to Italy and final will take place at Grand Ballroom of Rome Cavalieri Waldorf Astoria on November 2nd 2019 which will be telecast globally to over 164 countries,<br /><br />
@@ -19,12 +43,17 @@
 
             </p>
         </div>
-        <div class="col-md-6 text-center">
+
+        <div class="col-md-4 col-md-offset-1 text-center">
             <img src="/images/Superlady/Superlady_intro.jpg" class="img-responsive" style="margin-bottom:20px" />
-            <a href="https://www.facebook.com/superladyofficial/" target="_blank"><img src="/images/sns1.png" /></a>
+            <p style="font-size:15px">
+                Miss Universe, Miss World Winner<br />
+                Supertalent of the World Season3 Winner
+            </p>
+            <a href="https://www.facebook.com/superladyofficial/" target="_blank"><p style="font-size:14px;display:inline-block">Superlady of the World Official Facebook&nbsp;&nbsp;&nbsp;</p><img src="/images/sns1.png" width="25" /></a>
         </div>
         <div class="col-md-12">
-            <p>
+            <p style="font-size:16px">
                 <strong>Contestant eligibility</strong><br />
                 The eligible age-range for candidate is currently from twenty eight years old. The minimum height is 172 cm (5‘7"), most contestants are former title holder of grand-slam beauty pageants, supermodel or beauty of new artists.<br /><br />
 
@@ -38,14 +67,14 @@
         </div>
 
         @*<div class="row col-md-12 text-center" style="margin-bottom:50px">
-            <p style="margin:20px">
-                <strong>
-                    You can apply Miss Supertalent of the World from anywhere in the world
-                </strong>
+                <p style="margin:20px">
+                    <strong>
+                        You can apply Miss Supertalent of the World from anywhere in the world
+                    </strong>
 
-            </p>
-            <a href="/Apply/Application" style="padding:7px 50px; font-size:1.2em" class="btn btn-primary">Apply</a>
-        </div>*@
+                </p>
+                <a href="/Apply/Application" style="padding:7px 50px; font-size:1.2em" class="btn btn-primary">Apply</a>
+            </div>*@
 
     </div>
 
@@ -56,26 +85,76 @@
         color: #244ed4;
     }
 
-
-    @@font-face {
-        font-family: 'GT Walsheim Regular';
-        src: url('../../fonts/GT Walsheim Regular.ttf') format('truetype');
-    }
-
-    @@font-face {
-      
-            font-family: 'GT-Walsheim-Regular';
-            src: url('../../fonts/GT-Walsheim-Regular.woff') format('woff');
-        
-    }
-
     .font-user {
-        font-family: 'GT-Walsheim-Regular';
         font-size: 1.8rem;
         line-height: 2.4rem;
     }
-</style>
 
+    .user-a {
+        width: 110px;
+        display: inline-block;
+        font-size: 16px;
+        color: #333;
+        padding: 20px 0
+    }
+
+
+    .li-active {
+        color: #ff4157;
+        background: #fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+        .li-active:hover {
+            color: #ff4157;
+        }
+
+    .text-name {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .text-country {
+        color: #a8a8a8;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+
+    .info {
+        margin-top: 150px;
+    }
+
+    .user-ul {
+        display: block;
+        list-style: none;
+        text-align: center;
+    }
+
+    .ul-bg {
+        background: #ff4157
+    }
+
+    .user-li {
+        display: inline;
+        margin: 10px 10px 0 10px;
+        border: 0;
+        float: left;
+        font-weight: bold;
+    }
+
+        .user-li a:hover {
+            color: #333;
+        }
+</style>
 <script>
- 
+ $(function(){
+  var selmenu = $(".user-li");  
+     selmenu.find("a").click(function () {
+         selmenu.removeClass("li-active");    
+   $(this).parent().addClass("li-active"); 
+  })
+ })
 </script>

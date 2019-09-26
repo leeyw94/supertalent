@@ -166,6 +166,7 @@
     <Property Name="M_facebook" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="M_youtube" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Rdate" Type="DateTime" Precision="3" />
+    <Property Name="M_residence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Md_Image" Relationship="SupertalentModel.FK_Md_Image_Models" FromRole="Model_Data" ToRole="Md_Image" />
   </EntityType>
   <EntityType Name="Pay">

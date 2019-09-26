@@ -35,6 +35,8 @@ namespace supertalentoftheworld.Controllers
             var _sel = db.Model_Data.Find(id);
             var _images = db.Md_Image.Where(a => a.Md_id == id);
 
+
+
             ViewBag.images = _images;
             return View(_sel);
         }

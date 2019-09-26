@@ -180,6 +180,7 @@
     <Compile Include="Controllers\HomeApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\PartnersController.cs" />
     <Compile Include="Controllers\PaymentApiController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
@@ -2067,10 +2068,19 @@
     <Content Include="images\Carousel\banner1.jpg" />
     <Content Include="images\Carousel\banner2.jpg" />
     <Content Include="images\Carousel\banner3.jpg" />
+    <Content Include="images\Carousel\banner4.jpg" />
     <Content Include="images\Carousel\ca1.jpg" />
     <Content Include="images\Carousel\ca2.jpg" />
     <Content Include="images\Carousel\ca3.jpg" />
     <Content Include="images\Carousel\caption.png" />
+    <Content Include="images\Carousel\pagesie01.jpg" />
+    <Content Include="images\Carousel\pagesie01m.jpg" />
+    <Content Include="images\Carousel\pagesie02.jpg" />
+    <Content Include="images\Carousel\pagesie02m.jpg" />
+    <Content Include="images\Carousel\pagesie03.jpg" />
+    <Content Include="images\Carousel\pagesie03m.jpg" />
+    <Content Include="images\Carousel\pagesie04.jpg" />
+    <Content Include="images\Carousel\pagesie04m.jpg" />
     <Content Include="images\Carousel\그림1.jpg" />
     <Content Include="images\Carousel\유럽1.jpg" />
     <Content Include="images\Carousel\유럽2.jpg" />
@@ -2089,6 +2099,7 @@
     <Content Include="images\common\s_new_icon.gif" />
     <Content Include="images\common\s_save_icon.gif" />
     <Content Include="images\common\view_icon.jpg" />
+    <Content Include="images\index\fashionweek.jpg" />
     <Content Include="images\index\fin1.jpg" />
     <Content Include="images\index\fin10.jpg" />
     <Content Include="images\index\fin11.jpg" />
@@ -2668,6 +2679,10 @@
     <Content Include="Views\Shop\hotel.cshtml" />
     <Content Include="Views\Shop\ProductHotel_ko.cshtml" />
     <Content Include="Views\Superlady\Models.cshtml" />
+    <Content Include="Views\Management\Models.cshtml" />
+    <Content Include="Views\Management\Models_ko.cshtml" />
+    <Content Include="Views\Management\Model_details.cshtml" />
+    <Content Include="Views\Management\Model_detailsls_ko.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,6 +37,7 @@ namespace supertalentoftheworld.Models
         public string M_facebook { get; set; }
         public string M_youtube { get; set; }
         public Nullable<System.DateTime> Rdate { get; set; }
+        public string M_residence { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Md_Image> Md_Image { get; set; }

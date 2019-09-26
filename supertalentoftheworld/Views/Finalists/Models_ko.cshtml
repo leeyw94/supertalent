@@ -20,30 +20,67 @@
 
         <div class="col-md-8 col-md-offset-2">
             <section class="gallery-block gallery-front">
-
                 @foreach (var item in Model)
                 {
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" style="margin-bottom:20px;">
                         <div class="gallery-image">
-                            <img class="img-responsive" src="@item.MainImgPath" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'">
+                            <img class="img-responsive" src="@item.MainImgPath">
                             <div class="overlay">
                                 <a class="info pop img-responsive" href="/Finalists/Model_details_ko?id=@item.id"><i class="fa fa-search" aria-hidden="true"></i></a>
                                 <p><a>View Detail</a></p>
                             </div>
                         </div>
                         <div>
-                            <img class="img-country" src="@item.M_country_img" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'" />
+                            <img class="img-country" src="@item.M_country_img" />
                         </div>
                         <div class="text-center">
                             <p class="text-country">@item.M_country</p>
                         </div>
-                        <div>
-                            <p class="text-name">@item.M_name</p>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:10px;">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <p class="text-country" style="margin-bottom:10px;">Height</p>
+                                <p>@item.M_height</p>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <p class="text-country" style="margin-bottom:10px;">Age</p>
+                                <p>@item.M_age</p>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                @{if (item.M_youtube != null || item.M_insta != null || item.M_facebook != null)
+                                    {
+                                        <div class="text-center" style="margin-bottom:10px;">
+                                            @{ if (item.M_insta != null)
+                                                {
+                                                    <a class="text-bio" href="@item.M_insta"> <img class="img-sns" src="/images/sns2.png" /></a>
+
+                                                }
+                                            }
+                                            @{ if (item.M_facebook != null)
+                                                {
+                                                    <a class="text-bio" href="@item.M_facebook"> <img class="img-sns" src="/images/sns1.png" /></a>
+                                                }
+                                            }
+                                            @{ if (item.M_youtube != null)
+                                                {
+                                                    <a class="text-bio" href="@item.M_youtube"> <img class="img-sns" src="/images/sns3.png" /></a>
+                                                }
+                                            }
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div>
+
+                                        </div>
+                                    } }
+
+                            </div>
+                            <div style="display:block;clear:both;width:100%;padding-top:25px;margin:5px;">
+                                <p class="text-name">@item.M_name</p>
+                            </div>
                         </div>
                     </div>
                 }
-
-
             </section>
         </div>
 
@@ -78,8 +115,9 @@
 
     .text-name {
         font-weight: bold;
-        font-size: 1.2em;
+        font-size: 1.1em;
         margin-bottom: 20px;
+        text-align:center;
     }
 
     .text-country {
@@ -93,13 +131,17 @@
         height: 20px;
         margin-top: 10px;
     }
+    .img-sns {
+        width:20px;
+        margin-top:10px;
+    }
 
     .info {
         margin-top: 150px;
     }
 
     .user-ul {
-        display: block;
+        display: table;
         list-style: none;
         text-align: center;
 

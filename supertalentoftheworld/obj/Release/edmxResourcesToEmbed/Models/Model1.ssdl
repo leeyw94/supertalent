@@ -128,6 +128,7 @@
     <Property Name="M_facebook" Type="varchar" MaxLength="200" />
     <Property Name="M_youtube" Type="varchar" MaxLength="200" />
     <Property Name="Rdate" Type="datetime" />
+    <Property Name="M_residence" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Pay">
     <Key>

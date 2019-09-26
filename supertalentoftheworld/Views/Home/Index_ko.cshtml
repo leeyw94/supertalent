@@ -193,72 +193,74 @@
         border-bottom: dotted 1px #b0b0b0;
         margin-bottom: 4px
     }
+
     @@media (max-width: 767px) {
         .gallery-image img {
             width: 60%;
         }
     }
-     .hr-text {
-      line-height: 1em;
-      position: relative;
-      outline: 0;
-      border: 0;
-      color: #333;
-      text-align: center;
-      height: 1.5em;
-    }
-    .hr-text:before {
-      content: '';
-      background: linear-gradient(to right, transparent, #333, transparent);
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-    }
-    .hr-text:after {
-      content: attr(data-content);
-      position: relative;
-      display: inline-block;
-      color: #333;
-      padding: 0 .5em;
-      line-height: 1.5em;
-      background-color: #fff;
-      font-weight:bold
+
+    .hr-text {
+        line-height: 1em;
+        position: relative;
+        outline: 0;
+        border: 0;
+        color: #333;
+        text-align: center;
+        height: 1.5em;
     }
 
-
-      .about-box {
-            min-height: 340px;
-            margin: 5px;
-            word-break: break-all;
-            border-top: solid 1px #ddd;
-            position:relative;
+        .hr-text:before {
+            content: '';
+            background: linear-gradient(to right, transparent, #333, transparent);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
         }
 
+        .hr-text:after {
+            content: attr(data-content);
+            position: relative;
+            display: inline-block;
+            color: #333;
+            padding: 0 .5em;
+            line-height: 1.5em;
+            background-color: #fff;
+            font-weight: bold
+        }
+
+
+    .about-box {
+        min-height: 340px;
+        margin: 5px;
+        word-break: break-all;
+        border-top: solid 1px #ddd;
+        position: relative;
+    }
+
         .about-box strong {
-                display: inline-block;
-                font-size: 16px;
-                padding-top:20px;
-                margin:0 0 10px 30px;
-            }
-            .about-box strong:before{
-                content:"";
-                width:10px;
-                height:10px;
-                background:#ff4157;
-                position:absolute;
-                top:0;
-                left:0;
-                
+            display: inline-block;
+            font-size: 16px;
+            padding-top: 20px;
+            margin: 0 0 10px 30px;
+        }
 
-
+            .about-box strong:before {
+                content: "";
+                width: 10px;
+                height: 10px;
+                background: #ff4157;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
 
     .caption {
         position: relative;
-        text-align:center; 
-        padding:10px 0;
+        text-align: center;
+        padding: 10px 0;
     }
 
     .img-logo {
@@ -277,23 +279,24 @@
             height: 100%;
             padding: 10px;
             display: block;
-            transition:ease 0.4s;
+            transition: ease 0.4s;
         }
 
         .img-logo p {
             color: #333;
             font-size: 14px;
-            transition:ease 0.4s;
+            transition: ease 0.4s;
         }
+
         .img-logo:hover a {
-            border:solid 1px #ff4157
+            border: solid 1px #ff4157
         }
 
         .img-logo:hover p {
             right: 0%;
             bottom: 0;
             color: #fff;
-            background:#ff4157;
+            background: #ff4157;
         }
 
     @@media (max-width: 767px) {
@@ -301,8 +304,19 @@
             height: 200px;
         }
     }
-    .banner_wraper { height: 100px; width: 100%; position: absolute; overflow: hidden; margin-left:100px;}
-    .banner_wraper img { height: 100px; position: absolute; }
+
+    .banner_wraper {
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        margin-left: 100px;
+    }
+
+        .banner_wraper img {
+            height: 100px;
+            position: absolute;
+        }
 </style>
 
 
@@ -316,16 +330,20 @@
                     <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel1" data-slide-to="1"></li>
                     <li data-target="#myCarousel1" data-slide-to="2"></li>
+                    <li data-target="#myCarousel1" data-slide-to="3"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
                         <img src="/images/Carousel/banner1.jpg" style="width:100%; max-height: 380px" alt="First slide">
                     </div>
                     <div class="item">
-                        <a href="/Shop/Support_ko/"><img src="/images/Carousel/banner2.jpg" style="width:100%; max-height: 380px" alt="Second slide"></a>
+                        <a href="/board/boardview/?idx=144&cate=6"><img src="/images/Carousel/banner4.jpg" style="width:100%; max-height: 380px" alt="Second slide"></a>
                     </div>
                     <div class="item">
-                        <a href="/Shop/Support_ko/"><img src="/images/Carousel/banner3.jpg" style="width:100%; max-height: 380px" alt="Third slide"></a>
+                        <a href="/Shop/Support_ko/"><img src="/images/Carousel/banner2.jpg" style="width:100%; max-height: 380px" alt="Third slide"></a>
+                    </div>
+                    <div class="item">
+                        <a href="/Shop/Support_ko/"><img src="/images/Carousel/banner3.jpg" style="width:100%; max-height: 380px" alt="Four slide"></a>
                     </div>
                 </div>
             </div>
@@ -433,264 +451,311 @@
         </div>
 
 
+        <div id="mainbookie" class="col-md-10 col-md-offset-1 web_only" style="clear:both;min-height:600px;overflow:hidden;">
+            <div class='pages'>
+                <div id="myCarousel2" class="carousel slide" data-ride="carousel">
 
-        <div class="col-md-10 col-md-offset-1" style="clear:both;display:block;min-height:600px;overflow:hidden;">
-                <div class='pages'>
-                    <input id='one' name='trigger' type='radio'>
-                    <input id='two' name='trigger' type='radio'>
-                    <input id='three' name='trigger' type='radio'>
-                    <input id='four' name='trigger' type='radio'>
-                    <div class='pages_page'>
-                        <div class='pages_page__inner'>
-                            <div class='pagenumber'>1 2</div>
-                            <div class='content'>
-                                <div class="content-block">
-                                    <h4 class="web_only" style="color:#fff; width:400px;line-height:2em;position:absolute;top:27%;left:10%;">
-                                        올 10월 파리 쇼케이스로 시작해<br /> 
-                                        Supertalent of the World in Rome<br />
-                                        World Wide Contenst Final 까지<br />
-                                        패션, 뷰티, 아트, 오리진 컨셉으로<br />
-                                        3주간 유럽 로케이션 콘텐츠를 제공하며<br />
-                                        크리에이티브 아이디어와 트렌드를 보여 주는<br />
-                                        Global Stock &amp; Influencer 플랫폼<br />
-                                    </h4>
-                                </div>
-                                <div class='content_center'>
-                                    <h4>Supertalent<br />of the World <br />X<br />Fashion One<br />공동 주관</h4>
-                                </div>
-                            </div>
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel2" data-slide-to="1"></li>
+                        <li data-target="#myCarousel2" data-slide-to="2"></li>
+                        <li data-target="#myCarousel2" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="~/images/Carousel/pagesie01.jpg" style="width:100%; max-height: 570px" alt="First slide">
+                        </div>
+                        <div class="item">
+                            <img src="/images/Carousel/pagesie02.jpg" style="width:100%; max-height: 570px" alt="Second slide">
+                        </div>
+                        <div class="item">
+                            <img src="/images/Carousel/pagesie03.jpg" style="width:100%; max-height: 570px" alt="Third slide">
+                        </div>
+                        <div class="item">
+                            <img src="/images/Carousel/pagesie04.jpg" style="width:100%; max-height: 570px" alt="Four slide">
                         </div>
                     </div>
-                    <div class='pages_page'>
-                        <div class='pages_page__inner'>
-                            <div class='content'>
-                                <div class='content_center right'>
-                                    <h4>Supertalent<br />of the World <br />X<br />Fashion One<br />공동 주관</h4>
-                                </div>
-                                <div class='content_picture web_only' style="width:300px; top:15%;left:37%;">
-                                    <img src="~/images/index/pages02.png" />
-                                </div>
-                            </div>
-                            <div class='control next'>
-                                <label for='two'></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='pages_page'>
-                        <div class='pages_page__inner'>
-                            <div class='pagenumber'>2 3</div>
-                            <div class='control'>
-                                <label for='one'></label>
-                            </div>
-                            <div class='content web_only'>
-                                <div class='content_offset' style="padding:15px;background:rgba(255,255,255,0.6);width:365px;left:45%;">
-                                    <h2 style="color:#000;line-height:2em;letter-spacing:1px;font-weight:600;">
-                                        슈퍼모델, 팝아티스트, 영화배우, 댄싱챔피언을 선발하는 글로벌 리얼리티 오디션 프로그램으로
-                                        유럽 로케이션 34 쇼케이스 기간 동안의 패션위크, 워크샵, 데일리 에피소드를 전 세계 168개국에 송출하고
-                                        로마 카발리에리 리조트에서 개최되는 세계 대회는 전 세계에 생중계된다.
-                                    </h2>
-                                </div>
-                                <h1>
-                                    <span>S</span>
-                                    <span>u</span>
-                                    <span>p</span>
-                                    <span>e</span>
-                                    <span>r</span>
-                                    <span>t</span>
-                                    <span>a</span>
-                                    <span>l</span>
-                                    <span>e</span>
-                                    <span>n</span>
-                                    <span>t</span>
-                                    <span>&nbsp;</span>
-                                    <span>o</span>
-                                    <span>f</span>
-                                    <span>&nbsp;</span>
-                                    <span>t</span>
-                                    <span>h</span>
-                                    <span>e</span>
-                                    <span>&nbsp;</span>
-                                    <span>W</span>
-                                    <span>o</span>
-                                    <span>r</span>
-                                    <span>l</span>
-                                    <span>d</span>
-                                    <br>
-                                    <span>2</span>
-                                    <span>0</span>
-                                    <span>1</span>
-                                    <span>9</span>
-                                    <span>&nbsp;</span>
-                                    <span>S</span>
-                                    <span>e</span>
-                                    <span>a</span>
-                                    <span>s</span>
-                                    <span>o</span>
-                                    <span>n</span>
-                                    <span>&nbsp;</span>
-                                    <span>1</span>
-                                    <span>3</span>
-                                </h1>
-                            </div>
-                            <h5 class="content_center m_only" style="padding:15px;background:rgba(255,255,255,0.6);line-height:1.8em;color:#000;font-weight:600;">
-                                올 10월 파리 쇼케이스로 시작해<br />
-                                Supertalent of the World in Rome<br />
-                                World Wide Contenst Final 까지<br />
-                                패션, 뷰티, 아트, 오리진 컨셉으로<br />
-                                3주간 유럽 로케이션 콘텐츠를 제공하며<br />
-                                크리에이티브 아이디어와 트렌드를 보여 주는<br />
-                                Global Stock &amp; Influencer 플랫폼<br />
-                            </h5>
-                        </div>
-                    </div>
-                    <div class='pages_page'>
-                        <div class='pages_page__inner'>
-                            <div class='control next'>
-                                <label for='three'></label>
-                            </div>
-                            <div class='bg'></div>
-                            <div class='content web_only'>
-                                <div class='content_quote'>
-                                    <h5>
-                                        <span style="font-size:14px;line-height:2em;">You can apply</span>
-                                        <span style="font-size:14px;line-height:2em;">Miss Supertalent of the World</span>
-                                        <span style="font-size:14px;line-height:2em;">from anywhere in the world</span>
-                                    </h5>
-                                </div>
-                                <h1>
-                                    <span>S</span>
-                                    <span>u</span>
-                                    <span>p</span>
-                                    <span>e</span>
-                                    <span>r</span>
-                                    <span>t</span>
-                                    <span>a</span>
-                                    <span>l</span>
-                                    <span>e</span>
-                                    <span>n</span>
-                                    <span>t</span>
-                                    <span>&nbsp;</span>
-                                    <span>o</span>
-                                    <span>f</span>
-                                    <span>&nbsp;</span>
-                                    <span>t</span>
-                                    <span>h</span>
-                                    <span>e</span>
-                                    <span>&nbsp;</span>
-                                    <span>W</span>
-                                    <span>o</span>
-                                    <span>r</span>
-                                    <span>l</span>
-                                    <span>d</span>
-                                    <br>
-                                    <span>2</span>
-                                    <span>0</span>
-                                    <span>1</span>
-                                    <span>9</span>
-                                    <span>&nbsp;</span>
-                                    <span>S</span>
-                                    <span>e</span>
-                                    <span>a</span>
-                                    <span>s</span>
-                                    <span>o</span>
-                                    <span>n</span>
-                                    <span>&nbsp;</span>
-                                    <span>1</span>
-                                    <span>3</span>
-                                </h1>
-                            </div>
-                            <h5 class="content_center right m_only" style="padding:15px;background:rgba(255,255,255,0.6);line-height:1.8em;color:#000;font-weight:600;">
-                                올 10월 파리 쇼케이스로 시작해<br />
-                                Supertalent of the World in Rome<br />
-                                World Wide Contenst Final 까지<br />
-                                패션, 뷰티, 아트, 오리진 컨셉으로<br />
-                                3주간 유럽 로케이션 콘텐츠를 제공하며<br />
-                                크리에이티브 아이디어와 트렌드를 보여 주는<br />
-                                Global Stock &amp; Influencer 플랫폼<br />
-                            </h5>
-                        </div>
-                    </div>
-                    <div class='pages_page'>
-                        <div class='pages_page__inner'>
-                            <div class='pagenumber'>4 5</div>
-                            <div class='content'>
-                                <div class='content_center'>
-                                    <h4 class="web_only" style="line-height:1.6em;letter-spacing:1px;font-size:15px;color:#fff;">
-                                        The Power of Fashion Meets Passion &amp; Mussic.
-                                        Making of Supers.
-                                        Beauty will save the World.
-                                    </h4>
-                                    <h4 class="m_only" style="line-height:1.6em;letter-spacing:1px;font-size:15px;color:#fff;">
-                                        슈퍼모델, 팝아티스트, 영화배우, 댄싱챔피언을 선발하는 글로벌 리얼리티 오디션 프로그램으로
-                                        유럽 로케이션 34 쇼케이스 기간 동안의 패션위크, 워크샵, 데일리 에피소드를 전 세계 168개국에 송출하고
-                                        로마 카발리에리 리조트에서 개최되는 세계 대회는 전 세계에 생중계된다.
-                                    </h4>
-                                    <h6 style="color:#fff;">Supertalent of the World 2019</h6>
-                                </div>
-                            </div>
-                            <div class='control'>
-                                <label for='two'></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='pages_page'>
-                        <div class='pages_page__inner'>
-                            <div class='control next'>
-                                <label for='four'></label>
-                            </div>
-                            <div class='bg'></div>
-                            <div class='content_centerimage'>
-                                <img src="~/images/index/pages06.jpg" />
-                            </div>
-                            <div class='content'>
-                                <div class='content_center right'>
-                                    <h4 class="web_only" style="line-height:1.6em;letter-spacing:1px;font-size:15px;color:#fff;">
-                                        The Power of Fashion Meets Passion &amp; Mussic.
-                                        Making of Supers.
-                                        Beauty will save the World.
-                                    </h4>
-                                    <h4 class="m_only" style="line-height:1.6em;letter-spacing:1px;font-size:15px;color:#fff;">
-                                        슈퍼모델, 팝아티스트, 영화배우, 댄싱챔피언을 선발하는 글로벌 리얼리티 오디션 프로그램으로
-                                        유럽 로케이션 34 쇼케이스 기간 동안의 패션위크, 워크샵, 데일리 에피소드를 전 세계 168개국에 송출하고
-                                        로마 카발리에리 리조트에서 개최되는 세계 대회는 전 세계에 생중계된다.
-                                    </h4>
-                                    <h6 style="color:#fff;">Supertalent of the World 2019</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class='pages_page'>
-                        <div class='pages_page__inner'>
-                            <div class='pagenumber'>6 7</div>
-                            <div class='content' style="width:90%; height:90%; background:rgba(255,255,255,0.8);top:5%;left:5%;">
-                                <div class='content_section'>
-                                    <h2>세계 대회 결선</h2>
-                                    <h5>11월 2일 로마 카발리에리 리조트</h5>
-                                </div>
-                                <div class='content_section'>
-                                    <h2>심사위원</h2>
-                                    <h5>미스 잉글랜드 Angie Beasley</h5>
-                                    <h5>미스 프랑스 Chrisriane LILLIO</h5>
-                                    <h5>스페인 왕자 JUAN CARLOS</h5>
-                                    <h5>프라이빗 아티스트 GALERY CAREY</h5>
-                                    <h5>프라이빗 아티스트 Maruchi Ripoll</h5>
-                                </div>
+        <div id="mainbook" class="col-md-10 col-md-offset-1" style="clear:both;min-height:600px;overflow:hidden;">
+            <div class='pages'>
+                <input id='one' name='trigger' type='radio'>
+                <input id='two' name='trigger' type='radio'>
+                <input id='three' name='trigger' type='radio'>
+                <input id='four' name='trigger' type='radio'>
+                <div class='pages_page'>
+                    <div class='pages_page__inner'>
+                        <div class='pagenumber'>1 2</div>
+                        <div class='content'>
+                            <div class="content-block">
+                                <h4 class="web_only" style="color:#fff; width:400px;line-height:2em;position:absolute;top:27%;left:10%;">
+                                    올 10월 파리 쇼케이스로 시작해<br />
+                                    Supertalent of the World in Rome<br />
+                                    World Wide Contenst Final 까지<br />
+                                    패션, 뷰티, 아트, 오리진 컨셉으로<br />
+                                    3주간 유럽 로케이션 콘텐츠를 제공하며<br />
+                                    크리에이티브 아이디어와 트렌드를 보여 주는<br />
+                                    Global Stock &amp; Influencer 플랫폼<br />
+                                </h4>
                             </div>
-                            <div class='control'>
-                                <label for='three'></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='pages_page'>
-                        <div class='pages_page__inner'>
-                            <div class='bg'></div>
-                            <div class='content right'>
-                                <h1 style="color:#fff;font-weight:bold;text-align:right;letter-spacing:2px;">Rome<br />Cavallieri, <br />A Waldorf<br /> Astoria Resort</h1>                                
+                            <div class='content_center'>
+                                <h4>Supertalent<br />of the World <br />X<br />Fashion One<br />공동 주관</h4>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class='pages_page'>
+                    <div class='pages_page__inner'>
+                        <div class='content'>
+                            <div class='content_center right'>
+                                <h4>Supertalent<br />of the World <br />X<br />Fashion One<br />공동 주관</h4>
+                            </div>
+                            <div class='content_picture web_only' style="width:300px; top:15%;left:37%;">
+                                <img src="~/images/index/pages02.png" />
+                            </div>
+                        </div>
+                        <div class='control next'>
+                            <label for='two'></label>
+                        </div>
+                    </div>
+                </div>
+                <div class='pages_page'>
+                    <div class='pages_page__inner'>
+                        <div class='pagenumber'>2 3</div>
+                        <div class='control'>
+                            <label for='one'></label>
+                        </div>
+                        <div class='content web_only'>
+                            <div class='content_offset' style="padding:15px;background:rgba(255,255,255,0.6);width:365px;left:45%;">
+                                <h2 style="color:#000;line-height:2em;letter-spacing:1px;font-weight:600;">
+                                    슈퍼모델, 팝아티스트, 영화배우, 댄싱챔피언을 선발하는 글로벌 리얼리티 오디션 프로그램으로
+                                    유럽 로케이션 34 쇼케이스 기간 동안의 패션위크, 워크샵, 데일리 에피소드를 전 세계 168개국에 송출하고
+                                    로마 카발리에리 리조트에서 개최되는 세계 대회는 전 세계에 생중계된다.
+                                </h2>
+                            </div>
+                            <h1>
+                                <span>S</span>
+                                <span>u</span>
+                                <span>p</span>
+                                <span>e</span>
+                                <span>r</span>
+                                <span>t</span>
+                                <span>a</span>
+                                <span>l</span>
+                                <span>e</span>
+                                <span>n</span>
+                                <span>t</span>
+                                <span>&nbsp;</span>
+                                <span>o</span>
+                                <span>f</span>
+                                <span>&nbsp;</span>
+                                <span>t</span>
+                                <span>h</span>
+                                <span>e</span>
+                                <span>&nbsp;</span>
+                                <span>W</span>
+                                <span>o</span>
+                                <span>r</span>
+                                <span>l</span>
+                                <span>d</span>
+                                <br>
+                                <span>2</span>
+                                <span>0</span>
+                                <span>1</span>
+                                <span>9</span>
+                                <span>&nbsp;</span>
+                                <span>S</span>
+                                <span>e</span>
+                                <span>a</span>
+                                <span>s</span>
+                                <span>o</span>
+                                <span>n</span>
+                                <span>&nbsp;</span>
+                                <span>1</span>
+                                <span>3</span>
+                            </h1>
+                        </div>
+                        <h5 class="content_center m_only" style="padding:15px;background:rgba(255,255,255,0.6);line-height:1.8em;color:#000;font-weight:600;">
+                            올 10월 파리 쇼케이스로 시작해<br />
+                            Supertalent of the World in Rome<br />
+                            World Wide Contenst Final 까지<br />
+                            패션, 뷰티, 아트, 오리진 컨셉으로<br />
+                            3주간 유럽 로케이션 콘텐츠를 제공하며<br />
+                            크리에이티브 아이디어와 트렌드를 보여 주는<br />
+                            Global Stock &amp; Influencer 플랫폼<br />
+                        </h5>
+                    </div>
+                </div>
+                <div class='pages_page'>
+                    <div class='pages_page__inner'>
+                        <div class='control next'>
+                            <label for='three'></label>
+                        </div>
+                        <div class='bg'></div>
+                        <div class='content web_only'>
+                            <div class='content_quote'>
+                                <h5>
+                                    <span style="font-size:14px;line-height:2em;">You can apply</span>
+                                    <span style="font-size:14px;line-height:2em;">Miss Supertalent of the World</span>
+                                    <span style="font-size:14px;line-height:2em;">from anywhere in the world</span>
+                                </h5>
+                            </div>
+                            <h1>
+                                <span>S</span>
+                                <span>u</span>
+                                <span>p</span>
+                                <span>e</span>
+                                <span>r</span>
+                                <span>t</span>
+                                <span>a</span>
+                                <span>l</span>
+                                <span>e</span>
+                                <span>n</span>
+                                <span>t</span>
+                                <span>&nbsp;</span>
+                                <span>o</span>
+                                <span>f</span>
+                                <span>&nbsp;</span>
+                                <span>t</span>
+                                <span>h</span>
+                                <span>e</span>
+                                <span>&nbsp;</span>
+                                <span>W</span>
+                                <span>o</span>
+                                <span>r</span>
+                                <span>l</span>
+                                <span>d</span>
+                                <br>
+                                <span>2</span>
+                                <span>0</span>
+                                <span>1</span>
+                                <span>9</span>
+                                <span>&nbsp;</span>
+                                <span>S</span>
+                                <span>e</span>
+                                <span>a</span>
+                                <span>s</span>
+                                <span>o</span>
+                                <span>n</span>
+                                <span>&nbsp;</span>
+                                <span>1</span>
+                                <span>3</span>
+                            </h1>
+                        </div>
+                        <h5 class="content_center right m_only" style="padding:15px;background:rgba(255,255,255,0.6);line-height:1.8em;color:#000;font-weight:600;">
+                            올 10월 파리 쇼케이스로 시작해<br />
+                            Supertalent of the World in Rome<br />
+                            World Wide Contenst Final 까지<br />
+                            패션, 뷰티, 아트, 오리진 컨셉으로<br />
+                            3주간 유럽 로케이션 콘텐츠를 제공하며<br />
+                            크리에이티브 아이디어와 트렌드를 보여 주는<br />
+                            Global Stock &amp; Influencer 플랫폼<br />
+                        </h5>
+                    </div>
+                </div>
+                <div class='pages_page'>
+                    <div class='pages_page__inner'>
+                        <div class='pagenumber'>4 5</div>
+                        <div class='content'>
+                            <div class='content_center'>
+                                <h4 class="web_only" style="line-height:1.6em;letter-spacing:1px;font-size:15px;color:#fff;">
+                                    The Power of Fashion Meets Passion &amp; Mussic.
+                                    Making of Supers.
+                                    Beauty will save the World.
+                                </h4>
+                                <h4 class="m_only" style="line-height:1.6em;letter-spacing:1px;font-size:15px;color:#fff;">
+                                    슈퍼모델, 팝아티스트, 영화배우, 댄싱챔피언을 선발하는 글로벌 리얼리티 오디션 프로그램으로
+                                    유럽 로케이션 34 쇼케이스 기간 동안의 패션위크, 워크샵, 데일리 에피소드를 전 세계 168개국에 송출하고
+                                    로마 카발리에리 리조트에서 개최되는 세계 대회는 전 세계에 생중계된다.
+                                </h4>
+                                <h6 style="color:#fff;">Supertalent of the World 2019</h6>
+                            </div>
+                        </div>
+                        <div class='control'>
+                            <label for='two'></label>
+                        </div>
+                    </div>
+                </div>
+                <div class='pages_page'>
+                    <div class='pages_page__inner'>
+                        <div class='control next'>
+                            <label for='four'></label>
+                        </div>
+                        <div class='bg'></div>
+                        <div class='content_centerimage'>
+                            <img src="~/images/index/pages06.jpg" class="web_only" />
+                        </div>
+                        <div class='content'>
+                            <div class='content_center right'>
+                                <h4 class="web_only" style="line-height:1.6em;letter-spacing:1px;font-size:15px;color:#fff;">
+                                    The Power of Fashion Meets Passion &amp; Music.
+                                    Making of Supers.
+                                    Beauty will save the World.
+                                </h4>
+                                <h4 class="m_only" style="line-height:1.6em;letter-spacing:1px;font-size:15px;color:#fff;">
+                                    슈퍼모델, 팝아티스트, 영화배우, 댄싱챔피언을 선발하는 글로벌 리얼리티 오디션 프로그램으로
+                                    유럽 로케이션 34 쇼케이스 기간 동안의 패션위크, 워크샵, 데일리 에피소드를 전 세계 168개국에 송출하고
+                                    로마 카발리에리 리조트에서 개최되는 세계 대회는 전 세계에 생중계된다.
+                                </h4>
+                                <h6 style="color:#fff;">Supertalent of the World 2019</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='pages_page'>
+                    <div class='pages_page__inner'>
+                        <div class='pagenumber'>6 7</div>
+                        <div class='content web_only' style="width:90%; height:90%; background:rgba(255,255,255,0.8);top:5%;left:5%;">
+                            <div class='content_section'>
+                                <h2>세계 대회 결선</h2>
+                                <h5>11월 2일 로마 카발리에리 리조트</h5>
+                            </div>
+                            <div class='content_section'>
+                                <h2>심사위원</h2>
+                                <h5>미스 잉글랜드 Angie Beasley</h5>
+                                <h5>미스 프랑스 Chrisriane LILLIO</h5>
+                                <h5>스페인 왕자 JUAN CARLOS</h5>
+                                <h5>프라이빗 아티스트 GALERY CAREY</h5>
+                                <h5>프라이빗 아티스트 Maruchi Ripoll</h5>
+                            </div>
+                        </div>
+                        <div class="content_center m_only" style="padding:15px;background:rgba(255,255,255,0.6);line-height:1.8em;color:#000;font-weight:600;">
+                            <h2>세계 대회 결선</h2>
+                            <h5>11월 2일 로마 카발리에리 리조트</h5><br />
+                            <h2>심사위원</h2>
+                            <h5>미스 잉글랜드 Angie Beasley</h5>
+                            <h5>미스 프랑스 Chrisriane LILLIO</h5>
+                            <h5>스페인 왕자 JUAN CARLOS</h5>
+                            <h5>프라이빗 아티스트 GALERY CAREY</h5>
+                            <h5>프라이빗 아티스트 Maruchi Ripoll</h5>
+                        </div>
+                        <div class='control'>
+                            <label for='three'></label>
+                        </div>
+                    </div>
+                </div>
+                <div class='pages_page'>
+                    <div class='pages_page__inner'>
+                        <div class='bg'></div>
+                        <div class='content right web_only'>
+                            <h1 style="color:#fff;font-weight:bold;text-align:right;letter-spacing:2px;">Rome<br />Cavallieri, <br />A Waldorf<br /> Astoria Resort</h1>
+                        </div>
+                        <div class="content_center right m_only" style="padding:15px;background:rgba(255,255,255,0.6);line-height:1.8em;color:#000;font-weight:600;">
+                            <h2>세계 대회 결선</h2>
+                            <h5>11월 2일 로마 카발리에리 리조트</h5><br />
+                            <h2>심사위원</h2>
+                            <h5>미스 잉글랜드 Angie Beasley</h5>
+                            <h5>미스 프랑스 Chrisriane LILLIO</h5>
+                            <h5>스페인 왕자 JUAN CARLOS</h5>
+                            <h5>프라이빗 아티스트 GALERY CAREY</h5>
+                            <h5>프라이빗 아티스트 Maruchi Ripoll</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -1178,53 +1243,22 @@
 </div>
 
 <script type="text/javascript">
-
-    //client rolling banner
     window.onload = function () {
-        var bannerLeft = 0;
-        var first = 1;
-        var last;
-        var imgCnt = 0;
-        var $img = $(".banner_wraper img");
-        var $first;
-        var $last;
+        var browse = navigator.userAgent.toLowerCase();
 
-        $img.each(function () {   
-            $(this).css("left", bannerLeft);
-            bannerLeft += $(this).width() + 10;
-            $(this).attr("id", "banner" + (++imgCnt)); 
-        });
-
-
-        if (imgCnt > 9) {              
-
-
-
-            last = imgCnt;
-
-            setInterval(function () {
-                $img.each(function () {
-                    $(this).css("left", $(this).position().left - 1); // 1px씩 왼쪽으로 이동
-                });
-                $first = $("#banner" + first);
-                $last = $("#banner" + last);
-                if ($first.position().left < -200) {    // 제일 앞에 배너 제일 뒤로 옮김
-                    $first.css("left", $last.position().left + $last.width() + 5);
-                    first++;
-                    last++;
-                    if (last > imgCnt) { last = 1; }
-                    if (first > imgCnt) { first = 1; }
-                }
-            }, 50);   //여기 값을 조정하면 속도를 조정할 수 있다.(위에 1px 이동하는 부분도 조정하면
-
-            //깔끔하게 변경가능하다
-
+        if ((navigator.appName == 'Netscape' && browse.indexOf('trident') != -1) || (browse.indexOf("msie") != -1) || (browse.indexOf("edge") != -1)) {
+            document.getElementById("mainbook").style.display = 'none'
         }
-
+        else if ((navigator.appName == 'chrome' && browse.indexOf('safari') != -1) || (browse.indexOf("firefox") != -1) || (browse.indexOf("chrome") != -1)) {
+            document.getElementById("mainbookie").style.display = 'none'
+        }
     };
-
-
 </script>
+
+
+
+
+
 
 
 
