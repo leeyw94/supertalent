@@ -4,49 +4,49 @@
 @Html.Partial("/Views/Layout/Header_ko.cshtml")
     <script src="~/Content/Board/Board.js"></script>
 <!--Home/Contact-->
-<div style="margin-bottom:50px">
-    <section class="image-head-wrapper" style="background-image: url('/images/Background/Contact-back.jpg'); background-size:cover;">
-        <div class="inner-wrapper">
-            <h1 class="in-img-text">Contact Us</h1>
-        </div>
-    </section>
-    <div class="clearfix"></div>
-
-
-    <section class="contact-block">
-        <div class="container">
-            <div class="col-md-6 contact-left-block">
-                <h3><span>Contact </span>Us</h3>
-                <p class="text-left">
-                    If you want to contact us, please refer to the information below.
-                </p>
-                <p class="text-right">
-                    서울 서초구 강남대로 93번길 32, 서울 06530 <i class="fa fa-map-marker fa-lg"></i>
-                </p>
-                <p class="text-right"><a href="tel:+1-202-555-0100"> 02 3444 7821 <i class="fa fa-phone fa-lg"></i></a></p>
-                <p class="text-right"><a href="mailto:misssupertalent@gmail.com"> misssupertalent@gmail.com <i class="fa fa-envelope"></i></a></p>
+    <div style="margin-bottom:50px">
+        <div class="col-md-12 subtitle_bg" style="background-image: url('/images/Background/Contact-back.jpg');box-sizing: border-box; background-size: cover; background-position: top center; background-repeat: no-repeat; color: #fff; line-height:3em;padding:0;">
+            <div class="col-md-4 col-md-offset-1" style="display:block;position:relative;padding:20px 0;">
+                <h1 class="subtitle_res" style="font-weight:700;color:#333;text-align:center;">Contact Us</h1>
             </div>
-            <div class="col-md-6 contact-form">
-                <h3>Send a <span>Message</span></h3>
-                <form action="/Home/Contact" method="post" id="form1">
-                    <input type="text" class="form-control" name="Name" placeholder="이름" required="">
-                    <input type="email" class="form-control" name="Email" placeholder="이메일" required="">
-                    <input type="tel" class="form-control" name="Phone" placeholder="연락처" required="">
-
-                    <input type="hidden"  name="Inquiry" value="korea">
-                    @Html.DropDownList("gubun_code", (SelectList)ViewBag.category, "WHAT IS YOUR INQUIRY REGARDING?", new { @class = "form-control" })
-                    @Html.ValidationMessage("gubun_code", new { Class = "text-danger" })
-
-
-
-                    <textarea class="form-control" name="Message" placeholder="내용" required=""></textarea>
-                    <div class="submit-btn" style="min-width:200px; border-radius:15px;cursor:pointer;text-align:center  " onclick="send_it()"> 보내기</div>
-                </form>
-            </div>
-            <div class="clearfix"></div>
         </div>
-    </section>
-</div>
+        <div class="clearfix"></div>
+
+
+        <section class="contact-block">
+            <div class="container">
+                <div class="col-md-6 contact-left-block">
+                    <h3><span>Contact </span>Us</h3>
+                    <p class="text-left">
+                        If you want to contact us, please refer to the information below.
+                    </p>
+                    <p class="text-right">
+                        서울 서초구 강남대로 93번길 32, 서울 06530 <i class="fa fa-map-marker fa-lg"></i>
+                    </p>
+                    <p class="text-right"><a href="tel:+1-202-555-0100"> 02 3444 7821 <i class="fa fa-phone fa-lg"></i></a></p>
+                    <p class="text-right"><a href="mailto:misssupertalent@gmail.com"> misssupertalent@gmail.com <i class="fa fa-envelope"></i></a></p>
+                </div>
+                <div class="col-md-6 contact-form">
+                    <h3>Send a <span>Message</span></h3>
+                    <form action="/Home/Contact" method="post" id="form1">
+                        <input type="text" class="form-control" name="Name" placeholder="이름" required="">
+                        <input type="email" class="form-control" name="Email" placeholder="이메일" required="">
+                        <input type="tel" class="form-control" name="Phone" placeholder="연락처" required="">
+
+                        <input type="hidden" name="Inquiry" value="korea">
+                        @Html.DropDownList("gubun_code", (SelectList)ViewBag.category, "WHAT IS YOUR INQUIRY REGARDING?", new { @class = "form-control" })
+                        @Html.ValidationMessage("gubun_code", new { Class = "text-danger" })
+
+
+
+                        <textarea class="form-control" name="Message" placeholder="내용" required=""></textarea>
+                        <div class="submit-btn" style="min-width:200px; border-radius:15px;cursor:pointer;text-align:center  " onclick="send_it()"> 보내기</div>
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+    </div>
 
 <script>
 

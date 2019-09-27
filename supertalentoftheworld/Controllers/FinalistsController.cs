@@ -43,13 +43,13 @@ namespace supertalentoftheworld.Controllers
 
         public ActionResult Models(int cate, int season)
         {
-            var _list = db.Model_Data.Where(a => a.M_season == season && a.Category == cate).ToList().OrderBy(a => a.M_name);
+            var _list = db.Model_Data.Where(a => a.M_season == season && a.Category == cate).ToList().OrderBy(a => a.M_country);
             return View(_list);
         }
 
         public ActionResult Models_ko(int cate, int season)
         {
-            var _list = db.Model_Data.Where(a => a.M_season == season && a.Category == cate).ToList().OrderBy(a => a.M_name);
+            var _list = db.Model_Data.Where(a => a.M_season == season && a.Category == cate).ToList().OrderBy(a => a.M_country);
             return View(_list);
         }
 

@@ -5,142 +5,302 @@
 
 <div>
     @*<div>
-        <section class="image-head-wrapper" style="background-image: url('/images/Background/Finalist-back.jpg'); background-size:cover">
-            <div class="inner-wrapper">
-                <h1 class="in-img-text">Finalists</h1>
+            <section class="image-head-wrapper" style="background-image: url('/images/Background/Finalist-back.jpg'); background-size:cover">
+                <div class="inner-wrapper">
+                    <h1 class="in-img-text">Finalists</h1>
+                </div>
+            </section>
+        </div>*@
+
+    <div class="row box" style="margin-top:20px;">
+        <div class="col-md-10 col-md-offset-1" style="margin-bottom:40px;">
+            <div class="text-left" style="margin-bottom:40px;">
+                <a href="#" onclick="goBack();"><i class="fa fa-chevron-left"></i>&nbsp;BACK TO LIST</a>
             </div>
-        </section>
-    </div>*@
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="text-bio" style="font-size:17px;">@Model.M_name</p>
+                        @*<div class="likes">
+                                <a href="javascript:void(0);" class="like-button">
+                                    <i class="fa fa-heart not-liked bouncy">favorite_border</i>
+                                    <i class="fa fa-heart is-liked bouncy">favorite</i>
+                                    <span class="like-overlay"></span>
+                                </a>
+                            </div>*@
+                    </div>
 
-    <div class="row box" style="margin-top:50px;">
+                    <div class="col-lg-12 col-xs-6">
+                        <p class="title-bio">Age</p>
+                        <p class="text-bio">@Model.M_age</p>
+                    </div>
+                    <div class="col-lg-12 col-xs-6">
+                        <p class="title-bio">Height</p>
+                        <p class="text-bio">@Model.M_height</p>
+                    </div>
+                    <div class="col-lg-12 col-xs-6">
+                        <p class="title-bio">Size</p>
+                        <p class="text-bio">--</p>
+                    </div>
+                    <div class="col-lg-12 col-xs-6">
+                        <p class="title-bio">FROM</p>
+                        <p class="text-bio">@Model.M_country</p>
+                    </div>
+                    <div class="col-lg-12 col-xs-6">
+                        <p class="title-bio">Country of residence</p>
+                        <p class="text-bio">@Model.M_residence</p>
+                    </div>
+                    <div class="col-lg-12 col-xs-6">
+                        <p class="title-bio">LANGUAGE</p>
+                        <p class="text-bio">@Model.M_language</p>
+                    </div>
+                    <div class="col-lg-12 col-xs-6" style="min-height:80px;">
+                        <p class="title-bio">Career</p>
+                        <p class="text-bio"></p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="col-md-12">
-            <div class="container">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-md-offset-1">
-                        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <div class="col-lg-11 col-md-11 col-sm-11 col-md-offset-1">
+                    <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
 
 
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-                                @foreach (var item in ViewBag.images)
-                                {
-                                    var i = 1;
-                                    <li data-target="#myCarousel+@i" data-slide-to=@i></li>
-                                    i++;
-                                }
-                            </ol>
+                            @foreach (var item in ViewBag.images)
+                            {
+                                var i = 1;
+                                <li data-target="#myCarousel+@i" data-slide-to=@i></li>
+                                i++;
+                            }
 
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img src=@Model.MainImgPath style="width:100%; height:440px" alt="First slide" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'">
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src=@Model.MainImgPath style="width:100%; height:740px" alt="First slide">
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+
+                            @foreach (var item in ViewBag.images)
+                            {
+                                <div class="item">
+                                    <img src="@item.ImagePath" style="width:100%; height: 740px" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'">
                                     <div class="carousel-caption">
                                     </div>
                                 </div>
-
-                                @foreach (var item in ViewBag.images)
-                                {
-                                    <div class="item">
-                                        <img src="@item.ImagePath" style="width:100%; height: 440px" onerror="this.src='http://supertalent.theblueeye.com/upload2/error.png'">
-                                        <div class="carousel-caption">
-                                        </div>
-                                    </div>
-                                }
-
-                            </div>
-                            <a class="left carousel-control" href="#myCarousel1" data-slide="prev"> <img src="/images/icons/left-arrow.png" onmouseover="this.src = '/images/icons/left-arrow-hover.png'" onmouseout="this.src = '/images/icons/left-arrow.png'" alt="left"></a>
-                            <a class="right carousel-control" href="#myCarousel1" data-slide="next"><img src="/images/icons/right-arrow.png" onmouseover="this.src = '/images/icons/right-arrow-hover.png'" onmouseout="this.src = '/images/icons/right-arrow.png'" alt="left"></a>
+                            }
 
                         </div>
+                        <a class="left carousel-control" href="#myCarousel1" data-slide="prev"> <img src="/images/icons/left-arrow.png" onmouseover="this.src = '/images/icons/left-arrow-hover.png'" onmouseout="this.src = '/images/icons/left-arrow.png'" alt="left"></a>
+                        <a class="right carousel-control" href="#myCarousel1" data-slide="next"><img src="/images/icons/right-arrow.png" onmouseover="this.src = '/images/icons/right-arrow-hover.png'" onmouseout="this.src = '/images/icons/right-arrow.png'" alt="left"></a>
+
                     </div>
-
-
-                    <div class="row col-lg-6 col-md-6 col-sm-6 col-md-offset-1" style=" padding-bottom:0px;display:table">
-                        <div class="col-lg-12">
-                            <h4 class="title-bio">NAME</h4>
-                            <p class="text-bio">@Model.M_name</p>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                            <h4 class="title-bio">FROM</h4>
-                            <p class="text-bio" style="float:left;padding-right:14px;">@Model.M_country</p>
-                            <img style="max-width:40px; min-width:50px" src="@Model.M_country_img" onerror="this.src='http://www.supertalent.com/upload2/error.png'">
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8">
-                            <h4 class="title-bio">Country of residence</h4>
-                            <p class="text-bio" style="float:left;padding-right:14px;">@Model.M_residence</p>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4" style="clear:both">
-                            <h4 class="title-bio">BORN IN</h4>
-                            <p class="text-bio">@Model.M_city</p>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8">
-                            <h4 class="title-bio">LANGUAGE</h4>
-                            <p class="text-bio">@Model.M_language</p>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4" style="clear:both">
-                            <h4 class="title-bio">AGE</h4>
-                            <p class="text-bio">@Model.M_age</p>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8">
-                            <h4 class="title-bio">HEIGHT</h4>
-                            <p class="text-bio">@Model.M_height</p>
-                        </div>
-                        @if (Model.M_facebook != null)
-                        {
-                            <div class="col-lg-4 col-md-4 col-sm-4" style="clear:both">
-                                <h4 class="title-bio">FACEBOOK</h4>
-                                <a class="text-bio" href="@Model.M_facebook">
-                                    <img src="~/images/sns1.png" width="35" style="margin-top:10px;" />
-                                </a>
-                            </div>
-                        }
-                        @if (Model.M_insta != null)
-                        {
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <h4 class="title-bio">INSTAGRAM</h4>
-                                <a class="text-bio" href="@Model.M_insta">
-                                    <img src="~/images/sns2.png" width="35" style="margin-top:10px;" />
-                                </a>
-                            </div>
-                        }
-                        @if (Model.M_youtube != null)
-                        {
-                            <div class="col-lg-4 col-md-4 col-sm-4 youtubeicon">
-                                <h4 class="title-bio">YOUTUBE</h4>
-                                <a class="text-bio" href="@Model.M_youtube">
-                                    <img src="~/images/sns3.png" width="35" style="margin-top:10px;" />
-                                </a>
-                            </div>
-                        }
-                        </div>
-
-                    <div class="col-lg-10 col-md-10 col-sm-10  col-md-offset-1" style="clear:both; margin-top:20px;">
-                        <h3 class="title-bio">B I O G R A P H Y</h3>
-                        <p class="text-bio">
-                            @Model.M_content
-                        </p>
-                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <hr style="margin:50px;" />
-    <div class="text-center" style="margin-bottom:50px;">
-        <button type="button" class="book-now-btn" onclick="goBack();" style="transition:0.6s;">BACK</button>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                <div class="col-lg-12">
+                    <h3 class="title-bio">B I O G R A P H Y</h3>
+                    <p class="text-bio" style="line-height:2em;font-size:15px;min-height:60px;">
+                        @Model.M_content
+                    </p>
+                </div>
+                <div class="col-lg-12" style="min-height:80px;">
+                    <h3 class="title-bio">SNS</h3>
+                    @if (Model.M_facebook != null)
+                    {
+                        <div class="col-lg-1">
+                            <a class="text-bio" href="@Model.M_facebook">
+                                <img src="~/images/sns1.png" width="25" style="margin-top:10px;" />
+                            </a>
+                        </div>
+                    }
+                    @if (Model.M_insta != null)
+                    {
+                        <div class="col-lg-1">
+                            <a class="text-bio" href="@Model.M_insta">
+                                <img src="~/images/sns2.png" width="25" style="margin-top:10px;" />
+                            </a>
+                        </div>
+                    }
+                    @if (Model.M_youtube != null)
+                    {
+                        <div class="col-lg-1 youtubeicon">
+                            <a class="text-bio" href="@Model.M_youtube">
+                                <img src="~/images/sns3.png" width="25" style="margin-top:10px;" />
+                            </a>
+                        </div>
+                    }
+                </div>
+                <div class="col-lg-12">
+                    <h3 class="title-bio">GALLERY</h3>
+                    <p class="text-bio" style="line-height:2em;font-size:15px;min-height:160px;">
+
+                    </p>
+                </div>
+                <div class="col-lg-12">
+                    <h3 class="title-bio">VIDEO</h3>
+                    <p class="text-bio" style="line-height:2em;font-size:15px;min-height:160px;">
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div class="col-lg-12">
+
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </div>
 <style>
+    .likes .like-button {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        text-decoration: none;
+        overflow: hidden;
+    }
+
+        .likes .like-button .like-overlay {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ff4f8f;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            transition: all .4s;
+            z-index: 0;
+        }
+
+        .likes .like-button i.not-liked {
+            display: block;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .likes .like-button i.is-liked {
+            display: none;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .likes .like-button.is-active .like-overlay {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .likes .like-button.is-active i.not-liked {
+            display: none;
+        }
+
+        .likes .like-button.is-active i.is-liked {
+            display: block;
+        }
+
+    @@-webkit-keyframes bouncy {
+        from, to {
+            -webkit-transform: scale(1, 1);
+        }
+
+        25% {
+            -webkit-transform: scale(0.9, 1.1);
+        }
+
+        50% {
+            -webkit-transform: scale(1.1, 0.9);
+        }
+
+        75% {
+            -webkit-transform: scale(0.95, 1.05);
+        }
+    }
+
+    @@keyframes bouncy {
+        from, to {
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+        }
+
+        25% {
+            -webkit-transform: scale(0.9, 1.1);
+            transform: scale(0.9, 1.1);
+        }
+
+        50% {
+            -webkit-transform: scale(1.1, 0.9);
+            transform: scale(1.1, 0.9);
+        }
+
+        75% {
+            -webkit-transform: scale(0.95, 1.05);
+            transform: scale(0.95, 1.05);
+        }
+    }
+
+    .bouncy {
+        -webkit-animation: bouncy 0.6s;
+        animation: bouncy 0.6s;
+        -webkit-animation-duration: 0.6s;
+        animation-duration: 0.6s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    .link-button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #6dacff;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all .4s;
+    }
+
+        .link-button img {
+            width: 32px;
+            height: 32px;
+            display: block;
+        }
+
+        .link-button:hover {
+            -webkit-transform: scale(1.1) rotate(180deg);
+            transform: scale(1.1) rotate(180deg);
+            background: #ff4f8f;
+        }
 
     .title-bio {
-        font-weight: bold;
+        font-size: 15px;
         color: #b3b3b3;
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
     .text-bio {
-        font-size: 1.0em;
+        font-size: 15px;
         color: #000;
-        margin-top:7px;
+        margin-top: 7px;
     }
 
     .title-text {
@@ -193,6 +353,13 @@
         max-width: 240px;
         max-height: 160px;
     }
+
+    
+    @@media (max-width: 767px) {
+        #myCarousel1 .carousel-inner img {
+            height: 380px !important;
+        }
+    }
 </style>
 <script type="text/javascript">
 
@@ -202,5 +369,14 @@
 
 
 
+</script>
+<script>
+    $(document).ready(function () {
+
+        $('.like-button').click(function () {
+            $(this).toggleClass('is-active');
+        })
+
+    })
 </script>
 

@@ -7,62 +7,41 @@
 }
 @Html.Partial("/Views/Layout/Header_ko.cshtml")
 
-<div class="font-user" style="">
-    <div class="col-md-12" style="background-image: url('/images/Background/Finalist-back1.jpg'); height: 250px; box-sizing: border-box; background-size: cover; background-position: center right; background-repeat: no-repeat; color: #fff; line-height:3em;padding:0;">
-        <div class="col-md-4 col-md-offset-1" style="display:block;position:relative;padding:20px 0;">
-            <h1 style="font-size:7rem; font-weight:700;color:#fff;text-align:center; margin-top:10%;">Finalists</h1>
+    <div class="font-user" style="">
+        <div class="col-md-12 subtitle_bg" style="background-image: url('/images/Background/Finalist-back1.jpg');box-sizing: border-box; background-size: cover; background-position: center right; background-repeat: no-repeat; color: #fff; line-height:3em;padding:0;">
+            <div class="col-md-4 col-md-offset-1" style="display:block;position:relative;padding:20px 0;">
+                <h1 class="subtitle_res" style="font-weight:700;color:#fff;text-align:center;">Finalist</h1>
+            </div>
         </div>
-    </div>
 
-    <div class="col-md-12" style="text-align:center;clear:both;margin-bottom:50px">
+        <div class="col-md-12" style="text-align:center;clear:both;margin-bottom:50px">
 
-        @Html.Partial("/Views/Layout/_Finalist_Menu_ko.cshtml")
+            @Html.Partial("/Views/Layout/_Finalist_Menu_ko.cshtml")
 
-        <div class="col-md-8 col-md-offset-2">
-            <section class="gallery-block gallery-front">
-                @foreach (var item in Model)
-                {
+            <div class="col-md-8 col-md-offset-2">
+                <section class="gallery-block gallery-front">
+                    @foreach (var item in Model)
+                    {
                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" style="margin-bottom:20px;">
                         <div class="gallery-image">
-                            <img class="img-responsive" src="@item.MainImgPath">
+                            <img class="img-responsive" src="@item.MainImgPath" onerror="this.src='http://supertalent.theblueeye.com/upload/error.png'" style="margin:0">
                             <div class="overlay">
-                                <a class="info pop img-responsive" href="/Finalists/Model_details?id=@item.id"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                <a class="info pop img-responsive" href="/Finalists/Model_details_ko?id=@item.id" style="margin:0"><i class="fa fa-search" aria-hidden="true" style="position:absolute;left:45%;top:45%;"></i></a>
                                 <p><a>View Detail</a></p>
                             </div>
                         </div>
-                        <div>
-                            <img class="img-country" src="@item.M_country_img" />
-                        </div>
-                        <div class="text-center">
-                            <p class="text-country">@item.M_country</p>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:10px;">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <p class="text-country" style="margin-bottom:10px;">Height</p>
-                                <p>@item.M_height</p>
+                        <div class="col-md-11" style="height:40px; padding:15px 0;">
+                            <div class="text-center col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                <p class="text-country">@item.M_country</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <p class="text-country" style="margin-bottom:10px;">Age</p>
-                                <p>@item.M_age</p>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                @{if (item.M_youtube != null || item.M_insta != null || item.M_facebook != null)
+                                @{if (item.M_facebook != null)
                                     {
-                                        <div class="text-center" style="margin-bottom:10px;">
+                                        <div class="text-center">
                                             @{ if (item.M_insta != null)
                                                 {
                                                     <a class="text-bio" href="@item.M_insta"> <img class="img-sns" src="/images/sns2.png" /></a>
 
-                                                }
-                                            }
-                                            @{ if (item.M_facebook != null)
-                                                {
-                                                    <a class="text-bio" href="@item.M_facebook"> <img class="img-sns" src="/images/sns1.png" /></a>
-                                                }
-                                            }
-                                            @{ if (item.M_youtube != null)
-                                                {
-                                                    <a class="text-bio" href="@item.M_youtube"> <img class="img-sns" src="/images/sns3.png" /></a>
                                                 }
                                             }
                                         </div>
@@ -75,18 +54,28 @@
                                     } }
 
                             </div>
-                            <div style="display:block;clear:both;width:100%;padding-top:25px;margin:5px;">
+                        </div>
+
+                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11" style="margin:10px 0;padding:0">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <p class="text-title" style="margin-bottom:10px;"><span>H -</span> <span>@item.M_height</span></p>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <p class="text-title" style="margin-bottom:10px;"><span>A -</span> <span>@item.M_age</span></p>
+                            </div>
+
+                            <div style="display:block;clear:both;width:100%;margin:5px;">
                                 <p class="text-name">@item.M_name</p>
                             </div>
                         </div>
                     </div>
-                }
-            </section>
+                    }
+                </section>
+            </div>
+
         </div>
 
     </div>
-
-</div>
 
 
 
@@ -114,30 +103,28 @@
     }
 
     .text-name {
-        font-weight: bold;
-        font-size: 1.2em;
+        font-size: 1.1em;
         margin-bottom: 20px;
         text-align:center;
     }
-
+    .text-title{
+        color:#ff4157;
+        font-weight:lighter;
+    }
     .text-country {
         color: #a8a8a8;
-        font-weight: bold;
-        margin-bottom: 20px;
+        text-transform:uppercase
     }
 
     .img-country {
-        width: 40px;
-        height: 20px;
-        margin-top: 10px;
+        width: 45px;
+        height: 25px;
+        position:absolute;
+        left:2.5px;
+        top:1px;
     }
     .img-sns {
         width:20px;
-        margin-top:10px;
-    }
-
-    .info {
-        margin-top: 150px;
     }
 
     .user-ul {

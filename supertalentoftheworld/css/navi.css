@@ -1049,10 +1049,12 @@ ul.chevron .submenu > a:after, ul.chevron .sub-submenu > a:after, ul.chevron .as
     .size-1140 {
         max-width: 480px;
     }
-
+    .top-nav ul ul {
+        border: 0px;
+    }
     .hide-l {
         display: block;
-        background:#ff4157;
+        background:#fff;
         position:relative;
     }
 
