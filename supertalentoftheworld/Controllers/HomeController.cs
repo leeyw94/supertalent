@@ -236,6 +236,11 @@ namespace supertalentoftheworld.Controllers
             return View();
         }
 
+        public ActionResult Login_ko()
+        {
+            return View();
+        }
+
         public ActionResult SignUp()
         {
             return View();

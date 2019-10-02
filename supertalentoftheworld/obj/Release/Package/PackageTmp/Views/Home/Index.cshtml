@@ -8,315 +8,178 @@
 }
 @Html.Partial("/Views/Layout/Header.cshtml")
 <!--Home/Index-->
-<style>
+    <style>
 
-    .carousel-fade .carousel-inner .item {
-        transition: 0.6s ease-in-out opacity;
-    }
+        .carousel-fade .carousel-inner .item {
+            transition: 0.6s ease-in-out opacity;
+        }
 
-    .item,
-    .active.left,
-    .active.right {
-        opacity: 0.5;
-    }
-
-    .active,
-    .next.left,
-    .prev.right {
-        opacity: 1;
-    }
-
-        .next,
-        .prev,
+        .item,
         .active.left,
         .active.right {
-            left: 0;
-            transform: translate3d(0, 0, 0);
+            opacity: 0.5;
         }
 
-    .carousel-control {
-        z-index: 2;
-    }
-
-    .t_price {
-        margin: 1% 0;
-        padding: 2% 0;
-        font-size: 1.2em;
-        font-weight: bold;
-    }
-
-    .t_arrow {
-        position: absolute;
-        bottom: 5%;
-        right: -4%;
-    }
-
-    .ori {
-        border: solid 0.5px #b0b0b0;
-    }
-
-    .sel {
-        cursor: pointer
-    }
-
-
-
-    .product-title {
-        color: #ff4157;
-        position: relative;
-        margin: 0 0 10px 30px;
-        padding: 0 0 20px;
-        clear: both;
-    }
-
-        .product-title span {
-            display: inline-block;
-            padding-bottom: 15px;
-            text-transform: uppercase;
-            border-bottom: 3px solid transparent;
-            color: #333;
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
         }
 
-        .product-title:after {
-            position: absolute;
-            left: 0;
-            height: 1px;
-            width: 100%;
-            bottom: 0;
-            background: #162541;
-            content: "";
-        }
-
-    .menuover {
-        position: relative;
-        transition: 0.2s;
-        border: solid 1px #ddd;
-        padding: 0;
-        margin-right: 15px;
-    }
-
-        .menuover:hover {
-            transform: translateY(-5px);
-        }
-
-
-    #tab-cont, #tab-cont1 {
-        transition: ease-in 0.4s;
-    }
-
-    #tab-btn, #tab-btn1 {
-        padding: 0;
-        border: solid 1px #ff4157;
-    }
-
-        #tab-btn ul, #tab-btn1 ul {
-            width: 100%;
-        }
-
-            #tab-btn ul li, #tab-btn1 ul li {
-                width: 33.33333%;
-                float: left;
-                padding: 2%;
-                text-align: center;
+            .next,
+            .prev,
+            .active.left,
+            .active.right {
+                left: 0;
+                transform: translate3d(0, 0, 0);
             }
 
-            #tab-btn1 ul li {
-                width: 20%;
+        .carousel-control {
+            z-index: 2;
+        }
+
+        .ori {
+            border: solid 0.5px #b0b0b0;
+        }
+
+        .sel {
+            cursor: pointer
+        }
+
+        #tab-cont, #tab-cont1 {
+            transition: ease-in 0.4s;
+        }
+
+        #tab-btn, #tab-btn1 {
+            padding: 0;
+            border: solid 1px #ff4157;
+        }
+
+            #tab-btn ul, #tab-btn1 ul {
+                width: 100%;
             }
 
-                #tab-btn ul li a, #tab-btn1 ul li a {
-                    font-size: 1.1em;
-                    color: #ff4157;
+                #tab-btn ul li, #tab-btn1 ul li {
+                    width: 33.33333%;
+                    float: left;
+                    padding: 2%;
+                    text-align: center;
                 }
 
-        #tab-btn .tab-active, #tab-btn1 .tab-active1 {
-            background: #ff4157;
-        }
+                #tab-btn1 ul li {
+                    width: 20%;
+                }
 
-            #tab-btn .tab-active a, #tab-btn1 .tab-active1 a {
-                color: #fff;
+                    #tab-btn ul li a, #tab-btn1 ul li a {
+                        font-size: 1.1em;
+                        color: #ff4157;
+                    }
+
+            #tab-btn .tab-active, #tab-btn1 .tab-active1 {
+                background: #ff4157;
             }
 
+                #tab-btn .tab-active a, #tab-btn1 .tab-active1 a {
+                    color: #fff;
+                }
 
-    .embed-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-    }
 
-        .embed-container iframe, .embed-container object, .embed-container embed {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 99%;
+        .embed-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
         }
 
-    .gallery-image {
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 15px;
-        padding-bottom: 5px;
-    }
-
-    .btn-size {
-        font-size: 0.75em;
-        margin-bottom: 30px;
-    }
-
-    .embed-container {
-        width: 100%;
-        height: 100%;
-    }
-
-        .embed-container video, .embed-container object, .embed-container embed {
-            top: 0;
-            left: 0;
-            min-width: 100%;
-            min-height: 100%;
-            display: block;
-            padding: 0;
-        }
-
-    ul, li {
-        list-style: none;
-    }
-
-    .main-article div {
-        font-weight: normal;
-        line-height: 150%;
-        font-size: 1.3rem;
-        border-bottom: dotted 1px #b0b0b0;
-        margin-bottom: 4px
-    }
-
-    @@media (max-width: 767px) {
-        .gallery-image img {
-            width: 60%;
-        }
-    }
-    .hr-text {
-      line-height: 1em;
-      position: relative;
-      outline: 0;
-      border: 0;
-      color: #333;
-      text-align: center;
-      height: 1.5em;
-    }
-    .hr-text:before {
-      content: '';
-      background: linear-gradient(to right, transparent, #333, transparent);
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-    }
-    .hr-text:after {
-      content: attr(data-content);
-      position: relative;
-      display: inline-block;
-      color: #333;
-      padding: 0 .5em;
-      line-height: 1.5em;
-      background-color: #fff;
-      font-weight:bold
-    }
-
-
-      .about-box {
-            min-height: 340px;
-            margin: 5px;
-            word-break: break-all;
-            border-top: solid 1px #ddd;
-            position:relative;
-        }
-
-        .about-box strong {
-                display: inline-block;
-                font-size: 16px;
-                padding-top:20px;
-                margin:0 0 10px 30px;
-            }
-            .about-box strong:before{
-                content:"";
-                width:10px;
-                height:10px;
-                background:#ff4157;
-                position:absolute;
-                top:0;
-                left:0;
-                
-
-
+            .embed-container iframe, .embed-container object, .embed-container embed {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 99%;
             }
 
-    .caption {
-        position: relative;
-        text-align:center; 
-        padding:10px 0;
-    }
-
-    .img-logo {
-        margin-bottom: 15px;
-        display: block;
-        height: 170px;
-    }
-
-        .img-logo img {
-            height: 60%;
+        .gallery-image {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 15px;
+            padding-bottom: 5px;
         }
 
-        .img-logo a {
-            border: solid 1px #ddd;
+        .btn-size {
+            font-size: 0.75em;
+            margin-bottom: 30px;
+        }
+
+        .embed-container {
             width: 100%;
             height: 100%;
+        }
+
+            .embed-container video, .embed-container object, .embed-container embed {
+                top: 0;
+                left: 0;
+                min-width: 100%;
+                min-height: 100%;
+                display: block;
+                padding: 0;
+            }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .v-section {
+            margin-top: 20px;
+            margin-bottom: 34px;
+            padding: 0 5px;
+            z-index: 100;
+            position: relative;
+        }
+
+        .caption {
+            position: relative;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .v-caption {
+            text-align: left;
             padding: 10px;
-            display: block;
-            transition:ease 0.4s;
-        }
-
-        .img-logo p {
             color: #333;
-            font-size: 14px;
-            transition:ease 0.4s;
-        }
-        .img-logo:hover a {
-            border:solid 1px #ff4157
+            line-height: 2rem;
+            font-size: 15px;
+            border: 1px solid #ddd
         }
 
-        .img-logo:hover p {
-            right: 0%;
-            bottom: 0;
-            color: #fff;
-            background:#ff4157;
-        }
+        @@media (max-width: 767px) {
+            .img-logo {
+                height: 200px;
+            }
 
-    @@media (max-width: 767px) {
-        .img-logo {
-            height: 200px;
-        }
-    }
 
-    .banner_wraper {
-        height: 100px;
-        width: 100%;
-        position: absolute;
-        overflow: hidden;
-        margin-left:100px;
-    }
+            .banner_wraper {
+                height: 100px;
+                width: 100%;
+                position: absolute;
+                overflow: hidden;
+                margin-left: 100px;
+            }
 
-        .banner_wraper img {
-            height: 100px;
-            position: absolute;
+                .banner_wraper img {
+                    height: 100px;
+                    position: absolute;
+                }
+
+            .gallery-image img {
+                width: 60%;
+            }
         }
-</style>
+    </style>
 <div id="page" style="padding-top:30px;">
     <div class="col-md-10 col-md-offset-1">
-        <div class="col-md-5 col-md-offset-1" style="margin-bottom:10px; max-height:380px;">
+        <div class="col-md-5 col-md-offset-1" style="margin-bottom:30px; max-height:380px;">
             @*슬라이드*@
             <div id="myCarousel1" class="carousel slide carousel-fade" data-ride="carousel">
 
@@ -436,75 +299,175 @@
             </div>
         </div>
 
-        <div class="row" style="margin:0px 0;margin-bottom:30px;">
-            <div class="col-md-10 col-md-offset-1">
-                <div style=" padding-top:30px; padding-bottom:15px; clear:both">
-                    <h2 style="color:#333; padding-top:30px;font-weight:lighter;">2019 SUPERTALENT SEASON 13 FINALISTS</h2>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=229"><img class="img-responsive" src="~/images/index/fin1.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=222"><img class="img-responsive" src="~/images/index/fin2.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=232"><img class="img-responsive" src="~/images/index/fin3.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=228"><img class="img-responsive" src="~/images/index/fin4.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=227"><img class="img-responsive" src="~/images/index/fin5.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=223"><img class="img-responsive" src="~/images/index/fin6.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=221"><img class="img-responsive" src="~/images/index/fin7.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=220"><img class="img-responsive" src="~/images/index/fin8.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=212"><img class="img-responsive" src="~/images/index/fin9.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=210"><img class="img-responsive" src="~/images/index/fin10.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=216"><img class="img-responsive" src="~/images/index/fin11.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=230"><img class="img-responsive" src="~/images/index/fin12.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=226"><img class="img-responsive" src="~/images/index/fin13.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=225"><img class="img-responsive" src="~/images/index/fin14.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=209"><img class="img-responsive" src="~/images/index/fin15.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=231"><img class="img-responsive" src="~/images/index/fin16.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=224"><img class="img-responsive" src="~/images/index/fin17.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=213"><img class="img-responsive" src="~/images/index/fin18.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=217"><img class="img-responsive" src="~/images/index/fin19.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=218"><img class="img-responsive" src="~/images/index/fin20.jpg" /></a></div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=211"><img class="img-responsive" src="~/images/index/fin21.jpg" /></a></div>
-
+        
+        <div class="col-md-10 col-md-offset-1">
+            <div style=" padding-top:30px; padding-bottom:15px; clear:both">
+                <h3 style="color:#333; padding-top:30px;font-weight:lighter;">2019 SUPERTALENT SEASON 13 FINALISTS</h3>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=229"><img class="img-responsive" src="~/images/index/fin1.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=222"><img class="img-responsive" src="~/images/index/fin2.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=232"><img class="img-responsive" src="~/images/index/fin3.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=228"><img class="img-responsive" src="~/images/index/fin4.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=227"><img class="img-responsive" src="~/images/index/fin5.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=223"><img class="img-responsive" src="~/images/index/fin6.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=221"><img class="img-responsive" src="~/images/index/fin7.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=220"><img class="img-responsive" src="~/images/index/fin8.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=212"><img class="img-responsive" src="~/images/index/fin9.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=210"><img class="img-responsive" src="~/images/index/fin10.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=216"><img class="img-responsive" src="~/images/index/fin11.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=230"><img class="img-responsive" src="~/images/index/fin12.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=226"><img class="img-responsive" src="~/images/index/fin13.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=225"><img class="img-responsive" src="~/images/index/fin14.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=209"><img class="img-responsive" src="~/images/index/fin15.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=231"><img class="img-responsive" src="~/images/index/fin16.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=224"><img class="img-responsive" src="~/images/index/fin17.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=213"><img class="img-responsive" src="~/images/index/fin18.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=217"><img class="img-responsive" src="~/images/index/fin19.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=218"><img class="img-responsive" src="~/images/index/fin20.jpg" /></a></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12"><a class="gallery-image" href="/Finalists/Model_details_ko?id=211"><img class="img-responsive" src="~/images/index/fin21.jpg" /></a></div>
                 </div>
             </div>
         </div>
+        
 
-        <div class="row" style="margin:0px 0;margin-bottom:30px;">
-            <div class="col-md-10 col-md-offset-1">
-                <div style=" padding-top:30px; padding-bottom:15px; clear:both">
-                    <h2 style="color:#333; padding-top:30px;font-weight:lighter;">PRODUCT</h2>
-                </div>
+        <div class="col-md-10 col-md-offset-1" style="clear:both;display:block;">
+            <div id="tab-cont1" class="row" style="padding-bottom:30px;">
+                @*특가여행 시작*@
                 <section class="gallery-front">
-                    <div style="">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h4 style="color:#333;padding-top:30px;font-weight:lighter;text-align:center;line-height:1.6;">Supertalent of the World 2019 - 2018</h4>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/9pfdcbLuJyw" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video01.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2019 Miss Supertalent<br />
+                                    Season 13 Vietnam Bon Nabi
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/bK9VkKg78SQ" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video02.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2019 Supertalent of the World<br />
+                                    Final in Rome Cavalieri
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/Hy-iNd3FtBg" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video03.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2019 Supertalent of the World<br />
+                                    Season 12 Grand Final 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/LVb20EUKqIQ" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video04.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2018 Supertalent Of The World<br />
+                                    Season 11 in Eiffel Tower
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/SsPel9Ewjxs" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video05.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2019 Supertalent Fashion Week<br />
+                                    in Myeongdong
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/cCI-PpWD--s" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video06.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2018 Supertalent Fashion Week<br />
+                                    in Myeongdong
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h4 style="color:#333;padding-top:30px;font-weight:lighter;text-align:center;line-height:1.6; ">PRODUCT</h4>
+                        @{ int start_it = 1;}
+
                         @foreach (var item in Model.Where(a => a.Category == 0))
                         {
-                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="padding:0;" onclick="location.href='/Shop/Details?id='+@item.id+''">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center sel" style="margin-top:20px;padding:0;z-index:100" onclick="location.href='/Shop/Details?id='+@item.id+''">
                                 <div class="menuover">
 
-                                    <img class="img-responsive" src="@item.MainImgPath">
+                                    <img class="img-responsive" src="@item.MainImgPath" style="width:100%;height:228px;">
 
-                                    <div class="text-center" style="margin-top:5px">
-                                        <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-calendar-alt"></i> @item.days Days</text>
-                                        <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-globe"></i> @item.Country Countries</text>
-                                        <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-location-arrow"></i> @item.City Cities</text>
+                                    @*<div class="text-left" style="margin-top:5px">
+                            <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-calendar-alt"></i> @item.days Days</text>
+                            <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-globe"></i> @item.Country Countries</text>
+                            <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-location-arrow"></i> @item.City Cities</text>
+                        </div>*@
+                                    <div class="text-center" style="">
+                                        <h4 style="margin:15px 0; word-break:keep-all;">@item.Title</h4>
+                                        @*<span class="star"><img title="별점" src="/images/Shop/stars.png" /></span>*@
                                     </div>
                                     <div class="text-center">
-                                        <h4 style="margin:15px; word-break:keep-all;">@item.Title</h4>
-                                        <span class="center"><img title="star" src="/images/Shop/stars.png" /></span>
+                                        <span style="margin:15px; word-break:keep-all;font-size:14px;text-align:center;color:#ff4157">@item.Sdate ~  @item.Edate</span>
+                                        <br />
                                     </div>
-                                    <div class="text-center">
-                                        <p class="t_price" style="margin-left:15px">
-                                            <text>&#8361;</text> @item.Price_d <text style="font-size:0.7em">Per Person</text>
+
+
+                                    <div class="text-center" style="margin-bottom:15px">
+                                        <p>
+                                            <span style="color:#666; font-weight:500;font-size:14px;text-decoration:line-through;">
+                                                @{
+                                                    double old_price = 0;
+                                                    double now_price = Convert.ToDouble(item.Price_d);
+
+                                                    old_price = (now_price / 0.8);
+
+                                                }
+                                                <br />
+                                                @old_price.ToString("###,###")
+
+                                            </span><br />
+                                            <span><span style="color:#ff4157;font-weight:500;font-size:16px;">20%&nbsp;&nbsp;</span>&#8361;</span> @item.Price_d <span style="font-size:1em">
+                                                1person<br />
+                                                @if (start_it == 1 || start_it == 2)
+                                                {<br />
+                                                    <span style="color:red;">SOLD OUT</span>
+                                                }
+
+                                            </span>
                                         </p>
                                     </div>
-                                    <p class="t_arrow"><img src="/images/Shop/arrow-right.png" style="width:65%" /></p>
                                 </div>
                             </div>
+
+                            start_it++;
                         }
                     </div>
-
                 </section>
+                @*특가여행 끝*@
             </div>
         </div>
+
+
+
         @*파트너 시작*@
         <div class="row" style="margin:0px 0;margin-bottom:30px;">
             <div class="col-md-10 col-md-offset-1">
@@ -578,9 +541,9 @@
                                 </a>
                             </div>
                             <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
-                                <a href="http://www.mediturhotelpisa.it">
+                                <a href="https://www.ih-hotels.com/it/i-nostri-aberghi/ih-hotels-bologna-amadeus.html">
                                     <img src="~/images/Partners/part6.jpg" class="img-responsive" />
-                                    <div class="caption"><p>Meditur Pisa</p></div>
+                                    <div class="caption"><p>Amadeus Hotel Bologna</p></div>
                                 </a>
                             </div>
                             <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
@@ -624,15 +587,15 @@
                                 </a>
                             </div>
                             <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
-                                <a href="https://theventstylist.com">
+                                <a href="https://missinternational.fr">
                                     <img src="~/images/Partners/part17.jpg" class="img-responsive" />
-                                    <div class="caption"><p>The Fashion Stylist</p></div>
+                                    <div class="caption"><p>Miss International France</p></div>
                                 </a>
                             </div>
                             <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
-                                <a href="https://www.facebook.com/pg/missf1world">
+                                <a href="http://www.missexcellencefrance.com/">
                                     <img src="~/images/Partners/part18.jpg" class="img-responsive" />
-                                    <div class="caption"><p>Miss F1 World</p></div>
+                                    <div class="caption"><p>Miss Excellence France</p></div>
                                 </a>
                             </div>
                             <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
@@ -810,22 +773,6 @@
         </div>
         @*파트너 끝*@
 
-
-        @*<div class="" style="text-align:center;  padding:100px 0 200px 0; clear:both">
-            <div class="banner_wraper">
-                <a href="https://www.hilton.com/en/waldorf-astoria/"><img src="~/images/Partners/part0.jpg" /></a>
-                <a href="https://www.accorhotels.com/gb/hotel-0771-ibis-paris-la-defense-centre/index.shtml"><img src="~/images/Partners/part1.jpg" /></a>
-                <a href="https://www.accorhotels.com/gb/hotel-0444-novotel-marseille-east/index.shtml"><img src="~/images/Partners/part2.jpg" /></a>
-                <a href="https://hotel-soco.com/"><img src="~/images/Partners/part3.jpg" /></a>
-                <a href="https://www.ripamontiresidencehotel.com/"><img src="~/images/Partners/part4.jpg" /></a>
-                <a href="http://www.cadelmorovenice.com/"><img src="~/images/Partners/part5.jpg" /></a>
-                <a href="http://www.mediturhotelpisa.it"><img src="~/images/Partners/part6.jpg" /></a>
-                <a href="http://www.grandhotelflorasorrento.com/"><img src="~/images/Partners/part7.jpg" /></a>
-                <a href="https://www.bluhotelrome.it/en/home-page.aspx"><img src="~/images/Partners/part8.jpg" /></a>
-                <a href="http://www.oraclemedicalgroup.com/"><img src="~/images/Partners/part9.jpg" /></a>
-                <a href="https://www.asiacrowd.kr/"><img src="~/images/Partners/part10.jpg" /></a>
-            </div>
-        </div>*@
     </div>
 </div>
 

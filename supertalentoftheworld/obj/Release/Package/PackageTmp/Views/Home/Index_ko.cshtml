@@ -39,19 +39,6 @@
         z-index: 2;
     }
 
-    .t_price {
-        margin: 1% 0;
-        padding: 2% 0;
-        font-size: 1.2em;
-        font-weight: bold;
-    }
-
-    .t_arrow {
-        position: absolute;
-        bottom: 5%;
-        right: -4%;
-    }
-
     .ori {
         border: solid 0.5px #b0b0b0;
     }
@@ -59,48 +46,6 @@
     .sel {
         cursor: pointer
     }
-
-
-
-    .product-title {
-        color: #ff4157;
-        position: relative;
-        margin: 0 0 10px 30px;
-        padding: 0 0 20px;
-        clear: both;
-    }
-
-        .product-title span {
-            display: inline-block;
-            padding-bottom: 15px;
-            text-transform: uppercase;
-            border-bottom: 3px solid transparent;
-            color: #333;
-        }
-
-        .product-title:after {
-            position: absolute;
-            left: 0;
-            height: 1px;
-            width: 100%;
-            bottom: 0;
-            background: #162541;
-            content: "";
-        }
-
-    .menuover {
-        position: relative;
-        transition: 0.2s;
-        border: solid 1px #ddd;
-        padding: 0;
-        margin-right: 15px;
-        min-height: 454px;
-    }
-
-        .menuover:hover {
-            transform: translateY(-5px);
-        }
-
 
     #tab-cont, #tab-cont1 {
         transition: ease-in 0.4s;
@@ -185,125 +130,32 @@
     ul, li {
         list-style: none;
     }
-
-    .main-article div {
-        font-weight: normal;
-        line-height: 150%;
-        font-size: 1.3rem;
-        border-bottom: dotted 1px #b0b0b0;
-        margin-bottom: 4px
-    }
-
-    @@media (max-width: 767px) {
-        .gallery-image img {
-            width: 60%;
-        }
-    }
-
-    .hr-text {
-        line-height: 1em;
-        position: relative;
-        outline: 0;
-        border: 0;
-        color: #333;
-        text-align: center;
-        height: 1.5em;
-    }
-
-        .hr-text:before {
-            content: '';
-            background: linear-gradient(to right, transparent, #333, transparent);
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 100%;
-            height: 1px;
-        }
-
-        .hr-text:after {
-            content: attr(data-content);
-            position: relative;
-            display: inline-block;
-            color: #333;
-            padding: 0 .5em;
-            line-height: 1.5em;
-            background-color: #fff;
-            font-weight: bold
-        }
-
-
-    .about-box {
-        min-height: 340px;
-        margin: 5px;
-        word-break: break-all;
-        border-top: solid 1px #ddd;
-        position: relative;
-    }
-
-        .about-box strong {
-            display: inline-block;
-            font-size: 16px;
-            padding-top: 20px;
-            margin: 0 0 10px 30px;
-        }
-
-            .about-box strong:before {
-                content: "";
-                width: 10px;
-                height: 10px;
-                background: #ff4157;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-
+   .v-section {
+        margin-top:20px;
+        margin-bottom:34px;
+        padding:0 5px;
+        z-index:100;
+        position:relative;
+   }
     .caption {
         position: relative;
         text-align: center;
         padding: 10px 0;
     }
-
-    .img-logo {
-        margin-bottom: 15px;
-        display: block;
-        height: 170px;
+    .v-caption {
+        text-align:left;
+        padding:10px;
+        color:#333;
+        line-height:2rem;
+        font-size:15px;
+        border:1px solid #ddd
     }
-
-        .img-logo img {
-            height: 60%;
-        }
-
-        .img-logo a {
-            border: solid 1px #ddd;
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-            display: block;
-            transition: ease 0.4s;
-        }
-
-        .img-logo p {
-            color: #333;
-            font-size: 14px;
-            transition: ease 0.4s;
-        }
-
-        .img-logo:hover a {
-            border: solid 1px #ff4157
-        }
-
-        .img-logo:hover p {
-            right: 0%;
-            bottom: 0;
-            color: #fff;
-            background: #ff4157;
-        }
-
+ 
     @@media (max-width: 767px) {
         .img-logo {
             height: 200px;
         }
-    }
+
 
     .banner_wraper {
         height: 100px;
@@ -317,12 +169,16 @@
             height: 100px;
             position: absolute;
         }
+        .gallery-image img {
+            width: 60%;
+        }
+        }
 </style>
 
 
 <div id="page" style="padding-top:30px;">
     <div class="col-md-10 col-md-offset-1">
-        <div class="col-md-5 col-md-offset-1" style="margin-bottom:10px; max-height:380px;">
+        <div class="col-md-5 col-md-offset-1" style="margin-bottom:30px; max-height:380px;">
             @*슬라이드*@
             <div id="myCarousel1" class="carousel slide carousel-fade" data-ride="carousel">
 
@@ -773,76 +629,144 @@
             </div>*@
             <div id="tab-cont1" class="row" style="padding-bottom:30px;">
                 @*특가여행 시작*@
-                <div style="">
-                    <h3 style="color:#333; padding:30px 0;font-weight:lighter;text-align:center ">슈퍼탤런트 모델ㆍ패션 인플루언서ㆍ뷰티 유투버들과 함께 하는 유럽여행 슈퍼 특가</h3>
-                </div>
                 <section class="gallery-front">
-
-                    @{ int start_it = 1;}
-
-                    @foreach (var item in Model.Where(a => a.Category == 1))
-                    {
-                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px;padding:0;z-index:100" onclick="go_link(@start_it)">
-                            <div class="menuover">
-
-                                <img class="img-responsive" src="@item.MainImgPath" style="width:100%;">
-
-                                @*<div class="text-left" style="margin-top:5px">
-                                    <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-calendar-alt"></i> @item.days Days</text>
-                                    <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-globe"></i> @item.Country Countries</text>
-                                    <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-location-arrow"></i> @item.City Cities</text>
-                                </div>*@
-                                <div class="text-center" style="height:70px">
-                                    <h4 style="margin:15px; word-break:keep-all;">@item.Title</h4>
-                                    @*<span class="star"><img title="별점" src="/images/Shop/stars.png" /></span>*@
-                                </div>
-                                <div class="text-center">
-                                    <span style="margin:15px; word-break:keep-all;font-size:14px;text-align:center;color:#ff4157">@item.Sdate ~  @item.Edate</span>
-
-                                </div>
-
-
-                                <div class="text-center" style="margin-bottom:15px">
-                                    <p></p>
-                                    <p class="t_price" style="line-height:1.4em;font-weight:lighter;text-align:center;">
-                                        <div style="color:#222; font-weight:500;font-size:12px;line-height:150%;padding:5px;height:170px">
-                                            @course_get(start_it)
-                                        </div>
-
-
-                                        <span style="color:#666; font-weight:500;font-size:14px;text-decoration:line-through;">
-                                            @{
-                                                double old_price = 0;
-                                                double now_price = Convert.ToDouble(item.Price_w);
-
-                                                old_price = (now_price / 0.8);
-
-                                            }
-
-                                            @old_price.ToString("###,###")
-
-                                        </span><br />
-                                        <span><span style="color:#ff4157;font-weight:500;font-size:16px;">20%&nbsp;&nbsp;</span>&#8361;</span> @item.Price_w <span style="font-size:0.7em">
-                                            1인
-
-
-
-                                        </span>
-                                    </p>
-                                </div>
-                                <p class="t_arrow"><img src="/images/Shop/arrow-right.png" style="width:65%" /></p>
-                            </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h4 style="color:#333;padding-top:30px;font-weight:lighter;text-align:center;line-height:1.6;">슈퍼탤런트 오브 더 월드<br />2019 - 2018 시즌 영상 </h4>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/9pfdcbLuJyw" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video01.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2019 Miss Supertalent<br />
+                                    Season 13 Vietnam Bon Nabi
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>                            
                         </div>
-                        start_it++;
-                    }
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/bK9VkKg78SQ" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video02.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2019 Supertalent of the World<br />
+                                    Final in Rome Cavalieri
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>                            
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/Hy-iNd3FtBg" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video03.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2019 Supertalent of the World<br />
+                                    Season 12 Grand Final 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/LVb20EUKqIQ" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video04.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2018 Supertalent Of The World<br />
+                                    Season 11 in Eiffel Tower
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>                            
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/SsPel9Ewjxs" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video05.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2019 Supertalent Fashion Week<br />
+                                    in Myeongdong
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>                            
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 v-section">
+                            <a href="https://youtu.be/cCI-PpWD--s" style="width:100%" class="a-over" target="_blank">
+                                <img src="~/images/index/video06.jpg" class="img-responsive" style="width:100%;" />
+                                <img src="~/images/index/play.png" class="img-over" />
+                                <p class="caption v-caption">
+                                    2018 Supertalent Fashion Week<br />
+                                    in Myeongdong
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow1" aria-hidden="true"><path fill="none" d="M0 0h24v24H0z" /><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" fill="#ff4157" /></svg>
+                                </p>
+                            </a>                            
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h4 style="color:#333;padding-top:30px;font-weight:lighter;text-align:center;line-height:1.6; ">슈퍼탤런트 모델ㆍ패션 인플루언서ㆍ뷰티 유투버들과 <br />함께 하는 유럽여행 슈퍼 특가</h4>
+                        @{ int start_it = 1;}
 
+                        @foreach (var item in Model.Where(a => a.Category == 1))
+                        {
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center sel" style="margin-top:20px;padding:0;z-index:100" onclick="go_link(@start_it)">
+                                <div class="menuover">
+
+                                    <img class="img-responsive" src="@item.MainImgPath" style="width:100%;height:170px;">
+
+                                    @*<div class="text-left" style="margin-top:5px">
+                            <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-calendar-alt"></i> @item.days Days</text>
+                            <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-globe"></i> @item.Country Countries</text>
+                            <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-location-arrow"></i> @item.City Cities</text>
+                        </div>*@
+                                    <div class="text-center" style="">
+                                        <h4 style="margin:15px 0; word-break:keep-all;">@item.Title</h4>
+                                        @*<span class="star"><img title="별점" src="/images/Shop/stars.png" /></span>*@
+                                    </div>
+                                    <div class="text-center">
+                                        <span style="margin:15px; word-break:keep-all;font-size:14px;text-align:center;color:#ff4157">@item.Sdate ~  @item.Edate</span>
+
+                                    </div>
+
+
+                                    <div class="text-center" style="margin-bottom:15px">
+                                        <p>
+                                            <div style="color:#222; font-weight:500;font-size:12px;line-height:150%;padding:10px;">
+                                                @course_get(start_it)
+                                            </div>
+
+
+                                            <span style="color:#666; font-weight:500;font-size:14px;text-decoration:line-through;">
+                                                @{
+                                                    double old_price = 0;
+                                                    double now_price = Convert.ToDouble(item.Price_w);
+
+                                                    old_price = (now_price / 0.8);
+
+                                                }
+
+                                                @old_price.ToString("###,###")
+
+                                            </span><br />
+                                            <span><span style="color:#ff4157;font-weight:500;font-size:16px;">20%&nbsp;&nbsp;</span>&#8361;</span> @item.Price_w <span style="font-size:1em">
+                                                1인<br />
+                                                @if (start_it == 1 || start_it == 2)
+                                                {<br />
+                                                    <span style="color:red;">SOLD OUT</span> <span style="color:gray;">마감 </span>
+                                                }
+
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            start_it++;
+                        }
+                    </div>
                 </section>
                 @*특가여행 끝*@
             </div>
 
 
-            <div id="tab-cont2" class="row" style="text-align:center; padding-bottom:30px; clear:both">
-                @* 한류지원 시작*@
+            @*<div id="tab-cont2" class="row" style="text-align:center; padding-bottom:30px; clear:both">
+                 한류지원 시작
                 <div>
                     <div>
 
@@ -863,8 +787,8 @@
                         </div>
                     </section>
                 </div>
-                @*한류지원 끝*@
-            </div>
+                한류지원 끝
+            </div>*@
 
             <script>
                 var tabBtn1 = $("#tab-btn1 > ul > li");
@@ -924,10 +848,10 @@
                 <div class="col-md-12" style="text-align:center;">
                     <div class="row" style="margin:15px;margin-bottom:30px;clear:both;text-align:center">
                         @*<div class="row" style=" padding:10px 10px; clear:both;">
-                            <hr class="hr-text" data-content="EVENT VENUE">
-                            <div class="gallery-image img-logo">
-                            </div>
-                        </div>*@
+            <hr class="hr-text" data-content="EVENT VENUE">
+            <div class="gallery-image img-logo">
+            </div>
+        </div>*@
                         <div class="row" style=" padding:10px 10px; clear:both;">
                             <hr class="hr-text" data-content="FINAL VENUE">
                             <div class="col-md-4 col-md-offset-2" style="margin-bottom:15px;">
@@ -944,62 +868,62 @@
 
                         <div class="row" style=" padding:10px 10px; clear:both;">
                             <hr class="hr-text" data-content="VENUE HOTELS">
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.toureiffel.paris/fr ">
                                     <img src="~/images/Partners/part13.jpg" class="img-responsive" />
                                     <div class="caption"><p>Tour Eiffel Paris</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://group.accor.com/en/brands/midscale/novotel">
                                     <img src="~/images/Partners/part14.jpg" class="img-responsive" />
                                     <div class="caption"><p>Novotel</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.accorhotels.com/gb/hotel-0771-ibis-paris-la-defense-centre/index.shtml">
                                     <img src="~/images/Partners/part1.jpg" class="img-responsive" />
                                     <div class="caption"><p>ibis paris la defense</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.accorhotels.com/gb/hotel-0444-novotel-marseille-east/index.shtml">
                                     <img src="~/images/Partners/part2.jpg" class="img-responsive" />
                                     <div class="caption"><p>Novotel MarseilleEst</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://hotel-soco.com">
                                     <img src="~/images/Partners/part3.jpg" class="img-responsive" />
                                     <div class="caption"><p>Hotel SoCo</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.ripamontiresidencehotel.com">
                                     <img src="~/images/Partners/part4.jpg" class="img-responsive" />
                                     <div class="caption"><p>Ripamonti</p></div>
                                 </a>
                             </div>
 
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.cadelmorovenice.com">
                                     <img src="~/images/Partners/part5.jpg" class="img-responsive" />
                                     <div class="caption"><p>Cadelmoro Venice</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
-                                <a href="http://www.mediturhotelpisa.it">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
+                                <a href="https://www.ih-hotels.com/it/i-nostri-aberghi/ih-hotels-bologna-amadeus.html">
                                     <img src="~/images/Partners/part6.jpg" class="img-responsive" />
-                                    <div class="caption"><p>Meditur Pisa</p></div>
+                                    <div class="caption"><p>Amadeus Hotel Bologna</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.grandhotelflorasorrento.com/">
                                     <img src="~/images/Partners/part7.jpg" class="img-responsive" />
                                     <div class="caption"><p>Grandhotel Flora</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.bluhotelrome.it/en/home-page.aspx">
                                     <img src="~/images/Partners/part8.jpg" class="img-responsive" />
                                     <div class="caption"><p>Best Western</p></div>
@@ -1009,205 +933,205 @@
 
                         <div class="row" style=" padding:10px 10px; clear:both">
                             <hr class="hr-text" data-content="GLOBAL PARTNERS">
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.oraclemedicalgroup.com">
                                     <img src="~/images/Partners/part9.jpg" class="img-responsive" />
                                     <div class="caption"><p>Oracle Medical</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.asiacrowd.kr">
                                     <img src="~/images/Partners/part10.jpg" class="img-responsive" />
                                     <div class="caption"><p>Asia Crowd</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://theventstylist.com">
                                     <img src="~/images/Partners/part15.jpg" class="img-responsive" />
                                     <div class="caption"><p>The Fashion Stylist</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.facebook.com/pg/missf1world">
                                     <img src="~/images/Partners/part16.jpg" class="img-responsive" />
                                     <div class="caption"><p>Miss F1 World</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
-                                <a href="https://theventstylist.com">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
+                                <a href="https://missinternational.fr">
                                     <img src="~/images/Partners/part17.jpg" class="img-responsive" />
-                                    <div class="caption"><p>The Fashion Stylist</p></div>
+                                    <div class="caption"><p>Miss International France</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
-                                <a href="https://www.facebook.com/pg/missf1world">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
+                                <a href="http://www.missexcellencefrance.com/">
                                     <img src="~/images/Partners/part18.jpg" class="img-responsive" />
-                                    <div class="caption"><p>Miss F1 World</p></div>
+                                    <div class="caption"><p>Miss Excellence France</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.culppy.org">
                                     <img src="~/images/Partners/part11.jpg" class="img-responsive" />
                                     <div class="caption"><p>Culppy</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.ipa.or.kr">
                                     <img src="~/images/Partners/part12.jpg" class="img-responsive" />
                                     <div class="caption"><p>IPA</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.sportsseoul.com/">
                                     <img src="~/images/Partners/part19.jpg" class="img-responsive" />
                                     <div class="caption"><p>Sports Seoul</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.apsk.co.kr">
                                     <img src="~/images/Partners/part20.jpg" class="img-responsive" />
                                     <div class="caption"><p>Apsk</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.webdaily.co.kr">
                                     <img src="~/images/Partners/part21.jpg" class="img-responsive" />
                                     <div class="caption"><p>Web Daily</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.beyondpost.co.kr">
                                     <img src="~/images/Partners/part22.jpg" class="img-responsive" />
                                     <div class="caption"><p>Beyond Post</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://cnews.seconomy.kr">
                                     <img src="~/images/Partners/part23.jpg" class="img-responsive" />
                                     <div class="caption"><p>Seconomy</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.thebigdata.co.kr">
                                     <img src="~/images/Partners/part24.jpg" class="img-responsive" />
                                     <div class="caption"><p>The Bigdata</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.annytronco.it/">
                                     <img src="~/images/Partners/part25.jpg" class="img-responsive" />
                                     <div class="caption"><p>Annytronco</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.volkswageninternationalfashionweek.com">
                                     <img src="~/images/Partners/part26.jpg" class="img-responsive" />
                                     <div class="caption"><p>Volkswagen</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.worldfashionweek.tv">
                                     <img src="~/images/Partners/part27.jpg" class="img-responsive" />
                                     <div class="caption"><p>World FashionWeek</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.vanfashionweek.com">
                                     <img src="~/images/Partners/part28.jpg" class="img-responsive" />
                                     <div class="caption"><p>Van FashionWeek</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.uptownfashionweek.com">
                                     <img src="~/images/Partners/part29.jpg" class="img-responsive" />
                                     <div class="caption"><p>Uptown FashionWeek</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.fdla.co">
                                     <img src="~/images/Partners/part30.jpg" class="img-responsive" />
                                     <div class="caption"><p>FDLA</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://spbfw.ru">
                                     <img src="~/images/Partners/part31.jpg" class="img-responsive" />
                                     <div class="caption"><p>ST. PetersBurg</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://odessafashionweek.com">
                                     <img src="~/images/Partners/part32.jpg" class="img-responsive" />
                                     <div class="caption"><p>Odessa FashionWeek</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.ecofashionweekaustralia.com">
                                     <img src="~/images/Partners/part33.jpg" class="img-responsive" />
                                     <div class="caption"><p>Eco FashionWeek</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.sunshinecoastfashionfestival.com">
                                     <img src="~/images/Partners/part34.jpg" class="img-responsive" />
                                     <div class="caption"><p>SunshineCoast Fashion Festival</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.hkfda.org">
                                     <img src="~/images/Partners/part35.jpg" class="img-responsive" />
                                     <div class="caption"><p>HKDA</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.punefashionweek.com">
                                     <img src="~/images/Partners/part36.jpg" class="img-responsive" />
                                     <div class="caption"><p>Pune FashionWeek</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.missengland.info">
                                     <img src="~/images/Partners/part37.jpg" class="img-responsive" />
                                     <div class="caption"><p>Miss England</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.worldsupermodelpageant.com">
                                     <img src="~/images/Partners/part38.jpg" class="img-responsive" />
                                     <div class="caption"><p>World Supermodel Pageant</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="http://www.sac.ac.kr">
                                     <img src="~/images/Partners/part39.jpg" class="img-responsive" />
                                     <div class="caption"><p>SAC</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.starcollection-by-pm.de">
                                     <img src="~/images/Partners/part40.jpg" class="img-responsive" />
                                     <div class="caption"><p>Starcollection</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.viator.com/">
                                     <img src="~/images/Partners/part41.jpg" class="img-responsive" />
                                     <div class="caption"><p>Viator</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.tripadvisor.com/">
                                     <img src="~/images/Partners/part42.jpg" class="img-responsive" />
                                     <div class="caption"><p>Tripadvisor</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.nsr.com.cn">
                                     <img src="~/images/Partners/part43.jpg" class="img-responsive" />
                                     <div class="caption"><p>Nsr</p></div>
                                 </a>
                             </div>
-                            <div class="gallery-image img-logo col-md-2">
+                            <div class="gallery-image img-logo col-lg-2 col-md-2 col-sm-3 col-xs-6">
                                 <a href="https://www.topmodelworldwide.com">
                                     <img src="~/images/Partners/part44.jpg" class="img-responsive" />
                                     <div class="caption"><p>Top Model WorldWide</p></div>
@@ -1336,9 +1260,7 @@
         <span style="color:#ff4157">
             유럽 34도시익스플로어
         </span>
-        <span>
-            인천→파리(3)→TGV→아를→엑상프로방스 → 마르세유(2)→이프섬→카시스→생트로페→그라스 →생폴드방스 →니스(2) →깐느→에즈→모나코→망통→산레모→제노아→ 밀라노(2) →베로나→훼리→리도섬→훼리→베니스섬(1)→ 라벤나→리미니→산마리노→볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→나폴리→폼페이→소렌토(1) →훼리→ 카프리섬 →훼리→소렌토→ 티볼리 →로마(4)→기내(1) →인천
-        </span>
+
 
 
 
@@ -1349,10 +1271,7 @@
         <span style="color:#ff4157">
             유럽 27도시익스플로어
         </span>
-        <span>
-            인천→니스(3)→생트로페→그라스 →생폴드방스 →깐느→에즈→모나코→망통→산레모→제노아→ 밀라노(2) →베로나→훼리→리도섬→훼리→베니스섬(1)→ 라벤나→리미니→산마리노→볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→나폴리→폼페이→소렌토(1) →훼리→ 카프리섬 →훼리→소렌토→ 티볼리 →로마(4)→기내(1) →인천
 
-        </span>
 
 
 
@@ -1364,7 +1283,7 @@
             이태리 18도시익스플로어
         </span>
         <span>
-            인천→밀라노(2)→베로나→훼리 →리도섬→훼리 →베니스섬(1)→ 라벤나→리미니→산마리노 →볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→ 나폴리→폼페이→소렌토(1) → 훼리→ 카프리섬 →훼리 →소렌토→ 티볼리 →로마(4)→기내(1) →인천
+            인천→밀라노(2)→베로나→리도섬→베니스섬(1)→ 라벤나→리미니→산마리노 →볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→ 나폴리→폼페이→소렌토(1) → 카프리섬 →소렌토→ 티볼리 →로마(4)→기내(1) →인천
         </span>
 
 
@@ -1377,8 +1296,9 @@
         <span style="color:#ff4157">
             이태리 7도시익스플로어
         </span>
-        <span>
+        <span style="height:50px;">
             인천→로마(1)→ 나폴리→폼페이 →소렌토(1) → 훼리→ 카프리섬 →훼리 →소렌토→ 티볼리 →로마(4)→기내(1) →인천
+            <br /><br /><br />
         </span>
 
 
@@ -1398,7 +1318,17 @@
     {
         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px;padding:0;" onclick="go_url()">
             <div class="menuover" style="text-align:center;line-height:1.6em;">
-                <img class="img-responsive" src="@img_src" style="width:100%;">
+                <img class="img-responsive" src="/images/index/korea_gigup_0.jpg" style="width:100%;">
+                @*<h4 style="margin:15px 0;">인플루언서 홍보</h4>
+                <span style="color:#ff4157">촬영기간 : 2019.10.18 ~ 11.02</span><br />*@
+                <span style="margin-top:15px;">
+                    Lada AKimova Diet Campaign <br />
+                    Supertalent of the World 2019
+
+                </span>
+                @*<p style="margin-top:30px;font-size:16px;"><span style="color:#ff4157">특가</span>&nbsp;&nbsp;<span>2,000,000원</span></p>*@
+
+                @*<img class="img-responsive" src="@img_src" style="width:100%;">
                 <h4 style="margin:15px 0;">인플루언서 홍보</h4>
                 <span style="color:#ff4157">촬영기간 : 2019.10.18 ~ 11.02</span><br />
                 <span style="margin-top:15px;">
@@ -1407,7 +1337,7 @@
                     28명 셀카 사진 원본 제공
                 </span>
 
-                <p style="margin-top:30px;font-size:16px;"><span style="color:#ff4157">특가</span>&nbsp;&nbsp;<span>2,000,000원</span></p>
+                <p style="margin-top:30px;font-size:16px;"><span style="color:#ff4157">특가</span>&nbsp;&nbsp;<span>2,000,000원</span></p>*@
 
             </div>
         </div>

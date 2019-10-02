@@ -152,6 +152,10 @@ License URI: http://www.themevault.net/license/
         font-size: 7rem;
         margin-top: 10%
     }
+    .subtitle_resko {
+        font-size: 4rem;
+        margin-top: 5%
+    }
     .subtitle_bg {
         height: 250px;
     }
@@ -170,6 +174,10 @@ License URI: http://www.themevault.net/license/
       font-size:4rem;
       margin-top:0
   }
+    .subtitle_resko {
+        font-size: 3rem;
+        margin-top: 0
+    }
     .subtitle_bg {
         height:auto;
     }

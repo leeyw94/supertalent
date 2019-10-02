@@ -503,6 +503,7 @@
     <Content Include="images\index\fin7.jpg" />
     <Content Include="images\index\fin8.jpg" />
     <Content Include="images\index\fin9.jpg" />
+    <Content Include="images\index\korea_gigup_0.jpg" />
     <Content Include="images\index\korea_gigup_1.jpg" />
     <Content Include="images\index\korea_gigup_2.jpg" />
     <Content Include="images\index\korea_gigup_3.jpg" />
@@ -513,6 +514,14 @@
     <Content Include="images\index\pages05.jpg" />
     <Content Include="images\index\pages06.jpg" />
     <Content Include="images\index\pages07.jpg" />
+    <Content Include="images\index\play.png" />
+    <Content Include="images\index\video01.jpg" />
+    <Content Include="images\index\video02.jpg" />
+    <Content Include="images\index\video03.jpg" />
+    <Content Include="images\index\video04.jpg" />
+    <Content Include="images\index\video05.jpg" />
+    <Content Include="images\index\video06.jpg" />
+    <Content Include="images\logo\fashionone_logo.png" />
     <Content Include="images\logo\supertalent_logo.png" />
     <Content Include="images\Partners\part0.jpg" />
     <Content Include="images\Partners\part1.jpg" />
@@ -561,6 +570,7 @@
     <Content Include="images\Partners\part7.jpg" />
     <Content Include="images\Partners\part8.jpg" />
     <Content Include="images\Partners\part9.jpg" />
+    <Content Include="images\Partners\wiki.jpg" />
     <Content Include="images\Schedule\check.png" />
     <Content Include="images\close.png" />
     <Content Include="images\Background\Finalkor-back.jpg" />
@@ -671,8 +681,24 @@
     <Content Include="images\Support\support-icon2.png" />
     <Content Include="images\Support\support-icon3.png" />
     <Content Include="images\Support\support-icon4.png" />
+    <Content Include="images\Support\support-m1.png" />
+    <Content Include="images\Support\support-m10.png" />
+    <Content Include="images\Support\support-m11.png" />
+    <Content Include="images\Support\support-m12.png" />
+    <Content Include="images\Support\support-m13.png" />
+    <Content Include="images\Support\support-m14.png" />
+    <Content Include="images\Support\support-m2.png" />
+    <Content Include="images\Support\support-m3.png" />
+    <Content Include="images\Support\support-m4.png" />
+    <Content Include="images\Support\support-m5.png" />
+    <Content Include="images\Support\support-m6.png" />
+    <Content Include="images\Support\support-m7.png" />
+    <Content Include="images\Support\support-m8.png" />
+    <Content Include="images\Support\support-m9.png" />
     <Content Include="images\video\supertalent.mp4" />
     <Content Include="images\video\supertalent1.mp4" />
+    <Content Include="images\video\supertalent2.mp4" />
+    <Content Include="images\video\supertalent3.mp4" />
     <Content Include="img\controls.png" />
     <Content Include="jquery-ui-1.12.1.custom\AUTHORS.txt" />
     <Content Include="jquery-ui-1.12.1.custom\external\jquery\jquery.js" />
@@ -948,6 +974,7 @@
     <Content Include="Views\Management\Models_ko.cshtml" />
     <Content Include="Views\Management\Model_details.cshtml" />
     <Content Include="Views\Management\Model_detailsls_ko.cshtml" />
+    <Content Include="Views\Home\Login_ko.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

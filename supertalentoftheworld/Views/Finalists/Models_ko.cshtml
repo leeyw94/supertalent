@@ -19,53 +19,54 @@
             @Html.Partial("/Views/Layout/_Finalist_Menu_ko.cshtml")
 
             <div class="col-md-8 col-md-offset-2">
-                <section class="gallery-block gallery-front">
+                <section class="gallery-block gallery-front row">
                     @foreach (var item in Model)
                     {
                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" style="margin-bottom:20px;">
                         <div class="gallery-image">
                             <img class="img-responsive" src="@item.MainImgPath" onerror="this.src='http://supertalent.theblueeye.com/upload/error.png'" style="margin:0">
                             <div class="overlay">
-                                <a class="info pop img-responsive" href="/Finalists/Model_details_ko?id=@item.id" style="margin:0"><i class="fa fa-search" aria-hidden="true" style="position:absolute;left:45%;top:45%;"></i></a>
-                                <p><a>View Detail</a></p>
+                                <a class="info pop img-responsive" href="/Finalists/Model_details_ko?id=@item.id" style="margin:0">                                    
+                                    <p class="text-center">
+                                        <span style="color:#fff;line-height:2.8rem;font-size:1.8rem;font-weight:lighter">
+                                            <span class="text-over">Age&nbsp;</span>@item.M_age<br>
+                                            <span class="text-over">Height&nbsp;</span>@item.M_height<br>
+                                            @*<span class="text-over">Bust</span>@item.M_bust<br>
+                                            <span class="text-over">Waist</span>@item.M_waist<br>
+                                            <span class="text-over">Hips</span>@item.M_hips<br>*@
+                                            <span class="text-over">Hair</span>@ViewBag.헤어<br>
+                                            <span class="text-over">Eyes</span>@ViewBag.눈<br><br />
+                                        </span>
+                                        View Detail<br>
+                                    </p>
+                                </a>
                             </div>
                         </div>
-                        <div class="col-md-11" style="height:40px; padding:15px 0;">
-                            <div class="text-center col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                <p class="text-country">@item.M_country</p>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                @{if (item.M_facebook != null)
-                                    {
-                                        <div class="text-center">
-                                            @{ if (item.M_insta != null)
-                                                {
-                                                    <a class="text-bio" href="@item.M_insta"> <img class="img-sns" src="/images/sns2.png" /></a>
+                        
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin:10px 0;padding:0">                           
+                            <div style="display:block;clear:both;width:100%;">
+                                <div class="text-country col-lg-7 col-md-7 col-sm-7 col-xs-7">@item.M_country</div>
+                                <div class="text-left col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                    @{if (item.M_insta != null)
+                                        {
+                                            <span class="text-left">
+                                                @{ if (item.M_insta != null)
+                                                    {
+                                                        <a class="text-bio" href="@item.M_insta"> <img class="img-sns" src="/images/sns2.png" /></a>
 
+                                                    }
                                                 }
-                                            }
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <div>
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span>
 
-                                        </div>
-                                    } }
+                                            </span>
+                                        } }
 
-                            </div>
-                        </div>
-
-                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11" style="margin:10px 0;padding:0">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <p class="text-title" style="margin-bottom:10px;"><span>H -</span> <span>@item.M_height</span></p>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <p class="text-title" style="margin-bottom:10px;"><span>A -</span> <span>@item.M_age</span></p>
-                            </div>
-
-                            <div style="display:block;clear:both;width:100%;margin:5px;">
-                                <p class="text-name">@item.M_name</p>
+                                </div>
+                                <div class="text-name col-lg-12 col-md-12 col-sm-12 col-xs-12">@item.M_name</div>
                             </div>
                         </div>
                     </div>
@@ -103,17 +104,24 @@
     }
 
     .text-name {
-        font-size: 1.1em;
+        font-size: 1em;
         margin-bottom: 20px;
         text-align:center;
-    }
-    .text-title{
-        color:#ff4157;
-        font-weight:lighter;
+        margin-top:10px;
     }
     .text-country {
         color: #a8a8a8;
-        text-transform:uppercase
+        text-transform:uppercase;
+        min-height:25px;
+        display:table;
+        font-size:0.9em;
+        
+    }
+     .text-over {
+        color: #a8a8a8; 
+        text-transform:uppercaser;
+        display:inline;
+        
     }
 
     .img-country {

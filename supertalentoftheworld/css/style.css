@@ -195,7 +195,7 @@ ul{
     position: relative;
 }
 .gallery-image .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     height: 100%;
     left: 0;
     opacity: 0;
@@ -240,20 +240,59 @@ ul{
     .gallery-image a.info:hover, .gallery-image a.info > i:hover {
         color: #e01931;
     }
-.overlay p {
-    bottom: 0;
-    font-size: 17px;
-    font-weight: 600;
-    left: 25%;
-    letter-spacing: 2px;
-    position: absolute;
-    text-transform: uppercase;
-    transition: bottom 0.9s ease 0s;
+
+.product-title {
+    color: #ff4157;
+    position: relative;
+    margin: 0 0 10px 30px;
+    padding: 0 0 20px;
+    clear: both;
 }
-.overlay p a{
+
+    .product-title span {
+        display: inline-block;
+        padding-bottom: 15px;
+        text-transform: uppercase;
+        border-bottom: 3px solid transparent;
+        color: #333;
+    }
+
+    .product-title:after {
+        position: absolute;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        bottom: 0;
+        background: #162541;
+        content: "";
+    }
+
+.menuover {
+    position: relative;
+    transition: 0.2s;
+    border: solid 0.2px #ddd;
+    padding: 0;
+    margin-right: 15px;
+}
+
+    .menuover:hover {
+        transform: translateY(-5px);
+    }
+
+    .overlay p {
+        bottom: 0;
+        font-size: 17px;
+        font-weight: 600;
+        left: 25%;
+        letter-spacing: 2px;
+        position: absolute;
+        text-transform: uppercase;
+        transition: bottom 0.9s ease 0s;
+    }
+.overlay a p{
     color: #fff;
 }
-.overlay p a:hover{
+.overlay a p:hover{
     color: #ff4157;
 }
 .btn.btn-default {
@@ -273,7 +312,144 @@ ul{
     margin-left: auto;
     margin-right: auto;
 }
+.arrow1 {
+    position:absolute;
+    right:10px;
+}
 
+.a-over:hover .img-over {
+    transform: scale(1.08);
+    opacity: 1;
+}
+.a-over:hover .caption .arrow1 {
+    animation: slide1 1s ease-in-out infinite;
+}
+
+@keyframes slide1 {
+    0%, 100% {
+        width:40px;
+    }
+
+    50% {
+        width: 24px;
+    }
+}
+
+.hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: #333;
+    text-align: center;
+    height: 1.5em;
+}
+
+    .hr-text:before {
+        content: '';
+        background: linear-gradient(to right, transparent, #333, transparent);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+    }
+
+    .hr-text:after {
+        content: attr(data-content);
+        position: relative;
+        display: inline-block;
+        color: #333;
+        padding: 0 .5em;
+        line-height: 1.5em;
+        background-color: #fff;
+        font-weight: bold
+    }
+
+
+.about-box {
+    min-height: 340px;
+    margin: 5px;
+    word-break: break-all;
+    border-top: solid 1px #ddd;
+    position: relative;
+}
+
+    .about-box strong {
+        display: inline-block;
+        font-size: 16px;
+        padding-top: 20px;
+        margin: 0 0 10px 30px;
+    }
+
+        .about-box strong:before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: #ff4157;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+.youtube-link {
+    position:absolute;
+    bottom:10px;
+    left:0;
+}
+.img-over {
+    width: 50px;
+    position: absolute;
+    top: 26%;
+    left: 45%;
+    transition: 0.2s;
+    transform: scale(1);
+    opacity: 0.6;
+}
+
+.main-article div {
+    font-weight: normal;
+    line-height: 150%;
+    font-size: 1.3rem;
+    border-bottom: dotted 1px #b0b0b0;
+    margin-bottom: 4px
+}
+.img-logo {
+    margin-bottom: 15px;
+    display: block;
+    height: 170px;
+}
+
+    .img-logo img {
+        height: 60%;
+    }
+
+    .img-logo a {
+        border: solid 1px #ddd;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        display: block;
+        transition: ease 0.4s;
+    }
+
+    .img-logo p {
+        color: #333;
+        font-size: 14px;
+        transition: ease 0.4s;
+    }
+
+    .img-logo:hover a {
+        border: solid 1px #ff4157
+    }
+
+    .img-logo:hover p {
+        right: 0%;
+        bottom: 0;
+        color: #fff;
+        background: #ff4157;
+    }
+
+    
 
 /*footer*/
 footer {
@@ -354,7 +530,7 @@ footer a{
 
 /*copyright*/
 .copyright {
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 1px;
     margin-top: 40px;
     text-align: center;

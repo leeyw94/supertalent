@@ -12,8 +12,8 @@
 <div class="row" style="text-align:center;margin:0">
     <div class="col-md-12" style="background:#ff4157">
         <ul class="col-md-8 col-md-offset-2 user-ul ul-bg">
-            <li class="user-li">
-                <a class="user-a li-active" id="intro" href="/Superlady/Intro">Intro</a>
+            <li class="user-li li-active">
+                <a class="user-a" id="intro" href="/Superlady/Intro">Intro</a>
             </li>
             <li class="user-li">
                 <a class="user-a" id="models" onclick="javascript: modelsgo()">
@@ -29,7 +29,7 @@
 
 
 <div class="container font-user" style="clear:both">
-    <div class="row font-user" style="margin:50px 0;">
+    <div class="row font-user" style="margin:50px 0; line-height:2.2rem;">
         <div class="col-md-7">
             <p style="font-size:16px">
                 <strong>SUPERLADY OF THE WORLD</strong> is an International fashion and beauty showcase for  age 28 + married, unmarried or single ladies which is a uniqueness of the golden age to participate in four continentals considered to be the most luxurious and foremost competition of its genre in the world.<br /><br />
@@ -81,15 +81,6 @@
 </div>
 
 <style>
-    a {
-        color: #244ed4;
-    }
-
-    .font-user {
-        font-size: 1.8rem;
-        line-height: 2.4rem;
-    }
-
     .user-a {
         width: 110px;
         display: inline-block;
@@ -98,6 +89,9 @@
         padding: 20px 0
     }
 
+    .gallery-image {
+        margin-bottom: 0px;
+    }
 
     .li-active {
         color: #ff4157;
@@ -111,24 +105,34 @@
         }
 
     .text-name {
-        font-weight: bold;
-        font-size: 1.2em;
+        font-size: 1em;
         margin-bottom: 20px;
+        text-align: center;
+        margin-top: 10px;
     }
 
     .text-country {
         color: #a8a8a8;
-        font-weight: bold;
-        margin-bottom: 20px;
+        text-transform: uppercase;
+        min-height: 25px;
+        display: table;
+        font-size: 0.9em;
     }
 
+    .img-country {
+        width: 45px;
+        height: 25px;
+        position: absolute;
+        left: 2.5px;
+        top: 1px;
+    }
 
-    .info {
-        margin-top: 150px;
+    .img-sns {
+        width: 20px;
     }
 
     .user-ul {
-        display: block;
+        display: table;
         list-style: none;
         text-align: center;
     }
@@ -148,6 +152,12 @@
         .user-li a:hover {
             color: #333;
         }
+
+    .img-responsive {
+        height: 340px;
+        background-size: cover;
+        width: 100%;
+    }
 </style>
 <script>
  $(function(){
