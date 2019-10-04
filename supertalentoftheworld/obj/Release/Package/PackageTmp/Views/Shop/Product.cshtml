@@ -24,20 +24,29 @@
 
                     @foreach (var item in Model.Where(a => a.Category == 0))
                     {
-                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center sel" style="margin-top:20px" onclick="location.href='/Shop/Details?id='+@item.id+''">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center sel" style="margin-top:20px;padding:0;z-index:100" onclick="location.href='/Shop/Details?id='+@item.id+''">
                             <div class="menuover">
-                                <img class="img-responsive" src="@item.MainImgPath" style="width:100%;">
-                                <div class="text-center">
-                                    <h4 style="margin:15px; word-break:keep-all;">@item.Title</h4>
+
+                                <img class="img-responsive" src="@item.MainImgPath" style="width:100%;height:228px;">
+
+                                @*<div class="text-left" style="margin-top:5px">
+                        <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-calendar-alt"></i> @item.days Days</text>
+                        <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-globe"></i> @item.Country Countries</text>
+                        <text style="color:#333; margin-left:15px"><i style="font-size:1.0em;" class="fas fa-location-arrow"></i> @item.City Cities</text>
+                    </div>*@
+                                <div class="text-center" style="">
+                                    <h4 style="margin:15px 0; word-break:keep-all;">@item.Title</h4>
+                                    @*<span class="star"><img title="별점" src="/images/Shop/stars.png" /></span>*@
                                 </div>
                                 <div class="text-center">
                                     <span style="margin:15px; word-break:keep-all;font-size:14px;text-align:center;color:#ff4157">@item.Sdate ~  @item.Edate</span>
+                                    <br />
                                 </div>
-                                <div class="text-center" style="margin-bottom:15px">
-                                    <p></p>
-                                    <p class="t_price" style="margin-left:15px;line-height:1.4em;">
 
-                                        <span style="color:#666; font-weight:500;font-size:14px;text-decoration:line-through;padding-left:30px;">
+
+                                <div class="text-center" style="margin-bottom:15px">
+                                    <p>
+                                        <span style="color:#666; font-weight:500;font-size:14px;text-decoration:line-through;">
                                             @{
                                                 double old_price = 0;
                                                 double now_price = Convert.ToDouble(item.Price_d);
@@ -45,18 +54,23 @@
                                                 old_price = (now_price / 0.8);
 
                                             }
-
+                                            <br />
                                             @old_price.ToString("###,###")
 
                                         </span><br />
-                                        <span><span style="color:#ff4157;font-weight:500;font-size:14px;">20%&nbsp;&nbsp;</span>$</span> @item.Price_d <span style="font-size:0.7em">
-                                            1인
+                                        <span><span style="color:#ff4157;font-weight:500;font-size:16px;">20%&nbsp;&nbsp;</span>&#8361;</span> @item.Price_d <span style="font-size:1em">
+                                            1person<br />
+                                            @if (start_it == 1 || start_it == 2)
+                                            {<br />
+                                                <span style="color:red;">SOLD OUT</span>
+                                            }
+
                                         </span>
                                     </p>
                                 </div>
-                                <p class="t_arrow"><img src="/images/Shop/arrow-right.png" style="width:65%" /></p>
                             </div>
                         </div>
+
                         start_it++;
                     }
                 </div>
@@ -72,44 +86,6 @@
         cursor: pointer
     }
 
-    .product-title {
-        color: #ff4157;
-        position: relative;
-        margin: 0 0 10px 30px;
-        padding: 0 0 20px;
-        clear: both;
-    }
-
-        .product-title span {
-            display: inline-block;
-            padding-bottom: 15px;
-            text-transform: uppercase;
-            border-bottom: 3px solid transparent;
-            color: #333;
-        }
-
-        .product-title:after {
-            position: absolute;
-            left: 0;
-            height: 1px;
-            width: 100%;
-            bottom: 0;
-            background: #162541;
-            content: "";
-        }
-
-    .menuover {
-        position: relative;
-        transition: 0.2s;
-        border: solid 1px #ddd;
-        padding: 0;
-        margin-right: 15px;
-    }
-
-        .menuover:hover {
-            transform: translateY(-5px);
-        }
-
 
     .t_duration {
         padding: 2% 0;
@@ -118,25 +94,14 @@
         line-height: 2rem;
     }
 
-    .t_price {
-        margin: 1% 0;
-        padding: 2% 0;
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-left: 10px
-    }
-
-    .t_arrow {
-        position: absolute;
-        bottom: 5%;
-        right: -4%;
-    }
 
     .ori {
         border: solid 0.5px #b0b0b0;
     }
 
-
+    .menuover {
+        height: 396px;
+    }
 
     .img-responsive {
         width: 100%;
@@ -145,13 +110,6 @@
     .btn-size {
         font-size: 0.75em;
         margin-bottom: 30px;
-    }
-
-    @@media (max-width:767px) {
-        .product-title {
-            text-align: center;
-            margin: 15px 0;
-        }
     }
 </style>
 

@@ -246,6 +246,11 @@ namespace supertalentoftheworld.Controllers
             return View();
         }
 
+        public ActionResult SignUp_ko()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public ActionResult Login(UserData login_user, string remember)
@@ -266,7 +271,7 @@ namespace supertalentoftheworld.Controllers
                         if (!user.verified)
                         {
                             //이메일 미인증
-                            return Content("<html><script>alert('이메일 인증을 해주세요.'); window.top.location.href = '/Home/ConfirmEmail?email="+login_user.user_email+"';</script></html>");
+                            return Content("<html><script>alert('Please verify your email.'); window.top.location.href = '/Home/ConfirmEmail?email="+login_user.user_email+"';</script></html>");
 
                         }
                         else {                                    
@@ -275,6 +280,62 @@ namespace supertalentoftheworld.Controllers
                         FormsAuthentication.SetAuthCookie(user.user_email, false);
                         Response.Cookies["user_email"].Value = user.user_email;
                         Response.Cookies["user_level"].Value = Convert.ToString(user.user_level);
+
+                            return Redirect("/Home/Index");
+
+                        }
+                    }
+                    else
+                    {
+                        //비밀번호 틀림
+                        ViewBag.Error = "Please check your password.";
+                    }
+                }
+                else
+                {
+                    //사용자 없음
+                    ViewBag.Error = "The user name is not registered.";
+                }
+
+            }
+            else
+            {
+                //리퀘스트 값이 없음
+                ViewBag.Error = "Please enter your username and password.";
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login_ko(UserData login_user, string remember)
+        {
+
+
+            if (!string.IsNullOrEmpty(login_user.user_email) && !string.IsNullOrEmpty(login_user.user_password) && login_user != null)
+            {
+                var user = db.UserData.Find(login_user.user_email);
+
+                //이번엔 사용자가 있어야됨
+                if (user != null)
+                {
+                    //비밀번호 확인
+                    if (user.user_password.Equals(CryptoManager.GetMd5Hash(login_user.user_password)))
+                    {
+
+                        if (!user.verified)
+                        {
+                            //이메일 미인증
+                            return Content("<html><script>alert('이메일 인증을 해주세요.'); window.top.location.href = '/Home/ConfirmEmail?email=" + login_user.user_email + "';</script></html>");
+
+                        }
+                        else
+                        {
+
+                            ////인증쿠키 추가
+                            FormsAuthentication.SetAuthCookie(user.user_email, false);
+                            Response.Cookies["user_email"].Value = user.user_email;
+                            Response.Cookies["user_level"].Value = Convert.ToString(user.user_level);
 
                             return Redirect("/Home/Index_ko");
 
@@ -334,6 +395,68 @@ namespace supertalentoftheworld.Controllers
                     if (EmailAuth)
                     {
                         //이메일도 보낸다.
+                        string body = "Click an address to verify your email.";
+                        body += "http://www.supertalent.co/Home/Verification?key=" + user.temp_confirm_key;
+
+                        MailMessage msg = new MailMessage("yyyoungh724@gmail.com", user.user_email, "SuperTalent of The World authentication mail.", body);
+
+                        MailManager.SendGmail(msg);
+                        ViewBag.email = user.user_email;
+                        return Redirect("/Home/ConfirmEmail?email=" + user.user_email);
+                    }
+                    else
+                    {
+                        return Redirect("/Home/Login");
+                    }
+
+                }
+                else
+                {
+                    ViewBag.Error = "User does not exist.";
+                }
+
+            }
+            else
+            {
+                ViewBag.Error = "Email, password, and name are required values.";
+            }
+
+
+
+            return Redirect("/Home/Login");
+        }
+
+        [HttpPost]
+        public ActionResult SignUp_ko(UserData user)
+        {
+
+            if (!string.IsNullOrEmpty(user.user_email) && !string.IsNullOrEmpty(user.user_password) && user != null)
+            {
+
+                var db_user = db.UserData.Find(user.user_email);
+
+                //존재하는 사용자인지 확인
+                if (db_user == null)
+                {
+
+                    //db에 추가하고, 인증키 만들어둔다.
+
+                    user.temp_confirm_key = CryptoManager.GetUniqeString(15).Replace("/", "").Replace("+", "");
+
+                    user.user_password = CryptoManager.GetMd5Hash(user.user_password);
+
+                    user.rdate = DateTime.Now;
+
+                    user.use_yn = "Y";
+
+                    db.UserData.Add(user);
+
+                    db.SaveChanges();
+
+                    //이메일 인증 분기점
+                    if (EmailAuth)
+                    {
+                        //이메일도 보낸다.
                         string body = "다음의 주소를 클릭하여 이메일을 인증하세요";
                         body += "http://www.supertalent.co/Home/Verification?key=" + user.temp_confirm_key;
 
@@ -345,7 +468,7 @@ namespace supertalentoftheworld.Controllers
                     }
                     else
                     {
-                        return Redirect("/Home/Login");
+                        return Redirect("/Home/Login_ko");
                     }
 
                 }
@@ -362,7 +485,7 @@ namespace supertalentoftheworld.Controllers
 
 
 
-            return Redirect("/Home/Login");
+            return Redirect("/Home/Login_ko");
         }
 
         public ActionResult ConfirmEmail(string email)

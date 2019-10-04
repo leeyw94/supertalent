@@ -18,7 +18,7 @@
                 @Html.TextBox("user_password", "", new { Class = "input_user", Type = "password", Placeholder = "Password", Data_val = "true", Data_val_required = "Please enter your password" })
                 @Html.ValidationMessage("user_password", new { Class = "text-danger" })
                 <div class="form-group mg-b-20 text-danger">@ViewBag.Error</div>
-                <button type="submit" name="submit" class="input_user login-submit_user">Log In</button>
+                <button type="submit" name="submit" class="input_user login-submit_user" style="color:#fff;">Log In</button>
             </form>
             <div style="margin-bottom:132px;margin-top:30px;" class="login-linkgroup text-center">
                 <text style="font-size:16px;">Supertalent Of The World  <a href="/Home/SignUp" style="text-align:center;color:#ff4157;">Register</a></text>                
@@ -34,7 +34,7 @@
     width: 70%;
     margin: 2% auto;
     padding: 2%;
-    color: #fff;
+    color: #333;
 }
 
 </style>

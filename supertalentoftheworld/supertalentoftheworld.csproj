@@ -522,6 +522,7 @@
     <Content Include="images\index\video05.jpg" />
     <Content Include="images\index\video06.jpg" />
     <Content Include="images\logo\fashionone_logo.png" />
+    <Content Include="images\logo\logoname.png" />
     <Content Include="images\logo\supertalent_logo.png" />
     <Content Include="images\Partners\part0.jpg" />
     <Content Include="images\Partners\part1.jpg" />
@@ -975,6 +976,7 @@
     <Content Include="Views\Management\Model_details.cshtml" />
     <Content Include="Views\Management\Model_detailsls_ko.cshtml" />
     <Content Include="Views\Home\Login_ko.cshtml" />
+    <Content Include="Views\Home\SignUp_ko.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

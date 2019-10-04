@@ -2,10 +2,10 @@
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 
-
+@Html.Partial("/Views/Layout/Header.cshtml")
 
 <div class="row login-row">
-    <img src="/images/logo/supertalentlogo.png"  class="login-logo" />
+    <img src="/images/logo/supertalentlogo.png" class="login-logo" />
     <div class="col-md-12 login-col12">
         <div class="col-md-4"></div>
         <div class="col-md-4" margin:0 auto;">
@@ -16,9 +16,9 @@
                 @Html.ValidationMessage("user_name", new { Class = "text-danger" })
                 @Html.TextBox("user_phone", "", new { Class = "input_user", Type = "text", Placeholder = "Phone ex)010-1234-1234", Data_val = "true", Data_val_required = "Please enter your Phone number" })
                 @Html.ValidationMessage("user_phone", new { Class = "text-danger" })
-                @Html.TextBox("user_password", "", new { Class = "input_user", Type = "password", Placeholder = "Password  8~16", Data_val = "true", Data_val_required = "Please enter your password",Minlength="8", Maxlength="16" })
+                @Html.TextBox("user_password", "", new { Class = "input_user", Type = "password", Placeholder = "Password  8~16", Data_val = "true", Data_val_required = "Please enter your password", Minlength = "8", Maxlength = "16" })
                 @Html.ValidationMessage("user_password", new { Class = "text-danger" })
-                @Html.TextBox("confirm_password", "", new { Class = "input_user", Type = "password", Placeholder = "Password Confirm", Data_val = "true", Data_val_required = "Please enter your password", Data_val_equalto_other = "*.password", Minlength="8", Maxlength = "16", Data_val_equalto = "비밀번호가 일치하지 않습니다.", })
+                @Html.TextBox("confirm_password", "", new { Class = "input_user", Type = "password", Placeholder = "Password Confirm", Data_val = "true", Data_val_required = "Please enter your password", Data_val_equalto_other = "*.password", Minlength = "8", Maxlength = "16", Data_val_equalto = "비밀번호가 일치하지 않습니다.", })
                 @Html.ValidationMessage("confirm_password", new { Class = "text-danger" })
                 <button type="submit" onclick="ConfirmData()" name="submit" class="input_user login-submit_user">Sign Up</button>
             </form>
@@ -27,12 +27,11 @@
                 <a href="/Home/Login" class="login-link_user">Log In</a>
             </div>
         </div>
-    
+
     </div>
 </div>
 
 <style>
-
 </style>
 
 

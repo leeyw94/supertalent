@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("/Views/Layout/Header_ko.cshtml")
+
+<div class="row login-row">
+    <img src="/images/logo/supertalentlogo.png" class="login-logo" />
+    <div class="col-md-12 login-col12">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" margin:0 auto;">
+            <form id="SignupForm" method="post" action="/Home/SignUP">
+                @Html.TextBox("user_email", "", new { Class = "input_user", Type = "email", Placeholder = "이메일", Data_val = "true", Data_val_required = "Please enter your email address" })
+                @Html.ValidationMessage("user_email", new { Class = "text-danger" })
+                @Html.TextBox("user_name", "", new { Class = "input_user", Type = "text", Placeholder = "이름", Data_val = "true", Data_val_required = "Please enter your name" })
+                @Html.ValidationMessage("user_name", new { Class = "text-danger" })
+                @Html.TextBox("user_phone", "", new { Class = "input_user", Type = "text", Placeholder = "휴대폰 번호 ex)010-1234-1234", Data_val = "true", Data_val_required = "Please enter your Phone number" })
+                @Html.ValidationMessage("user_phone", new { Class = "text-danger" })
+                @Html.TextBox("user_password", "", new { Class = "input_user", Type = "password", Placeholder = "비밀번호  8~16", Data_val = "true", Data_val_required = "Please enter your password", Minlength = "8", Maxlength = "16" })
+                @Html.ValidationMessage("user_password", new { Class = "text-danger" })
+                @Html.TextBox("confirm_password", "", new { Class = "input_user", Type = "password", Placeholder = "비밀번호 재입력", Data_val = "true", Data_val_required = "Please enter your password", Data_val_equalto_other = "*.password", Minlength = "8", Maxlength = "16", Data_val_equalto = "비밀번호가 일치하지 않습니다.", })
+                @Html.ValidationMessage("confirm_password", new { Class = "text-danger" })
+                <button type="submit" onclick="ConfirmData()" name="submit" class="input_user login-submit_user">Sign Up</button>
+            </form>
+            <div class="login-linkgroup">
+                <a href="#" class="login-link_user">For got Password</a>
+                <a href="/Home/Login_ko" class="login-link_user">Log In</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+</style>
+
+
+<script src="/Scripts/jquery.validate.min.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+
+    function ConfirmData() {
+        //이미 가입된 사용자 검증
+
+
+        var data = {
+            user_email: $('#user_email').val(),
+            user_name: $('#user_name').val(),
+            user_password: $('#user_password').val(),
+            user_phone: $('user_phone').val()
+        }
+
+        $.post('/api/home/user/confirm', data, function (result) {
+
+            if (!result) {
+
+                $('#SignupForm').submit();
+
+                console.log("보냄");
+            } else {
+
+                //이미 사용자가 있으면?
+
+                swal({
+                    title: '사용중인 이메일',
+                    text: "이미 등록된 이메일입니다.",
+                    type: 'warning',
+                    confirmButtonColor: '#4fa7f3'
+                })
+
+            }
+        })
+    }
+</script>

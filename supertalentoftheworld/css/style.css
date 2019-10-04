@@ -146,6 +146,9 @@ ul{
 .service-block, .gallery-block, .blog-block, .blog-block-slider, .about-block, .contact-block, .blog{
     padding: 70px 0 0 0;
 }
+.text-danger {
+    text-align:center;
+}
 
 /*social link*/
 .social-grid ul li{
@@ -368,7 +371,7 @@ ul{
 
 
 .about-box {
-    min-height: 340px;
+    min-height: 370px;
     margin: 5px;
     word-break: break-all;
     border-top: solid 1px #ddd;
