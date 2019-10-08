@@ -26,14 +26,16 @@
                         <div class="gallery-image">
                             <img class="img-responsive" src="@item.MainImgPath" onerror="this.src='http://supertalent.theblueeye.com/upload/error.png'" style="margin:0">
                             <div class="overlay">
-                                <a class="info pop img-responsive" href="/Finalists/Model_details_ko?id=@item.id" style="margin:0">
+                                <a class="info pop img-responsive" href="/Finalists/Model_details?id=@item.id" style="margin:0">
                                     <p class="text-center">
-                                        <span style="color:#fff;line-height:4rem;font-size:3.2rem;">
-                                            @item.M_age<br>
-                                            @item.M_height<br>
-                                            @*@item.M_bust, @item.M_waist, @item.M_hips<br>
-                                            @ViewBag.헤어<br>
-                                            @ViewBag.눈<br>*@<br />
+                                        <span style="color:#fff;line-height:2.8rem;font-size:1.8rem;font-weight:lighter">
+                                            <span class="text-over">Age&nbsp;</span>@item.M_age<br>
+                                            <span class="text-over">Height&nbsp;</span>@item.M_height<br>
+                                            @*<span class="text-over">Bust</span>@item.M_bust<br>
+                                            <span class="text-over">Waist</span>@item.M_waist<br>
+                                            <span class="text-over">Hips</span>@item.M_hips<br>*@
+                                            <span class="text-over">Hair</span>@ViewBag.헤어<br>
+                                            <span class="text-over">Eyes</span>@ViewBag.눈<br><br />
                                         </span>
                                         View Detail<br>
                                     </p>

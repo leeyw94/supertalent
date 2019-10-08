@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent1002\supertalentoftheworld\obj\Release\Package\PackageTmp" />
-  <setAcl path="D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent1002\supertalentoftheworld\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent1002\supertalentoftheworld\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent1003\supertalentoftheworld\obj\Release\Package\PackageTmp" />
+  <setAcl path="D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent1003\supertalentoftheworld\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="D:\03. 프로젝트 _ 김지혜\2.SUPERTALENT\visual studio\supertalent1003\supertalentoftheworld\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

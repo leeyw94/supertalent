@@ -16,7 +16,7 @@
         transition: top .8s ease;
     }
 
-  
+
 
     .sel {
         cursor: pointer
@@ -96,14 +96,38 @@
         font-size: 0.75em;
         margin-bottom: 30px;
     }
+    .sel_depart {
+    cursor: pointer;
+    background: #fff;
+    border-right: solid 1px rgba(0,0,0,0.1);
+    border-top:solid 1px rgba(0,0,0,0.1);
+    border-bottom:solid 1px rgba(0,0,0,0.1);
+    transition:0.6s;
+    position:relative;
+    display:inline-block;
+    color:#333;
 
-    @@media (max-width:767px) {
-        .product-title {
-            text-align: center;
-            margin: 15px 0;
-        }
+
     }
 
+    .sel_depart:first-child {
+        border-left:solid 1px rgba(0,0,0,0.1);
+    }
+    .sel_depart:hover {
+        background:rgba(255, 65, 87,0.2);
+    }
+    .sel_depart a {
+        display:block;
+        color:#fff;
+        transition:0.6s;
+    }
+
+    .sel {
+        position: relative;
+        background: #ff4157;
+        display: inline-block;
+        color: #fff;
+    }
     .support-tri1:before {
         content: '';
         width: 0;
@@ -213,11 +237,53 @@
         transition: ease-in-out 0.6s;
     }
 
-        .over_change2:hover {
-            background: url('/images/Shop/titleh4.jpg');
-            background-size: cover;
-            background-position: center center;
+    .over_change2:hover {
+        background: url('/images/Shop/titleh4.jpg');
+        background-size: cover;
+        background-position: center center;
+    }
+    .btn.btn-default {
+        background:#fff;
+        border:solid 1px #ddd;
+        border-radius:22px;
+        margin-top:15px;
+        clear:both;
+        width:122px;
+        height:38px;
+
+    }
+        .btn.btn-default:hover {
+            background: rgba(255, 65, 87,0.2);
         }
+        .btn.btn-default:hover a {
+            color:#333;
+        }
+        .submit-btn {
+            margin-top:5px;
+            border-radius:36px;
+            font-weight:normal
+        }
+    .caption {
+        padding:10px 0;
+        text-align:center;
+        text-transform:uppercase
+    }
+    @@media (max-width:767px) {
+        .product-title {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .m_menu {
+        min-width:50%;
+        float: left;  border-bottom:solid 1px #ccc; border-left:solid 1px #ccc;border-right:none
+        }
+        .web_info {
+        margin-top: 150px;
+        padding-bottom: 50px;
+        }
+    }
+
+    
 </style>
 
 
@@ -283,168 +349,369 @@
 
         <div class="text-left">
             <section class="gallery-front" style="padding:30px;">
-                <h3 style="font-weight:bold">특가 인기 국내ㆍ유럽 호텔</h3><br />
+                <h3 style="font-weight:bold">특가 인기 국내ㆍ유럽 호텔<span style="font-weight:normal;font-size:14px;">&nbsp; 가격적용 : 2020년 3월 31일까지 X 최소 5객실 이상</span></h3><br />
                 <p style="font-size:1.2em; color:#ff4157">FEATURED EUROPE TRIPS, FOLLOW MY LUXURY EUROPE AND SHARE WITH WORLD</p>
-                <div id="tab-btn1" class="col-md-12">
-                    <ul class="user-ul ul-bg">
-                        <li class="tab-active1 user-li"><a href="#" class="user-a">서울</a></li>
-                        <li class="user-li"><a href="#" class="user-a">파리</a></li>
-                        <li class="user-li"><a href="#" class="user-a">니스</a></li>
-                        <li class="user-li"><a href="#" class="user-a">밀라노</a></li>
-                        <li class="user-li"><a href="#" class="user-a">베니스 리도</a></li>
-                        <li class="user-li"><a href="#" class="user-a">볼로냐</a></li>
-                        <li class="user-li"><a href="#" class="user-a">로마</a></li>
-                        <li class="user-li"><a href="#" class="user-a">소렌토</a></li>
-                    </ul>
+                <div class="sub_tabmenu" style=" height:auto; font-size:16px; text-align:center; line-height:5rem;margin-top:30px;">
+                    <div id="0" class="col-md-1 sel_depart sel m_menu" onclick="menu_go('1')">
+                        서울
+                    </div>
+                    <div id="1" class="col-md-1 sel_depart m_menu" onclick="menu_go('2')">
+                        파리
+                    </div>
+                    <div id="2" class="col-md-1 sel_depart m_menu" onclick="menu_go('3')">
+                        니스
+                    </div>
+                    <div id="3" class="col-md-1 sel_depart m_menu" onclick="menu_go('4')">
+                        밀라노
+                    </div>
+                    <div id="4" class="col-md-1 sel_depart m_menu" onclick="menu_go('5')">
+                        베니스 리도
+                    </div>
+                    <div id="5" class="col-md-1 sel_depart m_menu" onclick="menu_go('6')">
+                        볼로냐
+                    </div>
+                    <div id="6" class="col-md-1 sel_depart m_menu" onclick="menu_go('7')">
+                        로마
+                    </div>
+                    <div id="7" class="col-md-1 sel_depart m_menu" onclick="menu_go('8')">
+                        소렌토
+                    </div>
                 </div>
-                @*상품 시작*@
-            @*<div id="tab-cont1" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 text-left" style="margin-top:20px;padding:0;z-index:100">
-                <div>
-                    <h3>라마다 서울(Ramada Seoul)</h3>
+
+                @*호텔상품 시작*@
+                <div id="intro_1" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 web_info row" style="margin-top:30px;line-height:2em;margin-bottom:30px;">
+                    <div class="col-md-9 row">
+                        <h3>라마다 서울(Ramada Seoul)</h3>
+                        <p>
+                            조식 뷔페<br />
+                            <span style="font-weight:600;">서울특별시 강남구 삼성2동 봉은사로 410, 한국 +82 2 6202 2000 </span><br />
+                            <span>강남 선정릉 위치, 강남 최적장소, 인천공항에서 66km, 51분, 도심공항터미널 5분, 코엑스 1.5km</span>
+                        </p>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="btn btn-default"><a href="https://www.ramadaseoul.co.kr" target="_blank">&nbsp;<i class="fas fa-globe-europe"></i>&nbsp;웹사이트&nbsp;</a></span>
+                        <span class="btn btn-default" style="clear:both;"><a href="http://bit.ly/2nbZYe4" target="_blank">&nbsp;<i class="fas fa-map-marked-alt"></i>&nbsp;길찾기&nbsp;</a></span>
+                    </div>
+                    <div class="col-md-12 row" style="clear:both;margin-top:20px;">
+                        <p style="color:#ff4157">247 객실 | 조식 미국식 뷔페 | 금연 객실 | 공항 셔틀 | 피트니스 센터 | 스파/웰빙 | 룸서비스 | 전구역 Wi-Fi | 에어컨 | 전용 욕실 | 평면 TV | 헤어드라이어 | 냉장고 | 휴식 공간</p>
+                    </div>
+                    <div class="col-md-12 row" style="margin:30px 0">
+                        <div class="gallery-front row">
+                            <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ramada1.jpg" class="img-responsive" style="min-height:155px;"/><div class="caption">superior/executive room</div></div>                            
+                            <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ramada2.jpg" class="img-responsive" style="min-height:155px;"/><div class="caption">premier room</div></div>
+                            <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ramada3.jpg" class="img-responsive" style="min-height:155px;"/><div class="caption">ondol room</div></div>
+                            <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ramada4.jpg" class="img-responsive" style="min-height:155px;"/><div class="caption">suite room</div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row text-center" style="margin-top:15px">
+                        <p><span style="color:red;font-size:1.4em;">60%</span><span style="font-size:1.8em;padding-left:15px;">&#8361;100,000원</span></p>
+                        <span>2인 조식포함 ㆍ 세금일체포함</span>
+                    </div>
+                    @*<div class="col-md-2" style="margin-top:15px">
+                        <span class="btn submit-btn" style="font-size:1.6em;">호텔 선택</span>
+                    </div>*@
+                </div>
+                @*호텔상품 끝*@
+
+                @*호텔상품 시작*@
+            <div id="intro_2" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 web_info row" style="margin-top:30px;line-height:2em;margin-bottom:30px;">
+                <div class="col-md-9 row">
+                    <h3>이비스 파리 라 데팡스 센터(ibis Paris La Défense Centre)</h3>
                     <p>
-                        조식 정보 뷔페<br />
-                        <span>서울특별시 강남구 삼성2동 봉은사로 410, 한국 +82 2 6202 2000 </span>
-                        <span>강남 선정릉 위치, 강남 최적장소, 인천공항에서 66km, 51분, 도심공항터미널 5분, 코엑스 1.5km</span>
+                        <span style="font-weight:600;">4 Boulevard de Neuilly, 92400 쿠르브부아, 프랑스 +33 1 41 97 40 40 </span><br />
+                        <span>라데팡스센터 위치, 개선문, 샹젤리제까지 지하철 10분, 호텔앞 파리시내 직행열차 Esplanade de la Défense Metro Station (line 1), 샤를드골공항에서 27분 (32.6 km)</span>
                     </p>
-                    <span class="btn btn-default"><a href="https://www.ramadaseoul.co.kr"><i class="fas fa-globe-europe"></i>웹사이트</a></span>
-                    <span class="btn btn-default"><a href="http://bit.ly/2nbZYe4"><i class="fas fa-map-marked-alt"></i>길찾기</a></span>
-                    <p>
-                        247 객실 | 조식 미국식 뷔페 | 금연 객실 | 공항 셔틀 | 피트니스 센터 | 스파/웰빙 | 룸서비스 | 전구역 Wi-Fi | 에어컨 | 전용 욕실 | 평면 TV | 헤어드라이어 | 냉장고 | 휴식 공간
-                    </p>
-                    <span>60%</span>
-                    <span>&#8361;100,000원</span>
+                </div>
+                <div class="col-md-2">
+                    <span class="btn btn-default"><a href="https://www.accorhotels.com/ko/hotel-0771-ibis-paris-la-defense-centre/index.shtml" target="_blank">&nbsp;<i class="fas fa-globe-europe"></i>&nbsp;웹사이트&nbsp;</a></span>
+                    <span class="btn btn-default" style="clear:both;"><a href="http://bit.ly/2nWXLmM" target="_blank">&nbsp;<i class="fas fa-map-marked-alt"></i>&nbsp;길찾기&nbsp;</a></span>
+                </div>
+                <div class="col-md-12 row" style="clear:both;margin-top:20px;">
+                    <p style="color:#ff4157">286 객실 | 조식 유럽식, 글루텐 프리, 뷔페 | 금연 객실 | 레스토랑 | 주차장 무료 | Wi-Fi | 반려동물 허용 | 바 | 에어컨 | 전용 욕실 | 평면 TV | 방음 시설 | 헤어드라이어</p>
+                </div>
+                <div class="col-md-12 row" style="margin:30px 0">
+                    <div class="gallery-front row">
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ibis1.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">standard room<br /><span style="text-transform:lowercase">with 1 double bed</span></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ibis2.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">standard room<br /><span style="text-transform:lowercase">with 2 single bed</span></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ibis3.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">standard room<br /><span style="text-transform:lowercase">with 1 double bed and single bed</span></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ibis4.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">restaurant</div></div>
+                    </div>
+                </div>
+                <div class="col-md-12 row text-center" style="margin-top:15px">
+                    <p><span style="color:red;font-size:1.4em;">55%</span><span style="font-size:1.8em;padding-left:15px;">&#8361;120,000원</span></p>
                     <span>2인 조식포함 ㆍ 세금일체포함</span>
-                    <span class="btn submit-btn">호텔 선택</span>
                 </div>
-                <div>
-                    ddd
-                </div>
-                <div>
-                    daaadd
-                </div>
-                <div>
-                    ddddddcc
-                </div>
-            </div>*@
+                @*<div class="col-md-2" style="margin-top:15px">
+                    <span class="btn submit-btn" style="font-size:1.6em;">호텔 선택</span>
+                </div>*@
+            </div>
+                @*호텔상품 끝*@
 
+                @*호텔상품 시작*@
+            <div id="intro_3" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 web_info row" style="margin-top:30px;line-height:2em;margin-bottom:30px;">
+                <div class="col-md-9 row">
+                    <h3>호텔 소코 바이 해피컬쳐(Hotel So’Co by HappyCulture)</h3>
+                    <p>
+                        <span style="font-weight:600;">27 Avenue Thiers, 06000 니스, 프랑스, +33 4 93 82 49</span><br />
+                        <span>베스트셀러!, 니스도심 위치, 니스 기차역에서 단 270m, 트램 정류소 500m, 유명한 프롬나드 데장글레와 도보 15분, 커플 투숙 최고</span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <span class="btn btn-default"><a href="https://hotel-soco.com/" target="_blank">&nbsp;<i class="fas fa-globe-europe"></i>&nbsp;웹사이트&nbsp;</a></span>
+                    <span class="btn btn-default" style="clear:both;"><a href="http://bit.ly/2n0VZB7" target="_blank">&nbsp;<i class="fas fa-map-marked-alt"></i>&nbsp;길찾기&nbsp;</a></span>
+                </div>
+                <div class="col-md-12 row" style="clear:both;margin-top:20px;">
+                    <p style="color:#ff4157">50객실 | 조식 유럽식 뷔페 | 장애인 편의시설 | Wi-Fi | 주차장 무료 | 반려동물 허용 | 에어컨 | 전용 욕실 | 평면 TV | 방음 시설 | 헤어드라이어</p>
+                </div>
+                <div class="col-md-12 row" style="margin:30px 0">
+                    <div class="gallery-front row">
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/soco1.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">single room<br /><span style="text-transform:lowercase">with 1 single bed</span></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/soco2.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">double room<br /><span style="text-transform:lowercase">with 1 double bed or twin bed</span></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/soco3.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">triple room<br /><span style="text-transform:lowercase">with 1 queen bed and single bed</span></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/soco4.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">Hotel exterior</div></div>
+                    </div>
+                </div>
+                <div class="col-md-12 row text-center" style="margin-top:15px">
+                    <p><span style="color:red;font-size:1.4em;">50%</span><span style="font-size:1.8em;padding-left:15px;">&#8361;100,000원</span></p>
+                    <span>2인 조식포함 ㆍ 세금일체포함</span>
+                </div>
+                @*<div class="col-md-2" style="margin-top:15px">
+                    <span class="btn submit-btn" style="font-size:1.6em;">호텔 선택</span>
+                </div>*@
+            </div>
+                @*호텔상품 끝*@
 
-                @*상품 끝*@
+                @*호텔상품 시작*@
+            <div id="intro_4" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 web_info row" style="margin-top:30px;line-height:2em;margin-bottom:30px;">
+                <div class="col-md-9 row">
+                    <h3>리파몬티 레지던스 앤 호텔 밀라노(Ripamonti Residence Hotel Milan)</h3>
+                    <p>
+                        <span style="font-weight:600;">Via Dei Pini 3, 20090 피에베 엠마뉴엘레, 이탈리아 +39 02 9076</span><br />
+                        <span>Parco Sud공원위치, 시내중심가 Abbiategrasso역까지 무료셔틀버스, 호텔에서 Pieve Emanuele역 1.4km  이역에서 밀라노시내 10분</span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <span class="btn btn-default"><a href="https://www.ripamontiresidencehotel.com/" target="_blank">&nbsp;<i class="fas fa-globe-europe"></i>&nbsp;웹사이트&nbsp;</a></span>
+                    <span class="btn btn-default" style="clear:both;"><a href="http://bit.ly/2n4fJUu" target="_blank">&nbsp;<i class="fas fa-map-marked-alt"></i>&nbsp;길찾기&nbsp;</a></span>
+                </div>
+                <div class="col-md-12 row" style="clear:both;margin-top:20px;">
+                    <p style="color:#ff4157">916 객실 | 유럽식, 이탈리아식, 글루텐 프리, 미국식 뷔페 | Wi-Fi | 비즈니스 센터 | 피트니스 센터 | 컨시어지 서비스 | ATM/현금 인출기 | 수하물 보관소 | 24시간 프런트 데스크 | 셔틀 서비스</p>
+                </div>
+                <div class="col-md-12 row" style="margin:30px 0">
+                    <div class="gallery-front row">
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ripa1.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">superior room<br /></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ripa4.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">superior triple room</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ripa2.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">one-bedroom apartment</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ripa3.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">two-bedroom apartment</div></div>                        
+                    </div>
+                </div>
+                <div class="col-md-12 row text-center" style="margin-top:15px">
+                    <p><span style="color:red;font-size:1.4em;">60%</span><span style="font-size:1.8em;padding-left:15px;">&#8361;90,000원</span></p>
+                    <span>2인 조식포함 ㆍ 세금일체포함</span>
+                </div>
+                @*<div class="col-md-2" style="margin-top:15px">
+                    <span class="btn submit-btn" style="font-size:1.6em;">호텔 선택</span>
+                </div>*@
+            </div>
+                @*호텔상품 끝*@
+
+                @*호텔상품 시작*@
+            <div id="intro_5" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 web_info row" style="margin-top:30px;line-height:2em;margin-bottom:30px;">
+                <div class="col-md-9 row">
+                    <h3>카 델 모로(Ca 'Del Moro)</h3>
+                    <p>
+                        <span style="font-weight:600;">Via Malamocco, 83, 30126 베니스-리도, 이탈리아 +39 041 526 7773</span><br />
+                        <span>베니스영화제 리도섬의 종합스포츠리조트, 베니스의 산마르코 광장까지 보트로 단 30분 소요, 82개의 넓은 모던한 객실</span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <span class="btn btn-default"><a href="http://www.cadelmorovenice.com/" target="_blank">&nbsp;<i class="fas fa-globe-europe"></i>&nbsp;웹사이트&nbsp;</a></span>
+                    <span class="btn btn-default" style="clear:both;"><a href="http://bit.ly/2moyUI4" target="_blank">&nbsp;<i class="fas fa-map-marked-alt"></i>&nbsp;길찾기&nbsp;</a></span>
+                </div>
+                <div class="col-md-12 row" style="clear:both;margin-top:20px;">
+                    <p style="color:#ff4157">82 객실 | 조식 뷔페 | 금연 객실 | 야외수영장 (일시 운영 중단) | 레스토랑 | 장애인 편의시설 | 무료 주차 | Wi-Fi | 바</p>
+                </div>
+                <div class="col-md-12 row" style="margin:30px 0">
+                    <div class="gallery-front row">
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/cadel1.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">double room<br /></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/cadel2.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">triple room</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/cadel3.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">quad room</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/cadel4.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">hotel exterior</div></div>
+                    </div>
+                </div>
+                <div class="col-md-12 row text-center" style="margin-top:15px">
+                    <p><span style="color:red;font-size:1.4em;">60%</span><span style="font-size:1.8em;padding-left:15px;">&#8361;110,000원</span></p>
+                    <span>2인 조식포함 ㆍ 세금일체포함</span>
+                </div>
+                @*<div class="col-md-2" style="margin-top:15px">
+                    <span class="btn submit-btn" style="font-size:1.6em;">호텔 선택</span>
+                </div>*@
+            </div>
+                @*호텔상품 끝*@
+
+                @*호텔상품 시작*@
+            <div id="intro_6" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 web_info row" style="margin-top:30px;line-height:2em;margin-bottom:30px;">
+                <div class="col-md-9 row">
+                    <h3>아마데우스 호텔 볼로냐(Amadeus Hotel Bologna)</h3>
+                    <p>
+                        <span style="font-weight:600;">Via Marco Emilio Lepido 39, 40132 볼로냐, 이탈리아, +39 051 403040</span><br />
+                        <span> 볼로냐 공항에서 차로 단 5분 거리, 정원으로 둘러싸인 호텔의 객실은 LCD 위성 TV, 무료 Wi-Fi 넓은객실, 13번버스로 시내중심부까지 15분</span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <span class="btn btn-default"><a href="https://www.ih-hotels.com/it/i-nostri-aberghi/ih-hotels-bologna-amadeus.html" target="_blank">&nbsp;<i class="fas fa-globe-europe"></i>&nbsp;웹사이트&nbsp;</a></span>
+                    <span class="btn btn-default" style="clear:both;"><a href="http://bit.ly/2oGxUzO" target="_blank">&nbsp;<i class="fas fa-map-marked-alt"></i>&nbsp;길찾기&nbsp;</a></span>
+                </div>
+                <div class="col-md-12 row" style="clear:both;margin-top:20px;">
+                    <p style="color:#ff4157">105 객실 | 조식 유럽식, 이탈리아식, 글루텐 프리 뷔페 | 스파/웰빙 | 레스토랑 | 룸서비스 | 장애인 편의시설 | 무료 주차 | 바 | 에어컨 | 비데 | 헤어드라이어</p>
+                </div>
+                <div class="col-md-12 row" style="margin:30px 0">
+                    <div class="gallery-front row">
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ama1.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">economy room<br /></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ama2.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">superior room</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ama3.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">deluxe room</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/ama4.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">junior suite room</div></div>
+                    </div>
+                </div>
+                <div class="col-md-12 row text-center" style="margin-top:15px">
+                    <p><span style="color:red;font-size:1.4em;">50%</span><span style="font-size:1.8em;padding-left:15px;">&#8361;85,000원</span></p>
+                    <span>2인 조식포함 ㆍ 세금일체포함</span>
+                </div>
+                @*<div class="col-md-2" style="margin-top:15px">
+                    <span class="btn submit-btn" style="font-size:1.6em;">호텔 선택</span>
+                </div>*@
+            </div>
+                @*호텔상품 끝*@
+
+                @*호텔상품 시작*@
+            <div id="intro_7" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 web_info row" style="margin-top:30px;line-height:2em;margin-bottom:30px;">
+                <div class="col-md-9 row">
+                    <h3>베스트 웨스턴 블루 호텔 로마(Best Western Blu Hotel Roma)</h3>
+                    <p>
+                        <span style="font-weight:600;">Largo Domenico de' Dominicis 4, 티부르티노, 00159 로마, 이탈리아 +39 06 438 2000</span><br />
+                        <span>티부르티나(Tiburtina) 기차역/지하철역에서 1km 거리, 역은 분수, 기념물, 고대 유적 테마 여행을 원하시는 분께 강력 추천</span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <span class="btn btn-default"><a href="https://www.bluhotelrome.it/" target="_blank">&nbsp;<i class="fas fa-globe-europe"></i>&nbsp;웹사이트&nbsp;</a></span>
+                    <span class="btn btn-default" style="clear:both;"><a href="http://bit.ly/2nXuOam" target="_blank">&nbsp;<i class="fas fa-map-marked-alt"></i>&nbsp;길찾기&nbsp;</a></span>
+                </div>
+                <div class="col-md-12 row" style="clear:both;margin-top:20px;">
+                    <p style="color:#ff4157">100 객실 | 조식 유럽식, 이탈리아식, 영국식/아일랜드식, 채식, 비건, 글루텐 프리, 미국식 뷔페 | 공항 셔틀 | 레스토랑 | 룸서비스 | 장애인 편의시설 | 전용 주차 | 바 | 에어컨 | 도시 전망 | 전용 욕실 | 평면 TV | 방음 시설</p>
+                </div>
+                <div class="col-md-12 row" style="margin:30px 0">
+                    <div class="gallery-front row">
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/blu1.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">economy room<br /></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/blu2.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">superior double room</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/blu3.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">triple room</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/blu4.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">junior suite family room</div></div>
+                    </div>
+                </div>
+                <div class="col-md-12 row text-center" style="margin-top:15px">
+                    <p><span style="color:red;font-size:1.4em;">60%</span><span style="font-size:1.8em;padding-left:15px;">&#8361;130,000원</span></p>
+                    <span>2인 조식포함 ㆍ 세금일체포함</span>
+                </div>
+                @*<div class="col-md-2" style="margin-top:15px">
+                    <span class="btn submit-btn" style="font-size:1.6em;">호텔 선택</span>
+                </div>*@
+            </div>
+                @*호텔상품 끝*@
+
+                @*호텔상품 시작*@
+            <div id="intro_8" class="col-lg-9 col-md-9 col-sm-9 col-xs-12 web_info row" style="margin-top:30px;line-height:2em;margin-bottom:30px;">
+                <div class="col-md-9 row">
+                    <h3>그랜드 호텔 플로라(Grand Hotel Flora)</h3>
+                    <p>
+                        <span style="font-weight:600;">Corso Italia, 248, 80067 소렌토, 이탈리아, 연락처 +39 081 878 2520</span><br />
+                        <span>중심부에서 도보로 불과 10분 거리에 위치한 이 현대적인 호텔에는 나폴리 만(Bay of Naples)의 탁 트인 전망, 넓은 객실, 수영장, 커플선호</span>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <span class="btn btn-default"><a href="https://www.grandhotelflora.it/" target="_blank">&nbsp;<i class="fas fa-globe-europe"></i>&nbsp;웹사이트&nbsp;</a></span>
+                    <span class="btn btn-default" style="clear:both;"><a href="http://bit.ly/2o3QVf6" target="_blank">&nbsp;<i class="fas fa-map-marked-alt"></i>&nbsp;길찾기&nbsp;</a></span>
+                </div>
+                <div class="col-md-12 row" style="clear:both;margin-top:20px;">
+                    <p style="color:#ff4157">130 객실 | 조식 유럽식 뷔페 | 야외수영장 | 레스토랑 | 룸서비스 | 전용 주차 | 바 | 에어컨 | 전용 욕실 | 비데 | 헤어드라이어 | 무료 세면도구</p>
+                </div>
+                <div class="col-md-12 row" style="margin:30px 0">
+                    <div class="gallery-front row">
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/grand1.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">economy room<br /></div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/grand2.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">standard room</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/grand3.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">superior room</div></div>
+                        <div class="gallery-image col-md-3"><img src="~/images/Shop/hotel/grand4.jpg" class="img-responsive" style="min-height:155px;" /><div class="caption">hotel exterior</div></div>
+                    </div>
+                </div>
+                <div class="col-md-12 row text-center" style="margin-top:15px">
+                    <p><span style="color:red;font-size:1.4em;">40%</span><span style="font-size:1.8em;padding-left:15px;">&#8361;130,000원</span></p>
+                    <span>2인 조식포함 ㆍ 세금일체포함</span>
+                </div>
+                @*<div class="col-md-2" style="margin-top:15px">
+                    <span class="btn submit-btn" style="font-size:1.6em;">호텔 선택</span>
+                </div>*@
+            </div>
+                @*호텔상품 끝*@
 
             </section>
         </div>
     </div>
-    <div class="col-md-3 popup" >
+    <div class="col-md-3 popup">
         @Html.Partial("hotel")
     </div>
 </div>
 
 <script>
-    var tabBtn1 = $("#tab-btn1 > ul > li");
-    var tabCont1 = $("#tab-cont1 > div");
 
-    tabCont1.hide().eq(0).show();
+    //분과 선택
+    $('.sel_depart').click(function () {
+        $('.sel_depart').removeClass("sel");
+        $(this).addClass("sel");
 
-    tabBtn1.click(function () {
-        var target = $(this);
-        var index = target.index();
-        tabBtn1.removeClass("tab-active1");
-        target.addClass("tab-active1");
-        tabCont1.css("display", "none");
-        tabCont1.eq(index).css("display", "block");
+    })
+
+    function menu_go(a) {
+
+        $('.sel_depart').removeClass("sel");
+        $(this).addClass("sel");
+
+        //if (a == 1) {
+        //    $("#intro_1").css("display", "block");
+        //    $("#intro_2").css("display", "none");
+        //    $("#intro_3").css("display", "none");
+        //    $("#intro_4").css("display", "none");
+        //}
+
+        for (var i = 1; i < 9; i++) {
+
+            if (a == i) {
+                $("#intro_" + i).css("display", "block");
+
+            }
+            else {
+                $("#intro_" + i).css("display", "none");
+
+            }
+
+        }
+
+    }
+
+
+    $(document).ready(function () {
+
+        $("#intro_1").css("display", "block");
+        $("#intro_2").css("display", "none");
+        $("#intro_3").css("display", "none");
+        $("#intro_4").css("display", "none");
+        $("#intro_5").css("display", "none");
+        $("#intro_6").css("display", "none");
+        $("#intro_7").css("display", "none");
+        $("#intro_8").css("display", "none");
+
     });
-</script>
 
-<script>
-    function go_link(k) {
-
-
-        var _page = "";
-
-
-        if (k == "1") {
-            _page = "My_2019_19"
-        }
-        else if (k == "2") {
-
-            _page = "My_2019_15"
-        }
-        else if (k == "3") {
-            _page = "My_2019_12"
-        }
-        else if (k == "4") {
-            _page = "My_2019_8"
-
-        }
-
-
-        location.href = "/season13/" + _page;
-
-    }
 
 
 </script>
 
-@helper course_get(int i)
-{
 
 
-    if (i == 1)
-    {
-
-
-
-        <span style="color:#ff4157">
-            유럽 34도시익스플로어
-        </span>
-        <span>
-            인천→파리(3)→TGV→아를→엑상프로방스 → 마르세유(2)→이프섬→카시스→생트로페→그라스 →생폴드방스 →니스(2) →깐느→에즈→모나코→망통→산레모→제노아→ 밀라노(2) →베로나→훼리→리도섬→훼리→베니스섬(1)→ 라벤나→리미니→산마리노→볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→나폴리→폼페이→소렌토(1) →훼리→ 카프리섬 →훼리→소렌토→ 티볼리 →로마(4)→기내(1) →인천
-        </span>
-
-
-
-    }
-    else if (i == 2)
-    {
-
-        <span style="color:#ff4157">
-            유럽 27도시익스플로어
-        </span>
-        <span>
-            인천→니스(3)→생트로페→그라스 →생폴드방스 →깐느→에즈→모나코→망통→산레모→제노아→ 밀라노(2) →베로나→훼리→리도섬→훼리→베니스섬(1)→ 라벤나→리미니→산마리노→볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→나폴리→폼페이→소렌토(1) →훼리→ 카프리섬 →훼리→소렌토→ 티볼리 →로마(4)→기내(1) →인천
-
-        </span>
-
-
-
-    }
-    else if (i == 3)
-    {
-
-        <span style="color:#ff4157">
-            이태리 18도시익스플로어
-        </span>
-        <span>
-            인천→밀라노(2)→베로나→훼리 →리도섬→훼리 →베니스섬(1)→ 라벤나→리미니→산마리노 →볼로냐→피사(1)→플로렌스→ 오르비에토→ 로마(1)→ 나폴리→폼페이→소렌토(1) → 훼리→ 카프리섬 →훼리 →소렌토→ 티볼리 →로마(4)→기내(1) →인천
-        </span>
-
-
-
-
-    }
-    else if (i == 4)
-    {
-
-        <span style="color:#ff4157">
-            이태리 7도시익스플로어
-        </span>
-        <span>
-            인천→로마(1)→ 나폴리→폼페이 →소렌토(1) → 훼리→ 카프리섬 →훼리 →소렌토→ 티볼리 →로마(4)→기내(1) →인천
-        </span>
-
-
-    }
-
-
-
-
-}

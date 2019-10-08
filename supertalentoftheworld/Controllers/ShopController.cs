@@ -177,6 +177,11 @@ namespace supertalentoftheworld.Controllers
             return View(_list);
         }
 
+        public ActionResult Influencer()
+        {
+            return View();
+        }
+
         public ActionResult Brochures()
         {
             return View();
